@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="hr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Pansion Ruža — Sobe i domaća kuhinja</title>
+  <meta name="description" content="Pansion Ruža — obiteljski pansion sa sobama i domaćom kuhinjom u srcu prirode. Topla dobrodošlica, domaći doručak i mir. Rezervirajte izravno kod domaćina." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+  /* ============================================================
+     1. DESIGN TOKENS — toplo rustikalno (drvo + krem + terakota)
+     ============================================================ */
+  :root {
+    --cream:      #f7f1e6;
+    --cream-2:    #efe5d3;
+    --paper:      #fffdf8;
+    --wood:       #8a5a3b;   /* topla drvena smeđa */
+    --terra:      #c05f3c;   /* terakota akcent */
+    --terra-soft: #d98060;
+    --sage:       #7d8560;   /* maslinasto-zelena */
+    --ink:        #3a2e20;
+
+    --bg:         var(--cream);
+    --surface:    var(--paper);
+    --surface-2:  var(--cream-2);
+    --text:       var(--ink);
+    --text-muted: #7a6b57;
+    --border:     #e2d6c2;
+
+    --font-display: "Bitter", Georgia, serif;    /* slab serif = cozy */
+    --font-body:    "Karla", system-ui, sans-serif;
+
+    --radius:     16px;
+    --radius-sm:  10px;
+    --shadow:     0 22px 55px -26px rgba(90,60,30,.4);
+    --shadow-sm:  0 10px 26px -14px rgba(90,60,30,.32);
+    --container:  1140px;
+    --gutter:     clamp(1.25rem, 5vw, 4rem);
+    --section-y:  clamp(4rem, 9vw, 8rem);
+    --ease: cubic-bezier(.22, 1, .36, 1);
+    --safe-t: env(safe-area-inset-top, 0px);
+    --safe-b: env(safe-area-inset-bottom, 0px);
+    --safe-l: env(safe-area-inset-left, 0px);
+    --safe-r: env(safe-area-inset-right, 0px);
+  }
+  [data-theme="dark"] {
+    --bg:#211a12; --surface:#2a2119; --surface-2:#332920; --paper:#2a2119;
+    --text:#f3ebdd; --text-muted:#b9a888; --border:#3d3226;
+    --terra:#d98060; --terra-soft:#e59b7f; --wood:#c08a5f; --sage:#9aa47a;
+    --shadow:0 22px 55px -26px rgba(0,0,0,.7); --shadow-sm:0 10px 26px -14px rgba(0,0,0,.6);
+  }
+
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+  html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;} }
+  body { font-family:var(--font-body); background:var(--bg); color:var(--text); line-height:1.7; -webkit-font-smoothing:antialiased; transition:background .4s var(--ease),color .4s var(--ease); overflow-x:hidden; }
+  img { max-width:100%; display:block; height:auto; }
+  a { color:inherit; text-decoration:none; }
+  ul { list-style:none; }
+  h1,h2,h3 { font-family:var(--font-display); font-weight:500; line-height:1.15; }
+  h2 { font-size:clamp(1.9rem,4.2vw,3rem); }
+  h3 { font-size:clamp(1.3rem,2.4vw,1.7rem); }
+  :focus-visible { outline:3px solid var(--terra); outline-offset:3px; border-radius:4px; }
+
+  .container { max-width:var(--container); margin-inline:auto; padding-inline:max(var(--gutter),var(--safe-l)); }
+  .section { padding-block:var(--section-y); }
+  .eyebrow { font-family:var(--font-body); font-size:.82rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--terra); display:inline-flex; align-items:center; gap:.5rem; margin-bottom:1rem; }
+  .eyebrow svg { width:18px; height:18px; }
+  .section-head { max-width:640px; margin-bottom:clamp(2rem,5vw,3rem); }
+  .section-head.center { margin-inline:auto; text-align:center; }
+  .section-head.center .eyebrow { justify-content:center; }
+  .lead { color:var(--text-muted); font-size:1.08rem; margin-top:.75rem; }
+
+  .skip-link { position:absolute; left:.5rem; top:-3rem; z-index:1000; background:var(--terra); color:#fff; padding:.6rem 1rem; border-radius:var(--radius-sm); transition:top .2s; }
+  .skip-link:focus { top:.5rem; }
+
+  /* Buttons — meki, zaobljeni */
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; font-family:var(--font-body); font-weight:600; font-size:.95rem; padding:.9rem 1.7rem; border-radius:100px; border:2px solid transparent; cursor:pointer; transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s; min-height:48px; }
+  .btn:hover { transform:translateY(-2px); }
+  .btn-primary { background:var(--terra); color:#fff; box-shadow:var(--shadow-sm); }
+  .btn-primary:hover { background:var(--terra-soft); }
+  .btn-outline { background:transparent; color:var(--text); border-color:var(--border); }
+  .btn-outline:hover { border-color:var(--terra); color:var(--terra); }
+
+  /* ============================================================
+     2. HEADER — topla traka, logo lijevo
+     ============================================================ */
+  .site-header { position:fixed; inset:0 0 auto 0; z-index:100; padding:calc(1.1rem + var(--safe-t)) 0 1.1rem; transition:background .35s var(--ease),box-shadow .35s,padding .35s; }
+  .site-header.scrolled { background:color-mix(in srgb, var(--bg) 92%, transparent); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); box-shadow:0 2px 0 var(--border); padding-block:.7rem; }
+  .nav { display:flex; align-items:center; justify-content:space-between; gap:1.5rem; }
+  .brand { display:inline-flex; align-items:center; gap:.6rem; font-family:var(--font-display); font-size:1.4rem; font-weight:600; color:var(--text); }
+  .brand svg { width:30px; height:30px; color:var(--terra); }
+  .nav-links { display:flex; align-items:center; gap:1.85rem; }
+  .nav-links a { font-size:.95rem; font-weight:500; color:var(--text-muted); transition:color .3s; }
+  .nav-links a:hover { color:var(--terra); }
+  .nav-actions { display:flex; align-items:center; gap:.75rem; }
+  .theme-toggle { width:44px; height:44px; border-radius:50%; border:1px solid var(--border); background:var(--surface); color:var(--text); cursor:pointer; display:grid; place-items:center; transition:color .3s,border-color .3s; }
+  .theme-toggle:hover { color:var(--terra); border-color:var(--terra); }
+  .theme-toggle svg { width:20px; height:20px; }
+  .theme-toggle .moon { display:none; }
+  [data-theme="dark"] .theme-toggle .sun { display:none; }
+  [data-theme="dark"] .theme-toggle .moon { display:block; }
+  .nav-toggle { display:none; width:44px; height:44px; border:none; background:transparent; cursor:pointer; flex-direction:column; justify-content:center; gap:6px; }
+  .nav-toggle span { display:block; height:2px; width:26px; background:var(--text); transition:transform .3s,opacity .3s; margin-inline:auto; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+  @media (max-width:860px){
+    .nav-toggle{ display:flex; }
+    .nav-links{ position:fixed; inset:0 0 0 auto; width:min(80vw,300px); flex-direction:column; align-items:flex-start; justify-content:center; gap:1.6rem; background:var(--surface); padding:2rem max(var(--gutter),var(--safe-r)) calc(2rem + var(--safe-b)); transform:translateX(100%); transition:transform .4s var(--ease); box-shadow:var(--shadow); }
+    .nav-links.open{ transform:translateX(0); }
+    .nav-links a{ font-size:1.15rem; color:var(--text); }
+  }
+
+  /* ============================================================
+     3. HERO — složeni (tekst na kremu + široka uokvirena fotka)
+     ============================================================ */
+  .hero { padding-top:calc(7rem + var(--safe-t)); padding-bottom:0; text-align:center; }
+  .hero__text { max-width:760px; margin-inline:auto; }
+  .hero h1 { font-size:clamp(2.5rem,6.5vw,4.4rem); font-weight:500; margin-bottom:1.25rem; }
+  .hero h1 em { font-style:italic; color:var(--terra); }
+  .hero p { color:var(--text-muted); font-size:clamp(1.05rem,2vw,1.2rem); max-width:52ch; margin:0 auto 2rem; }
+  .hero__cta { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:clamp(2.5rem,6vw,4rem); }
+  .hero__media { position:relative; }
+  .hero__media img { width:100%; aspect-ratio:21/9; object-fit:cover; border-radius:24px; box-shadow:var(--shadow); }
+  .hero__card { position:absolute; left:50%; bottom:-2rem; transform:translateX(-50%); background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); display:flex; gap:2.5rem; padding:1.25rem 2.25rem; }
+  .hero__card div { text-align:center; }
+  .hero__card dt { font-family:var(--font-display); font-size:1.6rem; color:var(--wood); }
+  .hero__card dd { font-size:.78rem; letter-spacing:.05em; color:var(--text-muted); text-transform:uppercase; }
+  @media (max-width:560px){
+    .hero__media img { aspect-ratio:4/3; border-radius:18px; }
+    .hero__card { position:static; transform:none; margin:1.25rem auto 0; gap:1.5rem; padding:1rem 1.5rem; flex-wrap:wrap; justify-content:center; width:max-content; max-width:100%; }
+  }
+
+  /* ============================================================
+     4. HOSTS — obiteljska priča (portret + tekst)
+     ============================================================ */
+  .hosts { padding-top:calc(var(--section-y) + 2rem); }
+  .hosts__grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(2rem,6vw,5rem); align-items:center; }
+  .hosts__media { position:relative; }
+  .hosts__media img { border-radius:20px; box-shadow:var(--shadow); aspect-ratio:4/5; object-fit:cover; }
+  .hosts__media .stamp { position:absolute; top:-1.25rem; right:-1.25rem; width:104px; height:104px; border-radius:50%; background:var(--terra); color:#fff; display:grid; place-items:center; text-align:center; font-family:var(--font-display); line-height:1.1; box-shadow:var(--shadow-sm); transform:rotate(8deg); }
+  .hosts__media .stamp b { display:block; font-size:1.5rem; }
+  .hosts__media .stamp span { font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; }
+  .hosts__text .sig { font-family:var(--font-display); font-style:italic; font-size:1.3rem; color:var(--wood); margin-top:1.5rem; }
+  @media (max-width:800px){ .hosts__grid{ grid-template-columns:1fr; } .hosts__media{ max-width:420px; } }
+
+  /* ============================================================
+     5. ROOMS — "meni" lista (thumbnail + opis + cijena)
+     ============================================================ */
+  .rooms { background:var(--surface-2); }
+  .room-list { display:grid; gap:1.25rem; margin-top:1rem; }
+  .room-row { display:grid; grid-template-columns:150px 1fr auto; gap:1.75rem; align-items:center; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; box-shadow:var(--shadow-sm); transition:transform .3s var(--ease),box-shadow .3s; }
+  .room-row:hover { transform:translateY(-3px); box-shadow:var(--shadow); }
+  .room-row__img { width:150px; height:110px; border-radius:var(--radius-sm); object-fit:cover; }
+  .room-row__info h3 { font-size:1.35rem; margin-bottom:.25rem; }
+  .room-row__info p { color:var(--text-muted); font-size:.95rem; }
+  .room-row__meta { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.6rem; }
+  .room-row__meta li { font-size:.75rem; color:var(--sage); border:1px solid var(--border); padding:.2rem .6rem; border-radius:100px; }
+  .room-row__price { text-align:right; padding-right:.75rem; }
+  .room-row__price b { font-family:var(--font-display); font-size:1.8rem; color:var(--terra); display:block; }
+  .room-row__price span { font-size:.78rem; color:var(--text-muted); }
+  .room-row__price .btn { margin-top:.6rem; padding:.55rem 1.1rem; font-size:.82rem; min-height:auto; }
+  @media (max-width:720px){
+    .room-row { grid-template-columns:1fr; gap:1rem; text-align:left; }
+    .room-row__img { width:100%; height:180px; }
+    .room-row__price { text-align:left; padding-right:0; display:flex; align-items:center; gap:1rem; }
+    .room-row__price b { display:inline; }
+  }
+
+  /* ============================================================
+     6. BREAKFAST — domaći doručak (slika + tekst)
+     ============================================================ */
+  .breakfast__grid { display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(2rem,6vw,5rem); align-items:center; }
+  .breakfast__grid.rev .breakfast__media { order:2; }
+  .breakfast__media img { border-radius:20px; box-shadow:var(--shadow); aspect-ratio:5/4; object-fit:cover; }
+  .breakfast__list { display:grid; gap:1rem; margin-top:1.5rem; }
+  .breakfast__list li { display:flex; gap:.75rem; align-items:flex-start; color:var(--text-muted); }
+  .breakfast__list svg { width:22px; height:22px; color:var(--sage); flex-shrink:0; margin-top:.15rem; }
+  .breakfast__list strong { color:var(--text); font-weight:600; }
+  @media (max-width:800px){ .breakfast__grid{ grid-template-columns:1fr; } .breakfast__grid.rev .breakfast__media{ order:0; } }
+
+  /* ============================================================
+     7. GALLERY — topli grid
+     ============================================================ */
+  .gallery__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .gallery__item { overflow:hidden; border-radius:var(--radius-sm); cursor:pointer; border:none; padding:0; background:none; aspect-ratio:1; }
+  .gallery__item.big { grid-column:span 2; grid-row:span 2; aspect-ratio:auto; }
+  .gallery__item img { width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
+  .gallery__item:hover img { transform:scale(1.07); }
+  @media (max-width:640px){ .gallery__grid{ grid-template-columns:repeat(2,1fr); } .gallery__item.big{ grid-column:span 2; grid-row:auto; aspect-ratio:16/10; } }
+
+  .lightbox { position:fixed; inset:0; z-index:200; background:rgba(35,25,15,.93); display:none; place-items:center; padding:2rem; }
+  .lightbox.open { display:grid; animation:fade .3s; }
+  @keyframes fade { from{opacity:0;} }
+  .lightbox img { max-width:min(92vw,1000px); max-height:88vh; border-radius:var(--radius-sm); }
+  .lightbox__close { position:absolute; top:calc(1.5rem + var(--safe-t)); right:1.5rem; width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.1); color:#fff; font-size:1.5rem; cursor:pointer; }
+
+  /* ============================================================
+     8. FAQ — harmonika (NOVA komponenta)
+     ============================================================ */
+  .faq { background:var(--surface-2); }
+  .faq__list { max-width:760px; margin:2.5rem auto 0; display:grid; gap:1rem; }
+  .faq__item { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+  .faq__q { width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:1.25rem 1.5rem; font-family:var(--font-display); font-size:1.1rem; font-weight:500; color:var(--text); display:flex; justify-content:space-between; align-items:center; gap:1rem; min-height:56px; }
+  .faq__q .ic { width:26px; height:26px; flex-shrink:0; position:relative; transition:transform .3s var(--ease); color:var(--terra); }
+  .faq__q .ic::before, .faq__q .ic::after { content:""; position:absolute; background:currentColor; border-radius:2px; }
+  .faq__q .ic::before { top:12px; left:4px; right:4px; height:2px; }
+  .faq__q .ic::after { left:12px; top:4px; bottom:4px; width:2px; transition:transform .3s var(--ease); }
+  .faq__item.open .faq__q .ic::after { transform:scaleY(0); }
+  .faq__a { max-height:0; overflow:hidden; transition:max-height .35s var(--ease); }
+  .faq__a p { padding:0 1.5rem 1.35rem; color:var(--text-muted); }
+
+  /* ============================================================
+     9. LOCATION
+     ============================================================ */
+  .location__grid { display:grid; grid-template-columns:1fr 1.2fr; gap:clamp(2rem,5vw,4rem); align-items:center; }
+  .location__map { border-radius:20px; overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--border); }
+  .location__map iframe { width:100%; height:420px; border:0; display:block; }
+  .nearby { display:grid; gap:1rem; margin-top:2rem; }
+  .nearby li { display:flex; align-items:center; gap:.9rem; color:var(--text-muted); }
+  .nearby strong { color:var(--text); font-weight:600; }
+  .nearby .dot { width:9px; height:9px; border-radius:50%; background:var(--sage); flex-shrink:0; }
+  @media (max-width:800px){ .location__grid{ grid-template-columns:1fr; } }
+
+  /* ============================================================
+     10. CONTACT
+     ============================================================ */
+  .contact__grid { display:grid; grid-template-columns:1fr 1.1fr; gap:clamp(2rem,5vw,4.5rem); }
+  .contact__info p { color:var(--text-muted); margin-bottom:2rem; }
+  .contact-list { display:grid; gap:1.25rem; }
+  .contact-list li { display:flex; gap:.9rem; align-items:flex-start; }
+  .contact-list svg { width:22px; height:22px; color:var(--terra); flex-shrink:0; margin-top:.15rem; }
+  .contact-list a:hover { color:var(--terra); }
+  .form { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:clamp(1.5rem,4vw,2.5rem); box-shadow:var(--shadow-sm); }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+  .field { margin-bottom:1.25rem; }
+  .field label { display:block; font-size:.85rem; font-weight:600; margin-bottom:.5rem; }
+  .field label .req { color:var(--terra); }
+  .field input, .field textarea, .field select { width:100%; padding:.85rem 1rem; border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--bg); color:var(--text); font-family:inherit; font-size:16px; min-height:48px; transition:border-color .25s,box-shadow .25s; }
+  .field textarea { resize:vertical; min-height:120px; }
+  .field input:focus, .field textarea:focus, .field select:focus { outline:none; border-color:var(--terra); box-shadow:0 0 0 3px color-mix(in srgb, var(--terra) 20%, transparent); }
+  .field .error-msg { display:none; color:#c0392b; font-size:.8rem; margin-top:.4rem; }
+  [data-theme="dark"] .field .error-msg { color:#ff9b86; }
+  .field.invalid input, .field.invalid textarea { border-color:#c0392b; }
+  .field.invalid .error-msg { display:block; }
+  .form__note { font-size:.82rem; color:var(--text-muted); margin-top:1rem; }
+  .form__success { display:none; background:color-mix(in srgb, var(--sage) 18%, transparent); border:1px solid var(--sage); color:var(--text); padding:1rem 1.25rem; border-radius:var(--radius-sm); margin-bottom:1.25rem; }
+  .form__success.show { display:block; }
+  @media (max-width:800px){ .contact__grid{ grid-template-columns:1fr; } }
+  @media (max-width:480px){ .form-row{ grid-template-columns:1fr; } }
+
+  /* ============================================================
+     11. FOOTER
+     ============================================================ */
+  .site-footer { background:var(--ink); color:rgba(247,241,230,.78); padding:clamp(3rem,6vw,4.5rem) 0 calc(2rem + var(--safe-b)); }
+  [data-theme="dark"] .site-footer { background:#171009; }
+  .footer__grid { display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:2.5rem; margin-bottom:2.5rem; }
+  .footer__brand .brand { color:#fff; margin-bottom:.75rem; }
+  .footer__brand p { font-size:.92rem; max-width:32ch; }
+  .footer__grid h4 { font-family:var(--font-body); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--terra-soft); margin-bottom:1rem; }
+  .footer__grid ul { display:grid; gap:.6rem; }
+  .footer__grid a { font-size:.92rem; }
+  .footer__grid a:hover { color:var(--terra-soft); }
+  .footer__bottom { border-top:1px solid rgba(255,255,255,.12); padding-top:1.75rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-size:.85rem; }
+  @media (max-width:640px){ .footer__grid{ grid-template-columns:1fr 1fr; } .footer__brand{ grid-column:1/-1; } }
+
+  .js [data-reveal] { opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease),transform .7s var(--ease); }
+  .js [data-reveal].visible { opacity:1; transform:none; }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Pansion Ruža — početna">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-4.5-6-9a6 6 0 0 1 12 0c0 4.5-6 9-6 9z"/><circle cx="12" cy="12" r="2.2"/></svg>
+        Pansion Ruža
+      </a>
+      <nav aria-label="Glavna navigacija">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#hosts">Domaćini</a></li>
+          <li><a href="#rooms">Sobe</a></li>
+          <li><a href="#breakfast">Doručak</a></li>
+          <li><a href="#gallery">Galerija</a></li>
+          <li><a href="#faq">Česta pitanja</a></li>
+          <li><a href="#contact" class="btn btn-primary">Rezerviraj</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Promijeni temu">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero container" aria-label="Dobrodošli">
+      <div class="hero__text">
+        <span class="eyebrow" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg>Obiteljski pansion od 1978.</span>
+        <h1 data-reveal>Dođite kao gost, <em>ostanite kao obitelj.</em></h1>
+        <p data-reveal>Male sobe s dušom, domaći doručak s vlastite bašte i mir kakav se danas rijetko nađe — u srcu zelenila, na korak od rijeke.</p>
+        <div class="hero__cta" data-reveal>
+          <a href="#rooms" class="btn btn-primary">Pogledaj sobe</a>
+          <a href="#contact" class="btn btn-outline">Provjeri termin</a>
+        </div>
+      </div>
+      <div class="hero__media" data-reveal>
+        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1600&q=80" alt="Kamena kuća pansiona okružena zelenilom" />
+        <dl class="hero__card">
+          <div><dt>8</dt><dd>Soba</dd></div>
+          <div><dt>9.5</dt><dd>Ocjena</dd></div>
+          <div><dt>100%</dt><dd>Domaće</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- HOSTS -->
+    <section class="section hosts" id="hosts">
+      <div class="container hosts__grid">
+        <div class="hosts__media" data-reveal>
+          <img src="https://images.unsplash.com/photo-1556474835-b0f3ac40d4d1?auto=format&fit=crop&w=800&q=80" alt="Domaćini pansiona ispred kuće" />
+          <div class="stamp"><span>Od</span><b>1978</b></div>
+        </div>
+        <div class="hosts__text" data-reveal>
+          <span class="eyebrow">Vaši domaćini</span>
+          <h2>Tri generacije iste tople dobrodošlice</h2>
+          <p class="lead">Pansion Ruža vodi naša obitelj već više od četrdeset godina. Ono što je baka Ruža započela s tri sobe i velikim srcem, danas nastavljamo mi — s istim receptima, istim jastucima punjenim mirisom lavande i istim pravilom: gost nikad ne odlazi gladan.</p>
+          <p style="margin-top:1rem;color:var(--text-muted)">Rado ćemo vam savjetovati staze za šetnju, mjesta za kupanje i gdje se jede najbolja domaća hrana u kraju. Kod nas niste broj sobe — vi ste gost za našim stolom.</p>
+          <p class="sig">— Obitelj Ružić</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROOMS (meni lista) -->
+    <section class="section rooms" id="rooms">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="eyebrow">Naše sobe</span>
+          <h2>Jednostavno, čisto i toplo</h2>
+          <p class="lead">Svaka soba je drukčija, kao u pravoj kući. Cijene su po sobi i noći, doručak uvijek uključen.</p>
+        </div>
+        <div class="room-list">
+          <article class="room-row" data-reveal>
+            <img class="room-row__img" src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=400&q=80" alt="Mala soba za dvoje" />
+            <div class="room-row__info">
+              <h3>Soba Lavanda</h3>
+              <p>Ugodna dvokrevetna soba s pogledom na vrt i vlastitom kupaonicom.</p>
+              <ul class="room-row__meta"><li>2 osobe</li><li>Vrt</li><li>Doručak</li></ul>
+            </div>
+            <div class="room-row__price"><b>€55</b><span>/ noć</span><a href="#contact" class="btn btn-outline">Rezerviraj</a></div>
+          </article>
+          <article class="room-row" data-reveal>
+            <img class="room-row__img" src="https://images.unsplash.com/photo-1611048268330-53de574cae3b?auto=format&fit=crop&w=400&q=80" alt="Prostrana soba s balkonom" />
+            <div class="room-row__info">
+              <h3>Soba Ružmarin</h3>
+              <p>Prostranija soba s balkonom, idealna za par koji voli jutarnju kavu na zraku.</p>
+              <ul class="room-row__meta"><li>2–3 osobe</li><li>Balkon</li><li>Doručak</li></ul>
+            </div>
+            <div class="room-row__price"><b>€70</b><span>/ noć</span><a href="#contact" class="btn btn-outline">Rezerviraj</a></div>
+          </article>
+          <article class="room-row" data-reveal>
+            <img class="room-row__img" src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=400&q=80" alt="Obiteljska soba potkrovlje" />
+            <div class="room-row__info">
+              <h3>Obiteljska soba Bagrem</h3>
+              <p>Prostrano potkrovlje s dvije odvojene zone spavanja — dovoljno mjesta za cijelu obitelj.</p>
+              <ul class="room-row__meta"><li>4 osobe</li><li>Potkrovlje</li><li>Doručak</li></ul>
+            </div>
+            <div class="room-row__price"><b>€95</b><span>/ noć</span><a href="#contact" class="btn btn-outline">Rezerviraj</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BREAKFAST -->
+    <section class="section" id="breakfast">
+      <div class="container breakfast__grid">
+        <div class="breakfast__media" data-reveal>
+          <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=80" alt="Domaći doručak na stolu" />
+        </div>
+        <div data-reveal>
+          <span class="eyebrow">Domaći doručak</span>
+          <h2>Dan počinje za našim stolom</h2>
+          <p class="lead">Svako jutro pečemo, kuhamo i beremo svježe. Doručak je uključen u cijenu i poslužuje se do 10:30 — bez žurbe.</p>
+          <ul class="breakfast__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v18M4 8h6a3 3 0 0 1 0 6H4M14 3c2 2 2 6 0 8v10"/></svg><span><strong>Domaći kruh i pekmezi</strong> — pečeno tog jutra, marmelade iz naše kuhinje.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4zM6 1v3M10 1v3M14 1v3"/></svg><span><strong>Jaja s domaćeg imanja</strong> — na kajganu, oko ili kako volite.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10M12 2v10l7-7"/></svg><span><strong>Voće i povrće iz bašte</strong> — ono što sazrije, to i jedemo.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3M12 2v3M16 2v3M4 8h16l-1 12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></svg><span><strong>Rakija za hrabre</strong> — domaća, po želji, ali samo uz dobru priču.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery" style="background:var(--surface-2)">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="eyebrow">Galerija</span>
+          <h2>Zavirite u našu kuću</h2>
+        </div>
+        <div class="gallery__grid">
+          <button class="gallery__item big" data-reveal><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80" alt="Dvorište pansiona" /></button>
+          <button class="gallery__item" data-reveal><img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80" alt="Soba s drvenim namještajem" /></button>
+          <button class="gallery__item" data-reveal><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=500&q=80" alt="Blagovaonica" /></button>
+          <button class="gallery__item" data-reveal><img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=500&q=80" alt="Okolna priroda" /></button>
+          <button class="gallery__item" data-reveal><img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=500&q=80" alt="Vrt i bašta" /></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ (harmonika) -->
+    <section class="section faq" id="faq">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="eyebrow">Česta pitanja</span>
+          <h2>Sve što vas zanima prije dolaska</h2>
+        </div>
+        <div class="faq__list">
+          <div class="faq__item" data-reveal>
+            <button class="faq__q" aria-expanded="false">Kada je prijava i odjava?<span class="ic" aria-hidden="true"></span></button>
+            <div class="faq__a"><p>Prijava je od 14:00, odjava do 10:00. Stižete kasnije? Samo javite, uskladit ćemo se — nismo velika kuća pa smo fleksibilni.</p></div>
+          </div>
+          <div class="faq__item" data-reveal>
+            <button class="faq__q" aria-expanded="false">Je li doručak uključen?<span class="ic" aria-hidden="true"></span></button>
+            <div class="faq__a"><p>Da, domaći doručak je uključen u cijenu svake sobe i poslužuje se do 10:30. Za posebne prehrambene potrebe (bez glutena, vegetarijanski) samo nam javite unaprijed.</p></div>
+          </div>
+          <div class="faq__item" data-reveal>
+            <button class="faq__q" aria-expanded="false">Mogu li doći s ljubimcem?<span class="ic" aria-hidden="true"></span></button>
+            <div class="faq__a"><p>Naravno — mali ljubimci su dobrodošli uz prethodnu najavu, bez dodatne naknade. Imamo i veliko dvorište za trčanje.</p></div>
+          </div>
+          <div class="faq__item" data-reveal>
+            <button class="faq__q" aria-expanded="false">Ima li parkinga?<span class="ic" aria-hidden="true"></span></button>
+            <div class="faq__a"><p>Da, besplatan parking u dvorištu za sve goste, kao i Wi-Fi u cijeloj kući.</p></div>
+          </div>
+          <div class="faq__item" data-reveal>
+            <button class="faq__q" aria-expanded="false">Kako se plaća?<span class="ic" aria-hidden="true"></span></button>
+            <div class="faq__a"><p>Rezervacija se potvrđuje manjom akontacijom, ostatak plaćate na licu mjesta — gotovinom ili karticom. Bez skrivenih troškova.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="section" id="location">
+      <div class="container location__grid">
+        <div data-reveal>
+          <span class="eyebrow">Gdje smo</span>
+          <h2>Mir prirode, a sve nadohvat</h2>
+          <p class="lead">Na rubu sela, okruženi šumom i livadama, no samo kratkom vožnjom od jezera, slapova i seoskih konoba.</p>
+          <ul class="nearby">
+            <li><span class="dot"></span><span><strong>Rijeka i kupalište</strong> — 600 m (8 min hoda)</span></li>
+            <li><span class="dot"></span><span><strong>Nacionalni park</strong> — 20 min vožnje</span></li>
+            <li><span class="dot"></span><span><strong>Seoska tržnica</strong> — 3 km, subotom</span></li>
+            <li><span class="dot"></span><span><strong>Planinarske staze</strong> — počinju pred kućom</span></li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="margin-top:2rem">Zatraži upute za dolazak</a>
+        </div>
+        <div class="location__map" data-reveal>
+          <iframe title="Lokacija Pansiona Ruža" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=15.55%2C44.85%2C15.70%2C44.92&layer=mapnik&marker=44.885%2C15.625"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact" style="background:var(--surface-2)">
+      <div class="container contact__grid">
+        <div class="contact__info" data-reveal>
+          <span class="eyebrow">Rezervacije</span>
+          <h2>Javite se domaćinima</h2>
+          <p>Rezervirajte izravno kod nas — bez provizije i posrednika. Odgovaramo osobno, obično isti dan.</p>
+          <ul class="contact-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Seoska cesta 7, 47000 Lika, Hrvatska</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+38553000000">+385 53 000 000</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:dobrodosli@pansion-ruza.hr">dobrodosli@pansion-ruza.hr</a></li>
+          </ul>
+        </div>
+        <form class="form" id="bookingForm" novalidate data-reveal>
+          <div class="form__success" id="formSuccess" role="status">Hvala! Vaš upit je zaprimljen — javljamo se osobno u najkraćem roku.</div>
+          <div class="form-row">
+            <div class="field"><label for="name">Ime i prezime <span class="req">*</span></label><input type="text" id="name" name="name" required minlength="2" autocomplete="name" /><span class="error-msg">Unesite ime i prezime.</span></div>
+            <div class="field"><label for="email">E-mail <span class="req">*</span></label><input type="email" id="email" name="email" required autocomplete="email" /><span class="error-msg">Unesite ispravnu e-mail adresu.</span></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="checkin">Dolazak</label><input type="date" id="checkin" name="checkin" /><span class="error-msg"></span></div>
+            <div class="field"><label for="room">Soba</label><select id="room" name="room"><option>Soba Lavanda (2 os.)</option><option>Soba Ružmarin (2–3 os.)</option><option>Obiteljska Bagrem (4 os.)</option><option>Nisam siguran/na</option></select><span class="error-msg"></span></div>
+          </div>
+          <div class="field"><label for="message">Poruka <span class="req">*</span></label><textarea id="message" name="message" required minlength="10" placeholder="Termin, broj gostiju i sve što vas zanima…"></textarea><span class="error-msg">Napišite poruku (najmanje 10 znakova).</span></div>
+          <button type="submit" class="btn btn-primary" style="width:100%">Pošalji upit</button>
+          <p class="form__note">Slanjem prihvaćate obradu podataka isključivo u svrhu rezervacije.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="brand" style="color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-4.5-6-9a6 6 0 0 1 12 0c0 4.5-6 9-6 9z"/><circle cx="12" cy="12" r="2.2"/></svg> Pansion Ruža</a>
+          <p>Obiteljski pansion sa sobama i domaćom kuhinjom. Kod nas ste gost za našim stolom.</p>
+        </div>
+        <div><h4>Pansion</h4><ul><li><a href="#hosts">Domaćini</a></li><li><a href="#rooms">Sobe</a></li><li><a href="#breakfast">Doručak</a></li><li><a href="#gallery">Galerija</a></li></ul></div>
+        <div><h4>Kontakt</h4><ul><li><a href="tel:+38553000000">+385 53 000 000</a></li><li><a href="mailto:dobrodosli@pansion-ruza.hr">dobrodosli@pansion-ruza.hr</a></li><li>Seoska cesta 7, Lika</li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> Pansion Ruža. Sva prava pridržana.</span>
+        <span>Rezervirajte izravno — bez provizije.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Uvećana slika">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Zatvori">&times;</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <script>
+  (function () {
+    "use strict";
+    const root = document.documentElement;
+    root.classList.add("js");
+    const store = { get(k){try{return localStorage.getItem(k)}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}} };
+
+    /* THEME */
+    const themeToggle = document.getElementById("themeToggle");
+    const stored = store.get("ruza-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    root.setAttribute("data-theme", stored || (prefersDark ? "dark" : "light"));
+    themeToggle.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next); store.set("ruza-theme", next);
+    });
+
+    /* STICKY HEADER */
+    const header = document.getElementById("header");
+    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 40);
+    onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+
+    /* MOBILE NAV */
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    const closeNav = () => { navLinks.classList.remove("open"); navToggle.setAttribute("aria-expanded","false"); };
+    navToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(open));
+    });
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeNav(); });
+
+    /* REVEAL */
+    const reveals = document.querySelectorAll("[data-reveal]");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => { if (entry.isIntersecting) { entry.target.style.transitionDelay = (i % 3) * 85 + "ms"; entry.target.classList.add("visible"); io.unobserve(entry.target); } });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      reveals.forEach(el => io.observe(el));
+    } else { reveals.forEach(el => el.classList.add("visible")); }
+
+    /* FAQ ACCORDION */
+    document.querySelectorAll(".faq__item").forEach(item => {
+      const q = item.querySelector(".faq__q");
+      const a = item.querySelector(".faq__a");
+      q.addEventListener("click", () => {
+        const isOpen = item.classList.toggle("open");
+        q.setAttribute("aria-expanded", String(isOpen));
+        a.style.maxHeight = isOpen ? a.scrollHeight + "px" : null;
+      });
+    });
+
+    /* LIGHTBOX */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+    document.querySelectorAll(".gallery__item").forEach(item => {
+      item.addEventListener("click", () => { const img = item.querySelector("img"); lightboxImg.src = img.src.replace(/w=\d+/, "w=1400"); lightboxImg.alt = img.alt; lightbox.classList.add("open"); });
+    });
+    const closeLightbox = () => { lightbox.classList.remove("open"); lightboxImg.src = ""; };
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+    /* FORM */
+    const form = document.getElementById("bookingForm");
+    const success = document.getElementById("formSuccess");
+    const validators = { name:v=>v.trim().length>=2, email:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), message:v=>v.trim().length>=10 };
+    const validateField = (f) => { const c=validators[f.name]; if(!c) return true; const ok=c(f.value); f.closest(".field").classList.toggle("invalid",!ok); return ok; };
+    form.querySelectorAll("input, textarea").forEach(f => f.addEventListener("input", () => { if (f.closest(".field").classList.contains("invalid")) validateField(f); }));
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let valid = true, first = null;
+      ["name","email","message"].forEach(nm => { const fl=form.elements[nm]; if(!validateField(fl)){valid=false; if(!first)first=fl;} });
+      if (!valid) { first && first.focus(); return; }
+      success.classList.add("show"); form.reset();
+      success.scrollIntoView({ behavior:"smooth", block:"center" });
+      setTimeout(() => success.classList.remove("show"), 6000);
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  })();
+  </script>
+</body>
+</html>
