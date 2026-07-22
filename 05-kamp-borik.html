@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="hr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Kamp Borik — Kamp uz more i borovu šumu</title>
+  <meta name="description" content="Kamp Borik — kamp uz more u hladu borove šume. Šatorska mjesta, kamperi, glamping šatori i mobilne kućice. Plaža, aktivnosti i priroda na dohvat ruke." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <style>
+  /* ============================================================
+     1. DESIGN TOKENS — outdoor (borova zelena + zalazak + more)
+     ============================================================ */
+  :root {
+    --pine:      #2e5339;   /* duboka borova zelena */
+    --pine-deep: #1f3a28;
+    --sun:       #e2743b;   /* zalazak / narančasti akcent */
+    --sun-soft:  #ef9560;
+    --lake:      #3f7d8c;   /* jezersko-morska */
+    --sand:      #f3efe4;
+
+    --bg:        var(--sand);
+    --surface:   #ffffff;
+    --surface-2: #e8e2d2;
+    --text:      #222720;
+    --text-muted:#636b5c;
+    --border:    #dcd5c3;
+
+    --font-display: "Oswald", Impact, sans-serif;   /* kondenziran, signage */
+    --font-body:    "DM Sans", system-ui, sans-serif;
+
+    --radius:     14px;
+    --radius-sm:  9px;
+    --shadow:     0 22px 55px -26px rgba(30,50,30,.4);
+    --shadow-sm:  0 10px 26px -14px rgba(30,50,30,.3);
+    --container:  1180px;
+    --gutter:     clamp(1.25rem,5vw,4rem);
+    --section-y:  clamp(4rem,9vw,8rem);
+    --ease: cubic-bezier(.22,1,.36,1);
+    --safe-t: env(safe-area-inset-top,0px);
+    --safe-b: env(safe-area-inset-bottom,0px);
+    --safe-l: env(safe-area-inset-left,0px);
+    --safe-r: env(safe-area-inset-right,0px);
+  }
+  [data-theme="dark"] {
+    --bg:#161d17; --surface:#1e281f; --surface-2:#263026; --text:#eef2e8; --text-muted:#a7b09c; --border:#334033;
+    --pine:#5c9169; --sun:#ef9560; --sun-soft:#f4ad82; --lake:#5b9cad;
+    --shadow:0 22px 55px -26px rgba(0,0,0,.7); --shadow-sm:0 10px 26px -14px rgba(0,0,0,.6);
+  }
+
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+  html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;} }
+  body { font-family:var(--font-body); background:var(--bg); color:var(--text); line-height:1.65; -webkit-font-smoothing:antialiased; transition:background .4s var(--ease),color .4s var(--ease); overflow-x:hidden; }
+  img { max-width:100%; display:block; height:auto; }
+  a { color:inherit; text-decoration:none; }
+  ul { list-style:none; }
+  h1,h2,h3 { font-family:var(--font-display); font-weight:600; line-height:1.05; text-transform:uppercase; letter-spacing:.5px; }
+  h2 { font-size:clamp(2rem,4.8vw,3.4rem); }
+  h3 { font-size:clamp(1.25rem,2.4vw,1.6rem); }
+  :focus-visible { outline:3px solid var(--sun); outline-offset:3px; border-radius:4px; }
+
+  .container { max-width:var(--container); margin-inline:auto; padding-inline:max(var(--gutter),var(--safe-l)); }
+  .section { padding-block:var(--section-y); }
+  .eyebrow { font-family:var(--font-body); font-size:.8rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--sun); display:inline-flex; align-items:center; gap:.5rem; margin-bottom:.9rem; }
+  .eyebrow svg { width:18px; height:18px; }
+  .section-head { max-width:640px; margin-bottom:clamp(2rem,5vw,3rem); }
+  .section-head.center { margin-inline:auto; text-align:center; }
+  .section-head.center .eyebrow { justify-content:center; }
+  .lead { color:var(--text-muted); font-size:1.05rem; margin-top:.75rem; text-transform:none; }
+
+  .skip-link { position:absolute; left:.5rem; top:-3rem; z-index:1000; background:var(--pine); color:#fff; padding:.6rem 1rem; border-radius:var(--radius-sm); transition:top .2s; }
+  .skip-link:focus { top:.5rem; }
+
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; font-family:var(--font-display); font-weight:500; font-size:.95rem; letter-spacing:.06em; text-transform:uppercase; padding:.85rem 1.7rem; border-radius:100px; border:2px solid transparent; cursor:pointer; transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s; min-height:48px; }
+  .btn:hover { transform:translateY(-2px); }
+  .btn-primary { background:var(--sun); color:#fff; box-shadow:var(--shadow-sm); }
+  .btn-primary:hover { background:var(--sun-soft); }
+  .btn-ghost { background:transparent; color:var(--text); border-color:var(--border); }
+  .btn-ghost:hover { border-color:var(--sun); color:var(--sun); }
+  .btn-light { background:rgba(255,255,255,.16); color:#fff; border-color:rgba(255,255,255,.5); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); }
+  .btn-light:hover { background:rgba(255,255,255,.26); }
+
+  /* ============================================================
+     2. HEADER
+     ============================================================ */
+  .site-header { position:fixed; inset:0 0 auto 0; z-index:100; padding:calc(1.1rem + var(--safe-t)) 0 1.1rem; transition:background .35s var(--ease),box-shadow .35s,padding .35s; }
+  .site-header.scrolled { background:color-mix(in srgb, var(--bg) 92%, transparent); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); box-shadow:0 2px 0 var(--border); padding-block:.7rem; }
+  .nav { display:flex; align-items:center; justify-content:space-between; gap:1.5rem; }
+  .brand { display:inline-flex; align-items:center; gap:.55rem; font-family:var(--font-display); font-size:1.55rem; font-weight:600; letter-spacing:.5px; text-transform:uppercase; color:#fff; transition:color .35s; }
+  .brand svg { width:28px; height:28px; color:var(--sun); }
+  .scrolled .brand, .no-hero .brand { color:var(--text); }
+  .nav-links { display:flex; align-items:center; gap:1.85rem; }
+  .nav-links a { font-family:var(--font-display); font-size:.95rem; font-weight:400; letter-spacing:.05em; text-transform:uppercase; color:rgba(255,255,255,.92); transition:color .3s; }
+  .scrolled .nav-links a, .no-hero .nav-links a { color:var(--text-muted); }
+  .nav-links a:hover { color:var(--sun); }
+  .nav-actions { display:flex; align-items:center; gap:.75rem; }
+  .theme-toggle { width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,.4); background:rgba(255,255,255,.12); color:#fff; cursor:pointer; display:grid; place-items:center; transition:background .3s,color .35s,border-color .35s; }
+  .scrolled .theme-toggle, .no-hero .theme-toggle { border-color:var(--border); background:var(--surface-2); color:var(--text); }
+  .theme-toggle:hover { color:var(--sun); }
+  .theme-toggle svg { width:20px; height:20px; }
+  .theme-toggle .moon { display:none; }
+  [data-theme="dark"] .theme-toggle .sun { display:none; }
+  [data-theme="dark"] .theme-toggle .moon { display:block; }
+  .nav-toggle { display:none; width:44px; height:44px; border:none; background:transparent; cursor:pointer; flex-direction:column; justify-content:center; gap:6px; }
+  .nav-toggle span { display:block; height:2px; width:26px; background:#fff; transition:transform .3s,opacity .3s,background .35s; margin-inline:auto; }
+  .scrolled .nav-toggle span, .no-hero .nav-toggle span { background:var(--text); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+  @media (max-width:880px){
+    .nav-toggle{ display:flex; }
+    .nav-links{ position:fixed; inset:0 0 0 auto; width:min(80vw,300px); flex-direction:column; align-items:flex-start; justify-content:center; gap:1.6rem; background:var(--surface); padding:2rem max(var(--gutter),var(--safe-r)) calc(2rem + var(--safe-b)); transform:translateX(100%); transition:transform .4s var(--ease); box-shadow:var(--shadow); }
+    .nav-links.open{ transform:translateX(0); }
+    .nav-links a{ color:var(--text); font-size:1.2rem; }
+  }
+
+  /* ============================================================
+     3. HERO — full-bleed + stat traka na dnu
+     ============================================================ */
+  .hero { position:relative; min-height:100svh; display:flex; align-items:flex-end; color:#fff; isolation:isolate; padding-bottom:0; }
+  .hero__bg { position:absolute; inset:0; z-index:-2; object-fit:cover; width:100%; height:100%; }
+  .hero::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg, rgba(20,40,25,.5) 0%, rgba(20,40,25,.2) 45%, rgba(20,40,25,.85) 100%); }
+  .hero__inner { padding-block:9rem 2.5rem; max-width:820px; }
+  .hero__inner .eyebrow { color:var(--sun-soft); }
+  .hero h1 { font-size:clamp(3rem,9vw,6.5rem); font-weight:700; margin-bottom:1.25rem; letter-spacing:1px; }
+  .hero h1 em { color:var(--sun-soft); font-style:normal; }
+  .hero p { font-size:clamp(1.05rem,2vw,1.3rem); max-width:50ch; color:rgba(255,255,255,.94); margin-bottom:2rem; }
+  .hero__cta { display:flex; gap:1rem; flex-wrap:wrap; }
+  .hero__stats { border-top:1px solid rgba(255,255,255,.25); margin-top:clamp(2.5rem,6vw,4rem); display:grid; grid-template-columns:repeat(4,1fr); }
+  .hero__stats div { padding:1.5rem 1rem 1.5rem 0; }
+  .hero__stats dt { font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.2rem); font-weight:600; color:#fff; }
+  .hero__stats dd { font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.8); }
+  @media (max-width:620px){ .hero__stats{ grid-template-columns:repeat(2,1fr); gap:.5rem 1rem; } }
+
+  /* ============================================================
+     4. STAY TYPES — izbor smještaja (velike ikone)
+     ============================================================ */
+  .stay__grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.5rem; }
+  .stay-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:2rem 1.75rem; box-shadow:var(--shadow-sm); transition:transform .3s var(--ease),border-color .3s,box-shadow .3s; display:flex; flex-direction:column; gap:.75rem; }
+  .stay-card:hover { transform:translateY(-6px); border-color:var(--sun); box-shadow:var(--shadow); }
+  .stay-card__icon { width:64px; height:64px; border-radius:16px; background:color-mix(in srgb, var(--pine) 14%, transparent); color:var(--pine); display:grid; place-items:center; margin-bottom:.5rem; }
+  [data-theme="dark"] .stay-card__icon { background:color-mix(in srgb, var(--pine) 30%, transparent); color:var(--sun-soft); }
+  .stay-card__icon svg { width:34px; height:34px; }
+  .stay-card h3 { font-size:1.4rem; }
+  .stay-card p { color:var(--text-muted); font-size:.92rem; flex:1; }
+  .stay-card__price { font-family:var(--font-display); font-size:1.15rem; color:var(--sun); margin-top:.25rem; }
+  .stay-card__price span { font-family:var(--font-body); font-size:.8rem; color:var(--text-muted); text-transform:none; }
+
+  /* ============================================================
+     5. ACTIVITIES — horizontalni swipe s ikonama
+     ============================================================ */
+  .activities { background:var(--pine); color:#fff; }
+  [data-theme="dark"] .activities { background:var(--surface); }
+  .activities .eyebrow { color:var(--sun-soft); }
+  .activities .section-head h2 { color:#fff; }
+  [data-theme="dark"] .activities .section-head h2 { color:var(--text); }
+  .act-strip { display:flex; gap:1.25rem; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; padding-bottom:1rem; margin-top:2.5rem; }
+  .act-strip::-webkit-scrollbar { height:6px; }
+  .act-strip::-webkit-scrollbar-thumb { background:rgba(255,255,255,.3); border-radius:100px; }
+  .act { flex:0 0 220px; scroll-snap-align:start; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:var(--radius); padding:1.75rem; }
+  [data-theme="dark"] .act { background:var(--surface-2); border-color:var(--border); }
+  .act__icon { width:48px; height:48px; color:var(--sun-soft); margin-bottom:1rem; }
+  .act__icon svg { width:100%; height:100%; }
+  .act h3 { font-size:1.2rem; margin-bottom:.35rem; }
+  .act p { font-size:.88rem; opacity:.85; text-transform:none; }
+  [data-theme="dark"] .act p { color:var(--text-muted); opacity:1; }
+
+  /* ============================================================
+     6. FACILITIES — sadržaji kampa (ikone lista)
+     ============================================================ */
+  .facilities__grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1.25rem; }
+  .facility { display:flex; gap:1rem; align-items:center; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem 1.4rem; transition:border-color .3s; }
+  .facility:hover { border-color:var(--sun); }
+  .facility__icon { width:44px; height:44px; border-radius:12px; background:color-mix(in srgb, var(--lake) 15%, transparent); color:var(--lake); display:grid; place-items:center; flex-shrink:0; }
+  .facility__icon svg { width:24px; height:24px; }
+  .facility h3 { font-size:1.05rem; }
+  .facility p { font-size:.82rem; color:var(--text-muted); text-transform:none; }
+
+  /* ============================================================
+     7. GALLERY
+     ============================================================ */
+  .gallery__grid { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:200px; gap:1rem; }
+  .gallery__item { overflow:hidden; border-radius:var(--radius-sm); cursor:pointer; border:none; padding:0; background:none; position:relative; }
+  .gallery__item img { width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
+  .gallery__item:hover img { transform:scale(1.07); }
+  .gallery__item.tall { grid-row:span 2; }
+  .gallery__item.wide { grid-column:span 2; }
+  @media (max-width:720px){ .gallery__grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:150px; } }
+
+  .lightbox { position:fixed; inset:0; z-index:200; background:rgba(15,25,15,.93); display:none; place-items:center; padding:2rem; }
+  .lightbox.open { display:grid; animation:fade .3s; }
+  @keyframes fade { from{opacity:0;} }
+  .lightbox img { max-width:min(92vw,1100px); max-height:88vh; border-radius:var(--radius-sm); }
+  .lightbox__close { position:absolute; top:calc(1.5rem + var(--safe-t)); right:1.5rem; width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.1); color:#fff; font-size:1.5rem; cursor:pointer; }
+
+  /* ============================================================
+     8. PRACTICAL INFO — informativne pločice
+     ============================================================ */
+  .practical { background:var(--surface-2); }
+  .info__grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; }
+  .info { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.75rem; }
+  .info__label { font-family:var(--font-display); font-size:.85rem; letter-spacing:.12em; text-transform:uppercase; color:var(--sun); margin-bottom:.5rem; }
+  .info h3 { font-size:1.25rem; text-transform:none; letter-spacing:0; margin-bottom:.3rem; }
+  .info p { font-size:.9rem; color:var(--text-muted); text-transform:none; }
+
+  /* ============================================================
+     9. LOCATION
+     ============================================================ */
+  .location__grid { display:grid; grid-template-columns:1fr 1.2fr; gap:clamp(2rem,5vw,4rem); align-items:center; }
+  .location__map { border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--border); }
+  .location__map iframe { width:100%; height:420px; border:0; display:block; }
+  .nearby { display:grid; gap:1rem; margin-top:2rem; }
+  .nearby li { display:flex; align-items:center; gap:.9rem; color:var(--text-muted); }
+  .nearby strong { color:var(--text); font-weight:600; }
+  .nearby .dot { width:9px; height:9px; border-radius:50%; background:var(--sun); flex-shrink:0; }
+  @media (max-width:800px){ .location__grid{ grid-template-columns:1fr; } }
+
+  /* ============================================================
+     10. CONTACT
+     ============================================================ */
+  .contact__grid { display:grid; grid-template-columns:1fr 1.1fr; gap:clamp(2rem,5vw,4.5rem); }
+  .contact__info p { color:var(--text-muted); margin-bottom:2rem; text-transform:none; }
+  .contact-list { display:grid; gap:1.25rem; }
+  .contact-list li { display:flex; gap:.9rem; align-items:flex-start; }
+  .contact-list svg { width:22px; height:22px; color:var(--sun); flex-shrink:0; margin-top:.15rem; }
+  .contact-list a:hover { color:var(--sun); }
+  .form { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:clamp(1.5rem,4vw,2.5rem); box-shadow:var(--shadow-sm); }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+  .field { margin-bottom:1.25rem; }
+  .field label { display:block; font-size:.85rem; font-weight:600; margin-bottom:.5rem; }
+  .field label .req { color:var(--sun); }
+  .field input, .field textarea, .field select { width:100%; padding:.85rem 1rem; border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--bg); color:var(--text); font-family:inherit; font-size:16px; min-height:48px; transition:border-color .25s,box-shadow .25s; }
+  .field textarea { resize:vertical; min-height:120px; }
+  .field input:focus, .field textarea:focus, .field select:focus { outline:none; border-color:var(--sun); box-shadow:0 0 0 3px color-mix(in srgb, var(--sun) 20%, transparent); }
+  .field .error-msg { display:none; color:#c0392b; font-size:.8rem; margin-top:.4rem; }
+  [data-theme="dark"] .field .error-msg { color:#ff9b86; }
+  .field.invalid input, .field.invalid textarea { border-color:#c0392b; }
+  .field.invalid .error-msg { display:block; }
+  .form__note { font-size:.82rem; color:var(--text-muted); margin-top:1rem; text-transform:none; }
+  .form__success { display:none; background:color-mix(in srgb, var(--pine) 16%, transparent); border:1px solid var(--pine); color:var(--text); padding:1rem 1.25rem; border-radius:var(--radius-sm); margin-bottom:1.25rem; }
+  .form__success.show { display:block; }
+  @media (max-width:800px){ .contact__grid{ grid-template-columns:1fr; } }
+  @media (max-width:480px){ .form-row{ grid-template-columns:1fr; } }
+
+  /* ============================================================
+     11. FOOTER
+     ============================================================ */
+  .site-footer { background:var(--pine-deep); color:rgba(255,255,255,.78); padding:clamp(3rem,6vw,4.5rem) 0 calc(2rem + var(--safe-b)); }
+  [data-theme="dark"] .site-footer { background:#0f1710; }
+  .footer__grid { display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:2.5rem; margin-bottom:2.5rem; }
+  .footer__brand .brand { color:#fff; margin-bottom:.75rem; }
+  .footer__brand p { font-size:.92rem; max-width:32ch; }
+  .footer__grid h4 { font-family:var(--font-display); font-size:.85rem; letter-spacing:.1em; text-transform:uppercase; color:var(--sun-soft); margin-bottom:1rem; }
+  .footer__grid ul { display:grid; gap:.6rem; }
+  .footer__grid a { font-size:.92rem; }
+  .footer__grid a:hover { color:var(--sun-soft); }
+  .footer__bottom { border-top:1px solid rgba(255,255,255,.12); padding-top:1.75rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-size:.85rem; }
+  @media (max-width:640px){ .footer__grid{ grid-template-columns:1fr 1fr; } .footer__brand{ grid-column:1/-1; } }
+
+  .js [data-reveal] { opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease),transform .7s var(--ease); }
+  .js [data-reveal].visible { opacity:1; transform:none; }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Kamp Borik — početna">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 21h18zM12 2v19M8 14l4 7 4-7"/></svg>
+        Kamp Borik
+      </a>
+      <nav aria-label="Glavna navigacija">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#stay">Smještaj</a></li>
+          <li><a href="#activities">Aktivnosti</a></li>
+          <li><a href="#facilities">Sadržaji</a></li>
+          <li><a href="#gallery">Galerija</a></li>
+          <li><a href="#contact" class="btn btn-primary">Rezerviraj</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Promijeni temu">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" aria-label="Dobrodošli u Kamp Borik">
+      <img class="hero__bg" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1920&q=80" alt="Šatori u borovoj šumi uz more" />
+      <div class="container hero__inner">
+        <span class="eyebrow" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18M5 21l7-9 7 9M8 8l4-5 4 5"/></svg>Kamp uz more · Dalmacija</span>
+        <h1 data-reveal>Probudi se <em>u prirodi.</em></h1>
+        <p data-reveal>Kamp u hladu stoljetne borove šume, na samo nekoliko koraka od mora. Za šatore, kampere, glamping i one koji vole zaspati uz zvuk valova.</p>
+        <div class="hero__cta" data-reveal>
+          <a href="#stay" class="btn btn-primary">Odaberi smještaj</a>
+          <a href="#activities" class="btn btn-light">Što raditi</a>
+        </div>
+        <dl class="hero__stats" data-reveal>
+          <div><dt>120</dt><dd>Parcela</dd></div>
+          <div><dt>0 m</dt><dd>Do plaže</dd></div>
+          <div><dt>4★</dt><dd>Kategorija</dd></div>
+          <div><dt>Pas</dt><dd>Dobrodošao</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- STAY TYPES -->
+    <section class="section" id="stay">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="eyebrow">Smještaj</span>
+          <h2>Odaberi svoj način</h2>
+          <p class="lead">Od klasičnog šatora do opremljene mobilne kućice — ti biraš koliko divljine želiš.</p>
+        </div>
+        <div class="stay__grid">
+          <article class="stay-card" data-reveal>
+            <div class="stay-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L3 20h18zM12 3v17M9 20l3-6 3 6"/></svg></div>
+            <h3>Šatorsko mjesto</h3>
+            <p>Zasjenjena parcela pod borovima, s priključkom za struju po želji. Za šatore svih veličina.</p>
+            <div class="stay-card__price">od €18 <span>/ noć</span></div>
+          </article>
+          <article class="stay-card" data-reveal>
+            <div class="stay-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h13V7a2 2 0 0 0-2-2H3zM16 10h3l2 3v3H3M6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div>
+            <h3>Kamper / kamp-kućica</h3>
+            <p>Prostrane parcele s vodom, strujom i odvodom. Lako dostupne i za veće kampere.</p>
+            <div class="stay-card__price">od €26 <span>/ noć</span></div>
+          </article>
+          <article class="stay-card" data-reveal>
+            <div class="stay-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20L12 5l8 15zM12 5v15M12 20a4 4 0 0 0 0-8"/></svg></div>
+            <h3>Glamping šator</h3>
+            <p>Postavljen i opremljen šator s pravim krevetom i terasom — priroda bez odricanja.</p>
+            <div class="stay-card__price">od €75 <span>/ noć</span></div>
+          </article>
+          <article class="stay-card" data-reveal>
+            <div class="stay-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9H3zM9 20v-6h6v6"/></svg></div>
+            <h3>Mobilna kućica</h3>
+            <p>Klimatizirana kućica s kuhinjom, kupaonicom i natkrivenom terasom. Za obitelji.</p>
+            <div class="stay-card__price">od €95 <span>/ noć</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section class="section activities" id="activities">
+      <div class="container">
+        <div class="section-head" data-reveal style="max-width:560px">
+          <span class="eyebrow">Aktivnosti</span>
+          <h2>Dan ti nikad neće biti dosadan</h2>
+        </div>
+        <div class="act-strip" id="actStrip">
+          <div class="act">
+            <div class="act__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l6-8 4 5 3-4 5 7zM7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div>
+            <h3>Planinarske staze</h3>
+            <p>Označene staze kreću odmah iza kampa — od laganih do zahtjevnih.</p>
+          </div>
+          <div class="act">
+            <div class="act__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14c3 2 6 2 9 0s6-2 9 0M5 14l2-7h3l1 3M14 10l1-3h3l1 4"/></svg></div>
+            <h3>Kajak i SUP</h3>
+            <p>Najam na plaži — istraži skrivene uvale iz prve ruke.</p>
+          </div>
+          <div class="act">
+            <div class="act__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-8h5l3 8M10 9l2-4h3"/></svg></div>
+            <h3>Bicikli</h3>
+            <p>Iznajmi bicikl i obiđi okolne uvale, sela i vidikovce.</p>
+          </div>
+          <div class="act">
+            <div class="act__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-3 6-6 6-10a6 6 0 0 0-12 0c0 4 2 7 6 10zM9 8c1 2 1 4 3 5"/></svg></div>
+            <h3>Večeri uz vatru</h3>
+            <p>Ognjište, glazba i roštilj — mjesto gdje se sklapaju kamperska prijateljstva.</p>
+          </div>
+          <div class="act">
+            <div class="act__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20s3-2 8-2 8 2 8 2M12 4v8M8 8h8M6 12h12"/></svg></div>
+            <h3>Dječje igralište</h3>
+            <p>Animacija, tobogani i mini klub — mališani ne miruju ni sekunde.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACILITIES -->
+    <section class="section" id="facilities">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="eyebrow">Sadržaji kampa</span>
+          <h2>Sve što treba na dohvat ruke</h2>
+        </div>
+        <div class="facilities__grid">
+          <div class="facility" data-reveal><div class="facility__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16M6 10V6a3 3 0 0 1 6 0M8 10v10M16 10v10M4 20h16"/></svg></div><div><h3>Sanitarni čvor</h3><p>Moderan, topla voda 0-24</p></div></div>
+          <div class="facility" data-reveal><div class="facility__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a3 3 0 0 0 6 0V3M9 3v18M18 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></div><div><h3>Restoran &amp; bar</h3><p>Domaća kuhinja uz more</p></div></div>
+          <div class="facility" data-reveal><div class="facility__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2l1.5 3h9L18 2M4 7h16l-1.5 13a2 2 0 0 1-2 2H7.5a2 2 0 0 1-2-2z"/></svg></div><div><h3>Mini market</h3><p>Namirnice i osnovno</p></div></div>
+          <div class="facility" data-reveal><div class="facility__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14c3 2 6 2 9 0s6-2 9 0M3 18c3 2 6 2 9 0s6-2 9 0M8 8a4 4 0 1 1 8 0"/></svg></div><div><h3>Bazen</h3><p>Za velike i male</p></div></div>
+          <div class="facility" data-reveal><div class="facility__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M2 8.82a15 15 0 0 1 20 0M12 20h.01"/></svg></div><div><h3>Wi-Fi</h3><p>U cijelom kampu</p></div></div>
+          <div class="facility" data-reveal><div class="facility__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div><div><h3>Struja na parceli</h3><p>Priključci 16A</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery" style="background:var(--surface-2)">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="eyebrow">Galerija</span>
+          <h2>Život u kampu</h2>
+        </div>
+        <div class="gallery__grid">
+          <button class="gallery__item wide" data-reveal><img src="https://images.unsplash.com/photo-1537565266759-34bbc16b62c1?auto=format&fit=crop&w=900&q=80" alt="Šatori među borovima" /></button>
+          <button class="gallery__item tall" data-reveal><img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=700&q=80" alt="Glamping šator iznutra" /></button>
+          <button class="gallery__item" data-reveal><img src="https://images.unsplash.com/photo-1496545672447-f699b503d270?auto=format&fit=crop&w=700&q=80" alt="Plaža uz kamp" /></button>
+          <button class="gallery__item" data-reveal><img src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?auto=format&fit=crop&w=700&q=80" alt="Kajak na moru" /></button>
+          <button class="gallery__item tall" data-reveal><img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=700&q=80" alt="Večer uz logorsku vatru" /></button>
+          <button class="gallery__item wide" data-reveal><img src="https://images.unsplash.com/photo-1445308394109-4ec2920981b1?auto=format&fit=crop&w=900&q=80" alt="Mobilne kućice u kampu" /></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRACTICAL INFO -->
+    <section class="section practical">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="eyebrow">Dobro je znati</span>
+          <h2>Praktične informacije</h2>
+        </div>
+        <div class="info__grid">
+          <div class="info" data-reveal><div class="info__label">Prijava / odjava</div><h3>14:00 / 11:00</h3><p>Za mobilne kućice i glamping. Parcele su fleksibilnije — javite dolazak.</p></div>
+          <div class="info" data-reveal><div class="info__label">Ljubimci</div><h3>Dobrodošli</h3><p>Uz malu naknadu i vlastitu parcelu. Imamo i pseću plažu u blizini.</p></div>
+          <div class="info" data-reveal><div class="info__label">Sezona</div><h3>15.4. – 15.10.</h3><p>Najljepše u lipnju i rujnu — toplo more, manje gužve.</p></div>
+          <div class="info" data-reveal><div class="info__label">Plaćanje</div><h3>Gotovina / kartice</h3><p>Rezervacija uz akontaciju, ostatak na recepciji pri dolasku.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="section" id="location">
+      <div class="container location__grid">
+        <div data-reveal>
+          <span class="eyebrow">Gdje smo</span>
+          <h2>More s jedne, šuma s druge strane</h2>
+          <p class="lead">Smješteni u zaljevu okruženom borovom šumom, s vlastitim pristupom plaži i lakim dolaskom s glavne ceste.</p>
+          <ul class="nearby">
+            <li><span class="dot"></span><span><strong>Plaža</strong> — vlastiti pristup, 0 m</span></li>
+            <li><span class="dot"></span><span><strong>Mjesto s trgovinama</strong> — 2 km</span></li>
+            <li><span class="dot"></span><span><strong>Nacionalni park</strong> — 30 min vožnje</span></li>
+            <li><span class="dot"></span><span><strong>Zračna luka Split</strong> — 60 min</span></li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="margin-top:2rem">Zatraži upute za dolazak</a>
+        </div>
+        <div class="location__map" data-reveal>
+          <iframe title="Lokacija Kampa Borik" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=16.10%2C43.40%2C16.25%2C43.48&layer=mapnik&marker=43.44%2C16.175"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact" style="background:var(--surface-2)">
+      <div class="container contact__grid">
+        <div class="contact__info" data-reveal>
+          <span class="eyebrow">Rezervacije</span>
+          <h2>Rezerviraj svoje mjesto</h2>
+          <p>Javi termin, tip smještaja i broj gostiju — šaljemo dostupnost i cijenu. Bez provizije portala.</p>
+          <ul class="contact-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Put Borika 1, 21300 Dalmacija, Hrvatska</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+38521555000">+385 21 555 000</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:info@kamp-borik.hr">info@kamp-borik.hr</a></li>
+          </ul>
+        </div>
+        <form class="form" id="bookingForm" novalidate data-reveal>
+          <div class="form__success" id="formSuccess" role="status">Hvala! Vaš upit je zaprimljen — javljamo se u najkraćem roku.</div>
+          <div class="form-row">
+            <div class="field"><label for="name">Ime i prezime <span class="req">*</span></label><input type="text" id="name" name="name" required minlength="2" autocomplete="name" /><span class="error-msg">Unesite ime i prezime.</span></div>
+            <div class="field"><label for="email">E-mail <span class="req">*</span></label><input type="email" id="email" name="email" required autocomplete="email" /><span class="error-msg">Unesite ispravnu e-mail adresu.</span></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="checkin">Dolazak</label><input type="date" id="checkin" name="checkin" /><span class="error-msg"></span></div>
+            <div class="field"><label for="type">Tip smještaja</label><select id="type" name="type"><option>Šatorsko mjesto</option><option>Kamper / kamp-kućica</option><option>Glamping šator</option><option>Mobilna kućica</option></select><span class="error-msg"></span></div>
+          </div>
+          <div class="field"><label for="message">Poruka <span class="req">*</span></label><textarea id="message" name="message" required minlength="10" placeholder="Termin, broj gostiju, veličina šatora/kampera…"></textarea><span class="error-msg">Napišite poruku (najmanje 10 znakova).</span></div>
+          <button type="submit" class="btn btn-primary" style="width:100%">Pošalji upit</button>
+          <p class="form__note">Slanjem prihvaćate obradu podataka isključivo u svrhu rezervacije.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="brand" style="color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 21h18zM12 2v19M8 14l4 7 4-7"/></svg> Kamp Borik</a>
+          <p>Kamp uz more u hladu borove šume. Za sve koji vole spavati bliže prirodi.</p>
+        </div>
+        <div><h4>Kamp</h4><ul><li><a href="#stay">Smještaj</a></li><li><a href="#activities">Aktivnosti</a></li><li><a href="#facilities">Sadržaji</a></li><li><a href="#gallery">Galerija</a></li></ul></div>
+        <div><h4>Kontakt</h4><ul><li><a href="tel:+38521555000">+385 21 555 000</a></li><li><a href="mailto:info@kamp-borik.hr">info@kamp-borik.hr</a></li><li>Put Borika 1, Dalmacija</li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> Kamp Borik. Sva prava pridržana.</span>
+        <span>Rezervirajte izravno — bez provizije.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Uvećana slika">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Zatvori">&times;</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <script>
+  (function () {
+    "use strict";
+    const root = document.documentElement;
+    root.classList.add("js");
+    const store = { get(k){try{return localStorage.getItem(k)}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}} };
+
+    /* THEME */
+    const themeToggle = document.getElementById("themeToggle");
+    const stored = store.get("borik-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    root.setAttribute("data-theme", stored || (prefersDark ? "dark" : "light"));
+    themeToggle.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next); store.set("borik-theme", next);
+    });
+
+    /* STICKY HEADER */
+    const header = document.getElementById("header");
+    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 40);
+    onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+
+    /* MOBILE NAV */
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    const closeNav = () => { navLinks.classList.remove("open"); navToggle.setAttribute("aria-expanded","false"); };
+    navToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(open));
+    });
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeNav(); });
+
+    /* REVEAL */
+    const reveals = document.querySelectorAll("[data-reveal]");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => { if (entry.isIntersecting) { entry.target.style.transitionDelay = (i % 4) * 80 + "ms"; entry.target.classList.add("visible"); io.unobserve(entry.target); } });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      reveals.forEach(el => io.observe(el));
+    } else { reveals.forEach(el => el.classList.add("visible")); }
+
+    /* LIGHTBOX */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+    document.querySelectorAll(".gallery__item").forEach(item => {
+      item.addEventListener("click", () => { const img = item.querySelector("img"); lightboxImg.src = img.src.replace(/w=\d+/, "w=1400"); lightboxImg.alt = img.alt; lightbox.classList.add("open"); });
+    });
+    const closeLightbox = () => { lightbox.classList.remove("open"); lightboxImg.src = ""; };
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+    /* FORM */
+    const form = document.getElementById("bookingForm");
+    const success = document.getElementById("formSuccess");
+    const validators = { name:v=>v.trim().length>=2, email:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), message:v=>v.trim().length>=10 };
+    const validateField = (f) => { const c=validators[f.name]; if(!c) return true; const ok=c(f.value); f.closest(".field").classList.toggle("invalid",!ok); return ok; };
+    form.querySelectorAll("input, textarea").forEach(f => f.addEventListener("input", () => { if (f.closest(".field").classList.contains("invalid")) validateField(f); }));
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let valid = true, first = null;
+      ["name","email","message"].forEach(nm => { const fl=form.elements[nm]; if(!validateField(fl)){valid=false; if(!first)first=fl;} });
+      if (!valid) { first && first.focus(); return; }
+      success.classList.add("show"); form.reset();
+      success.scrollIntoView({ behavior:"smooth", block:"center" });
+      setTimeout(() => success.classList.remove("show"), 6000);
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  })();
+  </script>
+</body>
+</html>
