@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="hr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Web predlošci za smještaj — izbor dizajna</title>
+  <meta name="description" content="Kolekcija modernih web predložaka za hotele, apartmane i vile. Odaberite stil koji odgovara vašem objektu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+  :root {
+    --bg:#f3f1ec; --surface:#ffffff; --surface-2:#eae6dd; --text:#1c1c18; --muted:#6b675d; --border:#e0dbcf;
+    --accent:#b8925a; --accent-soft:#d4b483;
+    --font-display:"Fraunces",Georgia,serif; --font-body:"Inter",system-ui,sans-serif;
+    --radius:14px; --shadow:0 24px 60px -28px rgba(40,34,20,.35); --shadow-sm:0 10px 30px -16px rgba(40,34,20,.3);
+    --container:1180px; --gutter:clamp(1.25rem,5vw,3rem); --ease:cubic-bezier(.22,1,.36,1);
+    --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
+  }
+  [data-theme="dark"] { --bg:#14140f; --surface:#1e1e17; --surface-2:#2a2a20; --text:#f4f0e6; --muted:#b3ac99; --border:#34342a; --accent:#c9a56c; --accent-soft:#d4b483; --shadow:0 24px 60px -28px rgba(0,0,0,.7); --shadow-sm:0 10px 30px -16px rgba(0,0,0,.6); }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+  html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+  @media (prefers-reduced-motion:reduce){ *,*::before,*::after{ animation-duration:.001ms!important; transition-duration:.001ms!important; } }
+  body { font-family:var(--font-body); background:var(--bg); color:var(--text); line-height:1.65; -webkit-font-smoothing:antialiased; transition:background .4s var(--ease),color .4s var(--ease); overflow-x:hidden; }
+  img { max-width:100%; display:block; }
+  a { color:inherit; text-decoration:none; }
+  .container { max-width:var(--container); margin-inline:auto; padding-inline:var(--gutter); }
+  h1,h2,h3 { font-family:var(--font-display); font-weight:400; line-height:1.08; letter-spacing:-.4px; }
+
+  /* Header */
+  .top { display:flex; justify-content:space-between; align-items:center; padding:calc(1.5rem + var(--safe-t)) 0 1.5rem; }
+  .logo { font-family:var(--font-display); font-size:1.35rem; }
+  .logo b { color:var(--accent); }
+  .theme-toggle { width:44px; height:44px; border-radius:50%; border:1px solid var(--border); background:var(--surface); color:var(--text); cursor:pointer; display:grid; place-items:center; transition:color .3s,border-color .3s; }
+  .theme-toggle:hover { color:var(--accent); border-color:var(--accent); }
+  .theme-toggle svg { width:19px; height:19px; }
+  .theme-toggle .moon { display:none; }
+  [data-theme="dark"] .theme-toggle .sun { display:none; }
+  [data-theme="dark"] .theme-toggle .moon { display:block; }
+
+  /* Hero */
+  .intro { padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(2rem,5vw,3.5rem); max-width:720px; }
+  .eyebrow { font-size:.74rem; letter-spacing:.24em; text-transform:uppercase; color:var(--accent); font-weight:600; display:block; margin-bottom:1.25rem; }
+  .intro h1 { font-size:clamp(2.4rem,6vw,4rem); margin-bottom:1.25rem; }
+  .intro h1 em { font-style:italic; color:var(--accent); }
+  .intro p { color:var(--muted); font-size:1.1rem; max-width:56ch; }
+
+  /* Grid */
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:2rem; padding-bottom:clamp(3rem,7vw,6rem); }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; transition:transform .4s var(--ease),box-shadow .4s; }
+  .card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
+  .card__img { position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--surface-2); }
+  .card__img img { width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
+  .card:hover .card__img img { transform:scale(1.05); }
+  .card__tag { position:absolute; top:1rem; left:1rem; background:var(--accent); color:#14140f; font-size:.72rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; padding:.35rem .8rem; border-radius:100px; }
+  .card__body { padding:1.75rem; display:flex; flex-direction:column; gap:.75rem; flex:1; }
+  .card__body h3 { font-size:1.5rem; }
+  .card__body p { color:var(--muted); font-size:.95rem; flex:1; }
+  .card__meta { display:flex; flex-wrap:wrap; gap:.5rem; margin:.25rem 0 .5rem; }
+  .card__meta span { font-size:.75rem; color:var(--muted); background:var(--surface-2); padding:.3rem .7rem; border-radius:100px; }
+  .card__btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; margin-top:.5rem; padding:.9rem 1.4rem; border-radius:100px; background:var(--accent); color:#14140f; font-weight:600; font-size:.9rem; min-height:48px; transition:background .3s,transform .3s var(--ease); }
+  .card__btn:hover { background:var(--accent-soft); }
+  .card__btn svg { width:17px; height:17px; }
+
+  /* Footer note */
+  .foot { border-top:1px solid var(--border); padding:2rem 0 calc(2.5rem + var(--safe-b)); color:var(--muted); font-size:.88rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="top">
+      <span class="logo">Studio<b>.</b> — web za smještaj</span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Promijeni temu">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </header>
+
+    <section class="intro">
+      <span class="eyebrow">Izbor dizajna</span>
+      <h1>Web stranice za <em>vaš objekt</em></h1>
+      <p>Odaberite stil koji najbolje odgovara vašem smještaju. Svaki predložak je potpuno responzivan, prilagođen mobitelu i spreman za prilagodbu vašim fotografijama, tekstovima i bojama.</p>
+    </section>
+
+    <section class="grid">
+      <!-- HOTEL -->
+      <article class="card">
+        <a href="01-hotel-marea.html" class="card__img" aria-label="Otvori predložak Hotel">
+          <span class="card__tag">Hotel</span>
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=70" alt="Pregled predloška za boutique hotel" loading="lazy" />
+        </a>
+        <div class="card__body">
+          <h3>Boutique hotel</h3>
+          <p>Elegantan mediteranski stil sa sobama, sadržajima, galerijom i obrascem za rezervaciju. Za hotele i manje objekte s više soba.</p>
+          <div class="card__meta"><span>Sobe</span><span>Sadržaji</span><span>Galerija</span><span>Rezervacije</span></div>
+          <a href="01-hotel-marea.html" class="card__btn">Pogledaj predložak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <!-- APARTMANI -->
+      <article class="card">
+        <a href="02-apartmani-azur.html" class="card__img" aria-label="Otvori predložak Apartmani">
+          <span class="card__tag">Apartmani</span>
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=70" alt="Pregled predloška za apartmane" loading="lazy" />
+        </a>
+        <div class="card__body">
+          <h3>Apartmani / najam</h3>
+          <p>Svijetlo i moderno, s više jedinica, cjenikom po sezoni, self check-in vodičem i brzim upitom. Za iznajmljivače apartmana i studija.</p>
+          <div class="card__meta"><span>Više jedinica</span><span>Cjenik</span><span>Check-in</span><span>Recenzije</span></div>
+          <a href="02-apartmani-azur.html" class="card__btn">Pogledaj predložak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <!-- VILLA -->
+      <article class="card">
+        <a href="03-villa-oliva.html" class="card__img" aria-label="Otvori predložak Villa">
+          <span class="card__tag">Villa</span>
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=70" alt="Pregled predloška za luksuznu vilu" loading="lazy" />
+        </a>
+        <div class="card__body">
+          <h3>Luksuzna vila</h3>
+          <p>Tamno, prestižno, editorijalno — cijeli objekt za jednu grupu, tjedne cijene i filmska galerija. Za vile i vrhunski najam.</p>
+          <div class="card__meta"><span>Cijeli objekt</span><span>Tjedni najam</span><span>Concierge</span><span>Filmska galerija</span></div>
+          <a href="03-villa-oliva.html" class="card__btn">Pogledaj predložak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+    </section>
+
+    <div class="foot">
+      <span>© <span id="year"></span> — Predlošci za smještaj</span>
+      <span>Svaki predložak prilagođava se vašem brendu.</span>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    "use strict";
+    const root = document.documentElement;
+    const store = { get(k){try{return localStorage.getItem(k)}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}} };
+    const stored = store.get("idx-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    root.setAttribute("data-theme", stored || (prefersDark ? "dark" : "light"));
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next); store.set("idx-theme", next);
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  })();
+  </script>
+</body>
+</html>

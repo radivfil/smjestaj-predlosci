@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="hr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apartmani Azur — Moderni apartmani uz more</title>
+  <meta name="description" content="Apartmani Azur — svijetli, moderno opremljeni apartmani na dvije minute od plaže. Self check-in, besplatan parking, brzi Wi-Fi. Rezervirajte direktno bez provizije." />
+
+  <!-- ==========================================================
+       FONTOVI (jedina vanjska ovisnost — Google Fonts)
+  =========================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+  /* ============================================================
+     1. DESIGN TOKENS — MIJENJAJ SVE OVDJE
+     ============================================================ */
+  :root {
+    /* — Brand boje (svjetlo obalno: azur + koral) — */
+    --azur:       #0ea5b7;   /* tirkizno-azurna */
+    --azur-deep:  #0b7c8a;
+    --coral:      #ff6b5e;   /* topli koral akcent */
+    --coral-soft: #ff8b80;
+
+    /* — Neutralne (light) — */
+    --bg:         #f6fbfc;
+    --surface:    #ffffff;
+    --surface-2:  #eaf4f6;
+    --text:       #12292e;
+    --text-muted: #5c757b;
+    --border:     #d8e8ea;
+
+    /* — Tipografija — */
+    --font-display: "Space Grotesk", system-ui, sans-serif;
+    --font-body:    "Inter", system-ui, -apple-system, sans-serif;
+
+    --radius:     18px;
+    --radius-sm:  10px;
+    --shadow:     0 20px 55px -22px rgba(14, 124, 138, .35);
+    --shadow-sm:  0 8px 24px -12px rgba(14, 124, 138, .30);
+    --container:  1180px;
+    --gutter:     clamp(1.25rem, 5vw, 4rem);
+    --section-y:  clamp(4rem, 9vw, 8rem);
+    --ease: cubic-bezier(.22, 1, .36, 1);
+  }
+
+  [data-theme="dark"] {
+    --bg:         #0a1719;
+    --surface:    #10262a;
+    --surface-2:  #163135;
+    --text:       #e6f2f3;
+    --text-muted: #9ab1b4;
+    --border:     #204449;
+    --azur:       #3fd0e0;
+    --coral:      #ff8b80;
+    --shadow:     0 20px 55px -22px rgba(0,0,0,.65);
+    --shadow-sm:  0 8px 24px -12px rgba(0,0,0,.55);
+  }
+
+  /* ============================================================
+     2. RESET & BASE
+     ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+  }
+  body {
+    font-family: var(--font-body);
+    background: var(--bg); color: var(--text);
+    line-height: 1.65; font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    transition: background .4s var(--ease), color .4s var(--ease);
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.08; letter-spacing: -.5px; }
+  h2 { font-size: clamp(2rem, 4.5vw, 3.1rem); }
+  h3 { font-size: clamp(1.3rem, 2.4vw, 1.6rem); }
+  :focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; border-radius: 4px; }
+
+  .container { max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+  .section { padding-block: var(--section-y); }
+  .eyebrow {
+    font-family: var(--font-body); font-size: .78rem; font-weight: 600;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--azur);
+    display: inline-flex; align-items: center; gap: .5rem; margin-bottom: .9rem;
+  }
+  .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--coral); }
+  .section-head { max-width: 640px; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+  .section-head.center { margin-inline: auto; text-align: center; }
+  .section-head.center .eyebrow { justify-content: center; }
+  .lead { color: var(--text-muted); font-size: 1.05rem; margin-top: 1rem; }
+
+  .skip-link { position: absolute; left: .5rem; top: -3rem; z-index: 1000; background: var(--azur); color: #fff; padding: .6rem 1rem; border-radius: var(--radius-sm); transition: top .2s; }
+  .skip-link:focus { top: .5rem; }
+
+  /* ============================================================
+     3. BUTTONS
+     ============================================================ */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    font-family: var(--font-body); font-weight: 600; font-size: .95rem;
+    padding: .85rem 1.6rem; border-radius: 100px; border: 1.5px solid transparent;
+    cursor: pointer; transition: transform .25s var(--ease), background .25s, box-shadow .25s, color .25s, border-color .25s;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--coral); color: #fff; box-shadow: var(--shadow-sm); }
+  .btn-primary:hover { background: var(--coral-soft); }
+  .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--azur); color: var(--azur); }
+  .btn-light { background: rgba(255,255,255,.15); color: #fff; border-color: rgba(255,255,255,.5); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  .btn-light:hover { background: rgba(255,255,255,.25); }
+
+  /* ============================================================
+     4. HEADER / NAV
+     ============================================================ */
+  .site-header { position: fixed; inset: 0 0 auto 0; z-index: 100; transition: background .35s var(--ease), box-shadow .35s, padding .35s; padding-block: 1.25rem; }
+  .site-header.scrolled {
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 var(--border); padding-block: .7rem;
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: -.5px; color: #fff; transition: color .35s; display: inline-flex; align-items: center; gap: .5rem; }
+  .brand svg { width: 26px; height: 26px; color: var(--coral); }
+  .scrolled .brand, .no-hero .brand { color: var(--text); }
+  .nav-links { display: flex; align-items: center; gap: 2rem; }
+  .nav-links a { font-size: .93rem; font-weight: 500; color: rgba(255,255,255,.9); position: relative; transition: color .3s; }
+  .scrolled .nav-links a, .no-hero .nav-links a { color: var(--text-muted); }
+  .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px; background: var(--coral); transition: width .3s var(--ease); }
+  .nav-links a:hover { color: var(--coral); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-actions { display: flex; align-items: center; gap: .75rem; }
+
+  .theme-toggle { width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,.4); background: rgba(255,255,255,.12); color: #fff; cursor: pointer; display: grid; place-items: center; transition: background .3s, color .35s, border-color .35s; }
+  .scrolled .theme-toggle, .no-hero .theme-toggle { border-color: var(--border); background: var(--surface-2); color: var(--text); }
+  .theme-toggle:hover { color: var(--coral); }
+  .theme-toggle svg { width: 20px; height: 20px; }
+  .theme-toggle .moon { display: none; }
+  [data-theme="dark"] .theme-toggle .sun { display: none; }
+  [data-theme="dark"] .theme-toggle .moon { display: block; }
+
+  .nav-toggle { display: none; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer; flex-direction: column; justify-content: center; gap: 6px; padding: 0; }
+  .nav-toggle span { display: block; height: 2px; width: 26px; background: #fff; transition: transform .3s, opacity .3s, background .35s; margin-inline: auto; }
+  .scrolled .nav-toggle span, .no-hero .nav-toggle span { background: var(--text); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  @media (max-width: 900px) {
+    .nav-toggle { display: flex; }
+    .nav-links { position: fixed; inset: 0 0 0 auto; width: min(80vw, 320px); flex-direction: column; align-items: flex-start; justify-content: center; gap: 1.75rem; background: var(--surface); padding: 2rem var(--gutter); transform: translateX(100%); transition: transform .4s var(--ease); box-shadow: var(--shadow); z-index: 90; }
+    .nav-links.open { transform: translateX(0); }
+    .nav-links a { color: var(--text); font-size: 1.15rem; }
+    .nav-links .btn { margin-top: .5rem; }
+  }
+
+  /* ============================================================
+     5. HERO
+     ============================================================ */
+  .hero { position: relative; min-height: 100vh; min-height: 100svh; display: grid; align-items: center; color: #fff; isolation: isolate; }
+  .hero__bg { position: absolute; inset: 0; z-index: -2; object-fit: cover; width: 100%; height: 100%; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(11,58,66,.5) 0%, rgba(11,58,66,.25) 40%, rgba(11,58,66,.7) 100%); }
+  .hero__inner { max-width: 720px; padding-block: 8rem 8rem; }
+  .hero__tags { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 1.5rem; font-size: .9rem; }
+  .hero__tags span { display: inline-flex; align-items: center; gap: .5rem; opacity: .95; }
+  .hero h1 { font-size: clamp(2.7rem, 7vw, 5rem); font-weight: 600; margin-bottom: 1.25rem; letter-spacing: -1px; }
+  .hero h1 em { color: var(--coral-soft); font-style: normal; }
+  .hero p { font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 48ch; color: rgba(255,255,255,.92); margin-bottom: 2.25rem; }
+  .hero__cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  /* Quick booking bar */
+  .book-bar { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.5rem; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.3); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); padding: .85rem; border-radius: var(--radius); }
+  .book-bar .bf { display: flex; flex-direction: column; gap: .25rem; min-width: 120px; flex: 1; }
+  .book-bar label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; opacity: .85; }
+  .book-bar input, .book-bar select { background: rgba(255,255,255,.9); color: #12292e; border: none; border-radius: var(--radius-sm); padding: .55rem .7rem; font-family: inherit; font-size: .9rem; }
+  .book-bar .btn { align-self: stretch; margin-top: auto; }
+
+  /* ============================================================
+     6. ABOUT
+     ============================================================ */
+  .about__grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+  .about__media { position: relative; }
+  .about__media img { border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4/5; object-fit: cover; }
+  .about__media .badge { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--azur); color: #fff; padding: 1.25rem 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
+  .about__media .badge strong { font-family: var(--font-display); font-size: 2rem; display: block; }
+  .about__media .badge span { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; opacity: .9; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+  .stats dt { font-family: var(--font-display); font-size: 2.3rem; color: var(--azur); font-weight: 700; }
+  .stats dd { font-size: .85rem; color: var(--text-muted); }
+
+  /* ============================================================
+     7. UNITS (apartmani)
+     ============================================================ */
+  .units__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .unit-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform .35s var(--ease), box-shadow .35s; }
+  .unit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .unit-card__img { position: relative; aspect-ratio: 3/2; overflow: hidden; }
+  .unit-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+  .unit-card:hover .unit-card__img img { transform: scale(1.06); }
+  .unit-card__badge { position: absolute; top: 1rem; left: 1rem; background: var(--coral); color: #fff; padding: .3rem .8rem; border-radius: 100px; font-size: .75rem; font-weight: 600; letter-spacing: .03em; }
+  .unit-card__price { position: absolute; bottom: 1rem; right: 1rem; background: var(--surface); color: var(--text); padding: .4rem .85rem; border-radius: 100px; font-size: .9rem; font-weight: 700; box-shadow: var(--shadow-sm); }
+  .unit-card__price small { color: var(--text-muted); font-weight: 400; }
+  .unit-card__body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; flex: 1; }
+  .unit-card__body p { color: var(--text-muted); font-size: .95rem; }
+  .unit-specs { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .85rem; color: var(--text-muted); }
+  .unit-specs li { display: inline-flex; align-items: center; gap: .4rem; }
+  .unit-specs svg { width: 17px; height: 17px; color: var(--azur); }
+  .unit-features { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: auto; }
+  .unit-features li { font-size: .77rem; color: var(--text-muted); background: var(--surface-2); padding: .3rem .7rem; border-radius: 100px; }
+
+  /* ============================================================
+     8. AMENITIES
+     ============================================================ */
+  .amenities { background: var(--surface-2); }
+  .amenities__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+  .amenity { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem 1.5rem; transition: transform .3s var(--ease), border-color .3s; text-align: center; }
+  .amenity:hover { transform: translateY(-4px); border-color: var(--azur); }
+  .amenity__icon { width: 52px; height: 52px; border-radius: 14px; background: color-mix(in srgb, var(--azur) 15%, transparent); color: var(--azur); display: grid; place-items: center; margin: 0 auto 1rem; }
+  .amenity__icon svg { width: 26px; height: 26px; }
+  .amenity h3 { font-size: 1.1rem; margin-bottom: .35rem; }
+  .amenity p { color: var(--text-muted); font-size: .88rem; }
+
+  /* ============================================================
+     9. PRICING (cjenik po sezoni)
+     ============================================================ */
+  .pricing__table { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); background: var(--surface); }
+  table.rates { width: 100%; border-collapse: collapse; min-width: 560px; }
+  table.rates th, table.rates td { padding: 1rem 1.25rem; text-align: left; border-bottom: 1px solid var(--border); }
+  table.rates thead th { background: var(--surface-2); font-family: var(--font-display); font-size: .95rem; font-weight: 600; }
+  table.rates tbody tr:last-child td { border-bottom: none; }
+  table.rates td.season { font-weight: 600; }
+  table.rates .price { font-family: var(--font-display); font-weight: 600; color: var(--azur); }
+  .rates tr.peak td { background: color-mix(in srgb, var(--coral) 8%, transparent); }
+  .pricing__note { font-size: .85rem; color: var(--text-muted); margin-top: 1rem; }
+
+  /* ============================================================
+     10. GALLERY
+     ============================================================ */
+  .gallery__grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 1rem; }
+  .gallery__item { overflow: hidden; border-radius: var(--radius-sm); cursor: pointer; position: relative; border: none; padding: 0; background: none; }
+  .gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+  .gallery__item:hover img { transform: scale(1.08); }
+  .gallery__item.tall { grid-row: span 2; }
+  .gallery__item.wide { grid-column: span 2; }
+  @media (max-width: 720px) { .gallery__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; } }
+
+  .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(6,20,22,.92); display: none; place-items: center; padding: 2rem; }
+  .lightbox.open { display: grid; animation: fade .3s; }
+  @keyframes fade { from { opacity: 0; } }
+  .lightbox img { max-width: min(92vw, 1100px); max-height: 88vh; border-radius: var(--radius-sm); box-shadow: var(--shadow); }
+  .lightbox__close { position: absolute; top: 1.5rem; right: 1.5rem; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.1); color: #fff; font-size: 1.5rem; cursor: pointer; }
+  .lightbox__close:hover { background: rgba(255,255,255,.2); }
+
+  /* ============================================================
+     11. CHECK-IN / HOW IT WORKS
+     ============================================================ */
+  .steps { background: var(--azur); color: #fff; }
+  [data-theme="dark"] .steps { background: var(--surface); }
+  .steps .eyebrow { color: #fff; }
+  .steps .eyebrow::before { background: var(--coral-soft); }
+  .steps__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 3rem; counter-reset: step; }
+  .step { position: relative; padding-top: 3.5rem; }
+  .step::before { counter-increment: step; content: counter(step, decimal-leading-zero); position: absolute; top: 0; left: 0; font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: rgba(255,255,255,.35); }
+  [data-theme="dark"] .step::before { color: color-mix(in srgb, var(--azur) 55%, transparent); }
+  .step h3 { font-size: 1.2rem; margin-bottom: .5rem; }
+  .step p { opacity: .9; font-size: .93rem; }
+  [data-theme="dark"] .step p { color: var(--text-muted); opacity: 1; }
+
+  /* ============================================================
+     12. LOCATION
+     ============================================================ */
+  .location__grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .location__map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); }
+  .location__map iframe { width: 100%; height: 420px; border: 0; display: block; }
+  .nearby { display: grid; gap: 1rem; margin-top: 2rem; }
+  .nearby li { display: flex; align-items: center; gap: .9rem; color: var(--text-muted); }
+  .nearby li strong { color: var(--text); font-weight: 600; }
+  .nearby .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--coral); flex-shrink: 0; }
+
+  /* ============================================================
+     13. REVIEWS
+     ============================================================ */
+  .reviews__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .review { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow-sm); }
+  .review__top { display: flex; align-items: center; gap: .5rem; margin-bottom: 1rem; }
+  .review__stars { color: var(--coral); letter-spacing: .1em; }
+  .review__src { margin-left: auto; font-size: .78rem; color: var(--text-muted); background: var(--surface-2); padding: .25rem .6rem; border-radius: 100px; }
+  .review p { font-size: 1.02rem; margin-bottom: 1.25rem; }
+  .review footer { font-size: .88rem; color: var(--text-muted); }
+  .review cite { font-style: normal; font-weight: 600; color: var(--text); }
+
+  /* ============================================================
+     14. CONTACT / FORM
+     ============================================================ */
+  .contact__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 5vw, 4.5rem); }
+  .contact__info h3 { margin-bottom: 1rem; }
+  .contact__info p { color: var(--text-muted); margin-bottom: 2rem; }
+  .contact-list { display: grid; gap: 1.25rem; }
+  .contact-list li { display: flex; gap: .9rem; align-items: flex-start; }
+  .contact-list svg { width: 22px; height: 22px; color: var(--azur); flex-shrink: 0; margin-top: .15rem; }
+  .contact-list a:hover { color: var(--coral); }
+
+  .form { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(1.5rem, 4vw, 2.5rem); box-shadow: var(--shadow-sm); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .field { margin-bottom: 1.25rem; }
+  .field label { display: block; font-size: .85rem; font-weight: 500; margin-bottom: .5rem; }
+  .field label .req { color: var(--coral); }
+  .field input, .field textarea, .field select { width: 100%; padding: .8rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font-family: inherit; font-size: .95rem; transition: border-color .25s, box-shadow .25s; }
+  .field textarea { resize: vertical; min-height: 120px; }
+  .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--azur); box-shadow: 0 0 0 3px color-mix(in srgb, var(--azur) 22%, transparent); }
+  .field .error-msg { display: none; color: #c0392b; font-size: .8rem; margin-top: .4rem; }
+  [data-theme="dark"] .field .error-msg { color: #ff8f7a; }
+  .field.invalid input, .field.invalid textarea, .field.invalid select { border-color: #c0392b; }
+  .field.invalid .error-msg { display: block; }
+  .form__note { font-size: .82rem; color: var(--text-muted); margin-top: 1rem; }
+  .form__success { display: none; background: color-mix(in srgb, var(--azur) 12%, transparent); border: 1px solid var(--azur); color: var(--text); padding: 1rem 1.25rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem; font-size: .92rem; }
+  .form__success.show { display: block; }
+  @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+
+  /* ============================================================
+     15. FOOTER
+     ============================================================ */
+  .site-footer { background: var(--azur-deep); color: rgba(255,255,255,.78); padding-block: clamp(3rem, 6vw, 4.5rem) 2rem; }
+  [data-theme="dark"] .site-footer { background: #071214; }
+  .footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
+  .footer__grid h4 { font-family: var(--font-body); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: #fff; margin-bottom: 1.25rem; }
+  .footer__brand .brand { color: #fff; margin-bottom: 1rem; display: inline-flex; }
+  .footer__brand p { font-size: .92rem; max-width: 34ch; }
+  .footer__grid ul { display: grid; gap: .7rem; }
+  .footer__grid a { font-size: .92rem; transition: color .25s; }
+  .footer__grid a:hover { color: var(--coral-soft); }
+  .socials { display: flex; gap: .75rem; margin-top: 1.25rem; }
+  .socials a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; transition: background .25s, border-color .25s; }
+  .socials a:hover { background: rgba(255,255,255,.12); border-color: var(--coral-soft); }
+  .socials svg { width: 18px; height: 18px; }
+  .footer__bottom { border-top: 1px solid rgba(255,255,255,.12); padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .85rem; }
+
+  @media (max-width: 900px) {
+    .about__grid, .location__grid, .contact__grid { grid-template-columns: 1fr; }
+    .about__media { max-width: 460px; }
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .stats { grid-template-columns: 1fr 1fr; }
+    .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer__bottom { flex-direction: column; }
+  }
+
+  /* ============================================================
+     16. SCROLL REVEAL
+     ============================================================ */
+  .js [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  .js [data-reveal].visible { opacity: 1; transform: none; }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header" id="header">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Apartmani Azur — početna">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg>
+        Apartmani Azur
+      </a>
+      <nav aria-label="Glavna navigacija">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">O nama</a></li>
+          <li><a href="#units">Apartmani</a></li>
+          <li><a href="#pricing">Cjenik</a></li>
+          <li><a href="#gallery">Galerija</a></li>
+          <li><a href="#location">Lokacija</a></li>
+          <li><a href="#contact" class="btn btn-primary">Rezerviraj</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Promijeni svijetlu/tamnu temu">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" aria-label="Dobrodošli">
+      <img class="hero__bg" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1920&q=80" alt="Svijetli moderni apartman s pogledom na more" />
+      <div class="container hero__inner">
+        <div class="hero__tags" data-reveal>
+          <span>◆ Zadar, Hrvatska</span>
+          <span>★ 9.7/10 · 240+ recenzija</span>
+          <span>◆ 2 min do plaže</span>
+        </div>
+        <h1 data-reveal>Vaš dom uz more, <em>bez kompromisa.</em></h1>
+        <p data-reveal>Svijetli, moderno opremljeni apartmani na dvije minute od plaže. Self check-in, besplatan parking i sve što treba za bezbrižan odmor.</p>
+        <div class="hero__cta" data-reveal>
+          <a href="#units" class="btn btn-primary">Pogledaj apartmane</a>
+          <a href="#pricing" class="btn btn-light">Cjenik i dostupnost</a>
+        </div>
+
+        <!-- Brzi upit -->
+        <form class="book-bar" data-reveal id="quickBar" aria-label="Brza provjera dostupnosti">
+          <div class="bf"><label for="qb-in">Dolazak</label><input type="date" id="qb-in" /></div>
+          <div class="bf"><label for="qb-out">Odlazak</label><input type="date" id="qb-out" /></div>
+          <div class="bf"><label for="qb-guests">Gosti</label>
+            <select id="qb-guests"><option>2 osobe</option><option>3 osobe</option><option>4 osobe</option><option>5+ osoba</option></select>
+          </div>
+          <button type="submit" class="btn btn-primary">Provjeri</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="section" id="about">
+      <div class="container about__grid">
+        <div class="about__media" data-reveal>
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80" alt="Interijer svijetlog apartmana s kuhinjom" />
+          <div class="badge"><strong>4</strong><span>apartmana uz more</span></div>
+        </div>
+        <div data-reveal>
+          <span class="eyebrow">O nama</span>
+          <h2>Malo mjesto, velika pažnja.</h2>
+          <p class="lead">Apartmani Azur obiteljski su vođeni smještaj u mirnoj četvrti nadomak plaže. Svaki apartman uređen je s mjerom — svijetlo, čisto i praktično, s onim sitnicama zbog kojih se osjećate kao kod kuće.</p>
+          <p style="margin-top:1rem;color:var(--text-muted)">Dočekat ćemo vas osobno ili vam poslati kod za samostalni ulazak — kako vama odgovara. Uvijek smo tu za savjet gdje jesti, kupati se i što ne propustiti.</p>
+          <dl class="stats">
+            <div><dt>4</dt><dd>Apartmana (2–6 osoba)</dd></div>
+            <div><dt>9.7</dt><dd>Prosječna ocjena</dd></div>
+            <div><dt>2 min</dt><dd>Pješice do plaže</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== UNITS ==================== -->
+    <section class="section" id="units">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="eyebrow">Smještaj</span>
+          <h2>Odaberite svoj apartman</h2>
+          <p class="lead">Od studija za dvoje do prostranog apartmana za obitelj — svaki s vlastitim ulazom, kuhinjom i terasom.</p>
+        </div>
+        <div class="units__grid">
+          <!-- APT 1 -->
+          <article class="unit-card" data-reveal>
+            <div class="unit-card__img">
+              <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" alt="Studio apartman za dvoje" />
+              <span class="unit-card__badge">Za parove</span>
+              <span class="unit-card__price">€65 <small>/ noć</small></span>
+            </div>
+            <div class="unit-card__body">
+              <h3>Studio Mistral</h3>
+              <p>Svijetli studio s francuskim balkonom, idealan za dvoje. Potpuno opremljena kuhinja i pogled na vrt.</p>
+              <ul class="unit-specs">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg> 2 osobe</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5l9-3 9 3v16M9 21v-6h6v6"/></svg> 32 m²</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg> 1. kat</li>
+              </ul>
+              <ul class="unit-features"><li>Balkon</li><li>Klima</li><li>Kuhinja</li><li>Wi-Fi</li></ul>
+              <a href="#contact" class="btn btn-ghost">Rezerviraj</a>
+            </div>
+          </article>
+          <!-- APT 2 -->
+          <article class="unit-card" data-reveal>
+            <div class="unit-card__img">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Apartman s pogledom na more za obitelj" />
+              <span class="unit-card__badge">Najpopularniji</span>
+              <span class="unit-card__price">€110 <small>/ noć</small></span>
+            </div>
+            <div class="unit-card__body">
+              <h3>Apartman Bura</h3>
+              <p>Prostran apartman s odvojenom spavaćom sobom i terasom s pogledom na more. Savršen za obitelj.</p>
+              <ul class="unit-specs">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg> 4 osobe</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5l9-3 9 3v16M9 21v-6h6v6"/></svg> 52 m²</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg> 2. kat</li>
+              </ul>
+              <ul class="unit-features"><li>Pogled na more</li><li>Terasa</li><li>2 sobe</li><li>Perilica</li></ul>
+              <a href="#contact" class="btn btn-ghost">Rezerviraj</a>
+            </div>
+          </article>
+          <!-- APT 3 -->
+          <article class="unit-card" data-reveal>
+            <div class="unit-card__img">
+              <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="Veliki apartman s dvije spavaće sobe" />
+              <span class="unit-card__badge">Za veće grupe</span>
+              <span class="unit-card__price">€160 <small>/ noć</small></span>
+            </div>
+            <div class="unit-card__body">
+              <h3>Penthouse Jugo</h3>
+              <p>Naš najveći apartman: dvije spavaće sobe, prostrana dnevna i krovna terasa s ležaljkama.</p>
+              <ul class="unit-specs">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg> 6 osoba</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5l9-3 9 3v16M9 21v-6h6v6"/></svg> 78 m²</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg> 3. kat</li>
+              </ul>
+              <ul class="unit-features"><li>Krovna terasa</li><li>2 kupaonice</li><li>Pogled na more</li><li>Parking</li></ul>
+              <a href="#contact" class="btn btn-ghost">Rezerviraj</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== AMENITIES ==================== -->
+    <section class="section amenities" id="amenities">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="eyebrow">Sadržaji</span>
+          <h2>Sve uključeno u cijenu</h2>
+        </div>
+        <div class="amenities__grid">
+          <div class="amenity" data-reveal>
+            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M2 8.82a15 15 0 0 1 20 0M12 20h.01"/></svg></div>
+            <h3>Brzi Wi-Fi</h3><p>Optika 200 Mbps u svim apartmanima — dovoljno i za rad.</p>
+          </div>
+          <div class="amenity" data-reveal>
+            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="16" r="1"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <h3>Self check-in</h3><p>Vlastiti kod za ulazak — stižete kad vama odgovara.</p>
+          </div>
+          <div class="amenity" data-reveal>
+            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <h3>Besplatan parking</h3><p>Osigurano mjesto uz objekt za svaki apartman.</p>
+          </div>
+          <div class="amenity" data-reveal>
+            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2M8 7v13M16 7v13M4 20h16"/></svg></div>
+            <h3>Opremljena kuhinja</h3><p>Sve posuđe, aparat za kavu, perilica — kao kod kuće.</p>
+          </div>
+          <div class="amenity" data-reveal>
+            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/><circle cx="12" cy="12" r="9"/></svg></div>
+            <h3>Klima u svakoj sobi</h3><p>Rashladite se nakon dana na suncu — tiho i učinkovito.</p>
+          </div>
+          <div class="amenity" data-reveal>
+            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20s2-4 8-4 8 4 8 4M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div>
+            <h3>Ljubimci dobrodošli</h3><p>Putujete s ljubimcem? Uz najavu, rado ih primamo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PRICING ==================== -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Cjenik</span>
+          <h2>Cijene po sezoni</h2>
+          <p class="lead">Transparentne cijene po noći. Rezervacijom direktno kod nas štedite do 18% u odnosu na booking portale.</p>
+        </div>
+        <div class="pricing__table" data-reveal>
+          <table class="rates">
+            <thead>
+              <tr><th>Razdoblje</th><th>Studio Mistral</th><th>Apartman Bura</th><th>Penthouse Jugo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="season">Predsezona (svibanj, listopad)</td><td class="price">€55</td><td class="price">€90</td><td class="price">€130</td></tr>
+              <tr><td class="season">Sezona (lipanj, rujan)</td><td class="price">€65</td><td class="price">€110</td><td class="price">€160</td></tr>
+              <tr class="peak"><td class="season">Špica (srpanj, kolovoz)</td><td class="price">€85</td><td class="price">€140</td><td class="price">€210</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pricing__note" data-reveal>Cijene su po apartmanu / noći. Uključuju finalno čišćenje, posteljinu i boravišnu pristojbu. Minimalni boravak u špici je 4 noći.</p>
+      </div>
+    </section>
+
+    <!-- ==================== GALLERY ==================== -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="eyebrow">Galerija</span>
+          <h2>Zavirite unutra</h2>
+        </div>
+        <div class="gallery__grid">
+          <button class="gallery__item wide" data-reveal><img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=900&q=80" alt="Dnevni boravak apartmana" /></button>
+          <button class="gallery__item tall" data-reveal><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=700&q=80" alt="Spavaća soba" /></button>
+          <button class="gallery__item" data-reveal><img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=700&q=80" alt="Moderna kupaonica" /></button>
+          <button class="gallery__item" data-reveal><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80" alt="Kuhinja s blagovaonicom" /></button>
+          <button class="gallery__item tall" data-reveal><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80" alt="Terasa s pogledom" /></button>
+          <button class="gallery__item wide" data-reveal><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80" alt="Plaža nadomak apartmana" /></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CHECK-IN STEPS ==================== -->
+    <section class="section steps">
+      <div class="container">
+        <div class="section-head" data-reveal style="max-width:560px">
+          <span class="eyebrow">Kako rezervirati</span>
+          <h2>Od upita do ključa u 4 koraka</h2>
+        </div>
+        <div class="steps__grid">
+          <div class="step" data-reveal><h3>Pošaljite upit</h3><p>Odaberite termin i apartman, ispunite kratki obrazac. Odgovaramo unutar nekoliko sati.</p></div>
+          <div class="step" data-reveal><h3>Potvrda i akontacija</h3><p>Šaljemo ponudu i podatke za rezervaciju. Termin je vaš čim uplatite akontaciju.</p></div>
+          <div class="step" data-reveal><h3>Dobijete upute</h3><p>Dan prije dolaska stiže vam kod za samostalni ulazak i sve praktične informacije.</p></div>
+          <div class="step" data-reveal><h3>Uživajte</h3><p>Uđite kad stignete, a mi smo na poruku udaljeni za svaki savjet tijekom boravka.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== LOCATION ==================== -->
+    <section class="section" id="location">
+      <div class="container location__grid">
+        <div data-reveal>
+          <span class="eyebrow">Lokacija</span>
+          <h2>Blizu svega, daleko od gužve</h2>
+          <p class="lead">Mirna ulica na dvije minute od plaže, a desetak minuta šetnje do kafića, trgovina i stare gradske jezgre.</p>
+          <ul class="nearby">
+            <li><span class="dot"></span><span><strong>Gradska plaža</strong> — 150 m (2 min hoda)</span></li>
+            <li><span class="dot"></span><span><strong>Restorani i kafići</strong> — 400 m</span></li>
+            <li><span class="dot"></span><span><strong>Trgovina i tržnica</strong> — 300 m</span></li>
+            <li><span class="dot"></span><span><strong>Zračna luka Zadar</strong> — 20 min vožnje</span></li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="margin-top:2rem">Zatraži upute za dolazak</a>
+        </div>
+        <div class="location__map" data-reveal>
+          <iframe title="Lokacija Apartmana Azur na karti" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=15.20%2C44.10%2C15.26%2C44.13&layer=mapnik&marker=44.115%2C15.230"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== REVIEWS ==================== -->
+    <section class="section amenities">
+      <div class="container">
+        <div class="section-head center" data-reveal style="max-width:560px">
+          <span class="eyebrow">Recenzije gostiju</span>
+          <h2>Ono što gosti najviše pamte</h2>
+        </div>
+        <div class="reviews__grid">
+          <article class="review" data-reveal>
+            <div class="review__top"><span class="review__stars" aria-label="5 od 5">★★★★★</span><span class="review__src">Booking</span></div>
+            <p>„Apartman točno kao na slikama, čist i svijetao. Domaćini super komunikacija i savjeti gdje jesti. Vraćamo se!"</p>
+            <footer><cite>Ivana &amp; Marko</cite> · Zagreb</footer>
+          </article>
+          <article class="review" data-reveal>
+            <div class="review__top"><span class="review__stars" aria-label="5 od 5">★★★★★</span><span class="review__src">Airbnb</span></div>
+            <p>„Self check-in je funkcionirao besprijekorno, stigli smo kasno navečer bez ikakvog stresa. Plaža je stvarno na dvije minute."</p>
+            <footer><cite>Thomas</cite> · München</footer>
+          </article>
+          <article class="review" data-reveal>
+            <div class="review__top"><span class="review__stars" aria-label="5 od 5">★★★★★</span><span class="review__src">Google</span></div>
+            <p>„Penthouse s krovnom terasom je nešto posebno. Djeca oduševljena, parking ispred vrata — sve pet."</p>
+            <footer><cite>Petra S.</cite> · Ljubljana</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="section" id="contact">
+      <div class="container contact__grid">
+        <div class="contact__info" data-reveal>
+          <span class="eyebrow">Rezervacije</span>
+          <h2>Provjerite dostupnost</h2>
+          <p>Rezervirajte direktno — bez provizije portala i posrednika. Odgovaramo u pravilu unutar nekoliko sati.</p>
+          <ul class="contact-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Ulica Azur 12, 23000 Zadar, Hrvatska</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+38523000000">+385 23 000 000</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:info@apartmani-azur.hr">info@apartmani-azur.hr</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg><a href="#">WhatsApp / Viber: +385 91 000 000</a></li>
+          </ul>
+        </div>
+
+        <form class="form" id="bookingForm" novalidate data-reveal>
+          <div class="form__success" id="formSuccess" role="status">Hvala! Vaš upit je zaprimljen — javljamo se u najkraćem roku s ponudom.</div>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Ime i prezime <span class="req">*</span></label>
+              <input type="text" id="name" name="name" required minlength="2" autocomplete="name" />
+              <span class="error-msg">Molimo unesite ime i prezime.</span>
+            </div>
+            <div class="field">
+              <label for="email">E-mail <span class="req">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+              <span class="error-msg">Unesite ispravnu e-mail adresu.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="checkin">Dolazak</label>
+              <input type="date" id="checkin" name="checkin" />
+              <span class="error-msg"></span>
+            </div>
+            <div class="field">
+              <label for="unit">Apartman</label>
+              <select id="unit" name="unit">
+                <option>Studio Mistral (2 os.)</option>
+                <option selected>Apartman Bura (4 os.)</option>
+                <option>Penthouse Jugo (6 os.)</option>
+                <option>Nisam siguran/na</option>
+              </select>
+              <span class="error-msg"></span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Poruka <span class="req">*</span></label>
+            <textarea id="message" name="message" required minlength="10" placeholder="Termin, broj gostiju i sve što vas zanima…"></textarea>
+            <span class="error-msg">Napišite poruku (najmanje 10 znakova).</span>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%">Pošalji upit</button>
+          <p class="form__note">Slanjem prihvaćate obradu podataka isključivo u svrhu rezervacije.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg> Apartmani Azur</a>
+          <p>Svijetli, moderni apartmani uz more. Vaš dom daleko od doma.</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Booking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3h9a4 4 0 0 1 0 8H6zM6 11h10a4 4 0 0 1 0 8H6z"/></svg></a>
+          </div>
+        </div>
+        <div><h4>Smještaj</h4><ul><li><a href="#units">Apartmani</a></li><li><a href="#pricing">Cjenik</a></li><li><a href="#amenities">Sadržaji</a></li><li><a href="#gallery">Galerija</a></li></ul></div>
+        <div><h4>Informacije</h4><ul><li><a href="#location">Kako do nas</a></li><li><a href="#contact">Rezervacije</a></li><li><a href="#">Uvjeti boravka</a></li><li><a href="#">Privatnost</a></li></ul></div>
+        <div><h4>Kontakt</h4><ul><li><a href="tel:+38523000000">+385 23 000 000</a></li><li><a href="mailto:info@apartmani-azur.hr">info@apartmani-azur.hr</a></li><li>Ulica Azur 12, Zadar</li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> Apartmani Azur. Sva prava pridržana.</span>
+        <span>Rezervirajte direktno — bez provizije.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== LIGHTBOX ==================== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Uvećana slika">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Zatvori">&times;</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <script>
+  /* ============================================================
+     JAVASCRIPT — sve interakcije (bez vanjskih biblioteka)
+     ============================================================ */
+  (function () {
+    "use strict";
+    const root = document.documentElement;
+    root.classList.add("js");
+
+    const store = {
+      get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+      set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+    };
+
+    /* 1. THEME */
+    const themeToggle = document.getElementById("themeToggle");
+    const stored = store.get("azur-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    root.setAttribute("data-theme", stored || (prefersDark ? "dark" : "light"));
+    themeToggle.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      store.set("azur-theme", next);
+    });
+
+    /* 2. STICKY HEADER */
+    const header = document.getElementById("header");
+    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    /* 3. MOBILE NAV */
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    const closeNav = () => { navLinks.classList.remove("open"); navToggle.setAttribute("aria-expanded", "false"); };
+    navToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(open));
+    });
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeNav(); });
+
+    /* 4. SCROLL REVEAL */
+    const reveals = document.querySelectorAll("[data-reveal]");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            entry.target.style.transitionDelay = (i % 4) * 80 + "ms";
+            entry.target.classList.add("visible");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add("visible"));
+    }
+
+    /* 5. LIGHTBOX */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+    document.querySelectorAll(".gallery__item").forEach(item => {
+      item.addEventListener("click", () => {
+        const img = item.querySelector("img");
+        lightboxImg.src = img.src; lightboxImg.alt = img.alt;
+        lightbox.classList.add("open");
+      });
+    });
+    const closeLightbox = () => { lightbox.classList.remove("open"); lightboxImg.src = ""; };
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+    /* 6. FORM VALIDATION */
+    const form = document.getElementById("bookingForm");
+    const success = document.getElementById("formSuccess");
+    const validators = {
+      name: v => v.trim().length >= 2,
+      email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+      message: v => v.trim().length >= 10,
+    };
+    const validateField = (field) => {
+      const check = validators[field.name];
+      if (!check) return true;
+      const ok = check(field.value);
+      field.closest(".field").classList.toggle("invalid", !ok);
+      return ok;
+    };
+    form.querySelectorAll("input, textarea").forEach(f => {
+      f.addEventListener("input", () => { if (f.closest(".field").classList.contains("invalid")) validateField(f); });
+    });
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let valid = true, firstInvalid = null;
+      ["name", "email", "message"].forEach(nm => {
+        const field = form.elements[nm];
+        if (!validateField(field)) { valid = false; if (!firstInvalid) firstInvalid = field; }
+      });
+      if (!valid) { firstInvalid && firstInvalid.focus(); return; }
+      success.classList.add("show");
+      form.reset();
+      success.scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(() => success.classList.remove("show"), 6000);
+    });
+
+    /* 7. QUICK BAR → skrolaj na kontakt */
+    const quickBar = document.getElementById("quickBar");
+    if (quickBar) quickBar.addEventListener("submit", (e) => {
+      e.preventDefault();
+      document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+    });
+
+    /* 8. Godina u footeru */
+    document.getElementById("year").textContent = new Date().getFullYear();
+  })();
+  </script>
+</body>
+</html>
