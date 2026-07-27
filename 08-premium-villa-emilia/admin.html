@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="hr" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Vlasnički panel — Villa Emilia</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/premium.css" />
+<style>
+  /* Dodatni stilovi samo za panel */
+  body { padding-bottom: 0; }
+  .admin-top { background: var(--ink); color: #ece5d8; padding-block: 1.1rem; }
+  .admin-top .nav { align-items: center; }
+  body.has-solid-header .admin-top .brand { color: #fff; }
+  body.has-solid-header .admin-top .brand svg { color: var(--gold); }
+  .admin-top .brand small { opacity: .7; }
+  .admin-top a.back { font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+  .admin-top a.back:hover { color: var(--gold); }
+
+  .gate { min-height: 70vh; display: grid; place-items: center; }
+  .gate form { max-width: 380px; width: 100%; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.4rem; }
+  .stat b { display: block; font-family: var(--font-display); font-size: 2rem; color: var(--gold); line-height: 1.1; }
+  .stat span { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+
+  .tabs { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+  .tab-btn { border: 1px solid var(--border); background: var(--surface); color: var(--text-muted); cursor: pointer;
+             padding: .65rem 1.3rem; border-radius: 100px; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
+  .tab-btn[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
+
+  .ad-day { aspect-ratio: 1; display: grid; place-items: center; font-size: .85rem; border-radius: var(--radius-sm);
+            border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; padding: 0;
+            transition: transform .15s var(--ease), border-color .2s; }
+  .ad-day:hover { transform: scale(1.08); border-color: var(--gold); }
+  .ad-free   { background: var(--surface); }
+  .ad-own    { background: var(--gold); border-color: var(--gold); color: var(--on-gold); font-weight: 500; }
+  .ad-portal { background: #6c8ebf; border-color: #6c8ebf; color: #fff; }
+  .ad-manual { background: color-mix(in srgb, var(--text-muted) 35%, transparent); }
+  .ad-past   { opacity: .4; }
+  .legend-admin { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: .85rem; color: var(--text-muted); margin-top: 1.25rem; }
+  .legend-admin i { width: 13px; height: 13px; border-radius: 4px; display: inline-block; margin-right: .45rem; vertical-align: -1px; }
+
+  .tbl-wrap { overflow-x: auto; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 720px; }
+  .tbl th { text-align: left; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted);
+            padding: .75rem .8rem; border-bottom: 1px solid var(--border); font-weight: 500; }
+  .tbl td { padding: .85rem .8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .tbl tr:hover td { background: var(--surface-2); }
+  .muted { color: var(--text-muted); font-size: .82rem; }
+
+  .note-box { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--gold);
+              border-radius: var(--radius-sm); padding: 1.2rem 1.35rem; margin-bottom: 1.5rem; font-size: .93rem; }
+  .note-box code { background: var(--surface-2); padding: .1rem .4rem; border-radius: 4px; font-size: .88em; }
+  pre.snippet { background: var(--ink); color: #ece5d8; padding: 1.1rem 1.25rem; border-radius: var(--radius-sm);
+                overflow-x: auto; font-size: .82rem; line-height: 1.6; }
+  .btn-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .file-label { display: inline-flex; align-items: center; gap: .5rem; cursor: pointer; }
+  .file-label input { display: none; }
+</style>
+</head>
+
+<body class="has-solid-header">
+
+<header class="admin-top">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9.5 21v-6h5v6M9.5 11.5h5"/></svg>
+      <span><b>Villa Emilia</b><small>Vlasnički panel</small></span>
+    </a>
+    <div style="display:flex;gap:1.25rem;align-items:center">
+      <a class="back" href="index.html">← Na stranicu</a>
+      <button class="btn btn-ghost btn-sm" id="logout" style="color:#ece5d8;border-color:rgba(255,255,255,.3)">Odjava</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== PRIJAVA ===================== -->
+<div class="gate container" id="gate" style="display:none">
+  <form class="panel" id="gateForm">
+    <h3>Prijava</h3>
+    <p class="muted" style="margin-bottom:1.25rem">Panel je zaštićen PIN-om. Demo PIN je <b>1234</b>.</p>
+    <div class="field">
+      <label for="pin">PIN</label>
+      <input type="password" id="pin" inputmode="numeric" autocomplete="off" />
+      <span class="err" id="gateErr" style="display:none">Pogrešan PIN.</span>
+    </div>
+    <button class="btn btn-primary" type="submit" style="width:100%">Otvori panel</button>
+  </form>
+</div>
+
+<!-- ===================== PANEL ===================== -->
+<main class="section" id="panel" style="display:none;padding-top:clamp(2rem,5vw,3.5rem)">
+  <div class="container">
+
+    <div class="section-head" style="margin-bottom:2rem">
+      <span class="eyebrow">Upravljanje</span>
+      <h1 style="font-size:clamp(2rem,4vw,2.8rem)">Rezervacije i kalendar</h1>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b id="statBookings">0</b><span>Rezervacija</span></div>
+      <div class="stat"><b id="statRevenue">0 €</b><span>Vrijednost</span></div>
+      <div class="stat"><b id="statBlocked">0</b><span>Ručno blokirano</span></div>
+      <div class="stat"><b id="statPortal">0</b><span>Termina s portala</span></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn" data-tab="cal" aria-pressed="true">Kalendar</button>
+      <button class="tab-btn" data-tab="res" aria-pressed="false">Rezervacije</button>
+      <button class="tab-btn" data-tab="sync" aria-pressed="false">Sinkronizacija</button>
+      <button class="tab-btn" data-tab="data" aria-pressed="false">Izvoz podataka</button>
+    </div>
+
+    <!-- KALENDAR -->
+    <section class="tab" id="tab-cal">
+      <div class="panel">
+        <div class="note-box">
+          Klikom na datum ručno ga <b>blokirate</b> ili <b>otključavate</b> — npr. kad je apartman zauzet za obitelj
+          ili se radi održavanje. Termini koji dolaze s Booking.com-a i Airbnb-a označeni su plavo i mijenjaju se
+          na portalu, ne ovdje.
+        </div>
+
+        <div class="row-2" style="align-items:end">
+          <div class="field">
+            <label for="adminUnit">Apartman</label>
+            <select id="adminUnit"></select>
+          </div>
+          <div class="cal-head" style="margin-bottom:1.1rem">
+            <button type="button" id="calPrev" aria-label="Prethodni mjesec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <span id="calRange" class="muted"></span>
+            <button type="button" id="calNext" aria-label="Sljedeći mjesec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="cal-months" id="adminCal" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))"></div>
+
+        <div class="legend-admin">
+          <span><i style="border:1px solid var(--border);background:var(--surface)"></i>Slobodno</span>
+          <span><i style="background:var(--gold)"></i>Ručno blokirano (vi)</span>
+          <span><i style="background:#6c8ebf"></i>Booking.com / Airbnb</span>
+          <span><i style="background:color-mix(in srgb, var(--text-muted) 35%, transparent)"></i>Upisano u data.js</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- REZERVACIJE -->
+    <section class="tab hidden" id="tab-res">
+      <div class="panel">
+        <div class="note-box">
+          Ovdje se prikazuju rezervacije napravljene <b>direktno preko stranice</b>. U demo verziji spremaju se u ovaj
+          preglednik; kad se uključi Stripe i server, upisuju se u bazu i vidljive su s bilo kojeg uređaja.
+        </div>
+        <div id="bookingsList"></div>
+      </div>
+    </section>
+
+    <!-- SINKRONIZACIJA -->
+    <section class="tab hidden" id="tab-sync">
+      <div class="panel">
+        <div class="note-box" id="syncStatus">Provjeravam status sinkronizacije…</div>
+
+        <h3>Kako povezati Booking.com i Airbnb</h3>
+        <ol style="margin:1.25rem 0 0 1.2rem;display:grid;gap:.75rem;list-style:decimal">
+          <li>Na <b>Booking.com</b> extranetu otvorite <i>Stopa i dostupnost → Sinkronizacija kalendara</i> i kopirajte
+              iCal link svakog apartmana.</li>
+          <li>Na <b>Airbnb-u</b> otvorite <i>Kalendar → Dostupnost → Povežite kalendare</i> i kopirajte iCal link.</li>
+          <li>Linkove upišite u <code>assets/js/data.js</code>, u polje <code>ical</code> svakog apartmana.</li>
+          <li>Serverska skripta (opisana u README-u) svaka tri sata čita te linkove i osvježava
+              <code>availability.json</code> — kalendar na stranici tada prikazuje stvarno stanje.</li>
+          <li>U suprotnom smjeru: u kartici <i>Izvoz podataka</i> preuzmite <b>.ics</b> datoteku i njezinu adresu
+              zalijepite u Booking.com i Airbnb, da i oni vide direktne rezervacije.</li>
+        </ol>
+
+        <p class="muted" style="margin-top:1.5rem">
+          Dok sinkronizacija nije postavljena, kalendar radi s terminima iz <code>data.js</code> i s onima koje ovdje
+          ručno blokirate — ništa se ne gubi.
+        </p>
+      </div>
+    </section>
+
+    <!-- IZVOZ -->
+    <section class="tab hidden" id="tab-data">
+      <div class="panel">
+        <div class="note-box">
+          Podaci se u demo verziji čuvaju u ovom pregledniku. Izvezite ih ako mijenjate uređaj ili brišete povijest
+          pregledavanja.
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" id="expIcs">Preuzmi .ics za portale</button>
+          <button class="btn btn-ghost" id="expJson">Izvezi sve podatke (JSON)</button>
+          <label class="btn btn-ghost file-label">
+            Uvezi podatke (JSON)
+            <input type="file" id="impJson" accept="application/json" />
+          </label>
+          <button class="btn btn-ghost" id="showSnippet">Prikaži termine za data.js</button>
+        </div>
+
+        <div id="snippetBox" style="display:none;margin-top:1.75rem">
+          <p class="muted" style="margin-bottom:.75rem">
+            Ovo zalijepite u <code>assets/js/data.js</code> ako termine želite trajno upisati u stranicu:
+          </p>
+          <pre class="snippet" id="snippet"></pre>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>
