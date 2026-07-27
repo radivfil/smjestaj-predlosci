@@ -51,64 +51,69 @@ a može se otvoriti i izravno: `index.html?lang=de`.
 
 Cilj: gost na stranici uvijek vidi **stvarno stanje**, bez dvostrukih rezervacija.
 
-### Smjer 1 — s portala na stranicu (import)
+Sinkronizacija je **napisana i radi — bez servera**. Portali ne dopuštaju
+čitanje kalendara izravno iz preglednika (CORS), pa posao obavlja
+`tools/sync-ical.js`, a pokreće ga **GitHub Action** svaka tri sata
+(`.github/workflows/sync-kalendar.yml`). Rezultat je `availability.json` koji
+stranica čita pri svakom otvaranju.
 
-1. **Booking.com** extranet → *Stopa i dostupnost → Sinkronizacija kalendara* →
-   kopirajte iCal link svakog apartmana.
-2. **Airbnb** → *Kalendar → Dostupnost → Povežite kalendare* → kopirajte iCal link.
-3. Linkove upišite u `assets/js/data.js`, u polje `ical` svakog apartmana:
+### Postavljanje (jednokratno, ~10 minuta)
 
-   ```js
-   ical: {
-     booking: "https://ical.booking.com/v1/export?t=...",
-     airbnb:  "https://www.airbnb.com/calendar/ical/12345.ics?s=..."
-   }
+1. **Booking.com** extranet → *Stopa i dostupnost → Sinkronizacija kalendara →
+   Izvezi* → kopirajte iCal link svakog apartmana.
+2. **Airbnb** → *Kalendar → Dostupnost → Povežite kalendare → Izvezi kalendar* →
+   kopirajte link.
+3. U GitHub repozitoriju: *Settings → Secrets and variables → Actions →
+   New repository secret*, ime **`VE_ICAL_SOURCES`**, vrijednost:
+
+   ```json
+   {"a1":{"booking":"https://ical.booking.com/v1/export?t=...","airbnb":"https://www.airbnb.com/calendar/ical/123.ics?s=..."},
+    "a2":{"booking":"...","airbnb":"..."},
+    "a3":{"booking":"...","airbnb":"..."}}
    ```
 
-4. Skripta na serveru (cron svaka 3 sata) čita te linkove i piše
-   `availability.json`. Portali ne dopuštaju čitanje izravno iz preglednika
-   (CORS), zato je potreban server. Minimalni primjer (Node):
+   Linkovi su tajni (tko ih ima, vidi kalendar), zato idu u Secrets, a ne u kod.
+   Alternativa bez GitHuba: iste linkove upisati u polje `ical` u `data.js` i
+   skriptu pokretati cronom na bilo kojem hostingu.
 
-   ```js
-   // sync.js — pokreće se cronom: node sync.js
-   const fs = require("fs");
-   const ical = require("node-ical");           // npm i node-ical
-   const units = require("./units.json");        // { a1: {booking, airbnb}, ... }
+4. Kartica *Actions* → **Sinkronizacija kalendara** → *Run workflow* da provjerite
+   prolazi li. Dalje ide samo, u 00, 03, 06… sati (UTC).
 
-   (async () => {
-     const out = { generatedAt: new Date().toISOString(),
-                   sources: ["Booking.com iCal", "Airbnb iCal"], units: {} };
+Ručno pokretanje s vlastitog računala:
 
-     for (const [id, links] of Object.entries(units)) {
-       const ranges = [];
-       for (const url of Object.values(links).filter(Boolean)) {
-         const events = await ical.async.fromURL(url);
-         for (const ev of Object.values(events)) {
-           if (ev.type !== "VEVENT") continue;
-           const from = ev.start.toISOString().slice(0, 10);
-           // DTEND je u iCal-u ekskluzivan → oduzmi jedan dan
-           const end = new Date(ev.end.getTime() - 86400000).toISOString().slice(0, 10);
-           ranges.push([from, end]);
-         }
-       }
-       out.units[id] = ranges;
-     }
-     fs.writeFileSync("availability.json", JSON.stringify(out, null, 2));
-   })();
-   ```
+```bash
+cd 08-premium-villa-emilia
+VE_ICAL_SOURCES='{"a1":{"booking":"https://…","airbnb":"https://…"}}' node tools/sync-ical.js
+```
 
-   Datoteka `availability.json` u ovom demou sadrži ogledne termine da se vidi
-   kako izgleda kad sinkronizacija radi.
+### Što skripta radi
 
-### Smjer 2 — sa stranice na portale (export)
+- čita iCal s više izvora po apartmanu i spaja ih u jedan popis zauzetih dana;
+- ispravno tumači `DTEND` (u iCal-u je ekskluzivan — zadnja zauzeta noć je dan prije);
+- preskače otkazane termine (`STATUS:CANCELLED`) i razumije prelomljene retke;
+- spaja preklapajuće i susjedne termine (04.–11. 7. + 12.–14. 7. → 04.–14. 7.);
+- ako portal ne odgovori, **zadržava zadnje poznato stanje** i upiše grešku u
+  `availability.json`, pa se zauzet termin nikad ne prikaže kao slobodan;
+  upozorenje se vidi u vlasničkom panelu, kartica *Sinkronizacija*;
+- usput izvozi vlastite termine u `kalendar/a1.ics`, `a2.ics`, `a3.ics`.
 
-U vlasničkom panelu → *Izvoz podataka* → **Preuzmi .ics za portale**. Datoteku
-postavite na server (npr. `/kalendar/a1.ics`) i njezinu adresu zalijepite u
-Booking.com i Airbnb kao vanjski kalendar. Tako i portali vide direktne
-rezervacije i ručno blokirane termine.
+### Smjer prema portalima (export)
 
-> Kad se uključi server s bazom (niže), ovaj se `.ics` generira automatski i ne
-> treba ga ručno preuzimati.
+Adrese izvezenih datoteka:
+
+```
+https://<domena>/kalendar/a1.ics
+https://<domena>/kalendar/a2.ics
+https://<domena>/kalendar/a3.ics
+```
+
+Zalijepite ih na Booking.com (*Sinkronizacija kalendara → Uvezi*) i Airbnb
+(*Povežite kalendare → Uvezi kalendar*). Tako portali vide termine blokirane na
+vašoj strani. Te datoteke osvježava ista Action skripta iz `booked` polja u
+`data.js`; termine iz vlasničkog panela prenesete tako da u panelu
+(*Izvoz podataka → Prikaži termine za data.js*) kopirate isječak u `data.js`.
+Kad se uključi Stripe i baza, taj korak nestaje — rezervacije idu ravno u
+kalendar.
 
 ---
 
@@ -172,7 +177,7 @@ Za pravu naplatu:
 | Naplata | simulirana potvrda | Stripe račun + endpoint na serveru |
 | Rezervacije | spremljene u preglednik | baza na serveru (npr. Postgres/SQLite) |
 | Prijava u panel | PIN u kodu | prijava s lozinkom na serveru |
-| Sinkronizacija | ogledni `availability.json` | cron skripta + iCal linkovi portala |
+| Sinkronizacija | **gotova** — GitHub Action, treba samo upisati iCal linkove | isto (ili cron na hostingu) |
 | Slanje e-maila | otvara mail program gosta | SMTP / servis (npr. Postmark) |
 
 Hosting: dovoljan je bilo koji hosting s Node podrškom (Vercel, Netlify + funkcije,

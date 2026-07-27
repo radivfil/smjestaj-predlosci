@@ -280,9 +280,20 @@
         state.synced = data.units;
         state.syncedAt = data.generatedAt;
         var d = new Date(data.generatedAt);
-        info.innerHTML = "<b>Sinkronizacija radi.</b> Zadnje usklađivanje: " +
+        var html = "<b>Sinkronizacija radi.</b> Zadnje usklađivanje: " +
           (isNaN(d) ? data.generatedAt : d.toLocaleString("hr-HR")) +
-          ". Izvori: " + (data.sources || []).join(", ") + ".";
+          ". Izvori: " + ((data.sources || []).join(", ") || "—") + ".";
+
+        /* Ako neki portal nije odgovorio, javi točno koji — kalendar je tada
+           zadržao zadnje poznato stanje, ali vrijedi provjeriti link. */
+        if (data.errors && data.errors.length) {
+          html += "<br /><br /><b style='color:#c2503a'>Upozorenje:</b> neki izvori nisu odgovorili pri zadnjem " +
+                  "usklađivanju, pa su za njih zadržani ranije dohvaćeni termini:<ul style='margin:.5rem 0 0 1.1rem'>" +
+                  data.errors.map(function (e) {
+                    return "<li>" + e.unit + " — " + e.source + ": " + e.message + "</li>";
+                  }).join("") + "</ul>";
+        }
+        info.innerHTML = html;
         renderCalendar(); renderStats();
       })
       .catch(function () {

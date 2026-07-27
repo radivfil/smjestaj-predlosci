@@ -1,0 +1,54 @@
+name: Sinkronizacija kalendara (Villa Emilia)
+
+# Čita iCal linkove Booking.com-a i Airbnb-a i osvježava
+# 08-premium-villa-emilia/availability.json koji stranica prikazuje.
+#
+# POSTAVLJANJE (jednokratno):
+#   Settings → Secrets and variables → Actions → New repository secret
+#     Ime:      VE_ICAL_SOURCES
+#     Vrijednost (JSON u jednom redu):
+#       {"a1":{"booking":"https://ical.booking.com/...","airbnb":"https://www.airbnb.com/calendar/ical/...ics"},
+#        "a2":{"booking":"...","airbnb":"..."},
+#        "a3":{"booking":"...","airbnb":"..."}}
+#
+# Dok tajna nije postavljena, workflow uredno prođe i samo javi da nema linkova.
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"     # svaka 3 sata (UTC)
+  workflow_dispatch:           # ručno pokretanje iz kartice Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-kalendar
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Dohvati termine s portala
+        env:
+          VE_ICAL_SOURCES: ${{ secrets.VE_ICAL_SOURCES }}
+        working-directory: 08-premium-villa-emilia
+        run: node tools/sync-ical.js
+
+      - name: Commitaj promjene
+        run: |
+          if [ -z "$(git status --porcelain 08-premium-villa-emilia/availability.json 08-premium-villa-emilia/kalendar)" ]; then
+            echo "Kalendar nepromijenjen — nema commita."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 08-premium-villa-emilia/availability.json 08-premium-villa-emilia/kalendar
+          git commit -m "Sinkronizacija kalendara: $(date -u '+%d.%m.%Y %H:%M UTC')"
+          git push

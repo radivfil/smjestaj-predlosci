@@ -170,20 +170,29 @@
         <div class="note-box" id="syncStatus">Provjeravam status sinkronizacije…</div>
 
         <h3>Kako povezati Booking.com i Airbnb</h3>
+        <p class="muted" style="margin-top:.5rem">
+          Sinkronizacija je već napisana i radi automatski, bez servera — pokreće je GitHub Action svaka tri sata.
+          Postavlja se jednom, u pet koraka:
+        </p>
         <ol style="margin:1.25rem 0 0 1.2rem;display:grid;gap:.75rem;list-style:decimal">
-          <li>Na <b>Booking.com</b> extranetu otvorite <i>Stopa i dostupnost → Sinkronizacija kalendara</i> i kopirajte
-              iCal link svakog apartmana.</li>
-          <li>Na <b>Airbnb-u</b> otvorite <i>Kalendar → Dostupnost → Povežite kalendare</i> i kopirajte iCal link.</li>
-          <li>Linkove upišite u <code>assets/js/data.js</code>, u polje <code>ical</code> svakog apartmana.</li>
-          <li>Serverska skripta (opisana u README-u) svaka tri sata čita te linkove i osvježava
-              <code>availability.json</code> — kalendar na stranici tada prikazuje stvarno stanje.</li>
-          <li>U suprotnom smjeru: u kartici <i>Izvoz podataka</i> preuzmite <b>.ics</b> datoteku i njezinu adresu
-              zalijepite u Booking.com i Airbnb, da i oni vide direktne rezervacije.</li>
+          <li>Na <b>Booking.com</b> extranetu: <i>Stopa i dostupnost → Sinkronizacija kalendara → Izvezi</i> i
+              kopirajte iCal link svakog apartmana.</li>
+          <li>Na <b>Airbnb-u</b>: <i>Kalendar → Dostupnost → Povežite kalendare → Izvezi kalendar</i> i kopirajte link.</li>
+          <li>U GitHub repozitoriju otvorite <i>Settings → Secrets and variables → Actions → New repository secret</i>,
+              ime <code>VE_ICAL_SOURCES</code>, a vrijednost složite ovako:
+              <pre class="snippet" style="margin-top:.6rem">{"a1":{"booking":"...","airbnb":"..."},
+ "a2":{"booking":"...","airbnb":"..."},
+ "a3":{"booking":"...","airbnb":"..."}}</pre></li>
+          <li>U kartici <i>Actions</i> pokrenite <b>Sinkronizacija kalendara</b> jednom ručno da provjerite radi li.
+              Dalje ide samo, svaka tri sata.</li>
+          <li>U suprotnom smjeru: adrese <code>kalendar/a1.ics</code>, <code>a2.ics</code> i <code>a3.ics</code>
+              zalijepite na Booking.com i Airbnb kao vanjski kalendar, da i oni vide vaše termine.</li>
         </ol>
 
         <p class="muted" style="margin-top:1.5rem">
-          Dok sinkronizacija nije postavljena, kalendar radi s terminima iz <code>data.js</code> i s onima koje ovdje
-          ručno blokirate — ništa se ne gubi.
+          Ako neki portal privremeno ne odgovori, kalendar zadrži zadnje poznato stanje i ovdje se pojavi upozorenje —
+          nikad ne prikazuje slobodno ono što je zapravo zauzeto. Dok sinkronizacija nije postavljena, kalendar radi
+          s terminima iz <code>data.js</code> i onima koje ovdje ručno blokirate.
         </p>
       </div>
     </section>
