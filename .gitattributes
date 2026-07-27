@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# iCal datoteke moraju zadrzati CRLF prijelome (RFC 5545)
+*.ics -text
