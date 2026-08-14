@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" href="../favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Predlošci — Lota Studio</title>
+<meta name="description" content="Predlošci za privatni smještaj u paketima Basic, Standard, Premium i Kamp. Pogledajte stranice uživo i odaberite stil koji odgovara vašem objektu." />
+<meta name="author" content="Lota Studio" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Lota Studio" />
+<meta property="og:title" content="Predlošci — Lota Studio" />
+<meta property="og:description" content="Predlošci za privatni smještaj u paketima Basic, Standard, Premium i Kamp." />
+<meta property="og:url" content="https://lotastudio.eu/predlosci/" />
+<meta property="og:locale" content="hr_HR" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="../assets/lota.css" />
+
+<style>
+/* Stilovi specifični za stranicu s predlošcima.
+   Dizajn sustav (tokeni, tipografija, nav, gumbi, reveal) je u ../assets/lota.css */
+
+/* ---------- ZAGLAVLJE STRANICE ---------- */
+.phero{ padding-block:clamp(3rem,7vw,5.5rem) clamp(2rem,4vw,3rem); }
+.phero__head{ grid-column:1 / span 8; }
+.phero h1{ font-size:clamp(2.5rem, 1.4rem + 4.6vw, 5rem); margin:1.4rem 0 0; }
+.phero h1 em{ font-style:normal; color:var(--pink); }
+.phero__lead{ grid-column:1 / span 7; margin-top:1.5rem; max-width:52ch; }
+.phero__back{ grid-column:11 / span 2; align-self:end; justify-self:end; font-size:.9rem; color:var(--ink-soft); }
+
+/* ---------- ZAGLAVLJE SEKCIJE ---------- */
+.pack{ padding-block:clamp(2.5rem,5vw,4rem); }
+.pack__head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:.9rem 1.5rem; margin-bottom:.9rem; }
+.pack__head h2{ font-size:clamp(1.6rem, 1.1rem + 1.9vw, 2.5rem); }
+.pack__head h2 em{ font-style:normal; color:var(--pink); }
+.pack__note{ color:var(--ink-soft); max-width:64ch; margin-bottom:2.25rem; }
+
+/* ---------- RESPONZIVNO ---------- */
+@media (max-width:1100px){
+  .phero__head,.phero__lead{ grid-column:1 / span 12; }
+  .phero__back{ grid-column:1 / span 12; justify-self:start; margin-top:1.5rem; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <div class="bg__glow"></div>
+  <div class="bg__glow bg__glow--low"></div>
+</div>
+
+<!-- ============ NAVIGACIJA ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a href="../index.html" class="nav__logo" aria-label="Lota Studio — početna">
+      <img src="../logo-wordmark.png" alt="Lota Studio" width="855" height="290" />
+    </a>
+
+    <nav aria-label="Glavni izbornik">
+      <ul class="nav__links">
+        <li><a href="../index.html#o-nama" class="ulink">O nama</a></li>
+        <li><a href="../index.html#usluge" class="ulink">Usluge</a></li>
+        <li><a href="../index.html#radovi" class="ulink">Radovi</a></li>
+        <li><a href="../index.html#paketi" class="ulink">Paketi</a></li>
+        <li><a href="index.html" class="ulink" aria-current="page">Predlošci</a></li>
+        <li><a href="mailto:info@lotastudio.eu" class="btn btn--solid nav__cta">Zatražite ponudu</a></li>
+      </ul>
+    </nav>
+
+    <button class="burger" id="burger" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <a href="../index.html#o-nama">O nama</a>
+  <a href="../index.html#usluge">Usluge</a>
+  <a href="../index.html#radovi">Radovi</a>
+  <a href="../index.html#paketi">Paketi</a>
+  <a href="index.html">Predlošci</a>
+  <div class="drawer__foot">
+    <a href="mailto:info@lotastudio.eu" class="ulink">info@lotastudio.eu</a>
+    <a href="tel:+385924631565" class="ulink">+385 92 463 1565</a>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ============ ZAGLAVLJE ============ -->
+  <section class="section phero">
+    <div class="wrap grid12">
+      <div class="phero__head">
+        <span class="eyebrow" data-reveal>Predlošci</span>
+        <h1 data-reveal style="--i:1">Odaberite stil<br /><em>vašeg objekta.</em></h1>
+      </div>
+      <p class="lead phero__lead" data-reveal style="--i:2">
+        Četiri paketa, jedanaest izvedbi. Svaki predložak je gotova stranica koju popunjavamo
+        vašim fotografijama, tekstovima i cijenama — responzivna, brza i posložena za Google.
+        Kliknite bilo koju karticu da vidite stranicu uživo.
+      </p>
+      <a href="../index.html" class="phero__back ulink" data-reveal style="--i:3">&#8592; Natrag na početnu</a>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule" /></div>
+
+  <!-- ============ 01 — DEMO KLIJENTI ============ -->
+  <section class="pack" id="demo">
+    <div class="wrap">
+      <div class="pack__head" data-reveal>
+        <span class="snum">01</span>
+        <span class="eyebrow">Demo klijenti</span>
+        <h2>Stranice <em>u radu</em></h2>
+      </div>
+      <p class="pack__note" data-reveal style="--i:1">
+        Stvarni objekti s pravim fotografijama i podacima — najbolji prikaz kako predložak
+        izgleda kad se popuni sadržajem.
+      </p>
+
+      <div class="cards">
+        <!-- VILLA EMILIA — PRVA -->
+        <article class="tcard" data-reveal style="--i:0">
+          <a href="../08-premium-villa-emilia/index.html" class="tcard__media" aria-label="Otvori stranicu Villa Emilia, Vir">
+            <span class="tcard__tag">Premium</span>
+            <img src="../08-premium-villa-emilia/assets/img/vila-01-fasada.jpg" alt="Villa Emilia na Viru" loading="lazy" />
+          </a>
+          <div class="tcard__body">
+            <h3>Villa Emilia, Vir</h3>
+            <p>Luka XIII 10A. Premium predložak popunjen stvarnim fotografijama i podacima objekta, s vlasničkim panelom i sinkronizacijom kalendara s Booking.com-om i Airbnb-om.</p>
+            <ul class="tcard__meta"><li>Vlasnički panel</li><li>iCal sync</li><li>Stripe</li><li>4 jezika</li></ul>
+            <a href="../08-premium-villa-emilia/index.html" class="tcard__link">Pogledaj stranicu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <!-- MARE I GUMBEK -->
+        <article class="tcard" data-reveal style="--i:1">
+          <a href="../09-basic-apartmani-mare-gumbek/index.html" class="tcard__media" aria-label="Otvori stranicu Apartmani Mare i Gumbek">
+            <span class="tcard__tag">Basic</span>
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=70" alt="Apartmani Mare i Gumbek kraj Zadra" loading="lazy" />
+          </a>
+          <div class="tcard__body">
+            <h3>Apartmani Mare i Gumbek</h3>
+            <p>Kraj Zadra. Dvije obiteljske jedinice sa self check-inom 24/7, besplatnim parkingom i terasom. Jednostranična izvedba s upitom bez provizije.</p>
+            <ul class="tcard__meta"><li>Dvije jedinice</li><li>Self check-in</li><li>Galerija</li><li>Upit</li></ul>
+            <a href="../09-basic-apartmani-mare-gumbek/index.html" class="tcard__link">Pogledaj stranicu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <!-- APARTMENT MARTA -->
+        <article class="tcard" data-reveal style="--i:2">
+          <a href="../10-basic-apartment-marta/index.html" class="tcard__media" aria-label="Otvori stranicu Apartment Marta, Orebić">
+            <span class="tcard__tag">Basic</span>
+            <img src="../10-basic-apartment-marta/images/888004685.jpg" alt="Pogled na more iz apartmana Marta u Orebiću" loading="lazy" />
+          </a>
+          <div class="tcard__body">
+            <h3>Apartment Marta, Orebić</h3>
+            <p>Pelješac, na korak do plaže. Svijetao apartman s terasom i pogledom na more — galerija, cjenik po sezoni, karta i kontakt obrazac.</p>
+            <ul class="tcard__meta"><li>Galerija</li><li>Cjenik</li><li>Karta</li><li>Kontakt</li></ul>
+            <a href="../10-basic-apartment-marta/index.html" class="tcard__link">Pogledaj stranicu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule" /></div>
+
+  <!-- ============ 02 — PREMIUM ============ -->
+  <section class="pack" id="premium">
+    <div class="wrap">
+      <div class="pack__head" data-reveal>
+        <span class="snum">02</span>
+        <span class="eyebrow">Paket Premium</span>
+        <h2>Više stranica, <em>4 jezika</em>, plaćanje karticom</h2>
+      </div>
+      <p class="pack__note" data-reveal style="--i:1">
+        Osam zasebnih stranica, jezici HR/EN/DE/IT i pravi sustav rezervacije: odabir termina
+        u kalendaru, izračun cijene po sezoni i plaćanje karticom preko Stripea.
+      </p>
+
+      <div class="cards cards--pairs">
+        <article class="tcard" data-reveal style="--i:0">
+          <a href="../08-premium-villa-emilia/index.html" class="tcard__media" aria-label="Otvori Premium predložak Villa Emilia">
+            <span class="tcard__tag">Premium</span>
+            <img src="../08-premium-villa-emilia/assets/img/vila-01-fasada.jpg" alt="Premium predložak — Villa Emilia, Vir" loading="lazy" />
+          </a>
+          <div class="tcard__body">
+            <h3>Premium — Villa Emilia</h3>
+            <p>Premium u punoj primjeni na stvarnom objektu na Viru: vlasnički panel za rezervacije i dvosmjerna sinkronizacija kalendara s Booking.com-om i Airbnb-om.</p>
+            <ul class="tcard__meta"><li>Multi-page</li><li>4 jezika</li><li>Booking + Stripe</li><li>iCal sync</li></ul>
+            <a href="../08-premium-villa-emilia/index.html" class="tcard__link">Pogledaj predložak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <article class="tcard" data-reveal style="--i:1">
+          <a href="../07-premium-villa-serena/index.html" class="tcard__media" aria-label="Otvori Premium predložak Villa Serena">
+            <span class="tcard__tag">Premium</span>
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=70" alt="Premium predložak — Villa Serena, Rovinj" loading="lazy" />
+          </a>
+          <div class="tcard__body">
+            <h3>Premium — Villa Serena</h3>
+            <p>Osnovna Premium izvedba na primjeru vile u Rovinju: osam stranica, četiri jezika, kalendar s izračunom cijene po sezoni i plaćanje karticom.</p>
+            <ul class="tcard__meta"><li>Multi-page</li><li>4 jezika</li><li>Booking + Stripe</li><li>Recenzije</li></ul>
+            <a href="../07-premium-villa-serena/index.html" class="tcard__link">Pogledaj predložak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule" /></div>
+
+  <!-- ============ 03 — STANDARD ============ -->
+  <section class="pack" id="standard">
+    <div class="wrap">
+      <div class="pack__head" data-reveal>
+        <span class="snum">03</span>
+        <span class="eyebrow">Paket Standard</span>
+        <h2>Jedna stranica, <em>direktne rezervacije</em></h2>
+      </div>
+      <p class="pack__note" data-reveal style="--i:1">
+        Sve što gostu treba da rezervira direktno — bez sustava plaćanja i bez višejezičnosti.
+      </p>
+
+      <div class="cards">
+        <article class="tcard" data-reveal style="--i:0">
+          <a href="../06-standard-vila-lavanda.html" class="tcard__media" aria-label="Otvori Standard predložak">
+            <span class="tcard__tag">Standard</span>
+            <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=70" alt="Standard predložak za privatni smještaj" loading="lazy" />
+          </a>
+          <div class="tcard__body">
+            <h3>Standard — Vila Lavanda</h3>
+            <p>Osam sekcija na jednoj stranici: hero, o objektu, galerija s lightboxom, sadržaji, lokacija s kartom, kalendar dostupnosti, upit forma i footer.</p>
+            <ul class="tcard__meta"><li>Galerija + lightbox</li><li>Google karta</li><li>Kalendar</li><li>Upit forma</li></ul>
+            <a href="../06-standard-vila-lavanda.html" class="tcard__link">Pogledaj predložak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule" /></div>
+
+  <!-- ============ 04 — BASIC ============ -->
+  <section class="pack" id="basic">
+    <div class="wrap">
+      <div class="pack__head" data-reveal>
+        <span class="snum">04</span>
+        <span class="eyebrow">Paket Basic</span>
+        <h2>Jednostranična <em>vizitka</em> objekta</h2>
+      </div>
+      <p class="pack__note" data-reveal style="--i:1">
+        Jedan HTML, brzo učitavanje i sve bitno na jednom mjestu: predstavljanje objekta,
+        galerija, cjenik, lokacija i kontakt. Četiri stila, prema tipu objekta.
+      </p>
+
+      <div class="cards">
+        <article class="tcard" data-reveal style="--i:0">
+          <a href="../01-hotel-marea.html" class="tcard__media" aria-label="Otvori predložak Boutique hotel">
+            <span class="tcard__tag">Basic</span>
+            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=70" alt="Predložak za boutique hotel" loading="lazy" />
+          </a>
+          <div class="tcard__body">
+            <h3>Boutique hotel</h3>
+            <p>Elegantan mediteranski stil sa sobama, sadržajima, galerijom i obrascem za rezervaciju. Za hotele i manje objekte s više soba.</p>
+            <ul class="tcard__meta"><li>Sobe</li><li>Sadržaji</li><li>Galerija</li><li>Rezervacije</li></ul>
+            <a href="../01-hotel-marea.html" class="tcard__link">Pogledaj predložak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <article class="tcard" data-reveal style="--i:1">
+          <a href="../02-apartmani-azur.html" class="tcard__media" aria-label="Otvori predložak Apartmani">
+            <span class="tcard__tag">Basic</span>
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=70" alt="Predložak za apartmane" loading="lazy" />
+          </a>
+          <div class="tcard__body">
+            <h3>Apartmani / najam</h3>
+            <p>Svijetlo i moderno, s više jedinica, cjenikom po sezoni, self check-in vodičem i brzim upitom. Za iznajmljivače apartmana i studija.</p>
+            <ul class="tcard__meta"><li>Više jedinica</li><li>Cjenik</li><li>Check-in</li><li>Recenzije</li></ul>
+            <a href="../02-apartmani-azur.html" class="tcard__link">Pogledaj predložak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <article class="tcard" data-reveal style="--i:2">
+          <a href="../03-villa-oliva.html" class="tcard__media" aria-label="Otvori predložak Luksuzna vila">
+            <span class="tcard__tag">Basic</span>
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=70" alt="Predložak za luksuznu vilu" loading="lazy" />
+          </a>
+          <div class="tcard__body">
+            <h3>Luksuzna vila</h3>
+            <p>Tamno, prestižno, editorijalno — cijeli objekt za jednu grupu, tjedne cijene i filmska galerija. Za vile i vrhunski najam.</p>
+            <ul class="tcard__meta"><li>Cijeli objekt</li><li>Tjedni najam</li><li>Concierge</li><li>Galerija</li></ul>
+            <a href="../03-villa-oliva.html" class="tcard__link">Pogledaj predložak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <article class="tcard" data-reveal style="--i:3">
+          <a href="../04-pansion-ruza.html" class="tcard__media" aria-label="Otvori predložak Pansion">
+            <span class="tcard__tag">Basic</span>
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=70" alt="Predložak za obiteljski pansion" loading="lazy" />
+          </a>
+          <div class="tcard__body">
+            <h3>Pansion / sobe</h3>
+            <p>Toplo i rustikalno, s pričom domaćina, sobama kao listom, domaćim doručkom i čestim pitanjima. Za obiteljske pansione, sobe i B&amp;B.</p>
+            <ul class="tcard__meta"><li>Domaćini</li><li>Sobe</li><li>Doručak</li><li>FAQ</li></ul>
+            <a href="../04-pansion-ruza.html" class="tcard__link">Pogledaj predložak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule" /></div>
+
+  <!-- ============ 05 — KAMP ============ -->
+  <section class="pack" id="kamp">
+    <div class="wrap">
+      <div class="pack__head" data-reveal>
+        <span class="snum">05</span>
+        <span class="eyebrow">Paket Kamp</span>
+        <h2>Za kampove i <em>glamping</em></h2>
+      </div>
+      <p class="pack__note" data-reveal style="--i:1">
+        Zasebna izvedba prilagođena kampovima: izbor tipa smještaja, aktivnosti i sadržaji kampa.
+      </p>
+
+      <div class="cards">
+        <article class="tcard" data-reveal style="--i:0">
+          <a href="../05-kamp-borik.html" class="tcard__media" aria-label="Otvori predložak Kamp">
+            <span class="tcard__tag">Kamp</span>
+            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=800&q=70" alt="Predložak za kamp i glamping" loading="lazy" />
+          </a>
+          <div class="tcard__body">
+            <h3>Kamp / glamping</h3>
+            <p>Outdoor stil s izborom smještaja (šator, kamper, glamping, mobilna kućica), aktivnostima i sadržajima kampa. Za kampove i glamping resorte.</p>
+            <ul class="tcard__meta"><li>Tipovi smještaja</li><li>Aktivnosti</li><li>Sadržaji</li><li>Info</li></ul>
+            <a href="../05-kamp-borik.html" class="tcard__link">Pogledaj predložak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__in">
+      <div class="foot__brand">
+        <img src="../logo-wordmark.png" alt="Lota Studio" width="855" height="290" />
+        <p>Web stranice i digitalna rješenja za privatni smještaj i male poslove.</p>
+      </div>
+      <div class="foot__contact">
+        <a href="mailto:info@lotastudio.eu" class="ulink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          info@lotastudio.eu
+        </a>
+        <a href="tel:+385924631565" class="ulink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          +385 92 463 1565
+        </a>
+      </div>
+    </div>
+    <div class="foot__legal">
+      <span>&copy; <span id="year"></span> Lota Studio</span>
+      <span>Svaki predložak prilagođava se vašem brendu.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/lota.js"></script>
+</body>
+</html>
