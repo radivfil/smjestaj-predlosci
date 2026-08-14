@@ -3,7 +3,7 @@
 Jednostranična prezentacija privatnog smještaja nadomak Zadra (Dalmacija).
 Samostalni `index.html` — bez build koraka, bez vanjskih biblioteka.
 
-**Live:** https://radivfil.github.io/smjestaj-predlosci/RobertTomes/
+**Live:** https://lotastudio.eu/09-basic-apartmani-mare-gumbek/
 
 ## Sadržaj stranice
 
