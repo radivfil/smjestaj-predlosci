@@ -137,7 +137,8 @@ h1,h2,h3,h4{ font-family:var(--display); font-weight:700; line-height:1.06; lett
   transition:border-color .3s, background .3s;
 }
 .burger:hover{ border-color:var(--ink); }
-.burger span{ display:block; width:18px; height:1.5px; border-radius:2px; background:var(--ink); transition:transform .22s var(--ease), opacity .18s; }
+/* Bez tranzicije: X se pojavljuje istog trena kad se meni otvori */
+.burger span{ display:block; width:18px; height:1.5px; border-radius:2px; background:var(--ink); }
 .burger span+span{ margin-top:5px; }
 .is-open .burger span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
 .is-open .burger span:nth-child(2){ opacity:0; }
