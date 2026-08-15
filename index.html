@@ -7,13 +7,13 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Lota Studio — web stranice i digitalna rješenja</title>
-<meta name="description" content="Lota Studio izrađuje web stranice i digitalna rješenja za male poslove i iznajmljivače smještaja. Dizajn, izrada i vidljivost na Googleu — bez agencijskog žargona." />
+<meta name="description" content="Lota Studio izrađuje moderne web stranice i digitalna rješenja za sve djelatnosti — salone, ordinacije, restorane, obrte i smještaj. Dizajn, izrada i vidljivost na Googleu, uz jasnu cijenu izrade i održavanja." />
 <meta name="author" content="Lota Studio" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lota Studio" />
 <meta property="og:title" content="Lota Studio — web stranice i digitalna rješenja" />
-<meta property="og:description" content="Dizajn, izrada i vidljivost na Googleu za male poslove i iznajmljivače smještaja." />
+<meta property="og:description" content="Dizajn, izrada i vidljivost na Googleu za sve djelatnosti — uz jasnu cijenu izrade i održavanja." />
 <meta property="og:url" content="https://lotastudio.eu/" />
 <meta property="og:locale" content="hr_HR" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -133,21 +133,61 @@
 .svc__i h3{ font-size:1.28rem; margin-bottom:.45rem; }
 .svc__i p{ color:var(--ink-soft); font-size:.95rem; }
 
-/* ---------- 05 PAKETI ---------- */
-.packs{ grid-column:1 / span 12; display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
-        gap:clamp(1rem,1.8vw,1.5rem); margin-top:.5rem; }
-.pk{ display:flex; flex-direction:column; gap:.75rem;
-     background:var(--cream-lift); border:1px solid var(--line); border-radius:16px; padding:1.6rem 1.4rem;
+/* ---------- PAKETI ---------- */
+.packs{ grid-column:1 / span 12; display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+        gap:clamp(1rem,1.8vw,1.5rem); margin-top:.5rem; align-items:stretch; }
+.packs--sub{ grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:clamp(1rem,1.8vw,1.5rem); }
+
+.pk{ position:relative; display:flex; flex-direction:column; gap:.75rem;
+     background:var(--cream-lift); border:1px solid var(--line); border-radius:16px; padding:1.9rem 1.5rem 1.6rem;
      transition:transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease); }
 .pk:hover{ transform:translateY(-5px); border-color:rgba(0,0,0,.4); box-shadow:0 28px 60px -40px rgba(21,21,18,.5); }
-.pk--hi{ border-color:var(--pink); }
-.pk h3{ font-size:1.25rem; }
+.pk h3{ font-size:1.35rem; }
 .pk__d{ font-size:.9rem; color:var(--ink-soft); }
 .pk ul{ list-style:none; display:grid; gap:.45rem; font-size:.88rem; color:var(--ink-soft); }
 .pk li{ display:grid; grid-template-columns:auto 1fr; gap:.55rem; }
 .pk li::before{ content:"—"; color:var(--pink); }
-.pk__foot{ margin-top:auto; padding-top:1rem; }
-.pk__price{ font-family:var(--display); font-weight:700; font-size:.85rem; color:var(--ink-faint); letter-spacing:.04em; }
+
+/* BUSINESS — najpopularniji: deblji rub, blago podignut, tamnija podloga zaglavlja */
+.pk--hi{ border-color:var(--ink); border-width:2px; box-shadow:0 30px 64px -44px rgba(21,21,18,.55); }
+@media (min-width:861px){ .pk--hi{ transform:translateY(-10px); } .pk--hi:hover{ transform:translateY(-15px); } }
+
+/* Oznake iznad kartice */
+.pk__badge{
+  position:absolute; top:-.75rem; left:1.4rem; z-index:2;
+  font-size:.66rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  padding:.34rem .75rem; border-radius:100px; white-space:nowrap;
+  background:var(--ink); color:var(--cream-lift);
+}
+.pk__badge--deal{ background:#B42318; color:#FFFFFF; }
+
+/* Cijena */
+.pk__price{
+  font-family:var(--display); font-weight:700; letter-spacing:-.01em;
+  font-size:2rem; line-height:1.1; color:var(--ink);
+  display:flex; align-items:baseline; flex-wrap:wrap; gap:.5rem;
+}
+.pk__price small{ font-family:var(--body); font-size:.8rem; font-weight:600; color:var(--ink-faint); letter-spacing:.02em; }
+.pk__old{ font-size:1.15rem; color:var(--ink-faint); text-decoration:line-through; text-decoration-thickness:1.5px; }
+.pk__save{ font-size:.78rem; font-weight:700; color:#B42318; letter-spacing:.01em; }
+
+/* Održavanje */
+.pk__maint{
+  margin-top:auto; padding-top:.85rem; border-top:1px solid var(--line);
+  font-size:.82rem; color:var(--ink-soft); line-height:1.5;
+}
+.pk__maint b{ color:var(--ink); font-weight:700; }
+.pk__maint span{ display:block; color:var(--ink-faint); font-size:.76rem; margin-top:.15rem; }
+
+.pk__foot{ padding-top:1.15rem; }
+/* kartice bez bloka o odrzavanju (Web shop) — gumb ide na dno */
+.pk__d + .pk__foot{ margin-top:auto; }
+.pk__cta{ width:100%; min-height:46px; padding:.7rem 1.1rem; font-size:.92rem; }
+
+.packs__note{
+  grid-column:1 / span 12; margin-top:clamp(1.5rem,3vw,2.25rem);
+  font-size:.9rem; color:var(--ink-soft); max-width:72ch;
+}
 
 /* ---------- 06 PROCES ---------- */
 .proc{ grid-column:1 / span 12; display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
@@ -198,7 +238,7 @@
   .hero__rail{ display:none; }
 }
 @media (max-width:620px){
-  .packs,.proc{ grid-template-columns:1fr; }
+  .packs,.packs--sub,.proc{ grid-template-columns:1fr; }
 }
 @media (max-width:520px){
   .hero__cta{ gap:.7rem; }
@@ -304,7 +344,6 @@
   <section class="section" id="o-nama">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">1</span>
         <span class="eyebrow">O nama</span>
       </div>
 
@@ -351,7 +390,6 @@
   <section class="section" id="vidljivost">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">2</span>
         <span class="eyebrow">Vidljivost</span>
       </div>
 
@@ -422,7 +460,6 @@
   <section class="section" id="usluge">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">3</span>
         <span class="eyebrow">Usluge</span>
       </div>
 
@@ -430,8 +467,8 @@
         <div class="svc__i" data-reveal style="--i:0">
           <span class="svc__n">1</span>
           <div>
-            <h3>Web stranica za smještaj</h3>
-            <p>Cijela stranica od skice do objave: dizajn, tekstovi, obrada fotografija, galerija, cjenik po sezoni, karta i obrazac za upit. Isporučujemo gotovo, ne polugotovo.</p>
+            <h3>Web stranica po mjeri vašeg posla</h3>
+            <p>Cijela stranica od skice do objave: dizajn, tekstovi, obrada fotografija, galerija, cjenik ili usluge, karta i obrazac za upit. Salon, ordinacija, restoran, teretana ili apartman — strukturu slažemo prema tome kako vaši klijenti stvarno donose odluku. Isporučujemo gotovo, ne polugotovo.</p>
           </div>
         </div>
 
@@ -468,7 +505,6 @@
   <section class="section" id="radovi">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">4</span>
         <span class="eyebrow">Radovi</span>
       </div>
 
@@ -530,66 +566,109 @@
   <section class="section" id="paketi">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">5</span>
         <span class="eyebrow">Paketi</span>
       </div>
 
       <div class="sec__body">
-        <h2 class="sec__title" data-reveal style="--i:1">Četiri razine,<br /><em>jasna cijena</em> unaprijed.</h2>
+        <h2 class="sec__title" data-reveal style="--i:1">Jasna cijena izrade,<br /><em>jasna cijena održavanja.</em></h2>
         <div class="sec__text" data-reveal style="--i:2">
-          <p>Bez mjesečnih pretplata i naplate po satu. Odaberete paket, dogovorimo opseg, cijenu znate prije nego počnemo.</p>
+          <p>
+            Ne radimo samo web stranicu. Pomažemo Vam da Vaše poslovanje bude vidljivo tamo
+            gdje Vas Vaši budući klijenti već traže — na Googleu.
+          </p>
+          <p>
+            Izradu plaćate <strong>jednokratno</strong> i cijenu znate prije nego počnemo.
+            Održavanje je zaseban, unaprijed definiran iznos — hosting, sigurnost, ažuriranja
+            i sitne izmjene sadržaja ulaze u njega. Nema naplate po satu, nema računa koji vas iznenadi.
+          </p>
         </div>
       </div>
 
       <div class="packs">
         <article class="pk" data-reveal style="--i:0">
-          <h3>Basic</h3>
-          <p class="pk__d">Jednostranična vizitka objekta.</p>
+          <h3>Start</h3>
+          <p class="pk__price">Od 399 €<small>jednokratno</small></p>
           <ul>
-            <li>Hero, o objektu, galerija</li>
-            <li>Cjenik i lokacija s kartom</li>
-            <li>Kontakt obrazac</li>
-            <li>Prilagodba mobitelu</li>
+            <li>Do 5 podstranica</li>
+            <li>Višejezičnost</li>
+            <li>Profesionalan dizajn</li>
+            <li>Prilagodba mobitelima, tabletima i računalima</li>
+            <li>Osnovna Google optimizacija</li>
+            <li>Kontakt forma i Google Maps</li>
           </ul>
-          <div class="pk__foot"><span class="pk__price">Cijena na upit</span></div>
+          <p class="pk__maint">
+            Održavanje <b>20 € mjesečno</b> ili <b>199 € godišnje</b>
+            <span>240 € po mjesečnoj cijeni → 199 € uz godišnje plaćanje, ušteda 41 €</span>
+          </p>
+          <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta">Odaberite paket</a></div>
+        </article>
+
+        <article class="pk pk--hi" data-reveal style="--i:1">
+          <span class="pk__badge">Najpopularniji</span>
+          <h3>Business</h3>
+          <p class="pk__price">799 €<small>jednokratno</small></p>
+          <ul>
+            <li>Sve iz Start paketa</li>
+            <li>Do 10 podstranica</li>
+            <li>Višejezičnost</li>
+            <li>Naprednija Google optimizacija</li>
+            <li>Lokalna Google vidljivost</li>
+            <li>Naprednije funkcionalnosti</li>
+          </ul>
+          <p class="pk__maint">
+            Održavanje <b>30 € mjesečno</b> ili <b>299 € godišnje</b>
+            <span>360 € po mjesečnoj cijeni → 299 € uz godišnje plaćanje, ušteda 61 €</span>
+          </p>
+          <div class="pk__foot"><a href="#kontakt" class="btn btn--solid pk__cta">Odaberite paket</a></div>
+        </article>
+
+        <article class="pk" data-reveal style="--i:2">
+          <span class="pk__badge pk__badge--deal">Kratkotrajna ponuda · −20 %</span>
+          <h3>Premium</h3>
+          <p class="pk__price"><s class="pk__old">1.499 €</s> 1.199 €<small>jednokratno</small></p>
+          <p class="pk__save">Ušteda 300 €</p>
+          <ul>
+            <li>Sve iz Business paketa</li>
+            <li>Do 15 podstranica</li>
+            <li>Višejezičnost</li>
+            <li>Online rezervacije</li>
+            <li>Online plaćanje</li>
+            <li>AI agent / chatbot</li>
+            <li>Napredna Google optimizacija</li>
+            <li>Napredna analitika</li>
+          </ul>
+          <p class="pk__maint">
+            Održavanje <b>49 € mjesečno</b> ili <b>499 € godišnje</b>
+            <span>588 € po mjesečnoj cijeni → 499 € uz godišnje plaćanje, ušteda 89 €</span>
+          </p>
+          <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta">Odaberite paket</a></div>
+        </article>
+      </div>
+
+      <div class="packs packs--sub">
+        <article class="pk" data-reveal style="--i:0">
+          <h3>Google vidljivost</h3>
+          <p class="pk__price">199 €<small>jednokratno</small></p>
+          <p class="pk__d">Za one koji već imaju web stranicu i žele povećati vidljivost na Googleu.</p>
+          <p class="pk__maint">
+            Održavanje <b>20 € mjesečno</b> ili <b>199 € godišnje</b>
+            <span>240 € po mjesečnoj cijeni → 199 € uz godišnje plaćanje, ušteda 41 €</span>
+          </p>
+          <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta">Kontaktirajte nas</a></div>
         </article>
 
         <article class="pk" data-reveal style="--i:1">
-          <h3>Standard</h3>
-          <p class="pk__d">Sve za direktne rezervacije.</p>
-          <ul>
-            <li>Osam sekcija na jednoj stranici</li>
-            <li>Galerija s lightboxom</li>
-            <li>Kalendar dostupnosti</li>
-            <li>Upit forma i SEO</li>
-          </ul>
-          <div class="pk__foot"><span class="pk__price">Cijena na upit</span></div>
-        </article>
-
-        <article class="pk pk--hi" data-reveal style="--i:2">
-          <h3>Premium</h3>
-          <p class="pk__d">Više stranica i plaćanje karticom.</p>
-          <ul>
-            <li>Osam zasebnih stranica</li>
-            <li>HR / EN / DE / IT</li>
-            <li>Rezervacija i Stripe</li>
-            <li>Vlasnički panel i iCal sync</li>
-          </ul>
-          <div class="pk__foot"><span class="pk__price">Cijena na upit</span></div>
-        </article>
-
-        <article class="pk" data-reveal style="--i:3">
-          <h3>Kamp</h3>
-          <p class="pk__d">Izvedba za kampove i glamping.</p>
-          <ul>
-            <li>Izbor tipa smještaja</li>
-            <li>Aktivnosti i sadržaji</li>
-            <li>Galerija i info</li>
-            <li>Prilagodba mobitelu</li>
-          </ul>
-          <div class="pk__foot"><span class="pk__price">Cijena na upit</span></div>
+          <h3>Web shop</h3>
+          <p class="pk__price">Od 699 €<small>jednokratno</small></p>
+          <p class="pk__d">Izrada web shopa prema potrebama Vašeg poslovanja. Točna cijena ovisi o funkcionalnostima i opsegu projekta.</p>
+          <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta">Kontaktirajte nas</a></div>
         </article>
       </div>
+
+      <p class="packs__note" data-reveal>
+        Dodatne podstranice, webshop, rezervacije, online plaćanje, AI agenti i druge
+        funkcionalnosti dostupne su prema potrebama poslovanja.
+      </p>
     </div>
   </section>
 
@@ -599,7 +678,6 @@
   <section class="section" id="proces">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">6</span>
         <span class="eyebrow">Proces</span>
       </div>
 
@@ -611,7 +689,7 @@
         <div class="proc__s" data-reveal style="--i:0">
           <span>1</span>
           <h3>Razgovor</h3>
-          <p>Pogledamo objekt, dogovorimo opseg i paket. Dobijete cijenu i rok, bez obveze.</p>
+          <p>Upoznajemo vaš posao, tko su vam klijenti i što stranica mora postići. Dogovorimo opseg i paket, dobijete cijenu i rok, bez obveze.</p>
         </div>
         <div class="proc__s" data-reveal style="--i:1">
           <span>2</span>
@@ -638,9 +716,9 @@
       <div class="cta" data-reveal>
         <div>
           <span class="eyebrow" style="color:#FFFFFF">Kontakt</span>
-          <h2 style="margin-top:1.25rem">Recite nam nešto<br />o <em>svom objektu.</em></h2>
+          <h2 style="margin-top:1.25rem">Recite nam što vam treba.<br /><em>Ostalo je na nama.</em></h2>
         </div>
-        <p>Javite se s par rečenica o tome što imate i što biste htjeli. Odgovorimo u roku od jednog radnog dana, s okvirnom cijenom i rokom.</p>
+        <p>Ne morate znati kako se to zove ni kako izgleda. Napišite u par rečenica čime se bavite i što vas trenutno koči — nema stranice, stranica je zastarjela, ili vas nitko ne pronalazi na Googleu. Odgovorimo u roku od jednog radnog dana, s okvirnom cijenom i rokom. Bez obveze i bez prodajnog pritiska.</p>
 
         <div class="cta__row">
           <a href="mailto:info@lotastudio.eu" class="cta__link ulink">
