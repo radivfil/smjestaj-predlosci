@@ -193,6 +193,9 @@
 @media (max-width:860px){
   .hero__lead{ grid-column:1 / span 12; }
   .svc{ grid-template-columns:1fr; }
+  /* Kontakt traka u herou otpada na mobitelu — isti podaci su u
+     hamburger izborniku i u footeru */
+  .hero__rail{ display:none; }
 }
 @media (max-width:620px){
   .packs,.proc{ grid-template-columns:1fr; }
@@ -279,8 +282,8 @@
 
       <dl class="hero__rail" data-reveal style="--i:4">
         <div>
-          <dt>Studio</dt>
-          <dd class="hero__tag">Oglašavanje<br />s radošću &#9825;</dd>
+          <dt>Lota Studio</dt>
+          <dd class="hero__tag">Oglašavanje<br />s radošću ❤️</dd>
         </div>
         <div>
           <dt>Kontakt</dt>
