@@ -26,21 +26,30 @@
   "description": "Izrada web stranica i digitalnih rješenja — dizajn, izrada i vidljivost na Googleu.",
   "url": "https://lotastudio.eu/",
   "email": "info@lotastudio.eu",
-  "telephone": "+385924631565",
+  "telephone": ["+385924631565", "+385924631717"],
   "areaServed": "HR",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "sales",
-    "email": "info@lotastudio.eu",
-    "telephone": "+385924631565",
-    "availableLanguage": ["hr", "en"]
-  }
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@lotastudio.eu",
+      "telephone": "+385924631565",
+      "availableLanguage": ["hr", "en"]
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@lotastudio.eu",
+      "telephone": "+385924631717",
+      "availableLanguage": ["hr", "en"]
+    }
+  ]
 }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&family=Manrope:wght@400..800&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="assets/lota.css" />
 
@@ -54,6 +63,9 @@
 .hero h1{ font-size:clamp(2.9rem, 1.4rem + 6.4vw, 6.6rem); margin:1.6rem 0 0; }
 .hero h1 em{ font-style:normal; color:var(--pink); }
 .hero__lead{ grid-column:1 / span 6; margin-top:1.75rem; max-width:46ch; }
+.hero__lead p+p{ margin-top:.9rem; }
+.hero__slogan{ font-family:var(--display); font-weight:700; color:var(--ink);
+               font-size:clamp(1.2rem,1.05rem + .5vw,1.45rem); line-height:1.25; letter-spacing:-.015em; }
 .hero__cta{ grid-column:1 / span 8; display:flex; flex-wrap:wrap; gap:.85rem; margin-top:2.5rem; }
 .hero__rail{
   grid-column:10 / span 3; align-self:end;
@@ -98,7 +110,7 @@
 .serp__d{ font-size:.85rem; color:var(--ink-soft); line-height:1.5; }
 .serp__pin{
   display:inline-block; margin-top:.9rem; font-size:.7rem; font-weight:600;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--pink);
+  letter-spacing:.14em; text-transform:uppercase; color:var(--cream-lift);
   background:var(--pink-wash); padding:.3rem .7rem; border-radius:100px;
 }
 
@@ -125,7 +137,7 @@
 .pk{ display:flex; flex-direction:column; gap:.75rem;
      background:var(--cream-lift); border:1px solid var(--line); border-radius:16px; padding:1.6rem 1.4rem;
      transition:transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease); }
-.pk:hover{ transform:translateY(-5px); border-color:rgba(219,86,122,.4); box-shadow:0 28px 60px -40px rgba(21,21,18,.5); }
+.pk:hover{ transform:translateY(-5px); border-color:rgba(0,0,0,.4); box-shadow:0 28px 60px -40px rgba(21,21,18,.5); }
 .pk--hi{ border-color:var(--pink); }
 .pk h3{ font-size:1.25rem; }
 .pk__d{ font-size:.9rem; color:var(--ink-soft); }
@@ -148,11 +160,16 @@
       background:var(--ink); color:var(--cream);
       border-radius:clamp(18px,3vw,28px); padding:clamp(2.25rem,5vw,4.5rem); }
 .cta h2{ font-size:clamp(2rem, 1.2rem + 3vw, 3.6rem); }
-.cta h2 em{ font-style:normal; color:var(--pink); }
+.cta h2 em{ font-style:normal; color:#FFFFFF; }
 .cta p{ color:rgba(247,241,232,.74); max-width:54ch; }
 .cta__row{ display:flex; flex-wrap:wrap; align-items:center; gap:1rem 2.75rem; }
 .cta__link{ display:inline-flex; align-items:center; gap:.6rem; min-height:48px; font-size:1.05rem; }
-.cta__link svg{ width:18px; height:18px; flex:none; color:var(--pink); }
+.cta__link svg{ width:18px; height:18px; flex:none; color:#FFFFFF; }
+/* Na tamnom CTA panelu crni akcent se invertira u bijeli (čitljivost) */
+.cta .eyebrow{ color:#FFFFFF; }
+.cta .eyebrow::before{ background:#FFFFFF; }
+.cta .btn--solid{ background:#FFFFFF; color:#000000; }
+.cta .btn--solid:hover{ background:var(--cream); color:#000000; }
 .cta .btn--ghost{ border-color:var(--cream); color:var(--cream); }
 .cta .btn--ghost:hover{ background:var(--cream); color:var(--ink); }
 
@@ -199,7 +216,7 @@
 <header class="nav" id="nav">
   <div class="wrap nav__in">
     <a href="#top" class="nav__logo" aria-label="Lota Studio — početna">
-      <img src="logo-wordmark.png" alt="Lota Studio" width="855" height="290" />
+      <img src="lotalogo.png" alt="Lota Studio" width="1150" height="390" />
     </a>
 
     <nav aria-label="Glavni izbornik">
@@ -230,6 +247,7 @@
   <div class="drawer__foot">
     <a href="mailto:info@lotastudio.eu" class="ulink">info@lotastudio.eu</a>
     <a href="tel:+385924631565" class="ulink">+385 92 463 1565</a>
+    <a href="tel:+385924631717" class="ulink">+385 92 463 1717</a>
   </div>
 </div>
 
@@ -243,11 +261,11 @@
         <h1 data-reveal style="--i:1">Web stranice koje<br /><em>rade za vas.</em></h1>
       </div>
 
-      <p class="lead hero__lead" data-reveal style="--i:2">
-        Malen studio, cijela stranica od skice do objave. Radimo za iznajmljivače
-        smještaja i male poslove kojima treba stranica koja izgleda ozbiljno,
-        učitava se brzo i donosi upite — bez agencijskog žargona i mjesečnih pretplata.
-      </p>
+      <div class="lead hero__lead" data-reveal style="--i:2">
+        <p class="hero__slogan">Vaša ideja. Naša digitalna priča. ❤️</p>
+        <p>Izrađujemo moderne, profesionalne i funkcionalne web stranice koje predstavljaju
+        Vaš posao, privlače pažnju i pomažu Vam da budete vidljiviji online.</p>
+      </div>
 
       <div class="hero__cta" data-reveal style="--i:3">
         <a href="mailto:info@lotastudio.eu" class="btn btn--solid">
@@ -269,6 +287,7 @@
         <div>
           <dt>Telefon</dt>
           <dd><a href="tel:+385924631565" class="ulink">+385 92 463 1565</a></dd>
+          <dd><a href="tel:+385924631717" class="ulink">+385 92 463 1717</a></dd>
         </div>
       </dl>
     </div>
@@ -280,29 +299,41 @@
   <section class="section" id="o-nama">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">01</span>
+        <span class="snum">1</span>
         <span class="eyebrow">O nama</span>
       </div>
 
       <div class="sec__body">
         <h2 class="sec__title" data-reveal style="--i:1">
-          Mali tim koji radi<br /><em>cijeli posao</em>, ne dio njega.
+          Tko smo <em>mi?</em>
         </h2>
         <div class="sec__text" data-reveal style="--i:2">
           <p>
-            Lota Studio je studio za izradu <strong>web stranica i digitalnih rješenja</strong>.
-            Ne prodajemo pakete sati ni izvještaje — isporučujemo gotovu stranicu koja radi
-            na mobitelu jednako dobro kao na računalu.
+            Mi smo mali tim mladih, profesionalnih i akademski obrazovanih stručnjaka koji vjeruju
+            da dobra web stranica nije samo lijep dizajn – ona je <strong>prvi korak prema
+            uspješnijem poslovanju</strong>.
           </p>
           <p>
-            Radimo od prve skice do objave: dizajn, izrada, tekstovi, fotografije, postavljanje
-            domene i e-maila. Vi dobijete jednu osobu za kontakt i jasnu cijenu unaprijed,
-            umjesto lanca ljudi koji se međusobno prebacuju.
+            Naš put započeo je izradom web stranica i digitalnih rješenja za iznajmljivače i
+            turistički smještaj, gdje smo prepoznali koliko kvalitetna online prezentacija može
+            olakšati put od prvog pregleda ponude do upita i rezervacije.
           </p>
           <p>
-            Specijalizirali smo se za <strong>privatni smještaj</strong> — apartmane, vile i kampove —
-            jer ondje razlika između dobre i loše stranice znači direktne rezervacije umjesto
-            provizije posrednicima.
+            Danas svoje znanje i iskustvo širimo i na druge djelatnosti i poslovanja kojima je
+            potrebna moderna, profesionalna i funkcionalna online prisutnost.
+          </p>
+          <p>
+            Posebnu pažnju posvećujemo tome da upoznamo Vas, Vaše poslovanje i Vaše potrebe.
+            <strong>Ne nudimo isto rješenje svima</strong> – svaku web stranicu prilagođavamo
+            Vašim željama, ciljevima i načinu poslovanja.
+          </p>
+          <p>
+            Naš cilj je jednostavan: stvoriti digitalno rješenje koje će Vas kvalitetno
+            predstaviti, ostaviti dobar prvi dojam i pomoći Vašim klijentima da Vas lakše pronađu.
+          </p>
+          <p>
+            Kao mali tim, njegujemo direktan i osoban pristup. Od prvog razgovora do završetka
+            projekta, tu smo za Vas.
           </p>
         </div>
       </div>
@@ -315,7 +346,7 @@
   <section class="section" id="vidljivost">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">02</span>
+        <span class="snum">2</span>
         <span class="eyebrow">Vidljivost</span>
       </div>
 
@@ -332,25 +363,25 @@
 
         <ol class="plist">
           <li data-reveal style="--i:3">
-            <b>01</b>
+            <b>1</b>
             <p><strong>Tehnički temelji</strong>
               Naslovi, opisi i strukturirani podaci koje Google čita, čista adresa stranice,
               sitemap i brzo učitavanje. Bez toga ostalo ne pomaže.</p>
           </li>
           <li data-reveal style="--i:4">
-            <b>02</b>
+            <b>2</b>
             <p><strong>Google poslovni profil</strong>
               Postavljamo i uređujemo profil s kojim se pojavljujete na karti i u lokalnoj
               pretrazi — često prvi dodir gosta s vama.</p>
           </li>
           <li data-reveal style="--i:5">
-            <b>03</b>
+            <b>3</b>
             <p><strong>Tekstovi pisani za pretragu</strong>
               Sadržaj koji odgovara na ono što ljudi stvarno upisuju: mjesto, tip smještaja,
               blizina mora, parking, kućni ljubimci.</p>
           </li>
           <li data-reveal style="--i:6">
-            <b>04</b>
+            <b>4</b>
             <p><strong>Mjerenje</strong>
               Analitika i Search Console, pa se vidi odakle dolaze posjetitelji i koji upiti
               donose rezervacije — umjesto nagađanja.</p>
@@ -386,13 +417,13 @@
   <section class="section" id="usluge">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">03</span>
+        <span class="snum">3</span>
         <span class="eyebrow">Usluge</span>
       </div>
 
       <div class="svc">
         <div class="svc__i" data-reveal style="--i:0">
-          <span class="svc__n">01</span>
+          <span class="svc__n">1</span>
           <div>
             <h3>Web stranica za smještaj</h3>
             <p>Cijela stranica od skice do objave: dizajn, tekstovi, obrada fotografija, galerija, cjenik po sezoni, karta i obrazac za upit. Isporučujemo gotovo, ne polugotovo.</p>
@@ -400,7 +431,7 @@
         </div>
 
         <div class="svc__i" data-reveal style="--i:1">
-          <span class="svc__n">02</span>
+          <span class="svc__n">2</span>
           <div>
             <h3>Redizajn postojeće stranice</h3>
             <p>Imate stranicu koja izgleda zastarjelo ili se raspada na mobitelu? Zadržavamo sadržaj i adresu, mijenjamo izgled i brzinu — bez gubitka pozicije na Googleu.</p>
@@ -408,7 +439,7 @@
         </div>
 
         <div class="svc__i" data-reveal style="--i:2">
-          <span class="svc__n">03</span>
+          <span class="svc__n">3</span>
           <div>
             <h3>Vidljivost na Googleu</h3>
             <p>Tehnički temelji, Google poslovni profil, tekstovi pisani za pretragu i mjerenje rezultata. Detaljno je opisano u sekciji iznad.</p>
@@ -416,7 +447,7 @@
         </div>
 
         <div class="svc__i" data-reveal style="--i:3">
-          <span class="svc__n">04</span>
+          <span class="svc__n">4</span>
           <div>
             <h3>Domena, e-mail i održavanje</h3>
             <p>Registracija domene, poslovni e-mail na vašem imenu umjesto gmaila, SSL certifikat i kasnije izmjene sadržaja kad vam zatrebaju.</p>
@@ -432,7 +463,7 @@
   <section class="section" id="radovi">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">04</span>
+        <span class="snum">4</span>
         <span class="eyebrow">Radovi</span>
       </div>
 
@@ -494,7 +525,7 @@
   <section class="section" id="paketi">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">05</span>
+        <span class="snum">5</span>
         <span class="eyebrow">Paketi</span>
       </div>
 
@@ -563,7 +594,7 @@
   <section class="section" id="proces">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="snum">06</span>
+        <span class="snum">6</span>
         <span class="eyebrow">Proces</span>
       </div>
 
@@ -573,22 +604,22 @@
 
       <div class="proc">
         <div class="proc__s" data-reveal style="--i:0">
-          <span>01</span>
+          <span>1</span>
           <h3>Razgovor</h3>
           <p>Pogledamo objekt, dogovorimo opseg i paket. Dobijete cijenu i rok, bez obveze.</p>
         </div>
         <div class="proc__s" data-reveal style="--i:1">
-          <span>02</span>
+          <span>2</span>
           <h3>Dizajn</h3>
           <p>Slažemo izgled prema vašim fotografijama i brendu. Vi vidite i komentirate prije izrade.</p>
         </div>
         <div class="proc__s" data-reveal style="--i:2">
-          <span>03</span>
+          <span>3</span>
           <h3>Izrada</h3>
           <p>Gradimo stranicu, pišemo tekstove, obrađujemo fotografije i postavljamo temelje za Google.</p>
         </div>
         <div class="proc__s" data-reveal style="--i:3">
-          <span>04</span>
+          <span>4</span>
           <h3>Objava</h3>
           <p>Domena, e-mail, SSL i objava. Stranica je vaša — pokazujemo vam kako je sami mijenjate.</p>
         </div>
@@ -601,7 +632,7 @@
     <div class="wrap grid12">
       <div class="cta" data-reveal>
         <div>
-          <span class="eyebrow" style="color:var(--pink)">Kontakt</span>
+          <span class="eyebrow" style="color:#FFFFFF">Kontakt</span>
           <h2 style="margin-top:1.25rem">Recite nam nešto<br />o <em>svom objektu.</em></h2>
         </div>
         <p>Javite se s par rečenica o tome što imate i što biste htjeli. Odgovorimo u roku od jednog radnog dana, s okvirnom cijenom i rokom.</p>
@@ -614,6 +645,10 @@
           <a href="tel:+385924631565" class="cta__link ulink">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
             +385 92 463 1565
+          </a>
+          <a href="tel:+385924631717" class="cta__link ulink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            +385 92 463 1717
           </a>
         </div>
 
@@ -635,7 +670,7 @@
   <div class="wrap">
     <div class="foot__in">
       <div class="foot__brand">
-        <img src="logo-wordmark.png" alt="Lota Studio" width="855" height="290" />
+        <img src="lotalogo.png" alt="Lota Studio" width="1150" height="390" />
         <p>Web stranice i digitalna rješenja za privatni smještaj i male poslove.</p>
       </div>
       <div class="foot__contact">
@@ -646,6 +681,10 @@
         <a href="tel:+385924631565" class="ulink">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
           +385 92 463 1565
+        </a>
+        <a href="tel:+385924631717" class="ulink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          +385 92 463 1717
         </a>
       </div>
     </div>
