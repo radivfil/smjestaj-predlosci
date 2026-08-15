@@ -130,11 +130,14 @@ h1,h2,h3,h4{ font-family:var(--display); font-weight:700; line-height:1.06; lett
 
 .burger{
   display:none; width:48px; height:48px; border:1px solid var(--line); border-radius:50%;
-  background:transparent; cursor:pointer; place-items:center; flex:none;
+  background:transparent; cursor:pointer; flex:none;
+  /* flex-column, ne grid: grid rasteze 3 auto retka na 16px svaki, pa se
+     crte razmaknu 16px i transform od 6.5px ih ne spoji u X nego u ">" */
+  flex-direction:column; align-items:center; justify-content:center;
   transition:border-color .3s, background .3s;
 }
 .burger:hover{ border-color:var(--ink); }
-.burger span{ display:block; width:18px; height:1.5px; background:var(--ink); transition:transform .4s var(--ease), opacity .3s; }
+.burger span{ display:block; width:18px; height:1.5px; border-radius:2px; background:var(--ink); transition:transform .22s var(--ease), opacity .18s; }
 .burger span+span{ margin-top:5px; }
 .is-open .burger span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
 .is-open .burger span:nth-child(2){ opacity:0; }
@@ -142,18 +145,31 @@ h1,h2,h3,h4{ font-family:var(--display); font-weight:700; line-height:1.06; lett
 
 .drawer{
   position:fixed; inset:0; z-index:55; background:var(--cream);
-  padding:calc(var(--nav-h) + var(--safe-t) + 2rem) var(--gutter) calc(2rem + var(--safe-b));
-  display:flex; flex-direction:column; justify-content:center; gap:.4rem;
-  opacity:0; visibility:hidden; transform:translateY(-8px);
-  transition:opacity .4s var(--ease), transform .4s var(--ease), visibility .4s;
+  height:100dvh; /* iOS: URL traka koja nestaje ne smije odsjeci dno */
+  padding:calc(var(--nav-h) + var(--safe-t) + 1.25rem) var(--gutter) calc(1.5rem + var(--safe-b));
+  display:flex; flex-direction:column; justify-content:flex-start; gap:.1rem;
+  overflow-y:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch;
+  opacity:0; visibility:hidden; transform:translateY(-10px);
+  transition:opacity .22s var(--ease), transform .22s var(--ease), visibility 0s linear .22s;
 }
-.is-open .drawer{ opacity:1; visibility:visible; transform:none; }
-.drawer a{
-  font-family:var(--display); font-size:clamp(2rem,9vw,3rem); font-weight:700;
-  letter-spacing:-.03em; padding:.35rem 0; border-bottom:1px solid var(--line);
+.is-open .drawer{
+  opacity:1; visibility:visible; transform:none;
+  transition:opacity .22s var(--ease), transform .22s var(--ease), visibility 0s;
 }
-.drawer a:last-of-type{ border-bottom:0; }
-.drawer__foot{ margin-top:2.5rem; display:flex; flex-direction:column; gap:.5rem; color:var(--ink-soft); font-size:1rem; }
+/* Samo izravni linkovi izbornika — kontakt na dnu ima vlastitu velicinu */
+.drawer > a{
+  display:flex; align-items:center; min-height:48px;
+  font-family:var(--display); font-size:clamp(1.15rem,4.6vw,1.3rem); font-weight:700;
+  line-height:1.25; letter-spacing:-.02em; padding:.3rem 0;
+  border-bottom:1px solid var(--line);
+}
+.drawer > a:last-of-type{ border-bottom:0; }
+.drawer__foot{
+  margin-top:1.25rem; padding-top:1rem; border-top:1px solid var(--line);
+  display:flex; flex-direction:column; align-items:flex-start; gap:.1rem;
+  color:var(--ink-soft); font-size:1rem;
+}
+.drawer__foot a{ display:flex; align-items:center; min-height:44px; }
 
 /* ---------- 8. FOOTER ---------- */
 .foot{ border-top:1px solid var(--line); padding-block:clamp(2.5rem,5vw,4rem) calc(2.5rem + var(--safe-b)); }
@@ -178,7 +194,7 @@ h1,h2,h3,h4{ font-family:var(--display); font-weight:700; line-height:1.06; lett
 /* ---------- 10. ZAJEDNIČKI BREAKPOINTOVI ---------- */
 @media (max-width:860px){
   .nav__links{ display:none; }
-  .burger{ display:grid; }
+  .burger{ display:flex; }
 }
 @media (max-width:520px){
   :root{ --nav-h:66px; }
