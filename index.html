@@ -93,33 +93,9 @@
 .sec__text p+p{ margin-top:1.1rem; }
 .sec__text strong{ color:var(--ink); font-weight:600; }
 
-/* Sekcija 02: oznaka u 1. redu, tekst i kartica usporedno u 2. redu.
-   Bez eksplicitnih redova auto-placement digne karticu uz oznaku. */
+/* Sekcija 02: oznaka u 1. redu, tekst u 2. redu. */
 #vidljivost .sec__label{ grid-row:1; }
 #vidljivost .sec__body--left{ grid-row:2; }
-#vidljivost .serp{ grid-row:2; }
-
-/* ---------- KARTICA S PRETRAGOM ---------- */
-.serp{
-  grid-column:9 / span 4; align-self:start;
-  background:var(--cream-lift); border:1px solid var(--line); border-radius:16px;
-  padding:1.4rem 1.5rem 1.6rem; box-shadow:0 26px 60px -34px rgba(21,21,18,.4);
-}
-.serp__bar{
-  display:flex; align-items:center; gap:.6rem; padding:.6rem .9rem; margin-bottom:1.25rem;
-  border:1px solid var(--line); border-radius:100px; color:var(--ink-faint); font-size:.88rem;
-}
-.serp__bar svg{ width:15px; height:15px; flex:none; }
-.serp__hit+.serp__hit{ margin-top:1.15rem; padding-top:1.15rem; border-top:1px solid var(--line); }
-.serp__hit--own .serp__t{ color:var(--pink); font-weight:600; }
-.serp__u{ font-size:.78rem; color:var(--ink-faint); letter-spacing:.02em; }
-.serp__t{ font-family:var(--display); font-size:1.05rem; font-weight:600; margin:.15rem 0 .2rem; }
-.serp__d{ font-size:.85rem; color:var(--ink-soft); line-height:1.5; }
-.serp__pin{
-  display:inline-block; margin-top:.9rem; font-size:.7rem; font-weight:600;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--cream-lift);
-  background:var(--pink-wash); padding:.3rem .7rem; border-radius:100px;
-}
 
 /* ---------- NUMERIRANA LISTA ---------- */
 .plist{ list-style:none; margin-top:2.25rem; display:grid; gap:1.25rem; }
@@ -255,10 +231,8 @@
                flex-direction:row; flex-wrap:wrap; gap:1.75rem 3rem; }
   .sec__label{ grid-column:1 / span 12; flex-direction:row; align-items:baseline; gap:1rem; }
   .sec__body,.sec__body--left{ grid-column:1 / span 12; margin-top:1.5rem; }
-  .serp{ grid-column:1 / span 12; margin-top:2.5rem; max-width:520px; }
   #vidljivost .sec__label,
-  #vidljivost .sec__body--left,
-  #vidljivost .serp{ grid-row:auto; }
+  #vidljivost .sec__body--left{ grid-row:auto; }
 }
 @media (max-width:860px){
   .hero__lead{ grid-column:1 / span 12; }
@@ -273,7 +247,6 @@
 @media (max-width:520px){
   .hero__cta{ gap:.7rem; }
   .hero__rail{ flex-direction:column; gap:1.25rem; }
-  .serp{ padding:1.15rem 1.15rem 1.35rem; border-radius:14px; }
   .cta{ border-radius:16px; }
   .cta__row{ gap:.85rem; }
   .cta__link{ font-size:1rem; }
@@ -466,26 +439,6 @@
           </li>
         </ol>
       </div>
-
-      <aside class="serp" data-reveal style="--i:3" aria-label="Primjer prikaza u Google rezultatima">
-        <div class="serp__bar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
-          apartmani vir uz more
-        </div>
-
-        <div class="serp__hit serp__hit--own">
-          <div class="serp__u">lotastudio.eu › villa-emilia</div>
-          <div class="serp__t">Villa Emilia, Vir — apartmani 250 m od mora</div>
-          <p class="serp__d">Tri uređena apartmana s klimom, vrtom i besplatnim parkingom. Rezervirajte direktno, bez provizije.</p>
-          <span class="serp__pin">Vaša stranica</span>
-        </div>
-
-        <div class="serp__hit">
-          <div class="serp__u">posrednik.com › smjestaj › vir</div>
-          <div class="serp__t">Vir — 240 smještaja</div>
-          <p class="serp__d">Usporedite ponudu i rezervirajte uz proviziju od 15–18 %.</p>
-        </div>
-      </aside>
     </div>
   </section>
 
