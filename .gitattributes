@@ -3,3 +3,6 @@
 
 # iCal datoteke moraju zadrzati CRLF prijelome (RFC 5545)
 *.ics -text
+
+# BIMI SVG mora ostati LF (SVG Tiny P/S), bez obzira na platformu
+bimi/*.svg text eol=lf

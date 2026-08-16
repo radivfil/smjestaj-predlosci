@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 520 520" width="520" height="520">
+<title>Lota Studio</title>
+<desc>Crni geometrijski wordmark LOTA iznad tankog razmaknutog natpisa STUDIO sa sivim vodoravnim linijama sa strane, na svijetloj podlozi.</desc>
+<rect x="0" y="0" width="520" height="520" fill="#F5F4F1"/>
+<g fill="#101010">
+<rect x="42" y="179" width="13" height="110"/>
+<rect x="42" y="276" width="72" height="13"/>
+<circle cx="191" cy="234" r="55"/>
+<circle cx="191" cy="234" r="42" fill="#F5F4F1"/>
+<rect x="268" y="179" width="90" height="13"/>
+<rect x="306.5" y="179" width="13" height="110"/>
+<path d="M380 289L429 179L478 289L463 289L429 212.7L395 289Z"/>
+</g>
+<g fill="none" stroke="#101010" stroke-width="3.5" stroke-linecap="butt">
+<path d="M153 323.4C151.6 321.2 148 320.3 145.6 321.7C142.6 323.4 143 326.5 146.2 327.7C149 328.7 152.2 329.2 153.6 331.5C155 333.8 153.5 336.8 150.6 337.6C147.5 338.5 144.3 337.4 143.2 335.3"/>
+<path d="M187 320.75H202"/>
+<path d="M194.5 319V340"/>
+<path d="M234.75 319V332.5A5.75 5.75 0 0 0 246.25 332.5V319"/>
+<path d="M280.75 319V340"/>
+<path d="M280.75 320.75H283A11 8.75 0 0 1 283 338.25H280.75"/>
+<path d="M327.75 319V340"/>
+<circle cx="370" cy="329.5" r="8.75"/>
+</g>
+<g fill="none" stroke="#101010" stroke-width="2.5">
+<path d="M42 329.5H125"/>
+<path d="M395 329.5H478"/>
+</g>
+</svg>

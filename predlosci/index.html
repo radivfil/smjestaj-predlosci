@@ -9,6 +9,11 @@
 <title>Predlošci — Lota Studio</title>
 <meta name="description" content="Gotove izvedbe web stranica za sve djelatnosti — salone, ordinacije, restorane, obrte i smještaj. Pogledajte stranice uživo i odaberite stil koji odgovara vašem poslovanju." />
 <meta name="author" content="Lota Studio" />
+<!-- Stranica je skrivena s javnog sajta (nema linkova na nju), pa je i
+     iskljucujemo iz Google rezultata. Fajlovi ostaju u repozitoriju i
+     stranica je i dalje dostupna preko izravnog linka. Za povratak:
+     obrisi ovaj meta tag i vrati linkove u navigaciji na index.html. -->
+<meta name="robots" content="noindex, nofollow" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lota Studio" />
@@ -63,7 +68,7 @@
 <header class="nav" id="nav">
   <div class="wrap nav__in">
     <a href="../index.html" class="nav__logo" aria-label="Lota Studio — početna">
-      <img src="../lotalogo.png" alt="Lota Studio" width="1150" height="390" />
+      <img src="../assets/logo.svg" alt="Lota Studio" width="452" height="177" />
     </a>
 
     <nav aria-label="Glavni izbornik">
@@ -357,7 +362,7 @@
   <div class="wrap">
     <div class="foot__in">
       <div class="foot__brand">
-        <img src="../lotalogo.png" alt="Lota Studio" width="1150" height="390" />
+        <img src="../assets/logo.svg" alt="Lota Studio" width="452" height="177" />
         <p>Web stranice i digitalna rješenja<br />Oglašavanje s radošću ❤️</p>
       </div>
       <div class="foot__contact">

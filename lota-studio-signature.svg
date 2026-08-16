@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 476 201" width="476" height="201">
+<title>Lota Studio</title>
+<g fill="#101010">
+<rect x="20" y="20" width="13" height="110"/>
+<rect x="20" y="117" width="72" height="13"/>
+<rect x="246" y="20" width="90" height="13"/>
+<rect x="284.5" y="20" width="13" height="110"/>
+<path d="M358 130L407 20L456 130L441 130L407 53.7L373 130Z"/>
+</g>
+<circle cx="169" cy="75" r="48.5" fill="none" stroke="#101010" stroke-width="13"/>
+<g fill="none" stroke="#101010" stroke-width="3.5" stroke-linecap="butt">
+<path d="M131 164.4C129.6 162.2 126 161.3 123.6 162.7C120.6 164.4 121 167.5 124.2 168.7C127 169.7 130.2 170.2 131.6 172.5C133 174.8 131.5 177.8 128.6 178.6C125.5 179.5 122.3 178.4 121.2 176.3"/>
+<path d="M165 161.75H180"/>
+<path d="M172.5 160V181"/>
+<path d="M212.75 160V173.5A5.75 5.75 0 0 0 224.25 173.5V160"/>
+<path d="M258.75 160V181"/>
+<path d="M258.75 161.75H261A11 8.75 0 0 1 261 179.25H258.75"/>
+<path d="M305.75 160V181"/>
+<circle cx="348" cy="170.5" r="8.75"/>
+</g>
+<g fill="none" stroke="#101010" stroke-width="2.5">
+<path d="M20 170.5H103"/>
+<path d="M373 170.5H456"/>
+</g>
+</svg>
