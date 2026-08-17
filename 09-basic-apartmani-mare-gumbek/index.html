@@ -268,16 +268,20 @@
   .amenity p { color: var(--text-muted); font-size: .88rem; }
 
   /* ============================================================
-     9. CJENIK (usporedna tablica)
+     9. CIJENA NA UPIT (bez fiksnog cjenika — cijena varira po sezoni)
      ============================================================ */
-  .pricing__table { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); background: var(--surface); }
-  table.rates { width: 100%; border-collapse: collapse; min-width: 520px; }
-  table.rates th, table.rates td { padding: 1rem 1.25rem; text-align: left; border-bottom: 1px solid var(--border); }
-  table.rates thead th { background: var(--surface-2); font-family: var(--font-display); font-size: .95rem; font-weight: 600; }
-  table.rates tbody tr:last-child td { border-bottom: none; }
-  table.rates td.season { font-weight: 600; }
-  table.rates .price { font-family: var(--font-display); font-weight: 700; color: var(--sea); }
-  .rates tr.peak td { background: color-mix(in srgb, var(--terra) 8%, transparent); }
+  .pricing__ask { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; }
+  .pricing__ask-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.6rem 1.5rem 1.5rem;
+    box-shadow: var(--shadow-sm); position: relative;
+  }
+  .pricing__ask-num {
+    font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1;
+    color: color-mix(in srgb, var(--sea) 32%, transparent); display: block; margin-bottom: .6rem;
+  }
+  .pricing__ask-card h3 { font-size: 1.15rem; margin-bottom: .4rem; }
+  .pricing__ask-card p { font-size: .89rem; color: var(--text-muted); }
   .pricing__note { font-size: .85rem; color: var(--text-muted); margin-top: 1rem; max-width: 70ch; }
   .pricing__extras { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
   .pricing__extras li { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem 1.2rem; font-size: .89rem; color: var(--text-muted); }
@@ -627,32 +631,32 @@
       <div class="container">
         <div class="section-head center" data-reveal>
           <span class="eyebrow">Sadržaji</span>
-          <h2>Sve uključeno u cijenu</h2>
+          <h2>Ono što oba apartmana imaju</h2>
         </div>
         <div class="amenities__grid">
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M2 8.82a15 15 0 0 1 20 0M12 20h.01"/></svg></div>
-            <h3>Brzi Wi-Fi</h3><p>Optika u obje jedinice — dovoljno i za rad na daljinu.</p>
+            <h3>Besplatan Wi-Fi</h3><p>U oba apartmana, bez ograničenja prometa — dovoljno i za rad na daljinu.</p>
           </div>
           <div class="amenity" data-reveal>
-            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="16" r="1"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-            <h3>Self check-in 24/7</h3><p>Vlastiti kod za sef s ključem — stižete kad vama odgovara.</p>
+            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1M2 12h20"/></svg></div>
+            <h3>Klima</h3><p>U svakom apartmanu, pa i kolovoško poslijepodne prođe u hladu.</p>
           </div>
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17V9l2-4h8l2 4v8M7 20v-3M17 20v-3"/><circle cx="8.5" cy="13.5" r="1"/><circle cx="15.5" cy="13.5" r="1"/></svg></div>
-            <h3>Besplatan parking</h3><p>Vlastito mjesto u dvorištu za svaku jedinicu, iza rampe.</p>
+            <h3>Besplatan parking</h3><p>Vlastito mjesto u dvorištu, pred ulazom — ne tražite mjesto po mjestu.</p>
           </div>
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2M8 7v13M16 7v13M4 20h16"/></svg></div>
-            <h3>Opremljena kuhinja</h3><p>Posuđe, aparat za kavu, hladnjak s ledom — kao kod kuće.</p>
+            <h3>Puna kuhinja</h3><p>Pećnica, ploča, perilica posuđa, mikrovalna, aparat za kavu i posuđe za cijelu ekipu.</p>
           </div>
           <div class="amenity" data-reveal>
-            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/><circle cx="12" cy="12" r="9"/></svg></div>
-            <h3>Klima i tiha noć</h3><p>Klima u svakoj sobi, a ulica je mirna — bez prometa i buke.</p>
+            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12v9M12 3a9 9 0 0 0-9 9h18a9 9 0 0 0-9-9z"/></svg></div>
+            <h3>Vlastiti vanjski prostor</h3><p>Mare ima vrt i natkrivenu terasu s vanjskom kuhinjom, Gumbek balkon s tendom.</p>
           </div>
           <div class="amenity" data-reveal>
-            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20s2-4 8-4 8 4 8 4M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div>
-            <h3>Domaći savjeti</h3><p>Gdje na najbolju ribu, koja je plaža skrivena i kad krenuti na Kornate.</p>
+            <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7c2 0 2 1.5 4 1.5S8 7 10 7s2 1.5 4 1.5S16 7 18 7s2 1.5 4 1.5M2 13c2 0 2 1.5 4 1.5S8 13 10 13s2 1.5 4 1.5S16 13 18 13s2 1.5 4 1.5M2 19c2 0 2 1.5 4 1.5S8 19 10 19s2 1.5 4 1.5S16 19 18 19s2 1.5 4 1.5"/></svg></div>
+            <h3>Plaža na 800 m</h3><p>Desetak minuta lagane šetnje do plaže Donje Petrčane, bez prelaska prometnice.</p>
           </div>
         </div>
       </div>
@@ -662,29 +666,34 @@
     <section class="section" id="pricing">
       <div class="container">
         <div class="section-head" data-reveal>
-          <span class="eyebrow">Cjenik</span>
-          <h2>Cijene po sezoni</h2>
-          <p class="lead">Cijena je za cijelu jedinicu, po noći. Rezervacijom direktno kod nas nema provizije portala — to je razlika koju vidite u cijeni.</p>
+          <span class="eyebrow">Cijena</span>
+          <h2>Provjerite dostupnost i cijenu upitom</h2>
+          <p class="lead">Ne objavljujemo fiksni cjenik jer bi vas u devet od deset slučajeva doveo u zabludu — cijena se mijenja po sezoni, duljini boravka i broju gostiju. Pošaljite datume i javljamo se s jednim konkretnim iznosom, bez skrivenih dodataka.</p>
         </div>
-        <div class="pricing__table" data-reveal>
-          <table class="rates">
-            <thead>
-              <tr><th scope="col">Razdoblje</th><th scope="col">Apartman Mare<br /><small style="font-weight:400;color:var(--text-muted)">do 4 osobe</small></th><th scope="col">Studio Gumbek<br /><small style="font-weight:400;color:var(--text-muted)">do 2 osobe</small></th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="season">Predsezona · svibanj, listopad</td><td class="price">€70</td><td class="price">€45</td></tr>
-              <tr><td class="season">Sezona · lipanj, rujan</td><td class="price">€90</td><td class="price">€60</td></tr>
-              <tr class="peak"><td class="season">Špica · srpanj, kolovoz</td><td class="price">€120</td><td class="price">€80</td></tr>
-            </tbody>
-          </table>
+        <div class="pricing__ask" data-reveal>
+          <div class="pricing__ask-card">
+            <span class="pricing__ask-num">01</span>
+            <h3>Pošaljete datume</h3>
+            <p>Termin, broj gostiju i koji vas apartman zanima — ili oba, ako putujete u dvije obitelji.</p>
+          </div>
+          <div class="pricing__ask-card">
+            <span class="pricing__ask-num">02</span>
+            <h3>Javljamo se s cijenom</h3>
+            <p>Dobivate ukupan iznos za cijeli boravak, s razdvojenom boravišnom pristojbom.</p>
+          </div>
+          <div class="pricing__ask-card">
+            <span class="pricing__ask-num">03</span>
+            <h3>Potvrđujete bez obveze</h3>
+            <p>Upit ništa ne obvezuje. Rezervacija je potvrđena tek kad se vi izričito složite.</p>
+          </div>
         </div>
         <ul class="pricing__extras" data-reveal>
-          <li><strong>Uključeno</strong> Posteljina, ručnici, finalno čišćenje, voda i struja, parking i Wi-Fi.</li>
-          <li><strong>Boravišna pristojba</strong> Naplaćuje se dodatno, prema važećoj odluci — recite nam broj gostiju i izračunat ćemo točno.</li>
-          <li><strong>Minimalni boravak</strong> 3 noći u sezoni, 5 noći u špici. Izvan sezone dogovorno.</li>
-          <li><strong>Djeca i dodatni ležaj</strong> Dječji krevetić besplatno, uz najavu. Dodatni ležaj u Mare uz nadoplatu.</li>
+          <li><strong>Uključeno u cijenu</strong> Posteljina i ručnici, finalno čišćenje, voda i struja, klima, parking i Wi-Fi.</li>
+          <li><strong>Boravišna pristojba</strong> Obračunava se dodatno, prema važećoj odluci — recite nam broj gostiju i njihove godine pa računamo točno.</li>
+          <li><strong>Cijela zgrada</strong> Uzimate oba apartmana? Recite to u upitu — za zajedničku rezervaciju radimo jednu ponudu.</li>
+          <li><strong>Djeca</strong> Dobrodošla su. Napišite koliko ih je i koliko su stara da predložimo raspored ležajeva.</li>
         </ul>
-        <p class="pricing__note" data-reveal>Cijene su informativne i vrijede za sezonu 2026. Za točnu ponudu za vaš termin pošaljite upit — javljamo se isti dan.</p>
+        <p class="pricing__note" data-reveal>Na upite odgovaramo u pravilu isti dan. Rezervacijom direktno kod nas nema provizije portala.</p>
       </div>
     </section>
 
@@ -697,12 +706,12 @@
           <p class="lead">Kliknite bilo koju fotografiju za veći prikaz.</p>
         </div>
         <div class="gallery__grid">
-          <button class="gallery__item wide" data-lightbox data-caption="Dnevni boravak apartmana Mare" data-reveal aria-label="Povećaj fotografiju dnevnog boravka"><img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=900&q=80" alt="Dnevni boravak apartmana Mare" loading="lazy" /></button>
-          <button class="gallery__item tall" data-lightbox data-caption="Spavaća soba" data-reveal aria-label="Povećaj fotografiju spavaće sobe"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=700&q=80" alt="Spavaća soba s bračnim krevetom" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-caption="Kupaonica s tušem" data-reveal aria-label="Povećaj fotografiju kupaonice"><img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=700&q=80" alt="Kupaonica s tušem" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-caption="Kuhinja s blagovaonicom" data-reveal aria-label="Povećaj fotografiju kuhinje"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80" alt="Kuhinja s blagovaonicom" loading="lazy" /></button>
-          <button class="gallery__item tall" data-lightbox data-caption="Natkrivena terasa" data-reveal aria-label="Povećaj fotografiju terase"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80" alt="Natkrivena terasa sa stolom i stolicama" loading="lazy" /></button>
-          <button class="gallery__item wide" data-lightbox data-caption="Plaža nadomak kuće" data-reveal aria-label="Povećaj fotografiju plaže"><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80" alt="Plaža nadomak kuće" loading="lazy" /></button>
+          <button class="gallery__item wide" data-lightbox data-caption="Petrčane iz zraka — luka, riva i mjesto" data-reveal aria-label="Povećaj fotografiju Petrčana iz zraka"><img src="images/petrcane-luka-dron.jpg" alt="Petrčane iz zraka — luka s brodicama, riva i kamene kuće mjesta" loading="lazy" /></button>
+          <button class="gallery__item tall" data-lightbox data-caption="Apartman Mare — kupaonica s tuš kabinom" data-reveal aria-label="Povećaj fotografiju kupaonice"><img src="images/mare/mare-06-kupaonica.jpg" alt="Apartman Mare — kupaonica s tuš kabinom, umivaonikom i prozorom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-caption="Apartman Mare — dnevni boravak" data-reveal aria-label="Povećaj fotografiju dnevnog boravka"><img src="images/mare/mare-03-dnevni-boravak.jpg" alt="Apartman Mare — dnevni boravak sa sofom, dodatnim ležajem i klimom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-caption="Apartman Gumbek — kuhinja" data-reveal aria-label="Povećaj fotografiju kuhinje"><img src="images/gumbek/gumbek-04-kuhinja.jpg" alt="Apartman Gumbek — kuhinja s indukcijskom pločom, perilicom posuđa, mikrovalnom i aparatom za kavu" loading="lazy" /></button>
+          <button class="gallery__item tall" data-lightbox data-caption="Vrt i dvorište pred apartmanom Mare" data-reveal aria-label="Povećaj fotografiju vrta"><img src="images/mare/mare-07-vrt.jpg" alt="Uređeni vrt s mediteranskim biljem i kamenim pločama pred zgradom" loading="lazy" /></button>
+          <button class="gallery__item wide" data-lightbox data-caption="Apartman Mare — natkrivena terasa s vanjskom kuhinjom" data-reveal aria-label="Povećaj fotografiju terase"><img src="images/mare/mare-01-terasa.jpg" alt="Apartman Mare — natkrivena terasa sa stolom za šest, vanjskom kuhinjom i kamenim kaminom" loading="lazy" /></button>
         </div>
       </div>
     </section>
@@ -711,37 +720,38 @@
     <section class="section steps" id="checkin">
       <div class="container">
         <div class="section-head" data-reveal style="max-width:600px">
-          <span class="eyebrow">Self check-in</span>
-          <h2>Dolazak bez čekanja, u 4 koraka</h2>
-          <p class="lead" style="color:rgba(255,255,255,.9)">Ne morate uskladiti let, trajekt ni gužvu na cesti s našim rasporedom. Ključ vas čeka — stigli vi u podne ili u dva ujutro.</p>
+          <span class="eyebrow">Dolazak</span>
+          <h2>Od upita do ključa u ruci</h2>
+          <p class="lead" style="color:rgba(255,255,255,.9)">Nema portala, posrednika ni čekanja na recepciji. Dogovaramo se direktno — porukom ili telefonom.</p>
         </div>
         <div class="steps__grid">
           <div class="step" data-reveal>
-            <h3>Upute stižu dan ranije</h3>
-            <p>Dan prije dolaska šaljemo vam poruku s adresom, lokacijom na karti, kodom za sef i fotografijom ulaza — da ništa ne tražite po mraku.</p>
+            <h3>Pošaljete upit</h3>
+            <p>Obrascem na ovoj stranici ili pozivom. Napišite termin, broj gostiju i koji vas apartman zanima.</p>
           </div>
           <div class="step" data-reveal>
-            <h3>Parkirajte u dvorištu</h3>
-            <p>Uđite kroz dvorišna vrata i parkirajte na mjestu označenom imenom vaše jedinice. Vrata su otvorena, rampa se diže sama.</p>
+            <h3>Dobivate ponudu</h3>
+            <p>Javljamo se s dostupnošću i ukupnom cijenom za vaš termin, u pravilu isti dan.</p>
           </div>
           <div class="step" data-reveal>
-            <h3>Sef s ključem kraj vrata</h3>
-            <p>Mali sef nalazi se desno od ulaznih vrata. Upišite svoja 4 broja, otvorite poklopac i izvadite ključ. Kod vrijedi cijeli vaš boravak.</p>
+            <h3>Potvrda i adresa</h3>
+            <p>Nakon vaše potvrde dobivate točnu adresu, lokaciju na karti i sve što treba za dolazak.</p>
           </div>
           <div class="step" data-reveal>
-            <h3>Uđite i raskomotite se</h3>
-            <p>Wi-Fi lozinka i sve upute čekaju vas na stolu. Javite nam porukom da ste stigli — i to je sve, odmor može početi.</p>
+            <h3>Dolazak i ključevi</h3>
+            <p>Parkirate na svom mjestu u dvorištu, a ključeve preuzimate od nas u vrijeme koje unaprijed dogovorimo.</p>
           </div>
         </div>
 
         <div class="checkin-note" data-reveal>
-          <h3>Praktične sitnice za dolazak</h3>
+          <h3>Dobro je znati</h3>
+          <!-- ✏️ ZAMIJENI stvarnim vremenima prijave/odjave kad ih klijent potvrdi -->
           <ul>
-            <li>Check-in bilo kada od <strong>14:00</strong>, check-out do <strong>10:00</strong>. Raniji dolazak ili kasniji odlazak — pitajte, često je moguće bez naplate.</li>
-            <li>Dolazite avionom? Zračna luka Zadar je <strong>20-ak minuta</strong> vožnje; rado preporučimo provjerenog prijevoznika.</li>
-            <li>Trgovina radi do 21 h, a u dvorištu vas za svaki slučaj čeka <strong>voda, kava i nešto za doručak</strong>.</li>
-            <li>Ključ na odlasku jednostavno vratite u sef i zatvorite poklopac — ne morate nas buditi.</li>
-            <li>Zapelo je nešto? Nazovite ili pošaljite poruku na WhatsApp — <strong>u blizini smo</strong> i dolazimo u par minuta.</li>
+            <li>Vrijeme prijave i odjave <strong>dogovaramo unaprijed</strong> — recite u koje vrijeme planirate stići pa se prilagodimo.</li>
+            <li>Dolazite avionom? Zračna luka Zadar je <strong>20-ak minuta</strong> vožnje, autobusna i trajektna luka Zadar oko <strong>15 minuta</strong>.</li>
+            <li>Parking je <strong>besplatan</strong> i nalazi se u dvorištu zgrade — jedno mjesto po apartmanu.</li>
+            <li>Posteljina, ručnici i finalno čišćenje <strong>uključeni</strong> su u cijenu, ne plaćate ih dodatno.</li>
+            <li>Trebate nešto tijekom boravka? <strong>Nazovite</strong> — javljamo se i rješavamo isti dan.</li>
           </ul>
         </div>
       </div>
