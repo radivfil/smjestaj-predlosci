@@ -268,6 +268,44 @@
 .proc__s h3{ font-size:1.15rem; margin:.5rem 0 .45rem; }
 .proc__s p{ font-size:.92rem; color:var(--ink-soft); }
 
+/* ---------- FAQ ---------- */
+/* Accordion je <details>/<summary>: radi bez JS-a, otvara se tipkovnicom
+   i citljiv je citacima ekrana bez dodatnih ARIA atributa. */
+.faq{ grid-column:1 / span 12; margin-top:.5rem; border-top:1px solid var(--line); }
+.faq__i{ border-bottom:1px solid var(--line); }
+.faq__i summary{
+  display:flex; align-items:flex-start; justify-content:space-between; gap:1.25rem;
+  min-height:56px; padding:1.2rem 0; cursor:pointer; list-style:none;
+  font-family:var(--display); font-weight:700; letter-spacing:-.015em; line-height:1.3;
+  font-size:clamp(1.05rem, 1rem + .35vw, 1.25rem); color:var(--ink);
+}
+.faq__i summary::-webkit-details-marker{ display:none; }
+.faq__i summary::marker{ content:""; }
+.faq__i summary:focus-visible{ outline:2px solid var(--ink); outline-offset:3px; border-radius:4px; }
+
+/* Plus koji se pri otvaranju pretvara u minus */
+.faq__ico{
+  position:relative; flex:none; width:32px; height:32px; margin-top:.1rem;
+  border:1px solid var(--line); border-radius:50%;
+  transition:background .35s var(--ease), border-color .35s var(--ease);
+}
+.faq__ico::before,.faq__ico::after{
+  content:""; position:absolute; left:50%; top:50%; width:12px; height:1.5px; border-radius:2px;
+  background:var(--ink); transform:translate(-50%,-50%);
+  transition:transform .35s var(--ease), background .35s var(--ease);
+}
+.faq__ico::after{ transform:translate(-50%,-50%) rotate(90deg); }
+.faq__i:hover .faq__ico{ border-color:var(--ink); }
+.faq__i[open] .faq__ico{ background:var(--ink); border-color:var(--ink); }
+.faq__i[open] .faq__ico::before,
+.faq__i[open] .faq__ico::after{ background:var(--cream-lift); }
+.faq__i[open] .faq__ico::after{ transform:translate(-50%,-50%) rotate(0deg); }
+
+.faq__a{ padding-bottom:1.5rem; max-width:76ch; color:var(--ink-soft); font-size:.98rem; }
+.faq__i[open] .faq__a{ animation:faqIn .45s var(--ease) both; }
+@keyframes faqIn{ from{ opacity:0; transform:translateY(-6px); } to{ opacity:1; transform:none; } }
+@media (prefers-reduced-motion:reduce){ .faq__i[open] .faq__a{ animation:none; } }
+
 /* ---------- 07 KONTAKT ---------- */
 .cta{ grid-column:1 / span 12; display:grid; gap:1.75rem;
       background:var(--ink); color:var(--cream);
@@ -948,6 +986,173 @@
       </div>
     </div>
   </section>
+
+  <div class="wrap"><hr class="rule" /></div>
+
+  <!-- ============ FAQ ============
+       Stoji nakon paketa i procesa, a prije zavrsnog CTA-a: odgovara na
+       zadnje prigovore ("koliko traje", "moram li ja nesto pripremiti")
+       tocno u trenutku kad posjetitelj razmislja o kontaktu. -->
+  <section class="section" id="faq">
+    <div class="wrap grid12">
+      <div class="sec__label" data-reveal>
+        <span class="eyebrow">Pitanja</span>
+      </div>
+
+      <div class="sec__body">
+        <h2 class="sec__title" data-reveal style="--i:1">Pitanja i <em>odgovori.</em></h2>
+        <div class="sec__text" data-reveal style="--i:2">
+          <p>Ono što nas klijenti najčešće pitaju prije nego krenemo. Ako Vaše pitanje nije ovdje, samo nam pišite.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details class="faq__i" data-reveal style="--i:0">
+          <summary>Koliko traje izrada web stranice?<span class="faq__ico" aria-hidden="true"></span></summary>
+          <div class="faq__a">
+            <p>Jednostavnija stranica obično je gotova za dva do tri tjedna od trenutka kad dogovorimo sadržaj. Veći opseg — više podstranica, rezervacije ili webshop — traje dulje. Točan rok dogovorimo na početku i držimo Vas u tijeku.</p>
+          </div>
+        </details>
+
+        <details class="faq__i" data-reveal style="--i:1">
+          <summary>Moram li ja pripremiti tekstove?<span class="faq__ico" aria-hidden="true"></span></summary>
+          <div class="faq__a">
+            <p>Ne morate. Ako imate gotove tekstove, rado ih koristimo. Ako nemate, pišemo ih mi — na temelju kratkog razgovora o tome čime se bavite i tko su Vaši klijenti. Vi ih samo pročitate i potvrdite.</p>
+          </div>
+        </details>
+
+        <details class="faq__i" data-reveal style="--i:2">
+          <summary>Moram li imati fotografije?<span class="faq__ico" aria-hidden="true"></span></summary>
+          <div class="faq__a">
+            <p>Ne. Vaše fotografije obradimo i pripremimo za web. Ako ih nemate dovoljno, koristimo kvalitetne licencirane fotografije, a po dogovoru možemo organizirati i profesionalno fotografiranje.</p>
+          </div>
+        </details>
+
+        <details class="faq__i" data-reveal style="--i:3">
+          <summary>Je li domena uključena?<span class="faq__ico" aria-hidden="true"></span></summary>
+          <div class="faq__a">
+            <p>Registraciju domene i cijelo tehničko postavljanje odrađujemo mi. Sam godišnji trošak domene plaća se davatelju i ovisi o nastavku (.hr, .com i slično). Domena je registrirana na Vaše ime i ostaje Vaša.</p>
+          </div>
+        </details>
+
+        <details class="faq__i" data-reveal style="--i:4">
+          <summary>Što ako već imam web stranicu?<span class="faq__ico" aria-hidden="true"></span></summary>
+          <div class="faq__a">
+            <p>Onda radimo redizajn: zadržavamo sadržaj i postojeću adresu, a mijenjamo izgled, brzinu i strukturu — bez gubitka pozicije na Googleu. Ako je stranica u redu, a problem je samo vidljivost, tu je zasebna usluga Google vidljivosti.</p>
+          </div>
+        </details>
+
+        <details class="faq__i" data-reveal style="--i:5">
+          <summary>Mogu li kasnije sam mijenjati sadržaj?<span class="faq__ico" aria-hidden="true"></span></summary>
+          <div class="faq__a">
+            <p>Možete. Nakon objave pokažemo Vam kako sami mijenjate tekstove, cijene i fotografije. Ako Vam se ne da ili nemate vremena, sitne izmjene ulaze u održavanje pa ih odradimo mi.</p>
+          </div>
+        </details>
+
+        <details class="faq__i" data-reveal style="--i:6">
+          <summary>Što uključuje održavanje?<span class="faq__ico" aria-hidden="true"></span></summary>
+          <div class="faq__a">
+            <p>Hosting, SSL certifikat, sigurnosna ažuriranja i sigurnosne kopije, praćenje rada stranice i sitne izmjene sadržaja. Iznos je unaprijed poznat — nema naplate po satu ni računa koji Vas iznenadi.</p>
+          </div>
+        </details>
+
+        <details class="faq__i" data-reveal style="--i:7">
+          <summary>Mogu li imati web na više jezika?<span class="faq__ico" aria-hidden="true"></span></summary>
+          <div class="faq__a">
+            <p>Da, višejezičnost je uključena u sve pakete. Najčešće su to hrvatski, engleski, njemački i talijanski, ali dodajemo bilo koji jezik koji Vam treba.</p>
+          </div>
+        </details>
+
+        <details class="faq__i" data-reveal style="--i:8">
+          <summary>Možete li napraviti online rezervacije?<span class="faq__ico" aria-hidden="true"></span></summary>
+          <div class="faq__a">
+            <p>Možemo. Sustav rezervacija s kalendarom dostupnosti dio je Premium paketa, a po dogovoru ga dodajemo i na manji paket. Kalendar se može sinkronizirati s Booking.com-om i Airbnb-om, pa nema dvostrukih rezervacija.</p>
+          </div>
+        </details>
+
+        <details class="faq__i" data-reveal style="--i:9">
+          <summary>Mogu li dobiti online plaćanje?<span class="faq__ico" aria-hidden="true"></span></summary>
+          <div class="faq__a">
+            <p>Da. Postavljamo plaćanje karticom preko provjerenih servisa. Novac ide izravno na Vaš račun — mi nismo posrednik u naplati.</p>
+          </div>
+        </details>
+
+        <details class="faq__i" data-reveal style="--i:10">
+          <summary>Radite li webshop?<span class="faq__ico" aria-hidden="true"></span></summary>
+          <div class="faq__a">
+            <p>Radimo. Webshop kreće od 699 €, a konačna cijena ovisi o broju proizvoda, načinima plaćanja i dostave te integracijama koje su Vam potrebne.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQPage strukturirani podaci za Google (rich results).
+       VAZNO: tekst mora ostati identican pitanjima i odgovorima iznad —
+       ako mijenjas sekciju, mijenjaj i ovaj blok. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Koliko traje izrada web stranice?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Jednostavnija stranica obično je gotova za dva do tri tjedna od trenutka kad dogovorimo sadržaj. Veći opseg — više podstranica, rezervacije ili webshop — traje dulje. Točan rok dogovorimo na početku i držimo Vas u tijeku." }
+      },
+      {
+        "@type": "Question",
+        "name": "Moram li ja pripremiti tekstove?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Ne morate. Ako imate gotove tekstove, rado ih koristimo. Ako nemate, pišemo ih mi — na temelju kratkog razgovora o tome čime se bavite i tko su Vaši klijenti. Vi ih samo pročitate i potvrdite." }
+      },
+      {
+        "@type": "Question",
+        "name": "Moram li imati fotografije?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Ne. Vaše fotografije obradimo i pripremimo za web. Ako ih nemate dovoljno, koristimo kvalitetne licencirane fotografije, a po dogovoru možemo organizirati i profesionalno fotografiranje." }
+      },
+      {
+        "@type": "Question",
+        "name": "Je li domena uključena?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Registraciju domene i cijelo tehničko postavljanje odrađujemo mi. Sam godišnji trošak domene plaća se davatelju i ovisi o nastavku (.hr, .com i slično). Domena je registrirana na Vaše ime i ostaje Vaša." }
+      },
+      {
+        "@type": "Question",
+        "name": "Što ako već imam web stranicu?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Onda radimo redizajn: zadržavamo sadržaj i postojeću adresu, a mijenjamo izgled, brzinu i strukturu — bez gubitka pozicije na Googleu. Ako je stranica u redu, a problem je samo vidljivost, tu je zasebna usluga Google vidljivosti." }
+      },
+      {
+        "@type": "Question",
+        "name": "Mogu li kasnije sam mijenjati sadržaj?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Možete. Nakon objave pokažemo Vam kako sami mijenjate tekstove, cijene i fotografije. Ako Vam se ne da ili nemate vremena, sitne izmjene ulaze u održavanje pa ih odradimo mi." }
+      },
+      {
+        "@type": "Question",
+        "name": "Što uključuje održavanje?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hosting, SSL certifikat, sigurnosna ažuriranja i sigurnosne kopije, praćenje rada stranice i sitne izmjene sadržaja. Iznos je unaprijed poznat — nema naplate po satu ni računa koji Vas iznenadi." }
+      },
+      {
+        "@type": "Question",
+        "name": "Mogu li imati web na više jezika?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Da, višejezičnost je uključena u sve pakete. Najčešće su to hrvatski, engleski, njemački i talijanski, ali dodajemo bilo koji jezik koji Vam treba." }
+      },
+      {
+        "@type": "Question",
+        "name": "Možete li napraviti online rezervacije?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Možemo. Sustav rezervacija s kalendarom dostupnosti dio je Premium paketa, a po dogovoru ga dodajemo i na manji paket. Kalendar se može sinkronizirati s Booking.com-om i Airbnb-om, pa nema dvostrukih rezervacija." }
+      },
+      {
+        "@type": "Question",
+        "name": "Mogu li dobiti online plaćanje?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Da. Postavljamo plaćanje karticom preko provjerenih servisa. Novac ide izravno na Vaš račun — mi nismo posrednik u naplati." }
+      },
+      {
+        "@type": "Question",
+        "name": "Radite li webshop?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Radimo. Webshop kreće od 699 €, a konačna cijena ovisi o broju proizvoda, načinima plaćanja i dostave te integracijama koje su Vam potrebne." }
+      }
+    ]
+  }
+  </script>
 
   <!-- ============ 07 — KONTAKT ============ -->
   <section class="section" id="kontakt">
