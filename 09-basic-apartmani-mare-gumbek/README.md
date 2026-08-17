@@ -56,10 +56,10 @@ Sve je označeno komentarom `✏️` u `index.html`:
 | Što | Gdje | Status |
 | --- | --- | --- |
 | Telefon `+385 98 751 522` | kontakt, footer, sticky traka | ✅ postavljen |
-| Adresa `23231 Petrčane` | kontakt, footer | ⚠️ nedostaju ulica i kućni broj |
-| `FORMSPREE_ID` | dno `<script>`, konstanta na vrhu IIFE-a | ❌ prazan |
+| Adresa `Petrčane IX 2a, 23231 Petrčane` | kontakt, footer, ispod karte | ✅ postavljena |
+| `FORMSPREE_ID` | dno `<script>`, konstanta na vrhu IIFE-a | ❌ prazan — vidi niže |
 | E-mail `info@mare-gumbek.hr` | kontakt, footer, `KONTAKT_MAIL` u skripti | ❌ placeholder |
-| Koordinate karte | `bbox` i `marker` u OSM `<iframe>` | ⚠️ marker na sredini Petrčana |
+| Koordinate karte | `bbox` i `marker` u OSM `<iframe>` | ⚠️ marker na centru naselja |
 | Kapacitet apartmana | `.unit-specs` u obje kartice | ⚠️ procjena s fotografija |
 | Vrijeme prijave/odjave | `.checkin-note` | ⚠️ piše „dogovaramo unaprijed" |
 | Recenzije | maknute | vratiti kad stignu prave s Bookinga |
@@ -73,11 +73,33 @@ stil. Za aktivaciju: vratiti `<a href="https://wa.me/38598751522" target="_blank
 rel="noopener">` i maknuti klasu `.is-disabled`. Telefonski `tel:` link je
 aktivan.
 
-## Forma
+## Forma i Formspree
 
 Dok je `FORMSPREE_ID` prazan, forma validira unos i otvara e-mail klijent s
-pripremljenom porukom. Nakon upisa Formspree ID-a šalje se u pozadini,
+pripremljenom porukom na `KONTAKT_MAIL`. Nakon upisa ID-a šalje se u pozadini,
 bez napuštanja stranice.
+
+Aktivacija (jedini korak koji zahtijeva klijentov e-mail, zato nije odrađen):
+
+1. Besplatan račun na [formspree.io](https://formspree.io)
+2. **New Form** → naziv „Apartmani Mare i Gumbek"
+3. Upisati e-mail na koji upiti trebaju stizati i **potvrditi ga** iz inboxa
+4. Iz endpointa `https://formspree.io/f/XXXXXXXX` kopirati zadnjih 8 znakova
+   u `const FORMSPREE_ID` na vrhu `<script>` bloka
+
+Besplatni plan pokriva 50 poruka mjesečno. Ako Formspree odbije poruku
+(nepotvrđen e-mail, potrošena kvota), razlog se ispisuje u konzoli preglednika.
+
+Ugrađena zaštita od spama: honeypot polje `_gotcha` (pomaknuto izvan ekrana, ne
+`display:none`, jer neki botovi preskaču skrivena polja). Naslov e-maila
+(`_subject`) skripta prije slanja popuni terminom, jedinicom i brojem gostiju.
+
+## Ocjena s Booking.coma
+
+U sekciji Lokacija stoji **ocjena lokacije 10/10** za oglas „Mare 9 Cozy
+Apartment with Garden", na temelju 5 recenzija. To je **ocjena lokacije, ne
+ukupna ocjena objekta** — atribucija je namjerno ispisana u cijelosti da se ne
+pročita krivo. Ako se ocjena promijeni, ažurirati `.score` blok i hero oznaku.
 
 ## Otvoreno pitanje: jedna zgrada ili dvije
 
