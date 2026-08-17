@@ -154,28 +154,18 @@
 .pk li{ display:grid; grid-template-columns:auto 1fr; gap:.55rem; }
 .pk li::before{ content:"—"; color:var(--pink); }
 
-/* BUSINESS — najpopularniji: deblji rub, blago podignut, tamnija podloga zaglavlja */
+/* BUSINESS — nosi vizualni naglasak umjesto ukinutog badgea: deblji rub i blago podignuta kartica */
 .pk--hi{ border-color:var(--ink); border-width:2px; box-shadow:0 30px 64px -44px rgba(21,21,18,.55); }
 @media (min-width:861px){ .pk--hi{ transform:translateY(-10px); } .pk--hi:hover{ transform:translateY(-15px); } }
 
-/* Oznake iznad kartice */
-.pk__badge{
-  position:absolute; top:-.75rem; left:1.4rem; z-index:2;
-  font-size:.66rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
-  padding:.34rem .75rem; border-radius:100px; white-space:nowrap;
-  background:var(--ink); color:var(--cream-lift);
-}
-.pk__badge--deal{ background:#B42318; color:#FFFFFF; }
-
-/* Cijena */
+/* Cijena — svi paketi imaju isti format ("Od X €" + jednokratno),
+   bez badgeva, prekrizenih cijena i oznaka popusta */
 .pk__price{
   font-family:var(--display); font-weight:700; letter-spacing:-.01em;
   font-size:2rem; line-height:1.1; color:var(--ink);
   display:flex; align-items:baseline; flex-wrap:wrap; gap:.5rem;
 }
 .pk__price small{ font-family:var(--body); font-size:.8rem; font-weight:600; color:var(--ink-faint); letter-spacing:.02em; }
-.pk__old{ font-size:1.15rem; color:var(--ink-faint); text-decoration:line-through; text-decoration-thickness:1.5px; }
-.pk__save{ font-size:.78rem; font-weight:700; color:#B42318; letter-spacing:.01em; }
 
 /* Održavanje */
 .pk__maint{
@@ -676,7 +666,7 @@
 
         <article class="pk pk--hi" data-reveal style="--i:1">
           <h3>Business</h3>
-          <p class="pk__price">799 €<small>jednokratno</small></p>
+          <p class="pk__price">Od 799 €<small>jednokratno</small></p>
           <ul>
             <li>Sve iz Basic paketa</li>
             <li>Do 10 podstranica</li>
@@ -693,10 +683,8 @@
         </article>
 
         <article class="pk" data-reveal style="--i:2">
-          <span class="pk__badge pk__badge--deal">Kratkotrajna ponuda – 20 % popusta</span>
           <h3>Premium</h3>
-          <p class="pk__price"><s class="pk__old">1.499 €</s> 1.199 €<small>jednokratno</small></p>
-          <p class="pk__save">Ušteda 300 €</p>
+          <p class="pk__price">Od 1.199 €<small>jednokratno</small></p>
           <ul>
             <li>Sve iz Business paketa</li>
             <li>Do 15 podstranica</li>
