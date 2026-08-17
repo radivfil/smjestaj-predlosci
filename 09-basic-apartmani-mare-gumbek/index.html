@@ -128,6 +128,8 @@
   :focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; border-radius: 4px; }
   /* na tamnim podlogama tamni terakota prsten se gubi — svjetlija varijanta */
   .hero :focus-visible, .steps :focus-visible, .site-footer :focus-visible { outline-color: var(--terra-soft); }
+  /* traka upita je svijetla kartica unutar heroja — vraca se tamniji prsten */
+  .book-bar :focus-visible { outline-color: var(--terra); }
 
   .container { max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
   .section { padding-block: var(--section-y); }
@@ -239,13 +241,52 @@
   .hero p { font-size: clamp(1.02rem, 2vw, 1.22rem); max-width: 50ch; color: rgba(255,255,255,.93); margin-bottom: 2.25rem; }
   .hero__cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-  /* Brza traka upita */
-  .book-bar { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.5rem; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.32); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); padding: .85rem; border-radius: var(--radius); }
-  .book-bar .bf { display: flex; flex-direction: column; gap: .3rem; min-width: 118px; flex: 1; }
-  .book-bar label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; opacity: .9; }
-  .book-bar input, .book-bar select { background: rgba(255,255,255,.93); color: #21302f; border: none; border-radius: var(--radius-sm); padding: .6rem .7rem; font-family: inherit; font-size: .9rem; width: 100%; }
+  /* Brza traka upita — čista svijetla podloga, bez slike iza podataka.
+     Prije je bila poluprozirna (rgba(255,255,255,.15) + backdrop-filter), pa su
+     datumi stajali direktno nad hero fotografijom i slabo se čitali. */
+  .book-bar {
+    display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.5rem;
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 1rem; border-radius: var(--radius); box-shadow: var(--shadow);
+    color: var(--text);
+    max-width: 100%;
+  }
+  /* min-width:0 umjesto 118px: tvrdi pod nije dopustao poljima da se skupe, pa je
+     input[type=date] (intrinzicna sirina ~130px + ikona) probijao svoju grupu i
+     preklapao susjednu. flex-basis sada vodi prelamanje. */
+  .book-bar .bf { display: flex; flex-direction: column; gap: .35rem; flex: 1 1 132px; min-width: 0; }
+  .book-bar label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+  .book-bar input, .book-bar select {
+    background: var(--bg); color: var(--text);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: .6rem .7rem; font-family: inherit; font-size: .9rem;
+    width: 100%; min-width: 0; max-width: 100%;
+    /* iOS Safari ignorira width:100% na date inputu i siri se po sadrzaju */
+    -webkit-appearance: none; appearance: none;
+  }
+  .book-bar input:focus, .book-bar select:focus { outline: none; border-color: var(--sea); box-shadow: 0 0 0 3px color-mix(in srgb, var(--sea) 22%, transparent); }
   .book-bar .btn { align-self: flex-end; }
-  @media (max-width: 560px) { .book-bar .btn { width: 100%; } }
+
+  /* Sigurnosna mreza: ako neki preglednik ipak nametne siru intrinzicnu sirinu
+     date inputu, traka skrola vodoravno unutar sebe umjesto da probije layout.
+     Vrijedi samo iznad 560px — ispod toga je slozena u stupac pa se ne moze
+     preliti, a scroll bi rezao focus prsten. */
+  @media (min-width: 561px) {
+    .book-bar { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  }
+
+  /* Ispod 560px: stacked layout — svako polje puna sirina, labela iznad vrijednosti */
+  @media (max-width: 560px) {
+    .book-bar { flex-direction: column; gap: .85rem; padding: .9rem; }
+    .book-bar .bf { flex: 1 1 auto; width: 100%; }
+    .book-bar .btn { width: 100%; align-self: stretch; }
+  }
+  /* 360px i uze: manji font i padding da datum stane bez prelamanja */
+  @media (max-width: 380px) {
+    .book-bar { padding: .75rem; }
+    .book-bar input, .book-bar select { font-size: .85rem; padding: .55rem .6rem; }
+    .book-bar label { font-size: .65rem; }
+  }
 
   /* ============================================================
      6. ABOUT
