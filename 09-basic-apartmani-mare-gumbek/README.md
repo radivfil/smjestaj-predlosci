@@ -24,7 +24,7 @@ Plaža Donje Petrčane 800 m (~9 min hoda), centar Zadra 12 km.
 
 ## Sadržaj stranice
 
-- Hero s dronskom fotografijom zaljeva + brza traka upita (dolazak / odlazak / gosti)
+- Hero s fotografijom zgrade + brza traka upita (dolazak / odlazak / gosti)
 - **O nama** — jedinstven uvod: dva apartmana, ista zgrada, zajedno ili odvojeno
 - **2 apartmana** — Mare i Gumbek, svaki s vlastitim fotografijama i CTA-om
 - Sadržaji, **cijena na upit** (bez fiksnog cjenika), galerija s lightboxom
