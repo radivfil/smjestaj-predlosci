@@ -35,7 +35,6 @@
        bijelim tekstom na .btn-primary samo 3.1:1, sto pada WCAG AA. */
     --sea:        #0c6b80;   /* 5.7:1 na --bg, 6.1:1 s bijelim tekstom */
     --sea-deep:   #084c5c;
-    --sea-bright: #1390a8;   /* samo dekorativno: hover, linije, ikone */
     --terra:      #b34a30;   /* 5.3:1 s bijelim tekstom */
     --terra-hover:#8f3a25;
     --terra-soft: #ef9d80;   /* akcent na tamnim podlogama (hero, steps) */
@@ -76,7 +75,6 @@
     --text-muted: #9fb4b6;
     --border:     #274a50;
     --sea:        #46c3d9;
-    --sea-bright: #6ad3e6;
     --terra:      #d4674a;
     --terra-hover:#e07d61;
     --terra-soft: #f2a184;
@@ -476,6 +474,13 @@
     .stats { grid-template-columns: 1fr 1fr; }
     .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
     .footer__bottom { flex-direction: column; }
+  }
+  /* Sticky traka sad ima tri elementa (upit + poziv + deaktivirani WhatsApp);
+     na najuzim ekranima labeli treba manje prostora da ne izlaze iz gumba. */
+  @media (max-width: 380px) {
+    .mobile-cta { gap: .45rem; padding-inline: .6rem; }
+    .mobile-cta .btn { font-size: .82rem; padding-inline: .6rem; }
+    .mobile-cta__wa { padding-inline: .7rem; }
   }
 
   /* ============================================================
