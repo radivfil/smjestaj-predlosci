@@ -18,7 +18,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500..700;1,6..72,500..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
   /* ============================================================
@@ -40,7 +40,9 @@
     --border:     #e5dbcf;
 
     /* — Tipografija — */
-    --font-display: "Fraunces", Georgia, serif;
+    /* Newsreader, ne Fraunces: Fraunces ima "wonky" mali j sa zavijenim
+       descenderom, a hrvatski tekst je pun j-eva (jedinice, ugođaja, cijenu). */
+    --font-display: "Newsreader", Georgia, "Times New Roman", serif;
     --font-body:    "Inter", system-ui, -apple-system, sans-serif;
 
     --radius:     18px;
@@ -86,7 +88,13 @@
   img { max-width: 100%; display: block; height: auto; }
   a { color: inherit; text-decoration: none; }
   ul, ol { list-style: none; }
-  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; letter-spacing: -.4px; }
+  h1, h2, h3 {
+    font-family: var(--font-display); font-weight: 600; line-height: 1.12;
+    /* em, ne px: tracking mora skalirati s clamp() velicinama naslova */
+    letter-spacing: -.015em;
+    font-optical-sizing: auto;
+    text-wrap: balance;
+  }
   h2 { font-size: clamp(1.9rem, 4.5vw, 3rem); }
   h3 { font-size: clamp(1.25rem, 2.4vw, 1.55rem); }
   :focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; border-radius: 4px; }
@@ -136,7 +144,7 @@
     box-shadow: 0 1px 0 var(--border); padding-block: .7rem;
   }
   .nav { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
-  .brand { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; letter-spacing: -.4px; color: #fff; transition: color .35s; display: inline-flex; align-items: center; gap: .55rem; line-height: 1.15; }
+  .brand { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; letter-spacing: -.018em; color: #fff; transition: color .35s; display: inline-flex; align-items: center; gap: .55rem; line-height: 1.15; }
   .brand svg { width: 26px; height: 26px; color: var(--terra); flex-shrink: 0; }
   .scrolled .brand { color: var(--text); }
   .nav-links { display: flex; align-items: center; gap: 1.75rem; }
@@ -183,8 +191,9 @@
   .hero__inner { max-width: 760px; padding-block: 8rem 6rem; }
   .hero__tags { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 1.5rem; font-size: .9rem; }
   .hero__tags span { display: inline-flex; align-items: center; gap: .5rem; opacity: .95; }
-  .hero h1 { font-size: clamp(2.4rem, 6.5vw, 4.6rem); font-weight: 600; margin-bottom: 1.25rem; letter-spacing: -1px; }
-  .hero h1 em { color: var(--terra-soft); font-style: normal; }
+  .hero h1 { font-size: clamp(2.4rem, 6.5vw, 4.6rem); font-weight: 600; margin-bottom: 1.25rem; letter-spacing: -.022em; }
+  /* Newsreader ima pravi kurziv (za razliku od Frauncesa) — koristimo ga */
+  .hero h1 em { color: var(--terra-soft); font-style: italic; font-weight: 500; }
   .hero p { font-size: clamp(1.02rem, 2vw, 1.22rem); max-width: 50ch; color: rgba(255,255,255,.93); margin-bottom: 2.25rem; }
   .hero__cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 
