@@ -6,12 +6,12 @@
   <link rel="icon" type="image/png" href="../favicon.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apartmani Mare i Gumbek — smještaj kraj Zadra, Dalmacija</title>
-  <meta name="description" content="Apartmani Mare i Gumbek — dvije obiteljske jedinice nadomak Zadra. Self check-in 24/7, besplatan parking, terasa i more na par minuta. Rezervirajte direktno, bez provizije." />
+  <title>Apartmani Mare i Gumbek — smještaj u Petrčanima kraj Zadra</title>
+  <meta name="description" content="Apartmani Mare i Gumbek — dva odvojena apartmana u istoj zgradi u Petrčanima kraj Zadra. Vrt i terasa, balkon, klima, besplatan parking, plaža na 800 m. Rezervacija na upit, bez provizije." />
 
   <!-- Open Graph / dijeljenje na društvenim mrežama -->
-  <meta property="og:title" content="Apartmani Mare i Gumbek — kraj Zadra" />
-  <meta property="og:description" content="Dvije jedinice, self check-in 24/7, besplatan parking, more nadomak. Zadar 15 minuta." />
+  <meta property="og:title" content="Apartmani Mare i Gumbek — Petrčane kraj Zadra" />
+  <meta property="og:description" content="Dva apartmana u istoj zgradi u Petrčanima. Vrt, terasa i balkon, klima, besplatan parking, plaža na 800 m. Zadar 12 km." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="hr_HR" />
   <meta name="theme-color" content="#1b7f9e" />
@@ -129,6 +129,16 @@
   .btn-primary { background: var(--terra); color: #fff; box-shadow: var(--shadow-sm); }
   .btn-primary:hover { background: var(--terra-soft); }
   .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+
+  /* Deaktivirano stanje — element ostaje vidljiv, ali nije ni link ni gumb.
+     Koristi se za WhatsApp CTA-ove do daljnje najave. Bez pointer-events:none
+     kako bi title tooltip i dalje objasnio zasto ne reagira. */
+  .is-disabled {
+    opacity: .45; cursor: not-allowed; filter: grayscale(1);
+    -webkit-user-select: none; user-select: none;
+  }
+  .is-disabled:hover { transform: none; }
+  .is-disabled small { font-weight: 400; }
   .btn-ghost:hover { border-color: var(--sea); color: var(--sea); }
   .btn-light { background: rgba(255,255,255,.15); color: #fff; border-color: rgba(255,255,255,.5); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
   .btn-light:hover { background: rgba(255,255,255,.25); }
@@ -417,6 +427,8 @@
       border-top: 1px solid var(--border);
     }
     .mobile-cta .btn { flex: 1; padding-inline: .9rem; font-size: .9rem; }
+    /* deaktivirani WhatsApp ne trosi sirinu trake — samo ikona */
+    .mobile-cta__wa { flex: 0 0 auto; padding-inline: .95rem; }
     body { padding-bottom: 4.5rem; }
   }
 
@@ -454,7 +466,7 @@
         <ul class="nav-links" id="navLinks">
           <li><a href="#about">O nama</a></li>
           <li><a href="#units">Apartmani</a></li>
-          <li><a href="#pricing">Cjenik</a></li>
+          <li><a href="#pricing">Cijena</a></li>
           <li><a href="#gallery">Galerija</a></li>
           <li><a href="#checkin">Dolazak</a></li>
           <li><a href="#location">Lokacija</a></li>
@@ -504,6 +516,10 @@
               <option value="4">4 osobe</option>
               <option value="5">5 osoba</option>
               <option value="6">6 osoba</option>
+              <option value="7">7 osoba</option>
+              <option value="8">8 osoba</option>
+              <option value="9">9 osoba</option>
+              <option value="10">10 osoba</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary">Provjeri termin</button>
@@ -838,11 +854,14 @@
           <h2>Provjerite svoj termin</h2>
           <p>Recite nam kada dolazite i koliko vas je — javljamo se s cijenom i dostupnošću, u pravilu isti dan. Bez obveze i bez provizije portala.</p>
           <ul class="contact-list">
-            <!-- ✏️ ZAMIJENI stvarnim podacima -->
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Zadarska rivijera, okolica Zadra<br /><small style="color:var(--text-muted)">Točnu adresu šaljemo uz potvrdu rezervacije.</small></span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+385910000000">+385 91 000 0000</a></li>
+            <!-- ✏️ ADRESA: dopuniti ulicom i kućnim brojem kad ih klijent potvrdi -->
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Apartmani Mare i Gumbek<br />23231 Petrčane, Zadarska županija<br /><small style="color:var(--text-muted)">Točnu ulicu i kućni broj šaljemo uz potvrdu rezervacije.</small></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+38598751522">+385 98 751 522</a></li>
+            <!-- ✏️ E-MAIL je jos placeholder — zamijeniti prije objave -->
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg><a href="https://wa.me/385910000000" target="_blank" rel="noopener">WhatsApp / Viber — najbrži odgovor</a></li>
+            <!-- WhatsApp NAMJERNO deaktiviran do daljnje najave: <span>, bez href-a.
+                 Za aktivaciju: vratiti <a href="https://wa.me/38598751522" target="_blank" rel="noopener"> i maknuti .is-disabled -->
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg><span class="is-disabled" aria-disabled="true" title="WhatsApp još nije u funkciji — nazovite nas ili pošaljite upit obrascem">WhatsApp <small>— uskoro</small></span></li>
           </ul>
           <p class="contact__langs">Govorimo hrvatski, engleski i njemački. · Wir sprechen Deutsch. · We speak English.</p>
         </div>
@@ -852,7 +871,7 @@
              Dok je prazan, forma otvara e-mail klijenta s pripremljenom porukom. -->
         <form class="form" id="inquiryForm" novalidate data-reveal>
           <div class="form__msg ok" id="formOk" role="status">Hvala na upitu! Zaprimili smo ga i javljamo se u najkraćem roku s ponudom.</div>
-          <div class="form__msg err" id="formErr" role="alert">Slanje nije uspjelo. Pišite nam direktno na <a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a> ili na WhatsApp.</div>
+          <div class="form__msg err" id="formErr" role="alert">Slanje nije uspjelo. Pišite nam direktno na <a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a> ili nazovite <a href="tel:+38598751522">+385 98 751 522</a>.</div>
 
           <div class="form-row">
             <div class="field">
@@ -888,17 +907,21 @@
                 <option value="2" selected>2 osobe</option>
                 <option value="3">3 osobe</option>
                 <option value="4">4 osobe</option>
-                <option value="5">5 osoba (2 jedinice)</option>
-                <option value="6">6 osoba (2 jedinice)</option>
+                <option value="5">5 osoba</option>
+                <option value="6">6 osoba</option>
+                <option value="7">7 osoba (oba apartmana)</option>
+                <option value="8">8 osoba (oba apartmana)</option>
+                <option value="9">9 osoba (oba apartmana)</option>
+                <option value="10">10 osoba (oba apartmana)</option>
               </select>
               <span class="error-msg"></span>
             </div>
             <div class="field">
               <label for="unit">Jedinica</label>
               <select id="unit" name="unit">
-                <option>Apartman Mare (do 4 os.)</option>
-                <option>Studio Gumbek (do 2 os.)</option>
-                <option>Obje jedinice</option>
+                <option>Apartman Mare (do 6 os.)</option>
+                <option>Apartman Gumbek (do 4 os.)</option>
+                <option>Oba apartmana</option>
                 <option selected>Nisam siguran/na — predložite</option>
               </select>
               <span class="error-msg"></span>
@@ -924,16 +947,21 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="#" class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg> Mare i Gumbek</a>
-          <p>Dvije obiteljske jedinice nadomak Zadra. Self check-in, vlastita terasa i more na par minuta.</p>
+          <p>Dva odvojena apartmana u istoj zgradi u Petrčanima. Vrt i terasa, balkon, klima i besplatan parking — plaža na 800 m.</p>
           <div class="socials">
             <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
             <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <a href="https://wa.me/385910000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+            <!-- WhatsApp deaktiviran do daljnje najave — zadrzan vizualno, bez href-a -->
+            <span class="is-disabled" aria-disabled="true" role="img" aria-label="WhatsApp — još nije u funkciji" title="WhatsApp još nije u funkciji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
           </div>
         </div>
-        <div><h4>Smještaj</h4><ul><li><a href="#units">Apartman Mare</a></li><li><a href="#units">Studio Gumbek</a></li><li><a href="#pricing">Cjenik</a></li><li><a href="#gallery">Galerija</a></li></ul></div>
-        <div><h4>Informacije</h4><ul><li><a href="#checkin">Self check-in</a></li><li><a href="#location">Kako do nas</a></li><li><a href="#amenities">Sadržaji</a></li><li><a href="#upit">Pošalji upit</a></li></ul></div>
-        <div><h4>Kontakt</h4><ul><li><a href="tel:+385910000000">+385 91 000 0000</a></li><li><a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a></li><li>Zadarska rivijera, Hrvatska</li></ul></div>
+        <div><h4>Smještaj</h4><ul><li><a href="#units">Apartman Mare</a></li><li><a href="#units">Apartman Gumbek</a></li><li><a href="#pricing">Cijena i rezervacija</a></li><li><a href="#gallery">Galerija</a></li></ul></div>
+        <div><h4>Informacije</h4><ul><li><a href="#checkin">Dolazak</a></li><li><a href="#location">Kako do nas</a></li><li><a href="#amenities">Sadržaji</a></li><li><a href="#upit">Pošalji upit</a></li></ul></div>
+        <div><h4>Kontakt</h4><ul>
+          <li><a href="tel:+38598751522">+385 98 751 522</a></li>
+          <li><a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a></li>
+          <li>23231 Petrčane<br />Zadarska županija, Hrvatska</li>
+        </ul></div>
       </div>
       <div class="footer__bottom">
         <span>© <span id="year"></span> Apartmani Mare i Gumbek. Sva prava pridržana.</span>
@@ -945,10 +973,14 @@
   <!-- ==================== STICKY CTA (mobitel) ==================== -->
   <div class="mobile-cta">
     <a href="#upit" class="btn btn-primary">Pošalji upit</a>
-    <a href="https://wa.me/385910000000" target="_blank" rel="noopener" class="btn btn-ghost">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg>
-      WhatsApp
+    <a href="tel:+38598751522" class="btn btn-ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      Nazovite
     </a>
+    <!-- WhatsApp zadrzan vizualno, ali deaktiviran do daljnje najave -->
+    <span class="btn btn-ghost mobile-cta__wa is-disabled" aria-disabled="true" role="img" aria-label="WhatsApp — još nije u funkciji" title="WhatsApp još nije u funkciji">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg>
+    </span>
   </div>
 
   <!-- ==================== LIGHTBOX ==================== -->
