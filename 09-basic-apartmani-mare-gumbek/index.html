@@ -423,10 +423,12 @@
     display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem;
     font-size: .95rem; color: var(--text-muted);
   }
+  .location__addr-txt { min-width: 0; overflow-wrap: break-word; }
   .location__addr strong { color: var(--text); }
   .location__addr .btn { margin-left: auto; padding: .6rem 1.1rem; font-size: .88rem; }
   .location__addr svg { width: 17px; height: 17px; }
-  @media (max-width: 480px) { .location__addr .btn { margin-left: 0; width: 100%; } }
+  /* gumb ide u svoj red cim adresa i on ne stanu udobno jedno uz drugo */
+  @media (max-width: 560px) { .location__addr .btn { margin-left: 0; width: 100%; } }
   /* Ukupna ocjena gostiju s Bookinga — element je u sekciji "O nama" (#about),
      pravilo stoji ovdje uz .maplink jer oba dolaze iz istog seta kontakt/lokacija
      dopuna; selektor nije vezan ni za jednu sekciju. */
@@ -925,7 +927,10 @@
           <iframe title="Petrčane na karti — smještaj Apartmani Mare i Gumbek" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
             src="https://www.openstreetmap.org/export/embed.html?bbox=15.1355%2C44.1700%2C15.1975%2C44.2075&layer=mapnik&marker=44.18666%2C15.16152"></iframe>
           <p class="location__addr">
-            <strong>Petrčane IX 2a</strong>, 23231 Petrčane
+            <!-- Adresa mora biti JEDAN flex item. Prije je <strong> bio item, a
+                 ", 23231 Petrčane" anonimni item, pa je gap trake (1rem) padao
+                 izmedu adrese i zareza i radio vidljivu rupu. -->
+            <span class="location__addr-txt"><strong>Petrčane IX 2a</strong>, 23231 Petrčane</span>
             <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Petr%C4%8Dane%20IX%202a%2C%2023231%20Petr%C4%8Dane%2C%20Hrvatska" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Otvori u navigaciji
