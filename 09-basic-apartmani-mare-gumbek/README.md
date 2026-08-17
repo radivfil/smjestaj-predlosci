@@ -41,9 +41,9 @@ Namjerno **nema** online plaćanja ni kalendara dostupnosti — to je premium ti
 
 | Datoteka | Gdje se koristi |
 | --- | --- |
-| `petrcane-zaljev-dron.jpg` | hero pozadina, og:image, thumbnail u portfelju |
+| `zgrada.jpg` | **hero pozadina** |
+| `petrcane-zaljev-dron.jpg` | sekcija O nama, og:image, thumbnail u portfelju |
 | `petrcane-luka-dron.jpg` | sekcija Lokacija + galerija |
-| `zgrada.jpg` | sekcija O nama |
 | `mare/mare-07-vrt.jpg` | suptilna pozadinska tekstura (`body::before`, 5.5 % opacity) |
 
 `gumbek/gumbek-06-zgrada.jpg` **nije** referenciran — prikazuje fasadu koja se
@@ -58,7 +58,8 @@ Sve je označeno komentarom `✏️` u `index.html`:
 | Telefon `+385 98 751 522` | kontakt, footer, sticky traka | ✅ postavljen |
 | Adresa `Petrčane IX 2a, 23231 Petrčane` | kontakt, footer, ispod karte | ✅ postavljena |
 | `FORMSPREE_ID` | dno `<script>`, konstanta na vrhu IIFE-a | ❌ prazan — vidi niže |
-| E-mail `info@mare-gumbek.hr` | kontakt, footer, `KONTAKT_MAIL` u skripti | ❌ placeholder |
+| E-mail `info@mare-gumbek.hr` | kontakt, footer, `KONTAKT_MAIL` u skripti | ❌ domena ne postoji — vidi niže |
+| WhatsApp `wa.me/38598751522` | kontakt, footer, sticky traka, poruka o grešci | ✅ aktivan |
 | Koordinate karte | `bbox` i `marker` u OSM `<iframe>` | ⚠️ marker na centru naselja |
 | Kapacitet apartmana | `.unit-specs` u obje kartice | ⚠️ procjena s fotografija |
 | Vrijeme prijave/odjave | `.checkin-note` | ⚠️ piše „dogovaramo unaprijed" |
@@ -66,12 +67,39 @@ Sve je označeno komentarom `✏️` u `index.html`:
 
 ## WhatsApp
 
-WhatsApp CTA-ovi (kontakt lista, footer socials, sticky traka) **namjerno su
-deaktivirani** do daljnje najave — zadržani vizualno, ali kao `<span>` bez
-`href`-a, uz `aria-disabled="true"`, `title` s objašnjenjem i `.is-disabled`
-stil. Za aktivaciju: vratiti `<a href="https://wa.me/38598751522" target="_blank"
-rel="noopener">` i maknuti klasu `.is-disabled`. Telefonski `tel:` link je
-aktivan.
+**Aktivan** na četiri mjesta: kontakt lista, footer socials, sticky traka na
+mobitelu i poruka o grešci u formi.
+
+```
+https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek.
+```
+
+Broj je formatiran po wa.me pravilu — `+385 98 751 522` → `38598751522`, bez
+plusa, razmaka i vodeće nule. Svi linkovi imaju `target="_blank"` i
+`rel="noopener noreferrer"`. Pre-filled poruka ide kroz `?text=` parametar,
+URL-encoded (zarez `%2C`, razmaci `%20`).
+
+Nema slidera s desne strane ekrana — WhatsApp CTA je u fiksnoj traci na **dnu**
+(`.mobile-cta`, vidljiva ispod 720 px), uz „Pošalji upit" i „Nazovite".
+
+## E-mail — otvoreno pitanje
+
+Sva tri `mailto:` linka **sintaktički su ispravna** (`<a href="mailto:…">`,
+klik otvara zadani mail klijent). Problem je adresa:
+
+```
+$ nslookup mare-gumbek.hr      → Non-existent domain
+$ nslookup -type=MX mare-gumbek.hr → Non-existent domain
+```
+
+`mare-gumbek.hr` **ne postoji** — nema A ni MX zapisa. Svaka poruka poslana na
+`info@mare-gumbek.hr` odbija se. To pogađa i fallback forme: dok je
+`FORMSPREE_ID` prazan, forma otvara `mailto:` prema toj adresi, pa upiti
+nigdje ne stižu.
+
+Adresa **nije izmišljena niti zamijenjena** — čeka se prava od klijenta. Kad
+stigne, mijenja se na 4 mjesta: tri `mailto:` linka + `KONTAKT_MAIL` u skripti.
+Do tada je telefon jedini kanal koji radi.
 
 ## Forma i Formspree
 
@@ -112,3 +140,26 @@ prikazuje zgradu sa zaobljenim balkonskim erkerom i kosim crijepnim krovom, a
 i tendama. Zato je na stranici prikazana samo prva. Ako se pokaže da su ipak
 dvije susjedne zgrade, treba prilagoditi uvod u sekciji „O nama", hero podnaslov
 i sekciju „Za koga su".
+
+## Čitljivost teksta nad slikom
+
+Hero je isprva imao dronsku snimku, ali je naslov preko nje bio slabo čitljiv.
+Sada je tamo fotografija zgrade — bijela fasada na suncu, što je za bijeli tekst
+najgori mogući slučaj:
+
+| Overlay | Kontrast bijelog teksta | WCAG AA (4.5:1) |
+| --- | --- | --- |
+| bez overlaya | 1.05:1 | ✗ |
+| `rgba(0,0,0,.35)` | 2.54:1 | ✗ |
+| `rgba(0,0,0,.15)` | 1.48:1 | ✗ |
+| **`rgba(9,32,38,.66)`** (najsvjetlija točka gradijenta) | **5.62:1** | ✓ |
+| `rgba(9,32,38,.78)` (vrh) | 8.47:1 | ✓ |
+| `rgba(9,32,38,.86)` (dno) | 11.15:1 | ✓ |
+
+Minimalna alpha za 4.5:1 nad bijelom fasadom je **0.60**, pa gradijent nigdje
+ne ide ispod 0.66. Ako se hero fotografija ikad zamijeni svjetlijom, ove brojke
+treba ponovno provjeriti.
+
+Traka dolazak/odlazak (`.book-bar`) više nema sliku iza sebe — prebačena je s
+poluprozirne podloge na čistu svijetlu karticu, jer su datumi stajali direktno
+nad fotografijom.
