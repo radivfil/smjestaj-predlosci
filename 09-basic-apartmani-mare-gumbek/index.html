@@ -51,7 +51,10 @@
     /* Newsreader, ne Fraunces: Fraunces ima "wonky" mali j sa zavijenim
        descenderom, a hrvatski tekst je pun j-eva (jedinice, ugođaja, cijenu). */
     --font-display: "Newsreader", Georgia, "Times New Roman", serif;
-    --font-body:    "Inter", system-ui, -apple-system, sans-serif;
+    /* Roboto je zadani sans na Androidu; bez njega je fallback isao na goli
+       sans-serif, sto je na dijelu uredaja druga metrika i drugi lom redova.
+       -apple-system pokriva San Francisco na iOS-u i macOS-u. */
+    --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
     --radius:     16px;
     --radius-sm:  10px;
