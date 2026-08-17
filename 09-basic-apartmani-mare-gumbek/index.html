@@ -330,25 +330,32 @@
   /* ============================================================
      12. LOKACIJA
      ============================================================ */
-  .location__grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-  .location__map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); }
-  .location__map iframe { width: 100%; height: 430px; border: 0; display: block; }
+  .location__grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+  /* Dronska fotografija + karta jedna iznad druge; svaka je svoja kartica */
+  .location__map { display: grid; gap: 1.1rem; }
+  .location__photo, .location__map iframe {
+    border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+  }
+  .location__photo { background: var(--surface); }
+  .location__photo img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+  .location__photo figcaption { font-size: .82rem; color: var(--text-muted); padding: .75rem 1.1rem .9rem; }
+  .location__map iframe { width: 100%; height: 300px; display: block; }
   .nearby { display: grid; gap: .9rem; margin-top: 2rem; }
   .nearby li { display: flex; align-items: flex-start; gap: .9rem; color: var(--text-muted); font-size: .95rem; }
   .nearby li strong { color: var(--text); font-weight: 600; }
   .nearby .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--terra); flex-shrink: 0; margin-top: .55rem; }
 
   /* ============================================================
-     13. RECENZIJE
+     13. ZA KOGA SU OVI APARTMANI
      ============================================================ */
-  .reviews__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
-  .review { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow-sm); }
-  .review__top { display: flex; align-items: center; gap: .5rem; margin-bottom: 1rem; }
-  .review__stars { color: var(--terra); letter-spacing: .1em; }
-  .review__src { margin-left: auto; font-size: .78rem; color: var(--text-muted); background: var(--surface-2); padding: .25rem .6rem; border-radius: 100px; }
-  .review p { font-size: 1rem; margin-bottom: 1.25rem; }
-  .review footer { font-size: .88rem; color: var(--text-muted); }
-  .review cite { font-style: normal; font-weight: 600; color: var(--text); }
+  .profiles__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .profile { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow-sm); }
+  .profile__icon { width: 42px; height: 42px; border-radius: 12px; background: color-mix(in srgb, var(--sea) 12%, transparent); display: grid; place-items: center; margin-bottom: 1.1rem; }
+  .profile__icon svg { width: 22px; height: 22px; color: var(--sea); }
+  .profile h3 { font-size: 1.2rem; margin-bottom: .55rem; }
+  .profile p { font-size: .95rem; color: var(--text-muted); }
+  .profile__unit { display: inline-block; margin-top: 1.1rem; font-size: .78rem; font-weight: 600; color: var(--sea); background: var(--surface-2); padding: .3rem .75rem; border-radius: 100px; }
 
   /* ============================================================
      14. KONTAKT / UPITNA FORMA
@@ -762,50 +769,62 @@
       <div class="container location__grid">
         <div data-reveal>
           <span class="eyebrow">Lokacija</span>
-          <h2>Nadomak Zadra, daleko od gužve</h2>
-          <p class="lead">Nalazimo se u mirnom mjestu na zadarskoj rivijeri — dovoljno blizu da ujutro budete na kavi u staroj gradskoj jezgri, a dovoljno po strani da navečer čujete samo cvrčke.</p>
-          <p style="margin-top:1rem;color:var(--text-muted)">Zadar je idealna baza za istraživanje: Morske orgulje i Pozdrav Suncu, rimski forum i Sveti Donat, a odatle su i Kornati, Krka i Plitvice izlet od jednog dana. Trajektna luka i zračna luka su blizu, pa se do nas lako stiže i bez auta.</p>
+          <h2>Petrčane — dvanaest kilometara od Zadra</h2>
+          <p class="lead">Petrčane su mirno mjesto na zadarskoj rivijeri: luka s brodicama, borova šuma, nekoliko konoba i šljunčane plaže. Dovoljno blizu da ujutro budete na kavi u staroj gradskoj jezgri Zadra, dovoljno po strani da navečer čujete samo cvrčke.</p>
+          <p style="margin-top:1rem;color:var(--text-muted)">Zadar je odlična baza za istraživanje — Morske orgulje i Pozdrav Suncu, rimski forum i Sveti Donat — a Kornati, Krka i Plitvička jezera izleti su od jednog dana. Sa sjeverne strane su Nin s pješčanom plažom i solanom te podvelebitski kanal.</p>
           <ul class="nearby">
-            <li><span class="dot"></span><span><strong>Najbliža plaža</strong> — 5 minuta hoda (šljunak i betonirani ulaz u more)</span></li>
-            <li><span class="dot"></span><span><strong>Centar Zadra i Morske orgulje</strong> — 15 minuta vožnje</span></li>
-            <li><span class="dot"></span><span><strong>Zračna luka Zadar</strong> — 20 minuta vožnje</span></li>
-            <li><span class="dot"></span><span><strong>Trgovina, pekara i kafić</strong> — 300 m</span></li>
-            <li><span class="dot"></span><span><strong>Konobe i restorani</strong> — od 400 m, uz rivu</span></li>
+            <li><span class="dot"></span><span><strong>Plaža Donje Petrčane</strong> — 800 m, oko 9 minuta hoda</span></li>
+            <li><span class="dot"></span><span><strong>Luka i riva Petrčane</strong> — nekoliko minuta hoda, konobe uz more</span></li>
+            <li><span class="dot"></span><span><strong>Centar Zadra i Morske orgulje</strong> — 12 km, oko 20 minuta vožnje</span></li>
+            <li><span class="dot"></span><span><strong>Zračna luka Zadar</strong> — oko 30 minuta vožnje</span></li>
+            <li><span class="dot"></span><span><strong>Nin, pješčana plaža i solana</strong> — oko 15 minuta vožnje</span></li>
             <li><span class="dot"></span><span><strong>Izleti</strong> — NP Kornati i Telašćica, NP Krka, Plitvička jezera</span></li>
           </ul>
           <a href="#upit" class="btn btn-primary" style="margin-top:2rem">Zatraži točnu adresu i upute</a>
         </div>
         <div class="location__map" data-reveal>
-          <!-- ✏️ ZAMIJENI bbox i marker točnim koordinatama objekta -->
+          <figure class="location__photo">
+            <img src="images/petrcane-luka-dron.jpg" width="1600" height="1066" alt="Petrčane iz zraka — luka s brodicama, riva i kamene kuće mjesta uz more" loading="lazy" />
+            <figcaption>Petrčane iz zraka — luka i riva, nekoliko minuta hoda od apartmana.</figcaption>
+          </figure>
+          <!-- ✏️ Marker je na sredini Petrčana (44.18833, 15.16556). ZAMIJENI točnim
+               koordinatama zgrade kad klijent potvrdi adresu. -->
           <iframe title="Lokacija Apartmana Mare i Gumbek na karti" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=15.16%2C44.03%2C15.30%2C44.14&layer=mapnik&marker=44.085%2C15.230"></iframe>
+            src="https://www.openstreetmap.org/export/embed.html?bbox=15.1355%2C44.1700%2C15.1975%2C44.2075&layer=mapnik&marker=44.18833%2C15.16556"></iframe>
         </div>
       </div>
     </section>
 
-    <!-- ==================== RECENZIJE ==================== -->
-    <!-- ✏️ ZAMIJENI stvarnim recenzijama gostiju prije objave -->
+    <!-- ==================== ZA KOGA SU OVI APARTMANI ====================
+         Ovdje su prije stajale tri izmišljene recenzije. Maknute su — lažne
+         recenzije na stranici objekta su rizik i za goste i za klijenta.
+         ✏️ Kad klijent dostavi prave recenzije s Bookinga, mogu se vratiti
+         kao zasebna sekcija s imenom gosta, ocjenom i izvorom. -->
     <section class="section tinted">
       <div class="container">
-        <div class="section-head center" data-reveal style="max-width:580px">
-          <span class="eyebrow">Recenzije gostiju</span>
-          <h2>Ono što gosti najviše pamte</h2>
+        <div class="section-head center" data-reveal style="max-width:620px">
+          <span class="eyebrow">Za koga su</span>
+          <h2>Tko se kod nas najbolje smjesti</h2>
+          <p class="lead">Dva apartmana u istoj zgradi rješavaju problem koji jedan veliki apartman ne može: zajedništvo kad ga želite, tišinu kad vam treba.</p>
         </div>
-        <div class="reviews__grid">
-          <article class="review" data-reveal>
-            <div class="review__top"><span class="review__stars" aria-label="5 od 5">★★★★★</span><span class="review__src">Booking</span></div>
-            <p>„Terasa u apartmanu Mare je bila naš dnevni boravak — doručak, ručak, večera, sve vani. Domaćini su nam poslali popis plaža koje nema u vodičima."</p>
-            <footer><cite>Ivana i Marko</cite> · Zagreb</footer>
+        <div class="profiles__grid">
+          <article class="profile" data-reveal>
+            <div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+            <h3>Dvije obitelji zajedno</h3>
+            <p>Najčešći scenarij. Djeca se cijeli dan igraju u dvorištu, večera je zajednička na terasi apartmana Mare, a nakon nje svatko ide svojim vratima. Bez dijeljenja kupaonice i bez usklađivanja rasporeda.</p>
+            <span class="profile__unit">Mare + Gumbek</span>
           </article>
-          <article class="review" data-reveal>
-            <div class="review__top"><span class="review__stars" aria-label="5 od 5">★★★★★</span><span class="review__src">Airbnb</span></div>
-            <p>„Stigli smo iza ponoći, upute za sef radile su savršeno. Zadar na petnaest minuta, a noću tišina. Točno ono što smo tražili."</p>
-            <footer><cite>Thomas</cite> · München</footer>
+          <article class="profile" data-reveal>
+            <div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12M9 21v-7h6v7"/></svg></div>
+            <h3>Obitelj s djecom</h3>
+            <p>Prizemlje bez stepenica, vrt pred vratima, natkrivena terasa za hlad u podne i puna kuhinja za dane kad se ne ide van. Auto je parkiran pet metara od ulaza.</p>
+            <span class="profile__unit">Apartman Mare</span>
           </article>
-          <article class="review" data-reveal>
-            <div class="review__top"><span class="review__stars" aria-label="5 od 5">★★★★★</span><span class="review__src">Google</span></div>
-            <p>„Gumbek je mali, ali ima sve. Kutak u dvorištu pod maslinom bio je najbolji dio odmora. Parking ispred vrata, plaža par minuta hoda."</p>
-            <footer><cite>Petra S.</cite> · Ljubljana</footer>
+          <article class="profile" data-reveal>
+            <div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg></div>
+            <h3>Par ili dvoje prijatelja</h3>
+            <p>Dvije etaže znače da je spavaći dio gore, a život dolje. Jutarnja kava na balkonu s tendom, plaža na desetak minuta hoda i Zadar na dvadeset minuta vožnje.</p>
+            <span class="profile__unit">Apartman Gumbek</span>
           </article>
         </div>
       </div>
