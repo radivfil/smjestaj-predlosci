@@ -162,16 +162,6 @@
   /* hover ide tamnije, ne svjetlije — svijetli terakota s bijelim tekstom pada ispod AA */
   .btn-primary:hover { background: var(--terra-hover); }
   .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
-
-  /* Deaktivirano stanje — element ostaje vidljiv, ali nije ni link ni gumb.
-     Koristi se za WhatsApp CTA-ove do daljnje najave. Bez pointer-events:none
-     kako bi title tooltip i dalje objasnio zasto ne reagira. */
-  .is-disabled {
-    opacity: .45; cursor: not-allowed; filter: grayscale(1);
-    -webkit-user-select: none; user-select: none;
-  }
-  .is-disabled:hover { transform: none; }
-  .is-disabled small { font-weight: 400; }
   .btn-ghost:hover { border-color: var(--sea); color: var(--sea); }
   .btn-light { background: rgba(255,255,255,.15); color: #fff; border-color: rgba(255,255,255,.5); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
   .btn-light:hover { background: rgba(255,255,255,.25); }
@@ -992,9 +982,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+38598751522">+385 98 751 522</a></li>
             <!-- ✏️ E-MAIL je jos placeholder — zamijeniti prije objave -->
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a></li>
-            <!-- WhatsApp NAMJERNO deaktiviran do daljnje najave: <span>, bez href-a.
-                 Za aktivaciju: vratiti <a href="https://wa.me/38598751522" target="_blank" rel="noopener"> i maknuti .is-disabled -->
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg><span class="is-disabled" aria-disabled="true" title="WhatsApp još nije u funkciji — nazovite nas ili pošaljite upit obrascem">WhatsApp <small>— uskoro</small></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg><a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer">WhatsApp — najbrži odgovor</a></li>
           </ul>
           <p class="contact__langs">Govorimo hrvatski, engleski i njemački. · Wir sprechen Deutsch. · We speak English.</p>
         </div>
@@ -1004,7 +992,7 @@
              Dok je prazan, forma otvara e-mail klijenta s pripremljenom porukom. -->
         <form class="form" id="inquiryForm" novalidate data-reveal>
           <div class="form__msg ok" id="formOk" role="status">Hvala na upitu! Zaprimili smo ga i javljamo se u najkraćem roku s ponudom.</div>
-          <div class="form__msg err" id="formErr" role="alert">Slanje nije uspjelo. Pišite nam direktno na <a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a> ili nazovite <a href="tel:+38598751522">+385 98 751 522</a>.</div>
+          <div class="form__msg err" id="formErr" role="alert">Slanje nije uspjelo. Pišite nam direktno na <a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a> nazovite <a href="tel:+38598751522">+385 98 751 522</a> ili nam pišite na <a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer">WhatsApp</a>.</div>
 
           <div class="form-row">
             <div class="field">
@@ -1093,8 +1081,7 @@
           <div class="socials">
             <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
             <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <!-- WhatsApp deaktiviran do daljnje najave — zadrzan vizualno, bez href-a -->
-            <span class="is-disabled" aria-disabled="true" role="img" aria-label="WhatsApp — još nije u funkciji" title="WhatsApp još nije u funkciji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
+            <a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer" aria-label="Pišite nam na WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
           </div>
         </div>
         <div><h4>Smještaj</h4><ul><li><a href="#units">Apartman Mare</a></li><li><a href="#units">Apartman Gumbek</a></li><li><a href="#pricing">Cijena i rezervacija</a></li><li><a href="#gallery">Galerija</a></li></ul></div>
@@ -1119,10 +1106,9 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
       Nazovite
     </a>
-    <!-- WhatsApp zadrzan vizualno, ali deaktiviran do daljnje najave -->
-    <span class="btn btn-ghost mobile-cta__wa is-disabled" aria-disabled="true" role="img" aria-label="WhatsApp — još nije u funkciji" title="WhatsApp još nije u funkciji">
+    <a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer" class="btn btn-ghost mobile-cta__wa" aria-label="Pišite nam na WhatsApp">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20l1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg>
-    </span>
+    </a>
   </div>
 
   <!-- ==================== LIGHTBOX ==================== -->
