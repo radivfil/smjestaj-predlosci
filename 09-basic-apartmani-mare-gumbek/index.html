@@ -383,6 +383,30 @@
   .location__photo img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
   .location__photo figcaption { font-size: .82rem; color: var(--text-muted); padding: .75rem 1.1rem .9rem; }
   .location__map iframe { width: 100%; height: 300px; display: block; }
+  .location__addr {
+    display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem;
+    font-size: .95rem; color: var(--text-muted);
+  }
+  .location__addr strong { color: var(--text); }
+  .location__addr .btn { margin-left: auto; padding: .6rem 1.1rem; font-size: .88rem; }
+  .location__addr svg { width: 17px; height: 17px; }
+  @media (max-width: 480px) { .location__addr .btn { margin-left: 0; width: 100%; } }
+  /* Ocjena lokacije s Bookinga */
+  .score {
+    display: flex; align-items: center; gap: 1rem; margin-top: 1.75rem;
+    background: color-mix(in srgb, var(--sea) 8%, var(--surface));
+    border: 1px solid var(--border); border-left: 3px solid var(--sea);
+    border-radius: var(--radius-sm); padding: .95rem 1.2rem;
+    font-size: .92rem; color: var(--text);
+  }
+  .score__num { font-family: var(--font-display); font-size: 2.1rem; font-weight: 700; line-height: 1; color: var(--sea); flex-shrink: 0; }
+  .score__num small { font-size: .95rem; font-weight: 500; color: var(--text-muted); }
+  .score small { color: var(--text-muted); font-size: .82rem; }
+
+  /* Link "Otvori u navigaciji" u kontakt listi */
+  .maplink { color: var(--sea); font-weight: 600; font-size: .88rem; text-decoration: underline; text-underline-offset: 3px; display: inline-block; margin-top: .35rem; }
+  .maplink:hover { color: var(--terra); }
+
   .nearby { display: grid; gap: .9rem; margin-top: 2rem; }
   .nearby li { display: flex; align-items: flex-start; gap: .9rem; color: var(--text-muted); font-size: .95rem; }
   .nearby li strong { color: var(--text); font-weight: 600; }
@@ -533,7 +557,7 @@
       <div class="container hero__inner">
         <div class="hero__tags" data-reveal>
           <span>◆ Petrčane, Zadarska županija</span>
-          <span>◆ 800 m do plaže</span>
+          <span>★ Lokacija 10/10 · Booking.com</span>
           <span>◆ Besplatan parking</span>
         </div>
         <h1 data-reveal>Apartmani Mare i Gumbek<br /><em>dva doma pod istim krovom.</em></h1>
@@ -796,8 +820,8 @@
             <p>Javljamo se s dostupnošću i ukupnom cijenom za vaš termin, u pravilu isti dan.</p>
           </div>
           <div class="step" data-reveal>
-            <h3>Potvrda i adresa</h3>
-            <p>Nakon vaše potvrde dobivate točnu adresu, lokaciju na karti i sve što treba za dolazak.</p>
+            <h3>Potvrda i upute</h3>
+            <p>Nakon vaše potvrde dogovaramo vrijeme dolaska i šaljemo sve upute — adresa je Petrčane IX 2a.</p>
           </div>
           <div class="step" data-reveal>
             <h3>Dolazak i ključevi</h3>
@@ -825,6 +849,12 @@
         <div data-reveal>
           <span class="eyebrow">Lokacija</span>
           <h2>Petrčane — dvanaest kilometara od Zadra</h2>
+          <!-- Stvarna ocjena s Booking.coma. Namjerno je navedeno da se radi
+               o ocjeni LOKACIJE za oglas Mare 9, a ne o ukupnoj ocjeni. -->
+          <p class="score" data-reveal>
+            <span class="score__num">10<small>/10</small></span>
+            <span>Ocjena lokacije na Booking.comu<br /><small>Za oglas „Mare 9 Cozy Apartment with Garden", na temelju 5 recenzija gostiju.</small></span>
+          </p>
           <p class="lead">Petrčane su mirno mjesto na zadarskoj rivijeri: luka s brodicama, borova šuma, nekoliko konoba i šljunčane plaže. Dovoljno blizu da ujutro budete na kavi u staroj gradskoj jezgri Zadra, dovoljno po strani da navečer čujete samo cvrčke.</p>
           <p style="margin-top:1rem;color:var(--text-muted)">Zadar je odlična baza za istraživanje — Morske orgulje i Pozdrav Suncu, rimski forum i Sveti Donat — a Kornati, Krka i Plitvička jezera izleti su od jednog dana. Sa sjeverne strane su Nin s pješčanom plažom i solanom te podvelebitski kanal.</p>
           <ul class="nearby">
@@ -835,17 +865,27 @@
             <li><span class="dot"></span><span><strong>Nin, pješčana plaža i solana</strong> — oko 15 minuta vožnje</span></li>
             <li><span class="dot"></span><span><strong>Izleti</strong> — NP Kornati i Telašćica, NP Krka, Plitvička jezera</span></li>
           </ul>
-          <a href="#upit" class="btn btn-primary" style="margin-top:2rem">Zatraži točnu adresu i upute</a>
+          <a href="#upit" class="btn btn-primary" style="margin-top:2rem">Provjerite dostupnost za svoj termin</a>
         </div>
         <div class="location__map" data-reveal>
           <figure class="location__photo">
             <img src="images/petrcane-luka-dron.jpg" width="1600" height="1066" alt="Petrčane iz zraka — luka s brodicama, riva i kamene kuće mjesta uz more" loading="lazy" />
             <figcaption>Petrčane iz zraka — luka i riva, nekoliko minuta hoda od apartmana.</figcaption>
           </figure>
-          <!-- ✏️ Marker je na sredini Petrčana (44.18833, 15.16556). ZAMIJENI točnim
-               koordinatama zgrade kad klijent potvrdi adresu. -->
-          <iframe title="Lokacija Apartmana Mare i Gumbek na karti" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=15.1355%2C44.1700%2C15.1975%2C44.2075&layer=mapnik&marker=44.18833%2C15.16556"></iframe>
+          <!-- ✏️ Ulica "Petrčane IX" nije u OpenStreetMap bazi, pa je marker na
+               centru naselja (44.18666, 15.16152). Kad se dobiju točne
+               koordinate zgrade, zamijeniti marker i suziti bbox.
+               Gumb ispod ne ovisi o koordinatama — navigacija sama razrješava
+               punu adresu, pa vodi na točno mjesto. -->
+          <iframe title="Petrčane na karti — smještaj Apartmani Mare i Gumbek" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=15.1355%2C44.1700%2C15.1975%2C44.2075&layer=mapnik&marker=44.18666%2C15.16152"></iframe>
+          <p class="location__addr">
+            <strong>Petrčane IX 2a</strong>, 23231 Petrčane
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Petr%C4%8Dane%20IX%202a%2C%2023231%20Petr%C4%8Dane%2C%20Hrvatska" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Otvori u navigaciji
+            </a>
+          </p>
         </div>
       </div>
     </section>
@@ -893,8 +933,7 @@
           <h2>Provjerite svoj termin</h2>
           <p>Recite nam kada dolazite i koliko vas je — javljamo se s cijenom i dostupnošću, u pravilu isti dan. Bez obveze i bez provizije portala.</p>
           <ul class="contact-list">
-            <!-- ✏️ ADRESA: dopuniti ulicom i kućnim brojem kad ih klijent potvrdi -->
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Apartmani Mare i Gumbek<br />23231 Petrčane, Zadarska županija<br /><small style="color:var(--text-muted)">Točnu ulicu i kućni broj šaljemo uz potvrdu rezervacije.</small></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Apartmani Mare i Gumbek<br /><strong>Petrčane IX 2a</strong><br />23231 Petrčane, Hrvatska<br /><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Petr%C4%8Dane%20IX%202a%2C%2023231%20Petr%C4%8Dane%2C%20Hrvatska" target="_blank" rel="noopener">Otvori u navigaciji →</a></span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+38598751522">+385 98 751 522</a></li>
             <!-- ✏️ E-MAIL je jos placeholder — zamijeniti prije objave -->
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a></li>
@@ -999,7 +1038,7 @@
         <div><h4>Kontakt</h4><ul>
           <li><a href="tel:+38598751522">+385 98 751 522</a></li>
           <li><a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a></li>
-          <li>23231 Petrčane<br />Zadarska županija, Hrvatska</li>
+          <li>Petrčane IX 2a<br />23231 Petrčane, Hrvatska</li>
         </ul></div>
       </div>
       <div class="footer__bottom">
