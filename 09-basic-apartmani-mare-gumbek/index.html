@@ -380,13 +380,59 @@
   @media (max-width: 900px) { .gallery__grid { grid-template-columns: repeat(3, 1fr); gap: .85rem; } }
   @media (max-width: 560px) { .gallery__grid { grid-template-columns: repeat(2, 1fr); gap: .6rem; } }
 
-  .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(8,24,26,.93); display: none; place-items: center; padding: 2rem; }
-  .lightbox.open { display: grid; animation: fade .3s; }
+  .lightbox {
+    position: fixed; inset: 0; z-index: 200; background: rgba(8,24,26,.95);
+    display: none; align-items: center; justify-content: center;
+    padding: 4.75rem 1rem 4.5rem;
+    /* prst po slici lista, a ne skrola stranicu ispod */
+    touch-action: pan-y;
+  }
+  .lightbox.open { display: flex; animation: fade .3s; }
   @keyframes fade { from { opacity: 0; } }
-  .lightbox img { max-width: min(92vw, 1100px); max-height: 86vh; border-radius: var(--radius-sm); box-shadow: var(--shadow); }
-  .lightbox__caption { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.85); font-size: .9rem; text-align: center; padding-inline: 1rem; }
-  .lightbox__close { position: absolute; top: 1.5rem; right: 1.5rem; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.1); color: #fff; font-size: 1.5rem; cursor: pointer; }
-  .lightbox__close:hover { background: rgba(255,255,255,.2); }
+  .lightbox img {
+    max-width: min(94vw, 1200px); max-height: 100%;
+    width: auto; height: auto; object-fit: contain;
+    border-radius: var(--radius-sm); box-shadow: var(--shadow);
+    -webkit-user-select: none; user-select: none; -webkit-user-drag: none;
+  }
+  .lightbox.is-swapping img { opacity: .35; transition: opacity .12s; }
+
+  .lightbox__caption { position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.85); font-size: .9rem; text-align: center; padding-inline: 1rem; max-width: min(92vw, 640px); }
+  .lightbox__counter { position: absolute; top: 1.75rem; left: 1.5rem; color: rgba(255,255,255,.7); font-size: .85rem; font-variant-numeric: tabular-nums; letter-spacing: .04em; }
+
+  .lightbox__close, .lightbox__nav {
+    position: absolute; display: grid; place-items: center;
+    border-radius: 50%; border: 1px solid rgba(255,255,255,.32);
+    background: rgba(255,255,255,.12); color: #fff; cursor: pointer;
+    transition: background .2s, transform .2s;
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  }
+  .lightbox__close:hover, .lightbox__nav:hover { background: rgba(255,255,255,.26); }
+  .lightbox__close { top: 1.25rem; right: 1.25rem; width: 48px; height: 48px; font-size: 1.6rem; line-height: 1; }
+  .lightbox__nav { top: 50%; transform: translateY(-50%); width: 52px; height: 52px; }
+  .lightbox__nav:hover { transform: translateY(-50%) scale(1.06); }
+  .lightbox__nav svg { width: 26px; height: 26px; }
+  .lightbox__nav.prev { left: 1.25rem; }
+  .lightbox__nav.next { right: 1.25rem; }
+  /* jedna fotografija u setu — navigacija nema smisla */
+  .lightbox.solo .lightbox__nav, .lightbox.solo .lightbox__counter { display: none; }
+
+  @media (max-width: 720px) {
+    .lightbox { padding: 4.25rem .5rem 5.5rem; }
+    .lightbox__nav { width: 44px; height: 44px; }
+    .lightbox__nav svg { width: 22px; height: 22px; }
+    .lightbox__nav.prev { left: .5rem; }
+    .lightbox__nav.next { right: .5rem; }
+    .lightbox__caption { bottom: 1rem; font-size: .84rem; }
+  }
+  /* na najuzim ekranima strelice idu pod sliku da ne prekrivaju motiv */
+  @media (max-width: 420px) {
+    .lightbox__nav { top: auto; bottom: 1rem; transform: none; }
+    .lightbox__nav:hover { transform: scale(1.06); }
+    .lightbox__nav.prev { left: 1.5rem; }
+    .lightbox__nav.next { right: 1.5rem; }
+    .lightbox__caption { bottom: 4.4rem; }
+  }
 
   /* ============================================================
      11. SELF CHECK-IN
@@ -1138,9 +1184,16 @@
   </div>
 
   <!-- ==================== LIGHTBOX ==================== -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Uvećana fotografija">
-    <button class="lightbox__close" id="lightboxClose" aria-label="Zatvori">&times;</button>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerija fotografija">
+    <p class="lightbox__counter" id="lightboxCounter" aria-live="polite"></p>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Zatvori galeriju">&times;</button>
+    <button class="lightbox__nav prev" id="lightboxPrev" aria-label="Prethodna fotografija">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
     <img id="lightboxImg" src="" alt="" />
+    <button class="lightbox__nav next" id="lightboxNext" aria-label="Sljedeća fotografija">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
     <p class="lightbox__caption" id="lightboxCaption"></p>
   </div>
 
@@ -1216,35 +1269,107 @@
       reveals.forEach(el => el.classList.add("visible"));
     }
 
-    /* 5. LIGHTBOX (galerija + fotografije jedinica) */
+    /* 5. LIGHTBOX — galerija sa strelicama, tipkovnicom, swipeom i brojacem.
+       Namjerno bez vanjske biblioteke (GLightbox/PhotoSwipe): stranica je
+       samostalan index.html bez build koraka, pa bi CDN skripta uvela mrezni
+       zahtjev i third-party runtime radi funkcija koje stanu u ~70 linija. */
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightboxImg");
     const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxCounter = document.getElementById("lightboxCounter");
     const lightboxClose = document.getElementById("lightboxClose");
-    let lastFocused = null;
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
+
+    /* Svaka galerija je svoj set: mare, gumbek, zajednicko.
+       Listanje nikad ne prelazi iz jednog seta u drugi. */
+    const groups = {};
     document.querySelectorAll("[data-lightbox]").forEach(item => {
-      item.addEventListener("click", () => {
-        const img = item.querySelector("img");
-        lastFocused = item;
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxCaption.textContent = item.dataset.caption || img.alt || "";
-        lightbox.classList.add("open");
-        lightboxClose.focus();
-      });
+      const key = item.dataset.gallery || "default";
+      (groups[key] = groups[key] || []).push(item);
     });
+
+    let current = [];
+    let index = 0;
+    let lastFocused = null;
+
+    const preload = (i) => {
+      const el = current[i];
+      if (!el) return;
+      const img = el.querySelector("img");
+      if (img) new Image().src = img.src;
+    };
+
+    const render = () => {
+      const item = current[index];
+      const img = item.querySelector("img");
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || "";
+      lightboxCaption.textContent = item.dataset.caption || img.alt || "";
+      lightboxCounter.textContent = (index + 1) + " / " + current.length;
+      lightbox.classList.toggle("solo", current.length < 2);
+      /* susjedi unaprijed — listanje bez bijelog bljeska */
+      preload(index + 1); preload(index - 1);
+    };
+
+    const step = (delta) => {
+      if (current.length < 2) return;
+      index = (index + delta + current.length) % current.length;
+      lightbox.classList.add("is-swapping");
+      render();
+      requestAnimationFrame(() => lightbox.classList.remove("is-swapping"));
+    };
+
+    const openLightbox = (item) => {
+      current = groups[item.dataset.gallery || "default"] || [item];
+      index = current.indexOf(item);
+      if (index < 0) index = 0;
+      lastFocused = item;
+      render();
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+      lightboxClose.focus();
+    };
+
     const closeLightbox = () => {
       if (!lightbox.classList.contains("open")) return;
       lightbox.classList.remove("open");
       lightboxImg.src = "";
+      document.body.style.overflow = "";
       if (lastFocused) lastFocused.focus();
     };
+
+    document.querySelectorAll("[data-lightbox]").forEach(item => {
+      item.addEventListener("click", () => openLightbox(item));
+    });
+
     lightboxClose.addEventListener("click", closeLightbox);
+    lightboxPrev.addEventListener("click", e => { e.stopPropagation(); step(-1); });
+    lightboxNext.addEventListener("click", e => { e.stopPropagation(); step(1); });
+    /* klik izvan slike zatvara; klik po samoj slici ne */
     lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
+
+    /* Swipe: prag 45px, i samo ako je vodoravni pomak veci od okomitog,
+       da okomito povlacenje ne prebacuje fotografiju. */
+    let touchX = 0, touchY = 0;
+    lightbox.addEventListener("touchstart", e => {
+      touchX = e.changedTouches[0].clientX;
+      touchY = e.changedTouches[0].clientY;
+    }, { passive: true });
+    lightbox.addEventListener("touchend", e => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      const dy = e.changedTouches[0].clientY - touchY;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) step(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
     document.addEventListener("keydown", e => {
-      if (e.key !== "Escape") return;
-      closeLightbox();
-      closeNav();
+      if (!lightbox.classList.contains("open")) {
+        if (e.key === "Escape") closeNav();
+        return;
+      }
+      if (e.key === "Escape") { closeLightbox(); closeNav(); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+      else if (e.key === "ArrowLeft")  { e.preventDefault(); step(-1); }
     });
 
     /* 6. DATUMI — ne dopuštamo prošlost, odlazak uvijek nakon dolaska */
