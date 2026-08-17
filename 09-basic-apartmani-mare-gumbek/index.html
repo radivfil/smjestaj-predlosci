@@ -429,6 +429,10 @@
   .contact__grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
   .contact__info h2 { margin-bottom: 1rem; }
   .contact__info > p { color: var(--text-muted); margin-bottom: 2rem; }
+  /* Honeypot — vidljiv samo botovima. Ne koristi display:none jer neki
+     botovi takva polja preskacu; makne se izvan ekrana i iz tab reda. */
+  .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
   .contact-list { display: grid; gap: 1.25rem; }
   .contact-list li { display: flex; gap: .9rem; align-items: flex-start; }
   .contact-list svg { width: 22px; height: 22px; color: var(--sea); flex-shrink: 0; margin-top: .15rem; }
@@ -1012,6 +1016,15 @@
             <span class="error-msg">Napišite kratku poruku (najmanje 10 znakova).</span>
           </div>
 
+          <!-- Formspree meta polja. _subject postavlja skripta prije slanja
+               (dobiva datume u naslov), _gotcha je honeypot — ako ga bot
+               ispuni, Formspree tiho odbaci poruku. -->
+          <input type="hidden" name="_subject" id="mailSubject" value="Novi upit — Apartmani Mare i Gumbek" />
+          <div class="honeypot" aria-hidden="true">
+            <label for="_gotcha">Ostavite ovo polje prazno</label>
+            <input type="text" name="_gotcha" id="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
+
           <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%">Pošalji upit</button>
           <p class="form__note">Odgovaramo u pravilu isti dan. Podatke koristimo isključivo za odgovor na vaš upit i ne prosljeđujemo ih trećima.</p>
         </form>
@@ -1075,9 +1088,17 @@
   (function () {
     "use strict";
 
-    /* ✏️ POSTAVKE — jedino ovo mijenjate --------------------- */
-    const FORMSPREE_ID = "";                     // npr. "xdorwpqz" (formspree.io)
-    const KONTAKT_MAIL = "info@mare-gumbek.hr";  // fallback ako Formspree nije postavljen
+    /* ✏️ POSTAVKE — jedino ovo mijenjate ---------------------
+       FORMSPREE_ID: 1) otvorite besplatan račun na formspree.io
+                     2) New Form → naziv "Apartmani Mare i Gumbek"
+                     3) upišite e-mail na koji upiti trebaju stizati i potvrdite ga
+                     4) iz endpointa https://formspree.io/f/XXXXXXXX kopirajte
+                        zadnjih 8 znakova i zalijepite ih ovdje
+       Dok je prazan, forma i dalje radi — validira unos i otvara e-mail
+       klijent s pripremljenom porukom na KONTAKT_MAIL.
+       Besplatni plan: 50 poruka mjesečno, dovoljno za sezonske upite. */
+    const FORMSPREE_ID = "";                     // npr. "xdorwpqz"
+    const KONTAKT_MAIL = "info@mare-gumbek.hr";  // ✏️ zamijeniti pravom adresom
     /* -------------------------------------------------------- */
 
     const root = document.documentElement;
@@ -1261,6 +1282,10 @@
 
       const data = Object.fromEntries(new FormData(form).entries());
 
+      /* Naslov e-maila dobiva termin i jedinicu — vidi se u inboxu bez otvaranja */
+      const subjectField = document.getElementById("mailSubject");
+      if (subjectField) subjectField.value = `Upit ${data.checkin} – ${data.checkout} · ${data.unit} · ${data.guests} gost(iju)`;
+
       /* Bez Formspree ID-a → otvaramo e-mail klijent s pripremljenom porukom */
       if (!FORMSPREE_ID) {
         window.location.href = buildMailto(data);
@@ -1278,12 +1303,18 @@
           headers: { "Accept": "application/json" },
           body: new FormData(form)
         });
-        if (!res.ok) throw new Error("Formspree " + res.status);
+        if (!res.ok) {
+          /* Formspree vraća {errors:[{message}]} — poruka ide u konzolu da se
+             kriva konfiguracija (neverificiran e-mail, potrošena kvota) vidi odmah */
+          const detail = await res.json().catch(() => null);
+          throw new Error("Formspree " + res.status + (detail && detail.errors ? ": " + detail.errors.map(x => x.message).join("; ") : ""));
+        }
         form.reset();
         okMsg.classList.add("show");
         okMsg.scrollIntoView({ behavior: "smooth", block: "center" });
         setTimeout(hideMessages, 8000);
       } catch (err) {
+        console.error("Slanje upita nije uspjelo —", err.message);
         errMsg.classList.add("show");
         errMsg.scrollIntoView({ behavior: "smooth", block: "center" });
       } finally {
