@@ -368,13 +368,17 @@
   /* ============================================================
      10. GALERIJA + LIGHTBOX
      ============================================================ */
-  .gallery__grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 1rem; }
+  /* Uniformne celije umjesto wide/tall raspona. Stari raspored
+     (wide, tall, ., ., tall, wide) na 2 stupca ostavljao je dvije prazne celije:
+     zadnji "wide" trazi oba stupca, a stupac 1 drzi "tall" preko dva reda.
+     12 fotografija se dijeli bez ostatka na 2, 3 i 4 stupca -> nema praznina. */
+  .gallery__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .gallery__item img { aspect-ratio: 4/3; }
   .gallery__item { overflow: hidden; border-radius: var(--radius-sm); cursor: pointer; position: relative; border: none; padding: 0; background: none; }
   .gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
   .gallery__item:hover img { transform: scale(1.08); }
-  .gallery__item.tall { grid-row: span 2; }
-  .gallery__item.wide { grid-column: span 2; }
-  @media (max-width: 720px) { .gallery__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; } }
+  @media (max-width: 900px) { .gallery__grid { grid-template-columns: repeat(3, 1fr); gap: .85rem; } }
+  @media (max-width: 560px) { .gallery__grid { grid-template-columns: repeat(2, 1fr); gap: .6rem; } }
 
   .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(8,24,26,.93); display: none; place-items: center; padding: 2rem; }
   .lightbox.open { display: grid; animation: fade .3s; }
@@ -708,13 +712,13 @@
 
               <!-- vlastite fotografije jedinice -->
               <div class="thumbs">
-                <button class="thumb" data-lightbox data-caption="Apartman Mare — blagovaonica s izlazom na terasu" aria-label="Povećaj: Apartman Mare, blagovaonica">
+                <button class="thumb" data-lightbox data-gallery="mare" data-caption="Apartman Mare — blagovaonica s izlazom na terasu" aria-label="Povećaj: Apartman Mare, blagovaonica">
                   <img src="images/mare/mare-02-blagovaonica.jpg" alt="Apartman Mare — blagovaonica s velikim kliznim vratima prema natkrivenoj terasi" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-caption="Apartman Mare — spavaonica" aria-label="Povećaj: Apartman Mare, spavaonica">
+                <button class="thumb" data-lightbox data-gallery="mare" data-caption="Apartman Mare — spavaonica" aria-label="Povećaj: Apartman Mare, spavaonica">
                   <img src="images/mare/mare-04-spavaonica.jpg" alt="Apartman Mare — spavaonica s bračnim i pomoćnim ležajem, TV-om i ormarom" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-caption="Apartman Mare — kuhinja" aria-label="Povećaj: Apartman Mare, kuhinja">
+                <button class="thumb" data-lightbox data-gallery="mare" data-caption="Apartman Mare — kuhinja" aria-label="Povećaj: Apartman Mare, kuhinja">
                   <img src="images/mare/mare-05-kuhinja.jpg" alt="Apartman Mare — kuhinja s pećnicom, indukcijskom pločom, perilicom posuđa i perilicom rublja" loading="lazy" />
                 </button>
               </div>
@@ -750,13 +754,13 @@
               </ul>
 
               <div class="thumbs">
-                <button class="thumb" data-lightbox data-caption="Apartman Gumbek — boravak sa spiralnim stubištem" aria-label="Povećaj: Apartman Gumbek, boravak i stubište">
+                <button class="thumb" data-lightbox data-gallery="gumbek" data-caption="Apartman Gumbek — boravak sa spiralnim stubištem" aria-label="Povećaj: Apartman Gumbek, boravak i stubište">
                   <img src="images/gumbek/gumbek-02-stubiste.jpg" alt="Apartman Gumbek — dnevni boravak s blagovaonskim stolom i spiralnim stubištem na gornju etažu" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-caption="Apartman Gumbek — balkon s tendom" aria-label="Povećaj: Apartman Gumbek, balkon">
+                <button class="thumb" data-lightbox data-gallery="gumbek" data-caption="Apartman Gumbek — balkon s tendom" aria-label="Povećaj: Apartman Gumbek, balkon">
                   <img src="images/gumbek/gumbek-03-balkon.jpg" alt="Apartman Gumbek — balkon s tendom, stolom i četiri stolice" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-caption="Apartman Gumbek — spavaonica i kupaonica na gornjoj etaži" aria-label="Povećaj: Apartman Gumbek, spavaonica">
+                <button class="thumb" data-lightbox data-gallery="gumbek" data-caption="Apartman Gumbek — spavaonica i kupaonica na gornjoj etaži" aria-label="Povećaj: Apartman Gumbek, spavaonica">
                   <img src="images/gumbek/gumbek-05-spavaonica.jpg" alt="Apartman Gumbek — spavaonica pod krovnim prozorom i kupaonica s tuš kabinom" loading="lazy" />
                 </button>
               </div>
@@ -852,16 +856,22 @@
       <div class="container">
         <div class="section-head center" data-reveal>
           <span class="eyebrow">Galerija</span>
-          <h2>Zavirite unutra</h2>
-          <p class="lead">Kliknite bilo koju fotografiju za veći prikaz.</p>
+          <h2>Zgrada, terasa i okoliš</h2>
+          <p class="lead">Zajednički prostor koji dijele oba apartmana — natkrivena terasa s kamenim kaminom, vrt, dvorište s parkingom i Petrčane iz zraka. Kliknite bilo koju fotografiju; strelicama ili prstom listate kroz cijeli set.</p>
         </div>
         <div class="gallery__grid">
-          <button class="gallery__item wide" data-lightbox data-caption="Petrčane iz zraka — luka, riva i mjesto" data-reveal aria-label="Povećaj fotografiju Petrčana iz zraka"><img src="images/petrcane-luka-dron.jpg" alt="Petrčane iz zraka — luka s brodicama, riva i kamene kuće mjesta" loading="lazy" /></button>
-          <button class="gallery__item tall" data-lightbox data-caption="Apartman Mare — kupaonica s tuš kabinom" data-reveal aria-label="Povećaj fotografiju kupaonice"><img src="images/mare/mare-06-kupaonica.jpg" alt="Apartman Mare — kupaonica s tuš kabinom, umivaonikom i prozorom" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-caption="Apartman Mare — dnevni boravak" data-reveal aria-label="Povećaj fotografiju dnevnog boravka"><img src="images/mare/mare-03-dnevni-boravak.jpg" alt="Apartman Mare — dnevni boravak sa sofom, dodatnim ležajem i klimom" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-caption="Apartman Gumbek — kuhinja" data-reveal aria-label="Povećaj fotografiju kuhinje"><img src="images/gumbek/gumbek-04-kuhinja.jpg" alt="Apartman Gumbek — kuhinja s indukcijskom pločom, perilicom posuđa, mikrovalnom i aparatom za kavu" loading="lazy" /></button>
-          <button class="gallery__item tall" data-lightbox data-caption="Vrt i dvorište pred apartmanom Mare" data-reveal aria-label="Povećaj fotografiju vrta"><img src="images/mare/mare-07-vrt.jpg" alt="Uređeni vrt s mediteranskim biljem i kamenim pločama pred zgradom" loading="lazy" /></button>
-          <button class="gallery__item wide" data-lightbox data-caption="Apartman Mare — natkrivena terasa s vanjskom kuhinjom" data-reveal aria-label="Povećaj fotografiju terase"><img src="images/mare/mare-01-terasa.jpg" alt="Apartman Mare — natkrivena terasa sa stolom za šest, vanjskom kuhinjom i kamenim kaminom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Zgrada i parkirno dvorište" data-reveal aria-label="Povećaj fotografiju: Zgrada i parkirno dvorište"><img src="images/zajednicko/zajednicko-01-zgrada.jpg" alt="Zgrada s apartmanima Mare i Gumbek — bijela fasada, balkoni i popločeno parkirno dvorište" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Natkrivena terasa s kamenim kaminom" data-reveal aria-label="Povećaj fotografiju: Natkrivena terasa s kamenim kaminom"><img src="images/zajednicko/zajednicko-02-terasa-kamin.jpg" alt="Zajednička natkrivena terasa s kamenim kaminom za peku, vanjskim sudoperom i stolom za šest" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Terasa apartmana Mare" data-reveal aria-label="Povećaj fotografiju: Terasa apartmana Mare"><img src="images/mare/mare-01-terasa.jpg" alt="Natkrivena terasa apartmana Mare sa stolom za šest i vanjskom kuhinjom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Uvala Petrčane iz zraka" data-reveal aria-label="Povećaj fotografiju: Uvala Petrčane iz zraka"><img src="images/zajednicko/zajednicko-04-uvala-dron.jpg" alt="Uvala Petrčane iz zraka — luka s brodicama, poluotok s borovom šumom i Zadar u daljini" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Dnevni boravak apartmana Mare" data-reveal aria-label="Povećaj fotografiju: Dnevni boravak apartmana Mare"><img src="images/mare/mare-03-dnevni-boravak.jpg" alt="Apartman Mare — dnevni boravak sa sofom, dodatnim ležajem i klimom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Terasa s pogledom na vrt" data-reveal aria-label="Povećaj fotografiju: Terasa s pogledom na vrt"><img src="images/zajednicko/zajednicko-03-terasa-vrt.jpg" alt="Natkrivena terasa s pogledom na uređeni vrt i kamene gredice" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Balkon apartmana Gumbek" data-reveal aria-label="Povećaj fotografiju: Balkon apartmana Gumbek"><img src="images/gumbek/gumbek-03-balkon.jpg" alt="Apartman Gumbek — balkon s tendom, stolom i četiri stolice" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Obala i plaža iz zraka" data-reveal aria-label="Povećaj fotografiju: Obala i plaža iz zraka"><img src="images/zajednicko/zajednicko-05-obala-dron.jpg" alt="Obala Petrčana iz zraka — šljunčana plaža, kuće uz more i vinogradi u zaleđu" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Kuhinja apartmana Gumbek" data-reveal aria-label="Povećaj fotografiju: Kuhinja apartmana Gumbek"><img src="images/gumbek/gumbek-04-kuhinja.jpg" alt="Apartman Gumbek — kuhinja s indukcijskom pločom, perilicom posuđa i mikrovalnom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Vrt pred zgradom" data-reveal aria-label="Povećaj fotografiju: Vrt pred zgradom"><img src="images/mare/mare-07-vrt.jpg" alt="Uređeni vrt s mediteranskim biljem i kamenim pločama pred zgradom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Naselje i vinogradi iz zraka" data-reveal aria-label="Povećaj fotografiju: Naselje i vinogradi iz zraka"><img src="images/zajednicko/zajednicko-06-naselje-dron.jpg" alt="Naselje Petrčane iz zraka — kuće, maslinici i vinogradi, Velebit u pozadini" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Kupaonica apartmana Mare" data-reveal aria-label="Povećaj fotografiju: Kupaonica apartmana Mare"><img src="images/mare/mare-06-kupaonica.jpg" alt="Apartman Mare — kupaonica s tuš kabinom i umivaonikom" loading="lazy" /></button>
         </div>
       </div>
     </section>
