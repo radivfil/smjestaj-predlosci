@@ -214,18 +214,22 @@
 .pk__d + .pk__foot{ margin-top:auto; }
 .pk__cta{ width:100%; min-height:46px; padding:.7rem 1.1rem; font-size:.92rem; }
 
-/* Webshop — kompaktna kartica pune sirine ispod glavnih paketa */
+/* Webshop — kartica pune sirine ispod glavnih paketa. Padding, sjena i
+   velicina cijene prate karticu Google vidljivosti da dvije samostalne
+   usluge izgledaju kao par, a ne kao glavna ponuda i dodatak u sitnom. */
 .pk--wide{
   grid-column:1 / span 12; margin-top:clamp(1rem,1.8vw,1.5rem);
   flex-direction:row; align-items:center; flex-wrap:wrap;
-  gap:.6rem clamp(1.25rem,3vw,2.5rem);
+  gap:1rem clamp(1.75rem,4vw,3.5rem);
+  padding:clamp(1.6rem,3.5vw,2.9rem);
+  box-shadow:0 26px 60px -42px rgba(21,21,18,.5);
 }
-.pk--wide h3,
-.pk--wide .pk__price{ flex:none; }
-.pk--wide .pk__price{ font-size:1.6rem; }
-.pk--wide .pk__d{ flex:1 1 24ch; min-width:0; }
+.pk--wide .pk__head{ flex:none; }
+.pk--wide h3{ font-size:clamp(1.5rem, 1.3rem + .6vw, 1.9rem); }
+.pk--wide .pk__price{ margin-top:.55rem; font-size:clamp(2rem, 1.7rem + 1vw, 2.6rem); }
+.pk--wide .pk__d{ flex:1 1 26ch; min-width:0; max-width:52ch; font-size:1rem; }
 .pk--wide .pk__d + .pk__foot{ flex:none; margin-top:0; padding-top:0; }
-.pk--wide .pk__cta{ width:auto; }
+.pk--wide .pk__cta{ width:auto; min-height:52px; padding:.9rem 1.75rem; font-size:1rem; }
 
 .packs__note{
   grid-column:1 / span 12; margin-top:clamp(1.5rem,3vw,2.25rem);
@@ -994,8 +998,10 @@
       </article>
 
       <article class="pk pk--wide" data-reveal>
-        <h3>Webshop</h3>
-        <p class="pk__price">Od 699 €<small>jednokratno</small></p>
+        <div class="pk__head">
+          <h3>Webshop</h3>
+          <p class="pk__price">Od 699 €<small>jednokratno</small></p>
+        </div>
         <p class="pk__d">Izrada webshopa prema potrebama Vašeg poslovanja. Točna cijena ovisi o funkcionalnostima i opsegu projekta.</p>
         <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta">Kontaktirajte nas</a></div>
       </article>
@@ -1068,7 +1074,7 @@
         <details class="faq__i" data-reveal style="--i:0">
           <summary>Koliko traje izrada web stranice?<span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p>Jednostavnija stranica obično je gotova za dva do tri tjedna od trenutka kad dogovorimo sadržaj. Veći opseg — više podstranica, rezervacije ili webshop — traje dulje. Točan rok dogovorimo na početku i držimo Vas u tijeku.</p>
+            <p>Uobičajen rok je do 7 dana od trenutka kad dogovorimo sadržaj i dobijemo materijale. Veći opseg — više podstranica, rezervacije ili webshop — može potrajati dulje. Točan rok dogovorimo na početku i držimo Vas u tijeku.</p>
           </div>
         </details>
 
@@ -1156,7 +1162,7 @@
       {
         "@type": "Question",
         "name": "Koliko traje izrada web stranice?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Jednostavnija stranica obično je gotova za dva do tri tjedna od trenutka kad dogovorimo sadržaj. Veći opseg — više podstranica, rezervacije ili webshop — traje dulje. Točan rok dogovorimo na početku i držimo Vas u tijeku." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Uobičajen rok je do 7 dana od trenutka kad dogovorimo sadržaj i dobijemo materijale. Veći opseg — više podstranica, rezervacije ili webshop — može potrajati dulje. Točan rok dogovorimo na početku i držimo Vas u tijeku." }
       },
       {
         "@type": "Question",
