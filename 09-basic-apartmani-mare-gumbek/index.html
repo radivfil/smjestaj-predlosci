@@ -479,8 +479,17 @@
   [data-theme="dark"] .checkin-note { background: var(--surface-2); border-color: var(--border); }
   .checkin-note h3 { font-size: 1.05rem; }
   .checkin-note ul { display: grid; gap: .45rem; font-size: .93rem; }
-  .checkin-note li { display: flex; gap: .7rem; align-items: flex-start; opacity: .95; }
-  .checkin-note li::before { content: "→"; opacity: .7; }
+  /* NAMJERNO nije display:flex. Flex bi svako dijete <li>-ja pretvorio u
+     zaseban flex item, ukljucujuci gole tekstualne cvorove oko <strong>:
+       [::before] [tekst] [<strong>] [tekst]
+     Bez flex-wrapa sva cetiri se stisnu u jedan red i svaki lomi tekst
+     interno (tekst se raspadne u uske stupce), a po spec-u flexboxa bjelina
+     na rubu anonimnog flex itema se BRISE — pa su nestajali razmaci oko
+     podebljanih dijelova ("jebesplatan", "ukljucenisu", "Nazovite—").
+     Blok kontejner s apsolutno pozicioniranom strelicom drzi cijelu recenicu
+     u jednom inline toku, jednako u Blinku i WebKitu. */
+  .checkin-note li { position: relative; padding-left: 1.6rem; opacity: .95; }
+  .checkin-note li::before { content: "→"; position: absolute; left: 0; top: 0; opacity: .7; }
 
   /* ============================================================
      12. LOKACIJA
