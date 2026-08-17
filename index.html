@@ -95,23 +95,28 @@
 .tblok h2 em{ font-style:normal; color:var(--pink); }
 .tblok__sub{ margin-top:1rem; color:var(--ink-soft); font-size:clamp(1rem, .97rem + .3vw, 1.2rem); }
 
-/* 9 natuknica u 10-stupcanoj mrezi: svaka zauzima 2 stupca -> 5 po redu.
-   6. stavka pocinje u 2. stupcu, pa je zadnji red od 4 stavke centriran
-   umjesto da visi ulijevo. */
+/* 9 natuknica u 3 stupca -> tocno 3 puna reda, bez centriranog ostatka.
+   Ikona lijevo u krugu + naziv i kratko pojasnjenje desno — isti raspored
+   kao stavke u sekciji Promocija. */
 .tblok__grid{
-  display:grid; grid-template-columns:repeat(10,minmax(0,1fr));
-  gap:clamp(.6rem,1.1vw,.9rem); margin-top:clamp(1.5rem,3vw,2.25rem);
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(.7rem,1.2vw,1rem); margin-top:clamp(1.5rem,3vw,2.25rem);
 }
 .tblok__i{
-  grid-column:span 2; display:flex; flex-direction:column; gap:.65rem;
+  display:grid; grid-template-columns:auto 1fr; gap:1rem; align-items:start;
   background:var(--cream-lift); border:1px solid var(--line); border-radius:14px;
-  padding:1.05rem 1rem 1.15rem;
+  padding:1.25rem 1.3rem 1.35rem;
   transition:transform .45s var(--ease), border-color .45s var(--ease);
 }
-.tblok__i:nth-child(6){ grid-column-start:2; }
 .tblok__i:hover{ transform:translateY(-4px); border-color:rgba(0,0,0,.35); }
-.tblok__i svg{ width:21px; height:21px; flex:none; color:var(--ink); }
-.tblok__i b{ font-family:var(--display); font-weight:700; font-size:1.02rem; letter-spacing:-.01em; line-height:1.2; }
+.tblok__ico{
+  display:grid; place-items:center; width:42px; height:42px; flex:none;
+  border:1px solid var(--line); border-radius:50%; color:var(--ink);
+}
+.tblok__ico svg{ width:19px; height:19px; }
+.tblok__i b{ display:block; font-family:var(--display); font-weight:700;
+             font-size:1.08rem; letter-spacing:-.01em; line-height:1.25; }
+.tblok__i p{ margin-top:.25rem; color:var(--ink-soft); font-size:.88rem; line-height:1.5; }
 
 /* ---------- SEKCIJE 01 / 02 ---------- */
 .sec__label{ grid-column:1 / span 3; display:flex; flex-direction:column; gap:.9rem; }
@@ -340,10 +345,8 @@
 @media (max-width:860px){
   .hero__lead{ grid-column:1 / span 12; }
   .svc,.promo{ grid-template-columns:1fr; }
-  /* Trust blok: 3 stupca -> 9 natuknica ispuni tocno 3 reda */
-  .tblok__grid{ grid-template-columns:repeat(3,minmax(0,1fr)); }
-  .tblok__i{ grid-column:auto; }
-  .tblok__i:nth-child(6){ grid-column-start:auto; }
+  /* Trust blok: 2 stupca da naziv i pojasnjenje ostanu citljivi */
+  .tblok__grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
   /* Google vidljivost: lista pada pod cijenu, rub s lijeva ide na vrh */
   .gv{ grid-template-columns:1fr; }
   .gv__list{ border-left:0; border-top:1px solid var(--line);
@@ -356,9 +359,8 @@
 }
 @media (max-width:620px){
   .packs,.proc{ grid-template-columns:1fr; }
-  /* Trust blok: 2 stupca; 9. natuknica sama u redu ide preko cijele sirine */
-  .tblok__grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .tblok__i:last-child{ grid-column:1 / -1; }
+  /* Trust blok: na mobitelu jedan stupac — dva bi stisnula tekst uz ikonu */
+  .tblok__grid{ grid-template-columns:1fr; }
 }
 @media (max-width:520px){
   .hero__cta{ gap:.7rem; }
@@ -477,40 +479,93 @@
 
         <div class="tblok__grid">
           <div class="tblok__i" data-reveal style="--i:2">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
-            <b>Struktura</b>
+            <span class="tblok__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+            </span>
+            <div>
+              <b>Struktura</b>
+              <p>Što ide na koju stranicu</p>
+            </div>
           </div>
+
           <div class="tblok__i" data-reveal style="--i:3">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.95 0 1.7-.77 1.7-1.72 0-.45-.18-.85-.45-1.15-.3-.3-.45-.67-.45-1.15a1.7 1.7 0 0 1 1.72-1.72h2.03C19.6 16.26 22 13.85 22 10.8 22 6 17.5 2 12 2z"/><circle cx="8.5" cy="7.5" r=".6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r=".6" fill="currentColor" stroke="none"/><circle cx="13.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r=".6" fill="currentColor" stroke="none"/></svg>
-            <b>Dizajn</b>
+            <span class="tblok__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.95 0 1.7-.77 1.7-1.72 0-.45-.18-.85-.45-1.15-.3-.3-.45-.67-.45-1.15a1.7 1.7 0 0 1 1.72-1.72h2.03C19.6 16.26 22 13.85 22 10.8 22 6 17.5 2 12 2z"/><circle cx="8.5" cy="7.5" r=".6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r=".6" fill="currentColor" stroke="none"/><circle cx="13.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r=".6" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <div>
+              <b>Dizajn</b>
+              <p>Izgled po Vašem brendu</p>
+            </div>
           </div>
+
           <div class="tblok__i" data-reveal style="--i:4">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h6"/><path d="M8 13h8M8 17h6"/></svg>
-            <b>Tekstovi</b>
+            <span class="tblok__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h6"/><path d="M8 13h8M8 17h6"/></svg>
+            </span>
+            <div>
+              <b>Tekstovi</b>
+              <p>Pišemo ih umjesto Vas</p>
+            </div>
           </div>
+
           <div class="tblok__i" data-reveal style="--i:5">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.8"/><path d="m21 15-4.4-4.4a2 2 0 0 0-2.8 0L4 20"/></svg>
-            <b>Fotografije</b>
+            <span class="tblok__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.8"/><path d="m21 15-4.4-4.4a2 2 0 0 0-2.8 0L4 20"/></svg>
+            </span>
+            <div>
+              <b>Fotografije</b>
+              <p>Obrada i priprema za web</p>
+            </div>
           </div>
+
           <div class="tblok__i" data-reveal style="--i:6">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            <b>Domena</b>
+            <span class="tblok__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </span>
+            <div>
+              <b>Domena</b>
+              <p>Registracija i postavljanje</p>
+            </div>
           </div>
+
           <div class="tblok__i" data-reveal style="--i:7">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-            <b>E-mail</b>
+            <span class="tblok__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            </span>
+            <div>
+              <b>E-mail</b>
+              <p>Poslovni, na Vašoj domeni</p>
+            </div>
           </div>
+
           <div class="tblok__i" data-reveal style="--i:8">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.6-4.6"/></svg>
-            <b>Google</b>
+            <span class="tblok__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.6-4.6"/></svg>
+            </span>
+            <div>
+              <b>Google</b>
+              <p>Da Vas ljudi pronađu</p>
+            </div>
           </div>
+
           <div class="tblok__i" data-reveal style="--i:9">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91 0z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.9 12.9 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
-            <b>Objava</b>
+            <span class="tblok__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91 0z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.9 12.9 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+            </span>
+            <div>
+              <b>Objava</b>
+              <p>Puštamo stranicu uživo</p>
+            </div>
           </div>
+
           <div class="tblok__i" data-reveal style="--i:10">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            <b>Održavanje</b>
+            <span class="tblok__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </span>
+            <div>
+              <b>Održavanje</b>
+              <p>Brinemo i nakon objave</p>
+            </div>
           </div>
         </div>
       </div>
