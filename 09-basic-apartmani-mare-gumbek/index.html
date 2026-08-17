@@ -391,16 +391,20 @@
   .location__addr .btn { margin-left: auto; padding: .6rem 1.1rem; font-size: .88rem; }
   .location__addr svg { width: 17px; height: 17px; }
   @media (max-width: 480px) { .location__addr .btn { margin-left: 0; width: 100%; } }
-  /* Ocjena lokacije s Bookinga */
+  /* Ukupna ocjena gostiju s Bookinga — element je u sekciji "O nama" (#about),
+     pravilo stoji ovdje uz .maplink jer oba dolaze iz istog seta kontakt/lokacija
+     dopuna; selektor nije vezan ni za jednu sekciju. */
   .score {
-    display: flex; align-items: center; gap: 1rem; margin-top: 1.75rem;
+    display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; margin-top: 2rem;
     background: color-mix(in srgb, var(--sea) 8%, var(--surface));
     border: 1px solid var(--border); border-left: 3px solid var(--sea);
-    border-radius: var(--radius-sm); padding: .95rem 1.2rem;
+    border-radius: var(--radius-sm); padding: 1rem 1.2rem;
     font-size: .92rem; color: var(--text);
   }
-  .score__num { font-family: var(--font-display); font-size: 2.1rem; font-weight: 700; line-height: 1; color: var(--sea); flex-shrink: 0; }
+  .score__stars { color: var(--terra); letter-spacing: .12em; font-size: .95rem; flex-basis: 100%; line-height: 1; }
+  .score__num { font-family: var(--font-display); font-size: 2.3rem; font-weight: 700; line-height: 1; color: var(--sea); flex-shrink: 0; }
   .score__num small { font-size: .95rem; font-weight: 500; color: var(--text-muted); }
+  .score__txt { flex: 1; min-width: 12rem; }
   .score small { color: var(--text-muted); font-size: .82rem; }
 
   /* Link "Otvori u navigaciji" u kontakt listi */
@@ -561,7 +565,7 @@
       <div class="container hero__inner">
         <div class="hero__tags" data-reveal>
           <span>◆ Petrčane, Zadarska županija</span>
-          <span>★ Lokacija 10/10 · Booking.com</span>
+          <span>★ Ocjena gostiju 10/10 · Booking.com</span>
           <span>◆ Besplatan parking</span>
         </div>
         <h1 data-reveal>Apartmani Mare i Gumbek<br /><em>dva doma pod istim krovom.</em></h1>
@@ -612,6 +616,13 @@
             <div><dt>800 m</dt><dd>Do plaže Donje Petrčane</dd></div>
             <div><dt>15 min</dt><dd>Vožnje do centra Zadra</dd></div>
           </dl>
+          <!-- Ukupna ocjena gostiju s Booking.coma. Atribucija navodi apartman
+               Mare jer se ocjena odnosi na taj oglas — Gumbek ima svoj. -->
+          <p class="score" data-reveal>
+            <span class="score__stars" aria-hidden="true">★★★★★</span>
+            <span class="score__num">10<small>/10</small></span>
+            <span class="score__txt">Ukupna ocjena gostiju na Booking.comu<br /><small>Za apartman Mare, na temelju 5 recenzija gostiju nakon boravka.</small></span>
+          </p>
         </div>
       </div>
     </section>
@@ -853,12 +864,6 @@
         <div data-reveal>
           <span class="eyebrow">Lokacija</span>
           <h2>Petrčane — dvanaest kilometara od Zadra</h2>
-          <!-- Stvarna ocjena s Booking.coma. Namjerno je navedeno da se radi
-               o ocjeni LOKACIJE za oglas Mare 9, a ne o ukupnoj ocjeni. -->
-          <p class="score" data-reveal>
-            <span class="score__num">10<small>/10</small></span>
-            <span>Ocjena lokacije na Booking.comu<br /><small>Za oglas „Mare 9 Cozy Apartment with Garden", na temelju 5 recenzija gostiju.</small></span>
-          </p>
           <p class="lead">Petrčane su mirno mjesto na zadarskoj rivijeri: luka s brodicama, borova šuma, nekoliko konoba i šljunčane plaže. Dovoljno blizu da ujutro budete na kavi u staroj gradskoj jezgri Zadra, dovoljno po strani da navečer čujete samo cvrčke.</p>
           <p style="margin-top:1rem;color:var(--text-muted)">Zadar je odlična baza za istraživanje — Morske orgulje i Pozdrav Suncu, rimski forum i Sveti Donat — a Kornati, Krka i Plitvička jezera izleti su od jednog dana. Sa sjeverne strane su Nin s pješčanom plažom i solanom te podvelebitski kanal.</p>
           <ul class="nearby">

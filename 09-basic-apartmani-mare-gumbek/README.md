@@ -96,10 +96,12 @@ Ugrađena zaštita od spama: honeypot polje `_gotcha` (pomaknuto izvan ekrana, n
 
 ## Ocjena s Booking.coma
 
-U sekciji Lokacija stoji **ocjena lokacije 10/10** za oglas „Mare 9 Cozy
-Apartment with Garden", na temelju 5 recenzija. To je **ocjena lokacije, ne
-ukupna ocjena objekta** — atribucija je namjerno ispisana u cijelosti da se ne
-pročita krivo. Ako se ocjena promijeni, ažurirati `.score` blok i hero oznaku.
+U sekciji **O nama** stoji **ukupna ocjena gostiju 10/10**, na temelju 5
+recenzija. Odnosi se na oglas „Mare 9 Cozy Apartment with Garden" — atribucija
+to navodi jer Gumbek ima svoj zaseban oglas i svoju ocjenu.
+
+Ako se ocjena promijeni, ažurirati na dva mjesta: `.score` blok u `#about` i
+oznaku u `.hero__tags`.
 
 ## Otvoreno pitanje: jedna zgrada ili dvije
 
