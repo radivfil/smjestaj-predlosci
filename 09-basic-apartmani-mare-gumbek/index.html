@@ -261,29 +261,31 @@
   .book-bar input:focus, .book-bar select:focus { outline: none; border-color: var(--sea); box-shadow: 0 0 0 3px color-mix(in srgb, var(--sea) 22%, transparent); }
   .book-bar .btn { align-self: flex-end; }
 
-  /* ---- Ikona kalendara u poljima dolaska/odlaska ----
-     Nativni ::-webkit-calendar-picker-indicator je siva ikona zalijepljena uz
-     rub polja. Zamijenjena je vlastitim SVG-om u brand boji, s razmakom od
-     10px do teksta datuma.
-     Kontrast prema podlozi polja (--bg), WCAG AA za negrafcki tekst trazi 3:1:
-       svijetla tema  #0c6b80 na #fbf7f1 = 5.74:1  OK
-       tamna tema     #46c3d9 na #0e1e21 = 8.21:1  OK
-     Dvije boje su nuzne jer SVG u background-image ne nasljeduje currentColor.
-     Firefox ne podrzava ovaj pseudo-element i zadrzava vlastiti prikaz. */
-  input[type="date"] { padding-inline-end: .55rem; }
+  /* ---- Ikona kalendara uz oznaku polja dolaska/odlaska ----
+     Rijesena kao pravi inline <svg> u DOM-u, ne preko pseudo-elementa.
+     Razlog: ::-webkit-calendar-picker-indicator postoji samo u WebKit/Blink
+     preglednicima; Firefox ga ignorira, a svoj nativni gumb ne izlaze nijednom
+     pseudo-elementu, pa se ondje nije imalo sto obojati. Inline SVG nasljeduje
+     currentColor i izgleda identicno u svakom pregledniku.
+
+     Kontrast prema podlozi (WCAG AA za negraficke elemente trazi 3:1):
+       svijetla tema  --sea #0c6b80 na --surface #ffffff = 6.12:1  OK
+                                    na --bg      #fbf7f1 = 5.74:1  OK
+       tamna tema     --sea #46c3d9 na --surface #142a2e = 7.19:1  OK
+                                    na --bg      #0e1e21 = 8.21:1  OK
+     Razmak do teksta oznake je 8px (donja granica trazenog raspona 8-12px). */
+  /* specificnost (0,2,1) da nadglasa i .book-bar label i .field label */
+  .book-bar label.lbl-date, .field label.lbl-date { display: inline-flex; align-items: center; gap: 8px; }
+  .cal-ico { width: 15px; height: 15px; color: var(--sea); flex-shrink: 0; }
+  .field label .cal-ico { width: 16px; height: 16px; }
+
+  /* Nativna ikona u polju se skriva u WebKit/Blink pa nema dvije ikone.
+     Klik bilo gdje po polju otvara birac preko showPicker() u skripti —
+     to radi u Chromeu, Firefoxu i Safariju 16+ jednako. */
   input[type="date"]::-webkit-calendar-picker-indicator {
-    width: 18px; height: 18px;
-    margin-inline-start: 10px;
-    padding: 0;
-    opacity: 1; cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230c6b80' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4M8 2v4M3 10h18'/%3E%3C/svg%3E");
-    background-size: contain; background-repeat: no-repeat; background-position: center;
-    transition: opacity .2s;
+    -webkit-appearance: none; appearance: none; display: none;
   }
-  input[type="date"]::-webkit-calendar-picker-indicator:hover { opacity: .7; }
-  [data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2346c3d9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4M8 2v4M3 10h18'/%3E%3C/svg%3E");
-  }
+  input[type="date"] { cursor: pointer; }
 
 
   /* Sigurnosna mreza: ako neki preglednik ipak nametne siru intrinzicnu sirinu
@@ -701,8 +703,8 @@
 
         <!-- Brzi upit — prepopunjava veliku formu ispod -->
         <form class="book-bar" data-reveal id="quickBar" aria-label="Brzi upit za termin">
-          <div class="bf"><label for="qb-in">Dolazak</label><input type="date" id="qb-in" /></div>
-          <div class="bf"><label for="qb-out">Odlazak</label><input type="date" id="qb-out" /></div>
+          <div class="bf"><label class="lbl-date" for="qb-in"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Dolazak</label><input type="date" id="qb-in" /></div>
+          <div class="bf"><label class="lbl-date" for="qb-out"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Odlazak</label><input type="date" id="qb-out" /></div>
           <div class="bf"><label for="qb-guests">Gosti</label>
             <select id="qb-guests">
               <option value="1">1 osoba</option>
@@ -1106,12 +1108,12 @@
 
           <div class="form-row">
             <div class="field">
-              <label for="checkin">Datum dolaska <span class="req">*</span></label>
+              <label class="lbl-date" for="checkin"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Datum dolaska <span class="req">*</span></label>
               <input type="date" id="checkin" name="checkin" required />
               <span class="error-msg">Odaberite datum dolaska.</span>
             </div>
             <div class="field">
-              <label for="checkout">Datum odlaska <span class="req">*</span></label>
+              <label class="lbl-date" for="checkout"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Datum odlaska <span class="req">*</span></label>
               <input type="date" id="checkout" name="checkout" required />
               <span class="error-msg">Odlazak mora biti nakon dolaska.</span>
             </div>
@@ -1395,6 +1397,18 @@
       if (e.key === "Escape") { closeLightbox(); closeNav(); }
       else if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
       else if (e.key === "ArrowLeft")  { e.preventDefault(); step(-1); }
+    });
+
+    /* Klik bilo gdje po datumskom polju otvara nativni birac.
+       Nativna ikona je sakrivena u WebKit/Blinku, a Firefox svoju ionako ne da
+       stilizirati — showPicker() daje isto ponasanje u Chromeu, Firefoxu i
+       Safariju 16+. Gdje ga nema, polje i dalje radi kao obicno tekstualno
+       polje za unos datuma. */
+    document.querySelectorAll('input[type="date"]').forEach(input => {
+      input.addEventListener("click", () => {
+        if (typeof input.showPicker !== "function") return;
+        try { input.showPicker(); } catch (e) { /* npr. bez korisnicke geste */ }
+      });
     });
 
     /* 6. DATUMI — ne dopuštamo prošlost, odlazak uvijek nakon dolaska */
