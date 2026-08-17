@@ -186,7 +186,8 @@
      5. HERO
      ============================================================ */
   .hero { position: relative; min-height: 100vh; min-height: 100svh; display: grid; align-items: center; color: #fff; isolation: isolate; }
-  .hero__bg { position: absolute; inset: 0; z-index: -2; object-fit: cover; width: 100%; height: 100%; }
+  /* object-position drzi zaljev i marinu u kadru kad se 3:2 kropa na visoki hero */
+  .hero__bg { position: absolute; inset: 0; z-index: -2; object-fit: cover; object-position: 50% 58%; width: 100%; height: 100%; }
   .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(12,45,52,.62) 0%, rgba(12,45,52,.3) 40%, rgba(12,45,52,.78) 100%); }
   .hero__inner { max-width: 760px; padding-block: 8rem 6rem; }
   .hero__tags { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 1.5rem; font-size: .9rem; }
@@ -244,14 +245,14 @@
   .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease), opacity .3s; }
   .thumb:hover img { transform: scale(1.09); opacity: .9; }
 
-  /* Cjenik unutar jedinice */
-  .unit-rates { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
-  .unit-rates caption { caption-side: top; text-align: left; font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); padding: 0 0 .55rem; }
-  .unit-rates table { width: 100%; border-collapse: collapse; font-size: .87rem; }
-  .unit-rates td { padding: .6rem .85rem; border-bottom: 1px solid var(--border); }
-  .unit-rates tr:last-child td { border-bottom: none; }
-  .unit-rates td:last-child { text-align: right; font-weight: 700; color: var(--sea); font-family: var(--font-display); }
-  .unit-rates tr.peak { background: color-mix(in srgb, var(--terra) 9%, transparent); }
+  /* Poziv na upit unutar jedinice — zamjenjuje cjenik jer cijena varira po sezoni */
+  .unit-ask {
+    border: 1px solid var(--border); border-left: 3px solid var(--terra);
+    border-radius: var(--radius-sm); padding: .95rem 1.1rem;
+    background: color-mix(in srgb, var(--terra) 6%, var(--surface));
+  }
+  .unit-ask strong { font-family: var(--font-display); font-size: 1.05rem; display: block; }
+  .unit-ask p { font-size: .87rem; color: var(--text-muted); margin-top: .3rem; }
   .unit-card__body .btn { margin-top: auto; }
 
   /* ============================================================
@@ -464,18 +465,20 @@
   <main id="main">
     <!-- ==================== HERO ==================== -->
     <section class="hero" aria-label="Dobrodošli">
-      <img class="hero__bg" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1920&q=80" alt="Terasa s pogledom na more u Dalmaciji" fetchpriority="high" />
+      <img class="hero__bg" src="images/petrcane-zaljev-dron.jpg" width="1600" height="1066"
+        alt="Petrčane iz zraka — tirkizni zaljev s marinom, mjesto i vinogradi, Velebit u pozadini"
+        fetchpriority="high" decoding="async" />
       <div class="container hero__inner">
         <div class="hero__tags" data-reveal>
-          <span>◆ 15 min od Zadra</span>
-          <span>★ 9.6/10 · gosti nas ocjenjuju</span>
-          <span>◆ Self check-in 24/7</span>
+          <span>◆ Petrčane, Zadarska županija</span>
+          <span>◆ 800 m do plaže</span>
+          <span>◆ Besplatan parking</span>
         </div>
-        <h1 data-reveal>Apartmani Mare i Gumbek<br /><em>vaš mir nadomak Zadra.</em></h1>
-        <p data-reveal>Dvije obiteljske jedinice s vlastitom terasom, opremljenom kuhinjom i besplatnim parkingom. More na par minuta, stari grad Zadar na četvrt sata vožnje — a mi smo tu za svaki savjet.</p>
+        <h1 data-reveal>Apartmani Mare i Gumbek<br /><em>dva doma pod istim krovom.</em></h1>
+        <p data-reveal>Dva odvojena apartmana u istoj zgradi u Petrčanima — svaki s vlastitom kuhinjom, kupaonicom, klimom i vanjskim prostorom. Plaža je desetak minuta hoda, Zadar četvrt sata vožnje. Idealno za dvije obitelji ili grupe koje putuju zajedno, a žele svoj mir.</p>
         <div class="hero__cta" data-reveal>
           <a href="#units" class="btn btn-primary">Pogledaj apartmane</a>
-          <a href="#pricing" class="btn btn-light">Cijene po sezoni</a>
+          <a href="#upit" class="btn btn-light">Provjerite dostupnost</a>
         </div>
 
         <!-- Brzi upit — prepopunjava veliku formu ispod -->
@@ -501,18 +504,19 @@
     <section class="section" id="about">
       <div class="container about__grid">
         <div class="about__media" data-reveal>
-          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80" alt="Svijetli interijer apartmana s kuhinjom i blagovaonicom" loading="lazy" />
-          <div class="badge"><strong>2</strong><span>jedinice, jedna kuća</span></div>
+          <img src="images/zgrada.jpg" width="1600" height="1066" alt="Zgrada s apartmanima Mare i Gumbek u Petrčanima — parkirno dvorište i uređeni vrt" loading="lazy" />
+          <div class="badge"><strong>2</strong><span>apartmana, ista zgrada</span></div>
         </div>
         <div data-reveal>
           <span class="eyebrow">O nama</span>
-          <h2>Mala kuća, velika gostoljubivost.</h2>
-          <p class="lead">Mare i Gumbek dvije su jedinice u našoj obiteljskoj kući nadomak Zadra — apartman za obitelj i studio za dvoje. Nema recepcije ni gužve, samo mirno dvorište, maslina pred ulazom i more na dohvat ruke.</p>
-          <p style="margin-top:1rem;color:var(--text-muted)">Sve smo uredili sami, s mišlju na to što nama nedostaje kad putujemo: dovoljno prostora, tiha klima, brzi internet i kuhinja u kojoj se stvarno može kuhati. Dolazite kad vam odgovara — kod za samostalni ulazak šaljemo dan ranije, a mi smo na poruku udaljeni za svaku preporuku.</p>
+          <h2>Dva apartmana, jedna zgrada, dovoljno mjesta za sve.</h2>
+          <p class="lead">Mare i Gumbek dva su samostalna apartmana u istoj zgradi u Petrčanima, mirnom mjestu na zadarskoj rivijeri. Svaki ima vlastiti ulaz, kuhinju, kupaonicu, klimu i svoj vanjski prostor — Mare vrt i veliku natkrivenu terasu, Gumbek balkon i dvije etaže.</p>
+          <p style="margin-top:1rem;color:var(--text-muted)">Zato ih najčešće uzimaju dvije obitelji ili grupe prijatelja koje putuju zajedno: djeca se igraju u dvorištu, večera je zajednička na terasi, a kad dan završi svatko se vrati u svoj apartman. Nema recepcije, nema hodnika, nema susjeda s druge strane tankog zida — samo dva zaključana vrata i dva odmora koja se ne moraju usklađivati.</p>
+          <p style="margin-top:1rem;color:var(--text-muted)">Možete, naravno, uzeti i samo jedan. Oba su opremljena za normalno ljetovanje, ne za razgledavanje: perilica posuđa, ploča za kuhanje, aparat za kavu, TV, brzi Wi-Fi i besplatno parkirno mjesto u dvorištu.</p>
           <dl class="stats">
-            <div><dt>2</dt><dd>Jedinice (2 i 4 osobe)</dd></div>
+            <div><dt>2</dt><dd>Odvojena apartmana u istoj zgradi</dd></div>
+            <div><dt>800 m</dt><dd>Do plaže Donje Petrčane</dd></div>
             <div><dt>15 min</dt><dd>Vožnje do centra Zadra</dd></div>
-            <div><dt>24/7</dt><dd>Samostalni check-in</dd></div>
           </dl>
         </div>
       </div>
@@ -523,101 +527,94 @@
       <div class="container">
         <div class="section-head center" data-reveal>
           <span class="eyebrow">Smještaj</span>
-          <h2>Dvije jedinice, dva ugođaja</h2>
-          <p class="lead">Svaka ima vlastiti ulaz, kuhinju, kupaonicu i vanjski prostor. Kliknite na fotografije za veći prikaz.</p>
+          <h2>Dva apartmana, dva različita ugođaja</h2>
+          <p class="lead">Oba imaju vlastiti ulaz, punu kuhinju, kupaonicu, klimu i svoj vanjski prostor. Uzmite jedan ili oba — kliknite fotografije za veći prikaz.</p>
         </div>
         <div class="units__grid">
 
-          <!-- ---------- APARTMAN MARE ---------- -->
+          <!-- ---------- APARTMAN MARE ----------
+               ✏️ POTVRDITI S KLIJENTOM: kapacitet (do 6) i kvadratura.
+               Booking naslov kaze "Two Bedroom … with Garden"; broj lezajeva
+               procijenjen s fotografija (spavaonica + izvlacni lezaj u boravku). -->
           <article class="unit-card" data-reveal>
             <div class="unit-card__img">
-              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" alt="Apartman Mare — dnevni boravak s izlazom na terasu" loading="lazy" />
-              <span class="unit-card__badge">Za obitelji</span>
-              <span class="unit-card__price">od €70 <small>/ noć</small></span>
+              <img src="images/mare/mare-01-terasa.jpg" width="1600" height="1066" alt="Apartman Mare — velika natkrivena terasa s vanjskom kuhinjom, kamenim kaminom i stolom za šest" loading="lazy" />
+              <span class="unit-card__badge">Vrt i velika terasa</span>
+              <span class="unit-card__price">Cijena <small>na upit</small></span>
             </div>
             <div class="unit-card__body">
               <h3>Apartman Mare</h3>
-              <p>Prostrani apartman na katu s odvojenom spavaćom sobom, dnevnim boravkom i velikom natkrivenom terasom za duge večere na otvorenom.</p>
+              <p>Apartman u prizemlju s vlastitim vrtom i natkrivenom terasom koja je zapravo druga dnevna soba — ima vanjsku kuhinju sa sudoperom, kameni kamin za peku i stol za šest osoba. Unutra su svijetla blagovaonica, dnevni boravak i spavaonica, sve u ravnini s dvorištem, bez stepenica.</p>
 
               <ul class="unit-specs">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg> do 4 osobe</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5l9-3 9 3v16M9 21v-6h6v6"/></svg> 55 m²</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg> 1. kat</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg> do 6 osoba</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5l9-3 9 3v16M9 21v-6h6v6"/></svg> 2 spavaonice</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg> prizemlje + vrt</li>
               </ul>
 
               <!-- vlastite fotografije jedinice -->
               <div class="thumbs">
-                <button class="thumb" data-lightbox data-caption="Apartman Mare — spavaća soba" aria-label="Povećaj: Apartman Mare, spavaća soba">
-                  <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=700&q=80" alt="Apartman Mare — spavaća soba s bračnim krevetom" loading="lazy" />
+                <button class="thumb" data-lightbox data-caption="Apartman Mare — blagovaonica s izlazom na terasu" aria-label="Povećaj: Apartman Mare, blagovaonica">
+                  <img src="images/mare/mare-02-blagovaonica.jpg" alt="Apartman Mare — blagovaonica s velikim kliznim vratima prema natkrivenoj terasi" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-caption="Apartman Mare — kuhinja i blagovaonica" aria-label="Povećaj: Apartman Mare, kuhinja">
-                  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80" alt="Apartman Mare — kuhinja s blagovaonskim stolom" loading="lazy" />
+                <button class="thumb" data-lightbox data-caption="Apartman Mare — spavaonica" aria-label="Povećaj: Apartman Mare, spavaonica">
+                  <img src="images/mare/mare-04-spavaonica.jpg" alt="Apartman Mare — spavaonica s bračnim i pomoćnim ležajem, TV-om i ormarom" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-caption="Apartman Mare — natkrivena terasa" aria-label="Povećaj: Apartman Mare, terasa">
-                  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80" alt="Apartman Mare — natkrivena terasa sa stolom" loading="lazy" />
+                <button class="thumb" data-lightbox data-caption="Apartman Mare — kuhinja" aria-label="Povećaj: Apartman Mare, kuhinja">
+                  <img src="images/mare/mare-05-kuhinja.jpg" alt="Apartman Mare — kuhinja s pećnicom, indukcijskom pločom, perilicom posuđa i perilicom rublja" loading="lazy" />
                 </button>
               </div>
 
-              <ul class="unit-features"><li>2 sobe</li><li>Velika terasa</li><li>Klima</li><li>Perilica rublja</li><li>Wi-Fi</li><li>Parking</li></ul>
+              <ul class="unit-features"><li>Vlastiti vrt</li><li>Natkrivena terasa</li><li>Vanjska kuhinja</li><li>Kameni kamin</li><li>Klima</li><li>Perilica rublja</li><li>Perilica posuđa</li><li>Wi-Fi</li><li>Parking</li></ul>
 
-              <div class="unit-rates">
-                <table>
-                  <caption>Cijena po noći, cijeli apartman</caption>
-                  <tbody>
-                    <tr><td>Predsezona · svibanj, listopad</td><td>€70</td></tr>
-                    <tr><td>Sezona · lipanj, rujan</td><td>€90</td></tr>
-                    <tr class="peak"><td>Špica · srpanj, kolovoz</td><td>€120</td></tr>
-                  </tbody>
-                </table>
+              <div class="unit-ask">
+                <strong>Rezervacija na upit</strong>
+                <p>Cijena ovisi o terminu, broju gostiju i duljini boravka. Pošaljite datume — javljamo se s točnom ponudom.</p>
               </div>
 
-              <a href="#upit" class="btn btn-ghost" data-pick-unit="Apartman Mare (do 4 os.)">Pošalji upit za Mare</a>
+              <a href="#upit" class="btn btn-primary" data-pick-unit="Apartman Mare (do 6 os.)">Provjerite dostupnost za Mare</a>
             </div>
           </article>
 
-          <!-- ---------- STUDIO GUMBEK ---------- -->
+          <!-- ---------- APARTMAN GUMBEK ----------
+               ✏️ POTVRDITI S KLIJENTOM: kapacitet (do 4) i kvadratura.
+               Booking naslov: "Two Story, Two-Bedroom Apartment by the Sea". -->
           <article class="unit-card" data-reveal>
             <div class="unit-card__img">
-              <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80" alt="Studio Gumbek — svijetli prostor za dvoje" loading="lazy" />
-              <span class="unit-card__badge">Za parove</span>
-              <span class="unit-card__price">od €45 <small>/ noć</small></span>
+              <img src="images/gumbek/gumbek-01-dnevni-boravak.jpg" width="1600" height="1066" alt="Apartman Gumbek — svijetli dnevni boravak s kožnom garniturom i izlazom na balkon" loading="lazy" />
+              <span class="unit-card__badge">Dvije etaže</span>
+              <span class="unit-card__price">Cijena <small>na upit</small></span>
             </div>
             <div class="unit-card__body">
-              <h3>Studio Gumbek</h3>
-              <p>Ugodan studio u prizemlju s vlastitim ulazom iz dvorišta i sjenovitim kutkom pod maslinom — taman za dvoje koji su tu radi mora i mira.</p>
+              <h3>Apartman Gumbek</h3>
+              <p>Dvoetažni apartman povezan spiralnim stubištem: dolje prostrani dnevni boravak s blagovaonicom, kuhinjom i balkonom s tendom, gore spavaonice i kupaonica pod krovnim prozorom. Podignut je od ulice, pa je svjetlo cijeli dan a večeri tihe.</p>
 
               <ul class="unit-specs">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg> do 2 osobe</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5l9-3 9 3v16M9 21v-6h6v6"/></svg> 30 m²</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg> prizemlje</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg> do 4 osobe</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5l9-3 9 3v16M9 21v-6h6v6"/></svg> 2 spavaonice</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg> 2 etaže</li>
               </ul>
 
               <div class="thumbs">
-                <button class="thumb" data-lightbox data-caption="Studio Gumbek — spavaći dio" aria-label="Povećaj: Studio Gumbek, spavaći dio">
-                  <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=700&q=80" alt="Studio Gumbek — spavaći dio studija" loading="lazy" />
+                <button class="thumb" data-lightbox data-caption="Apartman Gumbek — boravak sa spiralnim stubištem" aria-label="Povećaj: Apartman Gumbek, boravak i stubište">
+                  <img src="images/gumbek/gumbek-02-stubiste.jpg" alt="Apartman Gumbek — dnevni boravak s blagovaonskim stolom i spiralnim stubištem na gornju etažu" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-caption="Studio Gumbek — kupaonica" aria-label="Povećaj: Studio Gumbek, kupaonica">
-                  <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=700&q=80" alt="Studio Gumbek — kupaonica s tušem" loading="lazy" />
+                <button class="thumb" data-lightbox data-caption="Apartman Gumbek — balkon s tendom" aria-label="Povećaj: Apartman Gumbek, balkon">
+                  <img src="images/gumbek/gumbek-03-balkon.jpg" alt="Apartman Gumbek — balkon s tendom, stolom i četiri stolice" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-caption="Studio Gumbek — kutak u dvorištu" aria-label="Povećaj: Studio Gumbek, dvorište">
-                  <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=700&q=80" alt="Studio Gumbek — sjenoviti kutak u dvorištu" loading="lazy" />
+                <button class="thumb" data-lightbox data-caption="Apartman Gumbek — spavaonica i kupaonica na gornjoj etaži" aria-label="Povećaj: Apartman Gumbek, spavaonica">
+                  <img src="images/gumbek/gumbek-05-spavaonica.jpg" alt="Apartman Gumbek — spavaonica pod krovnim prozorom i kupaonica s tuš kabinom" loading="lazy" />
                 </button>
               </div>
 
-              <ul class="unit-features"><li>Vlastiti ulaz</li><li>Kutak u dvorištu</li><li>Klima</li><li>Čajna kuhinja</li><li>Wi-Fi</li><li>Parking</li></ul>
+              <ul class="unit-features"><li>Balkon s tendom</li><li>Dvije etaže</li><li>Klima</li><li>Perilica posuđa</li><li>Pećnica i ploča</li><li>TV</li><li>Wi-Fi</li><li>Parking</li></ul>
 
-              <div class="unit-rates">
-                <table>
-                  <caption>Cijena po noći, cijeli studio</caption>
-                  <tbody>
-                    <tr><td>Predsezona · svibanj, listopad</td><td>€45</td></tr>
-                    <tr><td>Sezona · lipanj, rujan</td><td>€60</td></tr>
-                    <tr class="peak"><td>Špica · srpanj, kolovoz</td><td>€80</td></tr>
-                  </tbody>
-                </table>
+              <div class="unit-ask">
+                <strong>Rezervacija na upit</strong>
+                <p>Cijena ovisi o terminu, broju gostiju i duljini boravka. Pošaljite datume — javljamo se s točnom ponudom.</p>
               </div>
 
-              <a href="#upit" class="btn btn-ghost" data-pick-unit="Studio Gumbek (do 2 os.)">Pošalji upit za Gumbek</a>
+              <a href="#upit" class="btn btn-primary" data-pick-unit="Apartman Gumbek (do 4 os.)">Provjerite dostupnost za Gumbek</a>
             </div>
           </article>
 
