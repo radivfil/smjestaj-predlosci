@@ -229,9 +229,13 @@
      5. HERO
      ============================================================ */
   .hero { position: relative; min-height: 100vh; min-height: 100svh; display: grid; align-items: center; color: #fff; isolation: isolate; }
-  /* object-position drzi zaljev i marinu u kadru kad se 3:2 kropa na visoki hero */
-  .hero__bg { position: absolute; inset: 0; z-index: -2; object-fit: cover; object-position: 50% 58%; width: 100%; height: 100%; }
-  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(12,45,52,.62) 0%, rgba(12,45,52,.3) 40%, rgba(12,45,52,.78) 100%); }
+  /* object-position drzi zgradu u kadru kad se 3:2 kropa na visoki hero */
+  .hero__bg { position: absolute; inset: 0; z-index: -2; object-fit: cover; object-position: 50% 45%; width: 100%; height: 100%; }
+  /* Overlay je pojacan jer je nova hero fotografija bijela fasada na suncu.
+     Bijeli tekst na neprekrivenoj fasadi ima 1.05:1; s rgba(0,0,0,.35) samo
+     2.54:1 — oboje pada WCAG AA. Minimalna alpha za 4.5:1 je .60, pa gradijent
+     nigdje ne ide ispod .66 (5.6:1 u najsvjetlijoj tocki, 8.5:1 gore, 11.2:1 dolje). */
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(9,32,38,.78) 0%, rgba(9,32,38,.66) 45%, rgba(9,32,38,.86) 100%); }
   .hero__inner { max-width: 760px; padding-block: 8rem 6rem; }
   .hero__tags { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 1.5rem; font-size: .9rem; }
   .hero__tags span { display: inline-flex; align-items: center; gap: .5rem; opacity: .95; }
@@ -293,7 +297,8 @@
      ============================================================ */
   .about__grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
   .about__media { position: relative; }
-  .about__media img { border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4/5; object-fit: cover; }
+  /* 4/3, ne 4/5: dronska snimka je pejzazna i portretni krop bi odrezao uvalu */
+  .about__media img { border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4/3; object-fit: cover; }
   .about__media .badge { position: absolute; bottom: -1.25rem; right: -1rem; background: var(--sea); color: #fff; padding: 1.1rem 1.4rem; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
   .about__media .badge strong { font-family: var(--font-display); font-size: 1.9rem; display: block; line-height: 1; }
   .about__media .badge span { font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; opacity: .92; }
@@ -600,8 +605,8 @@
   <main id="main">
     <!-- ==================== HERO ==================== -->
     <section class="hero" aria-label="Dobrodošli">
-      <img class="hero__bg" src="images/petrcane-zaljev-dron.jpg" width="1600" height="1066"
-        alt="Petrčane iz zraka — tirkizni zaljev s marinom, mjesto i vinogradi, Velebit u pozadini"
+      <img class="hero__bg" src="images/zgrada.jpg" width="1600" height="1066"
+        alt="Zgrada s apartmanima Mare i Gumbek u Petrčanima — bijela fasada, balkoni i parkirno dvorište"
         fetchpriority="high" decoding="async" />
       <div class="container hero__inner">
         <div class="hero__tags" data-reveal>
@@ -643,7 +648,7 @@
     <section class="section" id="about">
       <div class="container about__grid">
         <div class="about__media" data-reveal>
-          <img src="images/zgrada.jpg" width="1600" height="1066" alt="Zgrada s apartmanima Mare i Gumbek u Petrčanima — parkirno dvorište i uređeni vrt" loading="lazy" />
+          <img src="images/petrcane-zaljev-dron.jpg" width="1600" height="1066" alt="Petrčane iz zraka — tirkizni zaljev s marinom, mjesto, vinogradi i Velebit u pozadini" loading="lazy" />
           <div class="badge"><strong>2</strong><span>apartmana, ista zgrada</span></div>
         </div>
         <div data-reveal>
