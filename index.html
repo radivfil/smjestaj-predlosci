@@ -172,7 +172,6 @@
 /* ---------- PAKETI ---------- */
 .packs{ grid-column:1 / span 12; display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
         gap:clamp(1rem,1.8vw,1.5rem); margin-top:.5rem; align-items:stretch; }
-.packs--sub{ grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:clamp(1rem,1.8vw,1.5rem); }
 
 .pk{ position:relative; display:flex; flex-direction:column; gap:.75rem;
      background:var(--cream-lift); border:1px solid var(--line); border-radius:16px; padding:1.9rem 1.5rem 1.6rem;
@@ -206,14 +205,60 @@
 .pk__maint span{ display:block; color:var(--ink-faint); font-size:.76rem; margin-top:.15rem; }
 
 .pk__foot{ padding-top:1.15rem; }
-/* kartice bez bloka o odrzavanju (Web shop) — gumb ide na dno */
+/* kartice bez bloka o odrzavanju (Webshop) — gumb ide na dno */
 .pk__d + .pk__foot{ margin-top:auto; }
 .pk__cta{ width:100%; min-height:46px; padding:.7rem 1.1rem; font-size:.92rem; }
+
+/* Webshop — kompaktna kartica pune sirine ispod glavnih paketa */
+.pk--wide{
+  grid-column:1 / span 12; margin-top:clamp(1rem,1.8vw,1.5rem);
+  flex-direction:row; align-items:center; flex-wrap:wrap;
+  gap:.6rem clamp(1.25rem,3vw,2.5rem);
+}
+.pk--wide h3,
+.pk--wide .pk__price{ flex:none; }
+.pk--wide .pk__price{ font-size:1.6rem; }
+.pk--wide .pk__d{ flex:1 1 24ch; min-width:0; }
+.pk--wide .pk__d + .pk__foot{ flex:none; margin-top:0; padding-top:0; }
+.pk--wide .pk__cta{ width:auto; }
 
 .packs__note{
   grid-column:1 / span 12; margin-top:clamp(1.5rem,3vw,2.25rem);
   font-size:.9rem; color:var(--ink-soft); max-width:72ch;
 }
+
+/* ---------- GOOGLE VIDLJIVOST — ULAZNA TOCKA ---------- */
+/* 199 EUR je jedina javno prikazana cijena i oznacava ulazak u proces, ne
+   cijelu uslugu. Zato kartica pune sirine: lijevo cijena kao naslov i sto
+   slijedi, desno konkretan opseg setupa. */
+.gv{
+  grid-column:1 / span 12; margin-top:clamp(1rem,1.8vw,1.5rem);
+  display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:clamp(1.5rem,3.5vw,3.5rem);
+  background:var(--cream-lift); border:1px solid var(--line); border-radius:16px;
+  padding:clamp(1.6rem,3.5vw,2.9rem);
+  box-shadow:0 26px 60px -42px rgba(21,21,18,.5);
+}
+.gv h3{ font-size:1.35rem; }
+.gv__price{
+  margin-top:1rem; font-family:var(--display); font-weight:700; letter-spacing:-.02em;
+  font-size:clamp(2.6rem, 1.9rem + 2.2vw, 3.9rem); line-height:1.02; color:var(--ink);
+  display:flex; align-items:baseline; flex-wrap:wrap; gap:.6rem;
+}
+.gv__price small{ font-family:var(--body); font-size:.85rem; font-weight:600; color:var(--ink-faint); letter-spacing:.02em; }
+.gv__lead{ margin-top:1rem; font-size:clamp(1.02rem,.98rem + .3vw,1.15rem); font-weight:500; color:var(--ink); max-width:46ch; }
+.gv__next{ margin-top:.75rem; font-size:.95rem; color:var(--ink-soft); max-width:50ch; }
+.gv__maint{ margin-top:1.35rem; padding-top:1.1rem; border-top:1px solid var(--line);
+            font-size:.95rem; color:var(--ink-soft); }
+.gv__maint b{ color:var(--ink); font-weight:700; }
+.gv__cta{ margin-top:1.6rem; text-align:center; }
+
+.gv__list{ border-left:1px solid var(--line); padding-left:clamp(1.35rem,3vw,2.5rem); }
+.gv__list h4{ font-size:1.02rem; }
+.gv__list ul{ list-style:none; margin-top:1.1rem; display:grid; gap:.75rem;
+              font-size:.95rem; color:var(--ink-soft); }
+.gv__list li{ display:grid; grid-template-columns:auto 1fr; gap:.7rem; align-items:start; }
+.gv__list svg{ width:16px; height:16px; flex:none; margin-top:.3rem; color:var(--ink); }
 
 /* ---------- 06 PROCES ---------- */
 .proc{ grid-column:1 / span 12; display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
@@ -261,12 +306,18 @@
   .tblok__grid{ grid-template-columns:repeat(3,minmax(0,1fr)); }
   .tblok__i{ grid-column:auto; }
   .tblok__i:nth-child(6){ grid-column-start:auto; }
+  /* Google vidljivost: lista pada pod cijenu, rub s lijeva ide na vrh */
+  .gv{ grid-template-columns:1fr; }
+  .gv__list{ border-left:0; border-top:1px solid var(--line);
+             padding-left:0; padding-top:clamp(1.25rem,3vw,1.75rem); }
+  .pk--wide{ flex-direction:column; align-items:flex-start; }
+  .pk--wide .pk__cta{ width:100%; }
   /* Kontakt traka u herou otpada na mobitelu — isti podaci su u
      hamburger izborniku i u footeru */
   .hero__rail{ display:none; }
 }
 @media (max-width:620px){
-  .packs,.packs--sub,.proc{ grid-template-columns:1fr; }
+  .packs,.proc{ grid-template-columns:1fr; }
   /* Trust blok: 2 stupca; 9. natuknica sama u redu ide preko cijele sirine */
   .tblok__grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
   .tblok__i:last-child{ grid-column:1 / -1; }
@@ -796,25 +847,62 @@
         </article>
       </div>
 
-      <div class="packs packs--sub">
-        <article class="pk" data-reveal style="--i:0">
+      <!-- Google vidljivost: samostalna usluga za one koji vec imaju stranicu.
+           199 EUR je ulazna tocka u proces (setup + osnovna optimizacija), a ne
+           cijela usluga — dalje razine se dogovaraju individualno, bez javnog
+           cjenika, pa CTA vodi na razgovor umjesto na "kupi paket". -->
+      <article class="gv" data-reveal>
+        <div class="gv__main">
           <h3>Google vidljivost</h3>
-          <p class="pk__price">199 €<small>jednokratno</small></p>
-          <p class="pk__d">Za one koji već imaju web stranicu i žele povećati vidljivost na Googleu.</p>
-          <p class="pk__maint">
-            Održavanje <b>20 € mjesečno</b> ili <b>199 € godišnje</b>
-            <span>240 € po mjesečnoj cijeni → 199 € uz godišnje plaćanje, ušteda 41 €</span>
+          <p class="gv__price">Od 199 €<small>jednokratno</small></p>
+          <p class="gv__lead">
+            Vaš ulazak u proces Google vidljivosti — osnovni setup i optimizacija.
+            Za one koji već imaju web stranicu i žele da ih ljudi pronađu.
           </p>
-          <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta">Kontaktirajte nas</a></div>
-        </article>
+          <p class="gv__next">
+            Nakon prvih rezultata predlažemo prilagođen plan za daljnji rast,
+            ovisno o Vašim ciljevima i tržištu.
+          </p>
+          <p class="gv__maint">+ <b>39 € mjesečno</b> za kontinuirano praćenje i optimizaciju</p>
+          <a href="#kontakt" class="btn btn--solid gv__cta">
+            Zatražite besplatnu analizu i prilagođenu ponudu
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        </div>
 
-        <article class="pk" data-reveal style="--i:1">
-          <h3>Web shop</h3>
-          <p class="pk__price">Od 699 €<small>jednokratno</small></p>
-          <p class="pk__d">Izrada web shopa prema potrebama Vašeg poslovanja. Točna cijena ovisi o funkcionalnostima i opsegu projekta.</p>
-          <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta">Kontaktirajte nas</a></div>
-        </article>
-      </div>
+        <div class="gv__list">
+          <h4>Što je uključeno</h4>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5" /></svg>
+              Postavljanje i optimizacija Google poslovnog profila
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5" /></svg>
+              Osnovni tehnički SEO audit
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5" /></svg>
+              Optimizacija naslova i opisa za jednu do dvije ključne stranice
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5" /></svg>
+              Postavljanje Google Search Consolea i Analyticsa
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5" /></svg>
+              Početni izvještaj s preporukama
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="pk pk--wide" data-reveal>
+        <h3>Webshop</h3>
+        <p class="pk__price">Od 699 €<small>jednokratno</small></p>
+        <p class="pk__d">Izrada webshopa prema potrebama Vašeg poslovanja. Točna cijena ovisi o funkcionalnostima i opsegu projekta.</p>
+        <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta">Kontaktirajte nas</a></div>
+      </article>
 
       <p class="packs__note" data-reveal>
         Dodatne podstranice, webshop, rezervacije, online plaćanje, AI agenti i druge
