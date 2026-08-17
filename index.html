@@ -345,8 +345,9 @@
 @media (max-width:860px){
   .hero__lead{ grid-column:1 / span 12; }
   .svc,.promo{ grid-template-columns:1fr; }
-  /* Trust blok: 2 stupca da naziv i pojasnjenje ostanu citljivi */
-  .tblok__grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  /* Trust blok: na tabletu ostaju 3 stupca, ali ikona ide iznad teksta —
+     uz ikonu sa strane plocica bi bila preuska za pojasnjenje */
+  .tblok__i{ grid-template-columns:1fr; gap:.8rem; padding:1.15rem 1.1rem 1.25rem; }
   /* Google vidljivost: lista pada pod cijenu, rub s lijeva ide na vrh */
   .gv{ grid-template-columns:1fr; }
   .gv__list{ border-left:0; border-top:1px solid var(--line);
@@ -359,8 +360,9 @@
 }
 @media (max-width:620px){
   .packs,.proc{ grid-template-columns:1fr; }
-  /* Trust blok: na mobitelu jedan stupac — dva bi stisnula tekst uz ikonu */
+  /* Trust blok: na mobitelu jedan stupac, pa ikona opet stane lijevo od teksta */
   .tblok__grid{ grid-template-columns:1fr; }
+  .tblok__i{ grid-template-columns:auto 1fr; gap:1rem; padding:1.15rem 1.2rem 1.25rem; }
 }
 @media (max-width:520px){
   .hero__cta{ gap:.7rem; }
