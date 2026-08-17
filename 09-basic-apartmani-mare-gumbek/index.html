@@ -14,7 +14,7 @@
   <meta property="og:description" content="Dva apartmana u istoj zgradi u Petrčanima. Vrt, terasa i balkon, klima, besplatan parking, plaža na 800 m. Zadar 12 km." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="hr_HR" />
-  <meta name="theme-color" content="#1b7f9e" />
+  <meta name="theme-color" content="#0c6b80" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,19 +25,24 @@
      1. DESIGN TOKENS — MIJENJAJ SVE OVDJE
      ============================================================ */
   :root {
-    /* — Brand boje (dalmatinsko: more + terakota) — */
-    --sea:        #1b7f9e;
-    --sea-deep:   #0f5d75;
-    --terra:      #e07a5f;   /* topli terakota akcent */
-    --terra-soft: #ee9b80;
+    /* — Brand boje, izvucene iz stvarnih fotografija objekta —
+       sea = tirkiz zaljeva s dronske snimke, terra = crijep na krovovima.
+       Tonovi su namjerno tamniji od pocetnih: --terra #e07a5f davao je s
+       bijelim tekstom na .btn-primary samo 3.1:1, sto pada WCAG AA. */
+    --sea:        #0c6b80;   /* 5.7:1 na --bg, 6.1:1 s bijelim tekstom */
+    --sea-deep:   #084c5c;
+    --sea-bright: #1390a8;   /* samo dekorativno: hover, linije, ikone */
+    --terra:      #b34a30;   /* 5.3:1 s bijelim tekstom */
+    --terra-hover:#8f3a25;
+    --terra-soft: #ef9d80;   /* akcent na tamnim podlogama (hero, steps) */
 
-    /* — Neutralne (light) — */
-    --bg:         #fbf8f4;   /* pješčano bijela */
+    /* — Neutralne (light): pijesak i vapnenac s fotografija — */
+    --bg:         #fbf7f1;   /* pješčano bijela */
     --surface:    #ffffff;
-    --surface-2:  #f3ece4;
-    --text:       #21302f;
-    --text-muted: #6d7b79;
-    --border:     #e5dbcf;
+    --surface-2:  #f2ebe0;   /* vapnenac */
+    --text:       #17292c;
+    --text-muted: #56696c;   /* 5.4:1 na --bg */
+    --border:     #e6dccd;
 
     /* — Tipografija — */
     /* Newsreader, ne Fraunces: Fraunces ima "wonky" mali j sa zavijenim
@@ -45,45 +50,66 @@
     --font-display: "Newsreader", Georgia, "Times New Roman", serif;
     --font-body:    "Inter", system-ui, -apple-system, sans-serif;
 
-    --radius:     18px;
+    --radius:     16px;
     --radius-sm:  10px;
-    --shadow:     0 20px 55px -22px rgba(15, 93, 117, .38);
-    --shadow-sm:  0 8px 24px -12px rgba(15, 93, 117, .32);
+    --shadow:     0 20px 55px -22px rgba(8, 76, 92, .34);
+    --shadow-sm:  0 8px 24px -12px rgba(8, 76, 92, .28);
     --container:  1180px;
     --gutter:     clamp(1.25rem, 5vw, 4rem);
-    --section-y:  clamp(4rem, 9vw, 8rem);
+    --section-y:  clamp(4.5rem, 9vw, 8.5rem);
     --ease: cubic-bezier(.22, 1, .36, 1);
+
+    /* Suptilna pozadinska tekstura (fotografija vrta) — vidi body::before */
+    --texture:    url("images/mare/mare-07-vrt.jpg");
+    --texture-opacity: .055;
   }
 
   [data-theme="dark"] {
-    --bg:         #11201f;
-    --surface:    #182d2c;
-    --surface-2:  #1f3937;
-    --text:       #eef1e9;
-    --text-muted: #a3b4b1;
-    --border:     #2b4a48;
-    --sea:        #4fc3dd;
-    --terra:      #f0987d;
+    --bg:         #0e1e21;
+    --surface:    #142a2e;
+    --surface-2:  #1b373c;
+    --text:       #edf2f1;
+    --text-muted: #9fb4b6;
+    --border:     #274a50;
+    --sea:        #46c3d9;
+    --sea-bright: #6ad3e6;
+    --terra:      #d4674a;
+    --terra-hover:#e07d61;
+    --terra-soft: #f2a184;
     --shadow:     0 20px 55px -22px rgba(0,0,0,.65);
     --shadow-sm:  0 8px 24px -12px rgba(0,0,0,.55);
+    --texture-opacity: .04;
   }
 
   /* ============================================================
      2. RESET & BASE
      ============================================================ */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 90px; }
+  /* Osnovna boja je na <html> da body::before tekstura moze leci iznad nje */
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 90px; background: var(--bg); transition: background .4s var(--ease); }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
   }
   body {
     font-family: var(--font-body);
-    background: var(--bg); color: var(--text);
+    background: transparent; color: var(--text);
     line-height: 1.65; font-weight: 400;
     -webkit-font-smoothing: antialiased;
-    transition: background .4s var(--ease), color .4s var(--ease);
+    transition: color .4s var(--ease);
     overflow-x: hidden;
+  }
+
+  /* Suptilna pozadinska tekstura — fotografija vrta pred zgradom.
+     Fiksna, desaturirana i na ~5% neprozirnosti, pa se citljivost teksta ne
+     mijenja (kontrast ostaje >= 5:1). Hero je izuzet jer ima isolation:isolate
+     i vlastitu pozadinu, pa tekstura ne dolazi do njega. */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image: var(--texture);
+    background-size: cover; background-position: center;
+    opacity: var(--texture-opacity);
+    filter: grayscale(.55);
   }
   img { max-width: 100%; display: block; height: auto; }
   a { color: inherit; text-decoration: none; }
@@ -98,6 +124,8 @@
   h2 { font-size: clamp(1.9rem, 4.5vw, 3rem); }
   h3 { font-size: clamp(1.25rem, 2.4vw, 1.55rem); }
   :focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; border-radius: 4px; }
+  /* na tamnim podlogama tamni terakota prsten se gubi — svjetlija varijanta */
+  .hero :focus-visible, .steps :focus-visible, .site-footer :focus-visible { outline-color: var(--terra-soft); }
 
   .container { max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
   .section { padding-block: var(--section-y); }
@@ -127,7 +155,8 @@
   }
   .btn:hover { transform: translateY(-2px); }
   .btn-primary { background: var(--terra); color: #fff; box-shadow: var(--shadow-sm); }
-  .btn-primary:hover { background: var(--terra-soft); }
+  /* hover ide tamnije, ne svjetlije — svijetli terakota s bijelim tekstom pada ispod AA */
+  .btn-primary:hover { background: var(--terra-hover); }
   .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
 
   /* Deaktivirano stanje — element ostaje vidljiv, ali nije ni link ni gumb.
@@ -268,7 +297,8 @@
   /* ============================================================
      8. SADRŽAJI
      ============================================================ */
-  .tinted { background: var(--surface-2); }
+  /* poluprozirno da tekstura iz body::before ostane naznacena i ovdje */
+  .tinted { background: color-mix(in srgb, var(--surface-2) 93%, transparent); }
   .amenities__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.25rem; }
   .amenity { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem 1.5rem; transition: transform .3s var(--ease), border-color .3s; text-align: center; }
   .amenity:hover { transform: translateY(-4px); border-color: var(--sea); }
