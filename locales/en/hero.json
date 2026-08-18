@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "ctaPrimary": "Request a quote",
+    "ctaSecondary": "See our work",
+    "eyebrow": "Web &amp; digital solutions",
+    "lead": "We build modern, professional websites that present your business properly, hold attention and make you easier to find online.",
+    "railContact": "Contact",
+    "railPhone": "Phone",
+    "railTag": "Advertising<br />with joy ❤️",
+    "slogan": "Your idea. Our digital story. ❤️",
+    "title": "Websites that<br /><em>work for you.</em>"
+  },
+  "trust": {
+    "title": "You don't need to know how to build a <em>website.</em>",
+    "sub": "We take care of everything, from the idea to going live:",
+    "i1": { "t": "Structure", "d": "What goes on which page" },
+    "i2": { "t": "Design", "d": "Built around your brand" },
+    "i3": { "t": "Copy", "d": "We write it for you" },
+    "i4": { "t": "Photos", "d": "Edited and ready for the web" },
+    "i5": { "t": "Domain", "d": "Registration and setup" },
+    "i6": { "t": "E-mail", "d": "Business address on your domain" },
+    "i7": { "t": "Google", "d": "So people can find you" },
+    "i8": { "t": "Launch", "d": "We put the site live" },
+    "i9": { "t": "Maintenance", "d": "We look after it afterwards" }
+  }
+}
