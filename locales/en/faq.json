@@ -1,0 +1,29 @@
+{
+  "faq": {
+    "eyebrow": "Questions",
+    "title": "Questions and <em>answers.</em>",
+    "lead": "The things clients ask us most often before we start. If your question isn't here, just write to us.",
+    "q1": "How long does it take to build a website?",
+    "a1": "The usual turnaround is up to 2 weeks from the moment we agree the content and receive your materials. A larger scope — more pages, bookings or an online store — can take longer. We agree the exact deadline at the start and keep you posted.",
+    "q2": "Do I have to prepare the copy?",
+    "a2": "You don't. If you already have copy, we are glad to use it. If you don't, we write it — based on a short conversation about what you do and who your clients are. All you do is read it through and approve it.",
+    "q3": "Do I need to have photographs?",
+    "a3": "Yes. We need photographs of your space, your products or your work — they show what you actually offer, and no bought stock photo can stand in for them. You send them over, and we edit, crop and prepare them for the web.",
+    "q4": "Is the domain included?",
+    "a4": "It is. We handle the domain registration and all the technical setup, and the domain is included in the price we agree together at the end — the final amount depends on the extension you choose (.hr, .com and so on). The domain is registered in your name and stays yours.",
+    "q5": "What if I already have a website?",
+    "a5": "Then we do a redesign: we keep the content and the existing address, and change the look, the speed and the structure — without losing your position on Google. If the site itself is fine and visibility is the only problem, there is a separate Google visibility service for that.",
+    "q6": "Can I change the content myself later on?",
+    "a6": "You can. After launch we show you how to change the copy, prices and photographs yourself. If you would rather not, or haven't the time, small changes are part of maintenance and we make them for you.",
+    "q7": "What does maintenance cover?",
+    "a7": "Hosting, the SSL certificate, security updates and backups, monitoring that the site is running, and small content changes. The amount is known in advance — no hourly billing, no invoices that catch you off guard.",
+    "q8": "Can I have the site in several languages?",
+    "a8": "Yes, multiple languages are included in every package. The usual set is Croatian, English, German and Italian, but we will add whichever language you need.",
+    "q9": "Can you build online bookings?",
+    "a9": "We can. A booking system with an availability calendar is part of the Premium package, and we add it to a smaller package by arrangement. The calendar can sync with Booking.com and Airbnb, so there are no double bookings.",
+    "q10": "Can I take payments online?",
+    "a10": "Yes. We set up card payments through established providers. The money goes straight to your account — we are not a middleman in the transaction.",
+    "q11": "Do you build online stores?",
+    "a11": "We do. An online store starts from €699, and the final price depends on the number of products, the payment and delivery methods, and the integrations you need."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "common": {
+    "oneTime": "jednokratno"
+  },
+  "drawer": {
+    "about": "O nama",
+    "contact": "Kontakt",
+    "faq": "Pitanja i odgovori",
+    "packages": "Paketi",
+    "promo": "Promocija",
+    "services": "Usluge",
+    "visibility": "Vidljivost",
+    "works": "Radovi"
+  },
+  "foot": {
+    "tagline": "Web stranice i digitalna rješenja<br />Oglašavanje s radošću ❤️"
+  },
+  "lang": {
+    "label": "Jezik stranice",
+    "menuLabel": "Odaberite jezik"
+  },
+  "meta": {
+    "description": "Lota Studio izrađuje moderne web stranice i digitalna rješenja za sve djelatnosti — salone, ordinacije, restorane, obrte i smještaj. Dizajn, izrada i vidljivost na Googleu, telefonski marketing i live promocija — uz jasnu cijenu izrade i održavanja.",
+    "ogDescription": "Dizajn, izrada i vidljivost na Googleu za sve djelatnosti — uz jasnu cijenu izrade i održavanja.",
+    "ogTitle": "Lota Studio — web stranice i digitalna rješenja",
+    "schemaDescription": "Izrada web stranica i digitalnih rješenja — dizajn, izrada i vidljivost na Googleu.",
+    "title": "Lota Studio — web stranice i digitalna rješenja"
+  },
+  "nav": {
+    "about": "O nama",
+    "burgerAria": "Otvori izbornik",
+    "cta": "Zatražite ponudu",
+    "faq": "Pitanja",
+    "logoAlt": "Lota Studio",
+    "logoAria": "Lota Studio — početna",
+    "menuAria": "Glavni izbornik",
+    "packages": "Paketi",
+    "promo": "Promocija",
+    "services": "Usluge",
+    "works": "Radovi"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "promocija": {
+    "eyebrow": "Promotion",
+    "title": "Promotion that<br /><em>reaches people</em> ❤️",
+    "p1": "Besides building websites and digital solutions, we also do promotion — the kind that brings what you offer closer to real people.",
+    "p2": "With almost a decade of experience, we help companies, tradespeople and entrepreneurs present their products and services the right way, reach new contacts and create new business opportunities.",
+    "i1": { "t": "Telephone marketing", "d": "Direct conversations with potential clients." },
+    "i2": { "t": "Live promotion", "d": "Presenting products and services in person." },
+    "i3": { "t": "Advertising and promotion", "d": "More visibility and a wider reach." },
+    "i4": { "t": "Finding new clients", "d": "An active approach that builds new contacts." },
+    "close": "We don't believe good promotion is just about people seeing your advert. What matters is that they <strong>notice you, remember you and take the next step</strong>.",
+    "punch": "You have a product or a service.<br /> We help the right people hear about it. ❤️",
+    "cta": "Request a promotion quote"
+  }
+}

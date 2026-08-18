@@ -1,0 +1,63 @@
+{
+  "paketi": {
+    "eyebrow": "Packages",
+    "title": "A clear price for the build,<br /><em>a clear price for the upkeep.</em>",
+    "p1": "We don't just build a website. We help your business become visible where your future clients are already looking — on Google.",
+    "p2": "The build is paid <strong>once</strong>, and you know the price before we start. Maintenance is a separate, agreed amount — hosting, security, updates and small content changes are all part of it. No hourly billing, no invoices that catch you off guard.",
+    "cta": "Choose this package",
+    "note": "Extra pages, an online store, bookings, online payment, AI agents and other features are available as your business needs them.",
+    "basic": {
+      "price": "From {p0}",
+      "maint": "Maintenance <b>{p0} per month</b> or <b>{p1} per year</b> <span>{p2} at the monthly rate → {p3} paid annually, a saving of {p4}</span>",
+      "b1": "Up to 5 pages",
+      "b2": "Professional design",
+      "b3": "Works on phones, tablets and computers",
+      "b4": "Multiple languages",
+      "b5": "Basic SEO",
+      "b6": "Contact form and Google Maps"
+    },
+    "business": {
+      "price": "From {p0}",
+      "maint": "Maintenance <b>{p0} per month</b> or <b>{p1} per year</b> <span>{p2} at the monthly rate → {p3} paid annually, a saving of {p4}</span>",
+      "b1": "Everything in Basic",
+      "b2": "Up to 10 pages",
+      "b3": "Google Business Profile",
+      "b4": "SEO structure and copywriting",
+      "b5": "Analytics and measurement",
+      "b6": "Blog",
+      "b7": "Advanced forms and integrations",
+      "b8": "Priority support"
+    },
+    "premium": {
+      "price": "From {p0}",
+      "maint": "Maintenance <b>{p0} per month</b> or <b>{p1} per year</b> <span>{p2} at the monthly rate → {p3} paid annually, a saving of {p4}</span>",
+      "b1": "Everything in Business",
+      "b2": "Up to 15 pages",
+      "b3": "Online bookings",
+      "b4": "Online payment",
+      "b5": "AI agent / chatbot",
+      "b6": "Advanced SEO",
+      "b7": "Advanced analytics"
+    },
+    "gv": {
+      "title": "Google visibility",
+      "price": "From {p0}",
+      "lead": "Your way into the Google visibility process — the basic setup and optimisation. For those who already have a website and want people to find it.",
+      "next": "Once the first results are in, we propose a plan tailored to further growth, based on your goals and your market.",
+      "maint": "+ <b>{p0} per month</b> for ongoing monitoring and optimisation",
+      "cta": "Request a free audit and a tailored quote",
+      "listTitle": "What's included",
+      "b1": "Setting up and optimising your Google Business Profile",
+      "b2": "A basic technical SEO audit",
+      "b3": "Optimised titles and descriptions for one or two key pages",
+      "b4": "Google Search Console and Analytics set up",
+      "b5": "An opening report with recommendations"
+    },
+    "webshop": {
+      "title": "Online store",
+      "price": "From {p0}",
+      "d": "An online store built around the way your business works. The exact price depends on the features and the scope of the project.",
+      "cta": "Get in touch"
+    }
+  }
+}

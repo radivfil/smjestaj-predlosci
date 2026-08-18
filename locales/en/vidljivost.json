@@ -1,0 +1,11 @@
+{
+  "vidljivost": {
+    "eyebrow": "Visibility",
+    "title": "So that people<br /><em>find you</em> on Google.",
+    "lead": "A beautiful site nobody can find is worth nothing. That is why every site we build goes out with the groundwork for visibility already in place — not as an add-on, but as part of the job.",
+    "i1": "<strong>Technical foundations</strong> Titles, descriptions and structured data that Google reads, clean page addresses, a sitemap and fast loading. Without these, nothing else helps.",
+    "i2": "<strong>Google Business Profile</strong> We set up and maintain the profile that puts you on the map and in local search — often a guest's very first contact with you.",
+    "i3": "<strong>Copy written for search</strong> Content that answers what people actually type: the place, the type of accommodation, distance to the sea, parking, pets.",
+    "i4": "<strong>Measurement</strong> Analytics and Search Console, so you can see where visitors come from and which searches bring bookings — instead of guessing."
+  }
+}

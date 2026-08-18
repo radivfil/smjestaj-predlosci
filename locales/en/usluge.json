@@ -1,0 +1,21 @@
+{
+  "usluge": {
+    "eyebrow": "Services",
+    "i1": {
+      "t": "A website built around your business",
+      "d": "The whole site from sketch to launch: design, copy, photo editing, gallery, price list or services, map and enquiry form. Salon, medical practice, restaurant, gym or holiday flat — we build the structure around how your clients actually make up their minds. We deliver finished work, not half-finished."
+    },
+    "i2": {
+      "t": "Redesign of an existing site",
+      "d": "Got a site that looks dated or falls apart on a phone? We keep the content and the address, and change the look and the speed — without losing your position on Google."
+    },
+    "i3": {
+      "t": "Visibility on Google",
+      "d": "Technical foundations, Google Business Profile, copy written for search and measurement of results. Described in detail in the section above."
+    },
+    "i4": {
+      "t": "Domain, e-mail and maintenance",
+      "d": "Domain registration, a business e-mail in your own name instead of a Gmail address, an SSL certificate and later content changes whenever you need them."
+    }
+  }
+}

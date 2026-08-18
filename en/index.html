@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
-<link rel="icon" href="favicon.ico" sizes="any" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="icon" type="image/png" href="favicon.png" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title data-i18n="meta.title">Lota Studio — web stranice i digitalna rješenja</title>
-<meta name="description" data-i18n-content="meta.description" content="Lota Studio izrađuje moderne web stranice i digitalna rješenja za sve djelatnosti — salone, ordinacije, restorane, obrte i smještaj. Dizajn, izrada i vidljivost na Googleu, telefonski marketing i live promocija — uz jasnu cijenu izrade i održavanja." />
+<title data-i18n="meta.title">Lota Studio — websites and digital solutions</title>
+<meta name="description" data-i18n-content="meta.description" content="Lota Studio builds modern websites and digital solutions for every line of work — salons, medical practices, restaurants, trades and holiday rentals. Design, build and visibility on Google, telephone marketing and live promotion — with a clear price for both the build and the upkeep." />
 <meta name="author" content="Lota Studio" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lota Studio" />
-<meta property="og:title" data-i18n-content="meta.ogTitle" content="Lota Studio — web stranice i digitalna rješenja" />
-<meta property="og:description" data-i18n-content="meta.ogDescription" content="Dizajn, izrada i vidljivost na Googleu za sve djelatnosti — uz jasnu cijenu izrade i održavanja." />
+<meta property="og:title" data-i18n-content="meta.ogTitle" content="Lota Studio — websites and digital solutions" />
+<meta property="og:description" data-i18n-content="meta.ogDescription" content="Design, build and visibility on Google for every line of work — with a clear price for the build and the upkeep." />
 <meta property="og:image" content="https://lotastudio.eu/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -24,10 +24,10 @@
 <!-- Kanonski URL, og:locale i hreflang za sve jezike.
      Ovaj blok generira tools/i18n.js pri buildu — ne uređuj ga ručno. -->
 <!-- i18n:alternates -->
-  <link rel="canonical" href="https://lotastudio.eu/" />
-  <meta property="og:url" content="https://lotastudio.eu/" />
-  <meta property="og:locale" content="hr_HR" />
-  <meta property="og:locale:alternate" content="en_GB" />
+  <link rel="canonical" href="https://lotastudio.eu/en/" />
+  <meta property="og:url" content="https://lotastudio.eu/en/" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="hr_HR" />
   <link rel="alternate" hreflang="hr" href="https://lotastudio.eu/" />
   <link rel="alternate" hreflang="en" href="https://lotastudio.eu/en/" />
   <link rel="alternate" hreflang="x-default" href="https://lotastudio.eu/" />
@@ -39,7 +39,7 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Lota Studio",
-    "description": "Izrada web stranica i digitalnih rješenja — dizajn, izrada i vidljivost na Googleu.",
+    "description": "Websites and digital solutions — design, build and visibility on Google.",
     "url": "https://lotastudio.eu/",
     "email": "info@lotastudio.eu",
     "telephone": [
@@ -53,19 +53,31 @@
         "contactType": "sales",
         "email": "info@lotastudio.eu",
         "telephone": "+385924631565",
-        "availableLanguage": ["hr", "en", "de", "es", "it"]
+        "availableLanguage": [
+          "hr",
+          "en",
+          "de",
+          "es",
+          "it"
+        ]
       },
       {
         "@type": "ContactPoint",
         "contactType": "sales",
         "email": "info@lotastudio.eu",
         "telephone": "+385924631717",
-        "availableLanguage": ["hr", "en", "de", "es", "it"]
+        "availableLanguage": [
+          "hr",
+          "en",
+          "de",
+          "es",
+          "it"
+        ]
       }
     ]
   }
   </script>
-<!-- /i18n:ldbiz -->
+  <!-- /i18n:ldbiz -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -73,7 +85,7 @@
 
 <!-- ?v= je cache-buster: podigni broj pri svakoj izmjeni lota.css/lota.js
      da browseri posjetitelja ne serviraju staru verziju iz kesa -->
-<link rel="stylesheet" href="assets/lota.css?v=2" />
+<link rel="stylesheet" href="/assets/lota.css?v=2" />
 
 <style>
 /* Stilovi specifični za početnu stranicu.
@@ -441,23 +453,23 @@
 <!-- ============ NAVIGACIJA ============ -->
 <header class="nav" id="nav">
   <div class="wrap nav__in">
-    <a href="#top" class="nav__logo" data-i18n-aria="nav.logoAria" aria-label="Lota Studio — početna">
-      <img src="assets/logo.svg" data-i18n-alt="nav.logoAlt" alt="Lota Studio" width="452" height="177" />
+    <a href="#top" class="nav__logo" data-i18n-aria="nav.logoAria" aria-label="Lota Studio — home">
+      <img src="/assets/logo.svg" data-i18n-alt="nav.logoAlt" alt="Lota Studio" width="452" height="177" />
     </a>
 
-    <nav data-i18n-aria="nav.menuAria" aria-label="Glavni izbornik">
+    <nav data-i18n-aria="nav.menuAria" aria-label="Main menu">
       <ul class="nav__links">
-        <li><a href="#o-nama" class="ulink" data-i18n="nav.about">O nama</a></li>
-        <li><a href="#usluge" class="ulink" data-i18n="nav.services">Usluge</a></li>
-        <li><a href="#promocija" class="ulink" data-i18n="nav.promo">Promocija</a></li>
-        <li><a href="#radovi" class="ulink" data-i18n="nav.works">Radovi</a></li>
-        <li><a href="#paketi" class="ulink" data-i18n="nav.packages">Paketi</a></li>
-        <li><a href="#faq" class="ulink" data-i18n="nav.faq">Pitanja</a></li>
+        <li><a href="#o-nama" class="ulink" data-i18n="nav.about">About</a></li>
+        <li><a href="#usluge" class="ulink" data-i18n="nav.services">Services</a></li>
+        <li><a href="#promocija" class="ulink" data-i18n="nav.promo">Promotion</a></li>
+        <li><a href="#radovi" class="ulink" data-i18n="nav.works">Work</a></li>
+        <li><a href="#paketi" class="ulink" data-i18n="nav.packages">Packages</a></li>
+        <li><a href="#faq" class="ulink" data-i18n="nav.faq">FAQ</a></li>
         <!-- Predlosci privremeno skriveni iz navigacije. Stranica i svi
              predlosci ostaju u repozitoriju: /predlosci/index.html
              Za povratak: odkomentiraj ovaj <li>. -->
-        <!-- <li><a href="predlosci/index.html" class="ulink">Predlošci</a></li> -->
-        <li><a href="mailto:info@lotastudio.eu" class="btn btn--solid nav__cta" data-i18n="nav.cta">Zatražite ponudu</a></li>
+        <!-- <li><a href="/predlosci/index.html" class="ulink">Predlošci</a></li> -->
+        <li><a href="mailto:info@lotastudio.eu" class="btn btn--solid nav__cta" data-i18n="nav.cta">Request a quote</a></li>
       </ul>
     </nav>
 
@@ -469,35 +481,35 @@
     <div class="lang" id="lang">
       <button type="button" class="lang__btn" id="langBtn"
               aria-haspopup="listbox" aria-expanded="false" aria-controls="langMenu"
-              data-i18n-aria="lang.label" aria-label="Jezik stranice">
+              data-i18n-aria="lang.label" aria-label="Site language">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 3.6 9A14 14 0 0 1 12 21a14 14 0 0 1-3.6-9A14 14 0 0 1 12 3z"/></svg>
-        <span class="lang__cur" id="langCurrent">HR</span>
+        <span class="lang__cur" id="langCurrent">EN</span>
         <svg class="lang__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
       </button>
       <ul class="lang__menu" id="langMenu" role="listbox" tabindex="-1"
-          data-i18n-aria="lang.menuLabel" aria-label="Odaberite jezik">
+          data-i18n-aria="lang.menuLabel" aria-label="Choose a language">
 <!-- i18n:langmenu -->
-    <li role="none"><a role="option" tabindex="-1" hreflang="en" lang="en" href="/en/" data-lang="en">English</a></li>
+    <li role="none"><a role="option" tabindex="-1" hreflang="hr" lang="hr" href="/" data-lang="hr">Hrvatski</a></li>
   <!-- /i18n:langmenu -->
       </ul>
     </div>
 
-    <button class="burger" id="burger" data-i18n-aria="nav.burgerAria" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="drawer">
+    <button class="burger" id="burger" data-i18n-aria="nav.burgerAria" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <div class="drawer" id="drawer">
-  <a href="#o-nama" data-i18n="drawer.about">O nama</a>
-  <a href="#vidljivost" data-i18n="drawer.visibility">Vidljivost</a>
-  <a href="#usluge" data-i18n="drawer.services">Usluge</a>
-  <a href="#promocija" data-i18n="drawer.promo">Promocija</a>
-  <a href="#radovi" data-i18n="drawer.works">Radovi</a>
-  <a href="#paketi" data-i18n="drawer.packages">Paketi</a>
-  <!-- <a href="predlosci/index.html">Predlošci</a> -->
-  <a href="#faq" data-i18n="drawer.faq">Pitanja i odgovori</a>
-  <a href="#kontakt" data-i18n="drawer.contact">Kontakt</a>
+  <a href="#o-nama" data-i18n="drawer.about">About us</a>
+  <a href="#vidljivost" data-i18n="drawer.visibility">Visibility</a>
+  <a href="#usluge" data-i18n="drawer.services">Services</a>
+  <a href="#promocija" data-i18n="drawer.promo">Promotion</a>
+  <a href="#radovi" data-i18n="drawer.works">Our work</a>
+  <a href="#paketi" data-i18n="drawer.packages">Packages</a>
+  <!-- <a href="/predlosci/index.html">Predlošci</a> -->
+  <a href="#faq" data-i18n="drawer.faq">Questions and answers</a>
+  <a href="#kontakt" data-i18n="drawer.contact">Contact</a>
   <div class="drawer__foot">
     <a href="mailto:info@lotastudio.eu" class="ulink">info@lotastudio.eu</a>
     <a href="tel:+385924631565" class="ulink">+385 92 463 1565</a>
@@ -511,35 +523,34 @@
   <section class="section hero">
     <div class="wrap grid12">
       <div class="hero__head">
-        <span class="eyebrow" data-reveal style="--i:0" data-i18n="hero.eyebrow">Web &amp; digitalna rješenja</span>
-        <h1 data-reveal style="--i:1" data-i18n-html="hero.title">Web stranice koje<br /><em>rade za vas.</em></h1>
+        <span class="eyebrow" data-reveal style="--i:0" data-i18n="hero.eyebrow">Web &amp; digital solutions</span>
+        <h1 data-reveal style="--i:1" data-i18n-html="hero.title">Websites that<br /><em>work for you.</em></h1>
       </div>
 
       <div class="lead hero__lead" data-reveal style="--i:2">
-        <p class="hero__slogan" data-i18n="hero.slogan">Vaša ideja. Naša digitalna priča. ❤️</p>
-        <p data-i18n="hero.lead">Izrađujemo moderne, profesionalne i funkcionalne web stranice koje predstavljaju
-        Vaš posao, privlače pažnju i pomažu Vam da budete vidljiviji online.</p>
+        <p class="hero__slogan" data-i18n="hero.slogan">Your idea. Our digital story. ❤️</p>
+        <p data-i18n="hero.lead">We build modern, professional websites that present your business properly, hold attention and make you easier to find online.</p>
       </div>
 
       <div class="hero__cta" data-reveal style="--i:3">
         <a href="mailto:info@lotastudio.eu" class="btn btn--solid">
-          <span data-i18n="hero.ctaPrimary">Zatražite ponudu</span>
+          <span data-i18n="hero.ctaPrimary">Request a quote</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
         </a>
-        <a href="#radovi" class="btn btn--ghost" data-i18n="hero.ctaSecondary">Pogledajte radove</a>
+        <a href="#radovi" class="btn btn--ghost" data-i18n="hero.ctaSecondary">See our work</a>
       </div>
 
       <dl class="hero__rail" data-reveal style="--i:4">
         <div>
           <dt>Lota Studio</dt>
-          <dd class="hero__tag" data-i18n-html="hero.railTag">Oglašavanje<br />s radošću ❤️</dd>
+          <dd class="hero__tag" data-i18n-html="hero.railTag">Advertising<br />with joy ❤️</dd>
         </div>
         <div>
-          <dt data-i18n="hero.railContact">Kontakt</dt>
+          <dt data-i18n="hero.railContact">Contact</dt>
           <dd><a href="mailto:info@lotastudio.eu" class="ulink">info@lotastudio.eu</a></dd>
         </div>
         <div>
-          <dt data-i18n="hero.railPhone">Telefon</dt>
+          <dt data-i18n="hero.railPhone">Phone</dt>
           <dd><a href="tel:+385924631565" class="ulink">+385 92 463 1565</a></dd>
           <dd><a href="tel:+385924631717" class="ulink">+385 92 463 1717</a></dd>
         </div>
@@ -557,8 +568,8 @@
   <section class="tblok-sec" id="sve-rjesavamo">
     <div class="wrap grid12">
       <div class="tblok">
-        <h2 data-reveal style="--i:0" data-i18n-html="trust.title">Vi ne morate znati kako napraviti <em>web stranicu.</em></h2>
-        <p class="tblok__sub" data-reveal style="--i:1" data-i18n="trust.sub">Mi rješavamo sve, od ideje do objave:</p>
+        <h2 data-reveal style="--i:0" data-i18n-html="trust.title">You don't need to know how to build a <em>website.</em></h2>
+        <p class="tblok__sub" data-reveal style="--i:1" data-i18n="trust.sub">We take care of everything, from the idea to going live:</p>
 
         <div class="tblok__grid">
           <div class="tblok__i" data-reveal style="--i:2">
@@ -566,8 +577,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
             </span>
             <div>
-              <b data-i18n="trust.i1.t">Struktura</b>
-              <p data-i18n="trust.i1.d">Što ide na koju stranicu</p>
+              <b data-i18n="trust.i1.t">Structure</b>
+              <p data-i18n="trust.i1.d">What goes on which page</p>
             </div>
           </div>
 
@@ -576,8 +587,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.95 0 1.7-.77 1.7-1.72 0-.45-.18-.85-.45-1.15-.3-.3-.45-.67-.45-1.15a1.7 1.7 0 0 1 1.72-1.72h2.03C19.6 16.26 22 13.85 22 10.8 22 6 17.5 2 12 2z"/><circle cx="8.5" cy="7.5" r=".6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r=".6" fill="currentColor" stroke="none"/><circle cx="13.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r=".6" fill="currentColor" stroke="none"/></svg>
             </span>
             <div>
-              <b data-i18n="trust.i2.t">Dizajn</b>
-              <p data-i18n="trust.i2.d">Izgled po Vašem brendu</p>
+              <b data-i18n="trust.i2.t">Design</b>
+              <p data-i18n="trust.i2.d">Built around your brand</p>
             </div>
           </div>
 
@@ -586,8 +597,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h6"/><path d="M8 13h8M8 17h6"/></svg>
             </span>
             <div>
-              <b data-i18n="trust.i3.t">Tekstovi</b>
-              <p data-i18n="trust.i3.d">Pišemo ih umjesto Vas</p>
+              <b data-i18n="trust.i3.t">Copy</b>
+              <p data-i18n="trust.i3.d">We write it for you</p>
             </div>
           </div>
 
@@ -596,8 +607,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.8"/><path d="m21 15-4.4-4.4a2 2 0 0 0-2.8 0L4 20"/></svg>
             </span>
             <div>
-              <b data-i18n="trust.i4.t">Fotografije</b>
-              <p data-i18n="trust.i4.d">Obrada i priprema za web</p>
+              <b data-i18n="trust.i4.t">Photos</b>
+              <p data-i18n="trust.i4.d">Edited and ready for the web</p>
             </div>
           </div>
 
@@ -606,8 +617,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </span>
             <div>
-              <b data-i18n="trust.i5.t">Domena</b>
-              <p data-i18n="trust.i5.d">Registracija i postavljanje</p>
+              <b data-i18n="trust.i5.t">Domain</b>
+              <p data-i18n="trust.i5.d">Registration and setup</p>
             </div>
           </div>
 
@@ -617,7 +628,7 @@
             </span>
             <div>
               <b data-i18n="trust.i6.t">E-mail</b>
-              <p data-i18n="trust.i6.d">Poslovni, na Vašoj domeni</p>
+              <p data-i18n="trust.i6.d">Business address on your domain</p>
             </div>
           </div>
 
@@ -627,7 +638,7 @@
             </span>
             <div>
               <b data-i18n="trust.i7.t">Google</b>
-              <p data-i18n="trust.i7.d">Da Vas ljudi pronađu</p>
+              <p data-i18n="trust.i7.d">So people can find you</p>
             </div>
           </div>
 
@@ -636,8 +647,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91 0z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.9 12.9 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
             </span>
             <div>
-              <b data-i18n="trust.i8.t">Objava</b>
-              <p data-i18n="trust.i8.d">Puštamo stranicu uživo</p>
+              <b data-i18n="trust.i8.t">Launch</b>
+              <p data-i18n="trust.i8.d">We put the site live</p>
             </div>
           </div>
 
@@ -646,8 +657,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
             </span>
             <div>
-              <b data-i18n="trust.i9.t">Održavanje</b>
-              <p data-i18n="trust.i9.d">Brinemo i nakon objave</p>
+              <b data-i18n="trust.i9.t">Maintenance</b>
+              <p data-i18n="trust.i9.d">We look after it afterwards</p>
             </div>
           </div>
         </div>
@@ -661,41 +672,18 @@
   <section class="section" id="o-nama">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="eyebrow" data-i18n="onama.eyebrow">O nama</span>
+        <span class="eyebrow" data-i18n="onama.eyebrow">About us</span>
       </div>
 
       <div class="sec__body">
-        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="onama.title">
-          Tko smo <em>mi?</em>
-        </h2>
+        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="onama.title">Who are <em>we?</em></h2>
         <div class="sec__text" data-reveal style="--i:2">
-          <p data-i18n-html="onama.p1">
-            Mi smo mali tim mladih, profesionalnih i akademski obrazovanih stručnjaka koji vjeruju
-            da dobra web stranica nije samo lijep dizajn – ona je <strong>prvi korak prema
-            uspješnijem poslovanju</strong>.
-          </p>
-          <p data-i18n-html="onama.p2">
-            Naš put započeo je izradom web stranica i digitalnih rješenja za iznajmljivače i
-            turistički smještaj, gdje smo prepoznali koliko kvalitetna online prezentacija može
-            olakšati put od prvog pregleda ponude do upita i rezervacije.
-          </p>
-          <p data-i18n-html="onama.p3">
-            Danas svoje znanje i iskustvo širimo i na druge djelatnosti i poslovanja kojima je
-            potrebna moderna, profesionalna i funkcionalna online prisutnost.
-          </p>
-          <p data-i18n-html="onama.p4">
-            Posebnu pažnju posvećujemo tome da upoznamo Vas, Vaše poslovanje i Vaše potrebe.
-            <strong>Ne nudimo isto rješenje svima</strong> – svaku web stranicu prilagođavamo
-            Vašim željama, ciljevima i načinu poslovanja.
-          </p>
-          <p data-i18n-html="onama.p5">
-            Naš cilj je jednostavan: stvoriti digitalno rješenje koje će Vas kvalitetno
-            predstaviti, ostaviti dobar prvi dojam i pomoći Vašim klijentima da Vas lakše pronađu.
-          </p>
-          <p data-i18n-html="onama.p6">
-            Kao mali tim, njegujemo direktan i osoban pristup. Od prvog razgovora do završetka
-            projekta, tu smo za Vas.
-          </p>
+          <p data-i18n-html="onama.p1">We are a small team of young, professional and university-educated specialists who believe that a good website is more than a pretty design — it is the <strong>first step towards a stronger business</strong>.</p>
+          <p data-i18n-html="onama.p2">We started out building websites and digital solutions for private landlords and tourist accommodation, where we saw just how much a good online presence shortens the path from a first look at an offer to an enquiry and a booking.</p>
+          <p data-i18n-html="onama.p3">Today we bring that knowledge and experience to other trades and businesses that need a modern, professional and genuinely useful online presence.</p>
+          <p data-i18n-html="onama.p4">We take particular care to get to know you, your business and what you actually need. <strong>We don't sell the same solution to everyone</strong> — every website is shaped around your wishes, your goals and the way you work.</p>
+          <p data-i18n-html="onama.p5">Our goal is a simple one: to create a digital solution that represents you well, makes a good first impression and helps your clients find you more easily.</p>
+          <p data-i18n-html="onama.p6">Being a small team, we keep things direct and personal. From the first conversation to the finished project, we are here for you.</p>
         </div>
       </div>
     </div>
@@ -707,44 +695,31 @@
   <section class="section" id="vidljivost">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="eyebrow" data-i18n="vidljivost.eyebrow">Vidljivost</span>
+        <span class="eyebrow" data-i18n="vidljivost.eyebrow">Visibility</span>
       </div>
 
       <div class="sec__body sec__body--left">
-        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="vidljivost.title">
-          Da vas ljudi<br /><em>pronađu</em> na Googleu.
-        </h2>
+        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="vidljivost.title">So that people<br /><em>find you</em> on Google.</h2>
         <div class="sec__text" data-reveal style="--i:2">
-          <p data-i18n="vidljivost.lead">
-            Lijepa stranica koju nitko ne nađe ne vrijedi ništa. Zato svaka naša stranica
-            ide van s posloženim temeljima vidljivosti — ne kao doplatak, nego kao dio posla.
-          </p>
+          <p data-i18n="vidljivost.lead">A beautiful site nobody can find is worth nothing. That is why every site we build goes out with the groundwork for visibility already in place — not as an add-on, but as part of the job.</p>
         </div>
 
         <ol class="plist">
           <li data-reveal style="--i:3">
             <b>1</b>
-            <p data-i18n-html="vidljivost.i1"><strong>Tehnički temelji</strong>
-              Naslovi, opisi i strukturirani podaci koje Google čita, čista adresa stranice,
-              sitemap i brzo učitavanje. Bez toga ostalo ne pomaže.</p>
+            <p data-i18n-html="vidljivost.i1"><strong>Technical foundations</strong> Titles, descriptions and structured data that Google reads, clean page addresses, a sitemap and fast loading. Without these, nothing else helps.</p>
           </li>
           <li data-reveal style="--i:4">
             <b>2</b>
-            <p data-i18n-html="vidljivost.i2"><strong>Google poslovni profil</strong>
-              Postavljamo i uređujemo profil s kojim se pojavljujete na karti i u lokalnoj
-              pretrazi — često prvi dodir gosta s vama.</p>
+            <p data-i18n-html="vidljivost.i2"><strong>Google Business Profile</strong> We set up and maintain the profile that puts you on the map and in local search — often a guest's very first contact with you.</p>
           </li>
           <li data-reveal style="--i:5">
             <b>3</b>
-            <p data-i18n-html="vidljivost.i3"><strong>Tekstovi pisani za pretragu</strong>
-              Sadržaj koji odgovara na ono što ljudi stvarno upisuju: mjesto, tip smještaja,
-              blizina mora, parking, kućni ljubimci.</p>
+            <p data-i18n-html="vidljivost.i3"><strong>Copy written for search</strong> Content that answers what people actually type: the place, the type of accommodation, distance to the sea, parking, pets.</p>
           </li>
           <li data-reveal style="--i:6">
             <b>4</b>
-            <p data-i18n-html="vidljivost.i4"><strong>Mjerenje</strong>
-              Analitika i Search Console, pa se vidi odakle dolaze posjetitelji i koji upiti
-              donose rezervacije — umjesto nagađanja.</p>
+            <p data-i18n-html="vidljivost.i4"><strong>Measurement</strong> Analytics and Search Console, so you can see where visitors come from and which searches bring bookings — instead of guessing.</p>
           </li>
         </ol>
       </div>
@@ -757,39 +732,39 @@
   <section class="section" id="usluge">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="eyebrow" data-i18n="usluge.eyebrow">Usluge</span>
+        <span class="eyebrow" data-i18n="usluge.eyebrow">Services</span>
       </div>
 
       <div class="svc">
         <div class="svc__i" data-reveal style="--i:0">
           <span class="svc__n">1</span>
           <div>
-            <h3 data-i18n="usluge.i1.t">Web stranica po mjeri vašeg posla</h3>
-            <p data-i18n="usluge.i1.d">Cijela stranica od skice do objave: dizajn, tekstovi, obrada fotografija, galerija, cjenik ili usluge, karta i obrazac za upit. Salon, ordinacija, restoran, teretana ili apartman — strukturu slažemo prema tome kako vaši klijenti stvarno donose odluku. Isporučujemo gotovo, ne polugotovo.</p>
+            <h3 data-i18n="usluge.i1.t">A website built around your business</h3>
+            <p data-i18n="usluge.i1.d">The whole site from sketch to launch: design, copy, photo editing, gallery, price list or services, map and enquiry form. Salon, medical practice, restaurant, gym or holiday flat — we build the structure around how your clients actually make up their minds. We deliver finished work, not half-finished.</p>
           </div>
         </div>
 
         <div class="svc__i" data-reveal style="--i:1">
           <span class="svc__n">2</span>
           <div>
-            <h3 data-i18n="usluge.i2.t">Redizajn postojeće stranice</h3>
-            <p data-i18n="usluge.i2.d">Imate stranicu koja izgleda zastarjelo ili se raspada na mobitelu? Zadržavamo sadržaj i adresu, mijenjamo izgled i brzinu — bez gubitka pozicije na Googleu.</p>
+            <h3 data-i18n="usluge.i2.t">Redesign of an existing site</h3>
+            <p data-i18n="usluge.i2.d">Got a site that looks dated or falls apart on a phone? We keep the content and the address, and change the look and the speed — without losing your position on Google.</p>
           </div>
         </div>
 
         <div class="svc__i" data-reveal style="--i:2">
           <span class="svc__n">3</span>
           <div>
-            <h3 data-i18n="usluge.i3.t">Vidljivost na Googleu</h3>
-            <p data-i18n="usluge.i3.d">Tehnički temelji, Google poslovni profil, tekstovi pisani za pretragu i mjerenje rezultata. Detaljno je opisano u sekciji iznad.</p>
+            <h3 data-i18n="usluge.i3.t">Visibility on Google</h3>
+            <p data-i18n="usluge.i3.d">Technical foundations, Google Business Profile, copy written for search and measurement of results. Described in detail in the section above.</p>
           </div>
         </div>
 
         <div class="svc__i" data-reveal style="--i:3">
           <span class="svc__n">4</span>
           <div>
-            <h3 data-i18n="usluge.i4.t">Domena, e-mail i održavanje</h3>
-            <p data-i18n="usluge.i4.d">Registracija domene, poslovni e-mail na vašem imenu umjesto gmaila, SSL certifikat i kasnije izmjene sadržaja kad vam zatrebaju.</p>
+            <h3 data-i18n="usluge.i4.t">Domain, e-mail and maintenance</h3>
+            <p data-i18n="usluge.i4.d">Domain registration, a business e-mail in your own name instead of a Gmail address, an SSL certificate and later content changes whenever you need them.</p>
           </div>
         </div>
       </div>
@@ -802,21 +777,14 @@
   <section class="section" id="promocija">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="eyebrow" data-i18n="promocija.eyebrow">Promocija</span>
+        <span class="eyebrow" data-i18n="promocija.eyebrow">Promotion</span>
       </div>
 
       <div class="sec__body">
-        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="promocija.title">Promocija koja<br /><em>dolazi do ljudi</em> ❤️</h2>
+        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="promocija.title">Promotion that<br /><em>reaches people</em> ❤️</h2>
         <div class="sec__text" data-reveal style="--i:2">
-          <p data-i18n="promocija.p1">
-            Osim izrade web stranica i digitalnih rješenja, bavimo se i promocijom koja
-            Vašu ponudu približava stvarnim ljudima.
-          </p>
-          <p data-i18n="promocija.p2">
-            Uz gotovo desetljeće iskustva pomažemo tvrtkama, obrtnicima i poduzetnicima
-            da svoje proizvode i usluge predstave na pravi način, dođu do novih kontakata
-            i stvore nove poslovne prilike.
-          </p>
+          <p data-i18n="promocija.p1">Besides building websites and digital solutions, we also do promotion — the kind that brings what you offer closer to real people.</p>
+          <p data-i18n="promocija.p2">With almost a decade of experience, we help companies, tradespeople and entrepreneurs present their products and services the right way, reach new contacts and create new business opportunities.</p>
         </div>
       </div>
 
@@ -826,8 +794,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
           </span>
           <div>
-            <h3 data-i18n="promocija.i1.t">Telefonski marketing</h3>
-            <p data-i18n="promocija.i1.d">Direktna komunikacija s potencijalnim klijentima.</p>
+            <h3 data-i18n="promocija.i1.t">Telephone marketing</h3>
+            <p data-i18n="promocija.i1.d">Direct conversations with potential clients.</p>
           </div>
         </div>
 
@@ -836,8 +804,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><path d="M12 18v4M8 22h8"/></svg>
           </span>
           <div>
-            <h3 data-i18n="promocija.i2.t">Live promocija</h3>
-            <p data-i18n="promocija.i2.d">Predstavljanje proizvoda i usluga uživo.</p>
+            <h3 data-i18n="promocija.i2.t">Live promotion</h3>
+            <p data-i18n="promocija.i2.d">Presenting products and services in person.</p>
           </div>
         </div>
 
@@ -846,8 +814,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 15-6v14L3 13z"/><path d="M3 11v2a2 2 0 0 0 2 2h1l1.5 5H10l-1.5-5"/><path d="M21 10v4"/></svg>
           </span>
           <div>
-            <h3 data-i18n="promocija.i3.t">Oglašavanje i promocija</h3>
-            <p data-i18n="promocija.i3.d">Povećanje vidljivosti i dosega.</p>
+            <h3 data-i18n="promocija.i3.t">Advertising and promotion</h3>
+            <p data-i18n="promocija.i3.d">More visibility and a wider reach.</p>
           </div>
         </div>
 
@@ -856,23 +824,17 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>
           </span>
           <div>
-            <h3 data-i18n="promocija.i4.t">Pronalaženje novih klijenata</h3>
-            <p data-i18n="promocija.i4.d">Aktivan pristup i stvaranje novih kontakata.</p>
+            <h3 data-i18n="promocija.i4.t">Finding new clients</h3>
+            <p data-i18n="promocija.i4.d">An active approach that builds new contacts.</p>
           </div>
         </div>
       </div>
 
       <div class="promo__close" data-reveal>
-        <p data-i18n-html="promocija.close">
-          Ne vjerujemo da se dobra promocija svodi samo na to da ljudi vide Vaš oglas.
-          Važno je da Vas <strong>primijete, zapamte i naprave sljedeći korak</strong>.
-        </p>
-        <p class="promo__punch" data-i18n-html="promocija.punch">
-          Vi imate proizvod ili uslugu.<br />
-          Mi pomažemo da za nju saznaju pravi ljudi. ❤️
-        </p>
+        <p data-i18n-html="promocija.close">We don't believe good promotion is just about people seeing your advert. What matters is that they <strong>notice you, remember you and take the next step</strong>.</p>
+        <p class="promo__punch" data-i18n-html="promocija.punch">You have a product or a service.<br /> We help the right people hear about it. ❤️</p>
         <a href="#kontakt" class="btn btn--solid promo__cta">
-          <span data-i18n="promocija.cta">Zatražite ponudu za promociju</span>
+          <span data-i18n="promocija.cta">Request a promotion quote</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
         </a>
       </div>
@@ -885,54 +847,54 @@
   <section class="section" id="radovi">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="eyebrow" data-i18n="radovi.eyebrow">Radovi</span>
+        <span class="eyebrow" data-i18n="radovi.eyebrow">Our work</span>
       </div>
 
       <div class="sec__body">
-        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="radovi.title">Stranice na kojima<br /><em>smo radili.</em></h2>
+        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="radovi.title">Sites we have<br /><em>worked on.</em></h2>
         <div class="sec__text" data-reveal style="--i:2">
-          <p data-i18n="radovi.lead">Tri objekta, tri različita opsega — od jednostranične vizitke do sustava s rezervacijama i sinkronizacijom kalendara. Kliknite da vidite stranicu kakvu gost stvarno vidi.</p>
+          <p data-i18n="radovi.lead">Three properties, three different scopes — from a one-page calling card to a system with bookings and calendar sync. Click through to see the site exactly as a guest sees it.</p>
         </div>
       </div>
 
       <div class="full">
         <div class="cards" style="margin-top:2.75rem">
           <article class="tcard" data-reveal style="--i:0">
-            <a href="08-premium-villa-emilia/index.html" class="tcard__media" aria-label="Otvori Villa Emilia, Vir">
+            <a href="/08-premium-villa-emilia/index.html" class="tcard__media" aria-label="Otvori Villa Emilia, Vir">
               <span class="tcard__tag">Premium</span>
-              <img src="08-premium-villa-emilia/assets/img/vila-01-fasada.jpg" alt="Villa Emilia na Viru" loading="lazy" />
+              <img src="/08-premium-villa-emilia/assets/img/vila-01-fasada.jpg" alt="Villa Emilia na Viru" loading="lazy" />
             </a>
             <div class="tcard__body">
               <h3>Villa Emilia, Vir</h3>
-              <p data-i18n="radovi.i1.d">Tri apartmana, četiri jezika i pravi sustav rezervacije s plaćanjem karticom. Uz stranicu ide vlasnički panel i sinkronizacija kalendara s Booking.com-om i Airbnb-om.</p>
-              <ul class="tcard__meta"><li data-i18n="radovi.i1.m1">Vlasnički panel</li><li data-i18n="radovi.i1.m2">iCal sync</li><li data-i18n="radovi.i1.m3">Stripe</li></ul>
-              <a href="08-premium-villa-emilia/index.html" class="tcard__link"><span data-i18n="radovi.cardCta">Pogledaj stranicu</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <p data-i18n="radovi.i1.d">Three flats, four languages and a real booking system with card payment. The site comes with an owner's panel and calendar sync with Booking.com and Airbnb.</p>
+              <ul class="tcard__meta"><li data-i18n="radovi.i1.m1">Owner's panel</li><li data-i18n="radovi.i1.m2">iCal sync</li><li data-i18n="radovi.i1.m3">Stripe</li></ul>
+              <a href="/08-premium-villa-emilia/index.html" class="tcard__link"><span data-i18n="radovi.cardCta">View the site</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </article>
 
           <article class="tcard" data-reveal style="--i:1">
-            <a href="09-basic-apartmani-mare-gumbek/index.html" class="tcard__media" aria-label="Otvori Apartmani Mare i Gumbek">
+            <a href="/09-basic-apartmani-mare-gumbek/index.html" class="tcard__media" aria-label="Otvori Apartmani Mare i Gumbek">
               <span class="tcard__tag">Basic</span>
-              <img src="09-basic-apartmani-mare-gumbek/images/petrcane-zaljev-dron.jpg" alt="Apartmani Mare i Gumbek — Petrčane iz zraka" loading="lazy" />
+              <img src="/09-basic-apartmani-mare-gumbek/images/petrcane-zaljev-dron.jpg" alt="Apartmani Mare i Gumbek — Petrčane iz zraka" loading="lazy" />
             </a>
             <div class="tcard__body">
               <h3>Apartmani Mare i Gumbek</h3>
-              <p data-i18n="radovi.i2.d">Dva apartmana u istoj zgradi u Petrčanima kraj Zadra. Vrt i terasa, balkon, besplatan parking i izravan upit — bez posrednika i provizije.</p>
-              <ul class="tcard__meta"><li data-i18n="radovi.i2.m1">Dva apartmana</li><li data-i18n="radovi.i2.m2">Galerija</li><li data-i18n="radovi.i2.m3">Upit</li></ul>
-              <a href="09-basic-apartmani-mare-gumbek/index.html" class="tcard__link"><span data-i18n="radovi.cardCta">Pogledaj stranicu</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <p data-i18n="radovi.i2.d">Two flats in the same building in Petrčane near Zadar. Garden and terrace, balcony, free parking and direct enquiries — no middlemen, no commission.</p>
+              <ul class="tcard__meta"><li data-i18n="radovi.i2.m1">Two flats</li><li data-i18n="radovi.i2.m2">Gallery</li><li data-i18n="radovi.i2.m3">Enquiry</li></ul>
+              <a href="/09-basic-apartmani-mare-gumbek/index.html" class="tcard__link"><span data-i18n="radovi.cardCta">View the site</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </article>
 
           <article class="tcard" data-reveal style="--i:2">
-            <a href="10-basic-apartment-marta/index.html" class="tcard__media" aria-label="Otvori Apartment Marta, Orebić">
+            <a href="/10-basic-apartment-marta/index.html" class="tcard__media" aria-label="Otvori Apartment Marta, Orebić">
               <span class="tcard__tag">Basic</span>
-              <img src="10-basic-apartment-marta/images/888004685.jpg" alt="Pogled na more iz apartmana Marta u Orebiću" loading="lazy" />
+              <img src="/10-basic-apartment-marta/images/888004685.jpg" alt="Pogled na more iz apartmana Marta u Orebiću" loading="lazy" />
             </a>
             <div class="tcard__body">
               <h3>Apartment Marta, Orebić</h3>
-              <p data-i18n="radovi.i3.d">Apartman s terasom i pogledom na more na Pelješcu. Galerija, cjenik po sezoni, karta i kontakt — sve na jednoj brzoj stranici.</p>
-              <ul class="tcard__meta"><li data-i18n="radovi.i3.m1">Galerija</li><li data-i18n="radovi.i3.m2">Cjenik</li><li data-i18n="radovi.i3.m3">Karta</li></ul>
-              <a href="10-basic-apartment-marta/index.html" class="tcard__link"><span data-i18n="radovi.cardCta">Pogledaj stranicu</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <p data-i18n="radovi.i3.d">A flat with a terrace and a sea view on the Pelješac peninsula. Gallery, seasonal price list, map and contact — all on one fast page.</p>
+              <ul class="tcard__meta"><li data-i18n="radovi.i3.m1">Gallery</li><li data-i18n="radovi.i3.m2">Price list</li><li data-i18n="radovi.i3.m3">Map</li></ul>
+              <a href="/10-basic-apartment-marta/index.html" class="tcard__link"><span data-i18n="radovi.cardCta">View the site</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </article>
         </div>
@@ -946,80 +908,64 @@
   <section class="section" id="paketi">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="eyebrow" data-i18n="paketi.eyebrow">Paketi</span>
+        <span class="eyebrow" data-i18n="paketi.eyebrow">Packages</span>
       </div>
 
       <div class="sec__body">
-        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="paketi.title">Jasna cijena izrade,<br /><em>jasna cijena održavanja.</em></h2>
+        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="paketi.title">A clear price for the build,<br /><em>a clear price for the upkeep.</em></h2>
         <div class="sec__text" data-reveal style="--i:2">
-          <p data-i18n="paketi.p1">
-            Ne radimo samo web stranicu. Pomažemo Vam da Vaše poslovanje bude vidljivo tamo
-            gdje Vas Vaši budući klijenti već traže — na Googleu.
-          </p>
-          <p data-i18n-html="paketi.p2">
-            Izradu plaćate <strong>jednokratno</strong> i cijenu znate prije nego počnemo.
-            Održavanje je zaseban, unaprijed definiran iznos — hosting, sigurnost, ažuriranja
-            i sitne izmjene sadržaja ulaze u njega. Nema naplate po satu, nema računa koji vas iznenadi.
-          </p>
+          <p data-i18n="paketi.p1">We don't just build a website. We help your business become visible where your future clients are already looking — on Google.</p>
+          <p data-i18n-html="paketi.p2">The build is paid <strong>once</strong>, and you know the price before we start. Maintenance is a separate, agreed amount — hosting, security, updates and small content changes are all part of it. No hourly billing, no invoices that catch you off guard.</p>
         </div>
       </div>
 
       <div class="packs">
         <article class="pk" data-reveal style="--i:0">
           <h3>Basic</h3>
-          <p class="pk__price"><span data-i18n="paketi.basic.price" data-price="399">Od 399 €</span><small data-i18n="common.oneTime">jednokratno</small></p>
+          <p class="pk__price"><span data-i18n="paketi.basic.price" data-price="399">From €399</span><small data-i18n="common.oneTime">one-off</small></p>
           <ul>
-            <li data-i18n="paketi.basic.b1">Do 5 podstranica</li>
-            <li data-i18n="paketi.basic.b2">Profesionalan dizajn</li>
-            <li data-i18n="paketi.basic.b3">Prilagodba mobitelima, tabletima i računalima</li>
-            <li data-i18n="paketi.basic.b4">Višejezičnost</li>
-            <li data-i18n="paketi.basic.b5">Osnovni SEO</li>
-            <li data-i18n="paketi.basic.b6">Kontakt forma i Google Maps</li>
+            <li data-i18n="paketi.basic.b1">Up to 5 pages</li>
+            <li data-i18n="paketi.basic.b2">Professional design</li>
+            <li data-i18n="paketi.basic.b3">Works on phones, tablets and computers</li>
+            <li data-i18n="paketi.basic.b4">Multiple languages</li>
+            <li data-i18n="paketi.basic.b5">Basic SEO</li>
+            <li data-i18n="paketi.basic.b6">Contact form and Google Maps</li>
           </ul>
-          <p class="pk__maint" data-i18n-html="paketi.basic.maint" data-price="20,199,240,199,41">
-            Održavanje <b>20 € mjesečno</b> ili <b>199 € godišnje</b>
-            <span>240 € po mjesečnoj cijeni → 199 € uz godišnje plaćanje, ušteda 41 €</span>
-          </p>
-          <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta" data-i18n="paketi.cta">Odaberite paket</a></div>
+          <p class="pk__maint" data-i18n-html="paketi.basic.maint" data-price="20,199,240,199,41">Maintenance <b>€20 per month</b> or <b>€199 per year</b> <span>€240 at the monthly rate → €199 paid annually, a saving of €41</span></p>
+          <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta" data-i18n="paketi.cta">Choose this package</a></div>
         </article>
 
         <article class="pk pk--hi" data-reveal style="--i:1">
           <h3>Business</h3>
-          <p class="pk__price"><span data-i18n="paketi.business.price" data-price="799">Od 799 €</span><small data-i18n="common.oneTime">jednokratno</small></p>
+          <p class="pk__price"><span data-i18n="paketi.business.price" data-price="799">From €799</span><small data-i18n="common.oneTime">one-off</small></p>
           <ul>
-            <li data-i18n="paketi.business.b1">Sve iz Basic paketa</li>
-            <li data-i18n="paketi.business.b2">Do 10 podstranica</li>
-            <li data-i18n="paketi.business.b3">Google poslovni profil</li>
-            <li data-i18n="paketi.business.b4">SEO struktura i copywriting</li>
-            <li data-i18n="paketi.business.b5">Analitika i mjerenje</li>
+            <li data-i18n="paketi.business.b1">Everything in Basic</li>
+            <li data-i18n="paketi.business.b2">Up to 10 pages</li>
+            <li data-i18n="paketi.business.b3">Google Business Profile</li>
+            <li data-i18n="paketi.business.b4">SEO structure and copywriting</li>
+            <li data-i18n="paketi.business.b5">Analytics and measurement</li>
             <li data-i18n="paketi.business.b6">Blog</li>
-            <li data-i18n="paketi.business.b7">Napredne forme i integracije</li>
-            <li data-i18n="paketi.business.b8">Prioritetna podrška</li>
+            <li data-i18n="paketi.business.b7">Advanced forms and integrations</li>
+            <li data-i18n="paketi.business.b8">Priority support</li>
           </ul>
-          <p class="pk__maint" data-i18n-html="paketi.business.maint" data-price="30,299,360,299,61">
-            Održavanje <b>30 € mjesečno</b> ili <b>299 € godišnje</b>
-            <span>360 € po mjesečnoj cijeni → 299 € uz godišnje plaćanje, ušteda 61 €</span>
-          </p>
-          <div class="pk__foot"><a href="#kontakt" class="btn btn--solid pk__cta" data-i18n="paketi.cta">Odaberite paket</a></div>
+          <p class="pk__maint" data-i18n-html="paketi.business.maint" data-price="30,299,360,299,61">Maintenance <b>€30 per month</b> or <b>€299 per year</b> <span>€360 at the monthly rate → €299 paid annually, a saving of €61</span></p>
+          <div class="pk__foot"><a href="#kontakt" class="btn btn--solid pk__cta" data-i18n="paketi.cta">Choose this package</a></div>
         </article>
 
         <article class="pk" data-reveal style="--i:2">
           <h3>Premium</h3>
-          <p class="pk__price"><span data-i18n="paketi.premium.price" data-price="1199">Od 1.199 €</span><small data-i18n="common.oneTime">jednokratno</small></p>
+          <p class="pk__price"><span data-i18n="paketi.premium.price" data-price="1199">From €1,199</span><small data-i18n="common.oneTime">one-off</small></p>
           <ul>
-            <li data-i18n="paketi.premium.b1">Sve iz Business paketa</li>
-            <li data-i18n="paketi.premium.b2">Do 15 podstranica</li>
-            <li data-i18n="paketi.premium.b3">Online rezervacije</li>
-            <li data-i18n="paketi.premium.b4">Online plaćanje</li>
+            <li data-i18n="paketi.premium.b1">Everything in Business</li>
+            <li data-i18n="paketi.premium.b2">Up to 15 pages</li>
+            <li data-i18n="paketi.premium.b3">Online bookings</li>
+            <li data-i18n="paketi.premium.b4">Online payment</li>
             <li data-i18n="paketi.premium.b5">AI agent / chatbot</li>
-            <li data-i18n="paketi.premium.b6">Napredni SEO</li>
-            <li data-i18n="paketi.premium.b7">Napredna analitika</li>
+            <li data-i18n="paketi.premium.b6">Advanced SEO</li>
+            <li data-i18n="paketi.premium.b7">Advanced analytics</li>
           </ul>
-          <p class="pk__maint" data-i18n-html="paketi.premium.maint" data-price="49,499,588,499,89">
-            Održavanje <b>49 € mjesečno</b> ili <b>499 € godišnje</b>
-            <span>588 € po mjesečnoj cijeni → 499 € uz godišnje plaćanje, ušteda 89 €</span>
-          </p>
-          <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta" data-i18n="paketi.cta">Odaberite paket</a></div>
+          <p class="pk__maint" data-i18n-html="paketi.premium.maint" data-price="49,499,588,499,89">Maintenance <b>€49 per month</b> or <b>€499 per year</b> <span>€588 at the monthly rate → €499 paid annually, a saving of €89</span></p>
+          <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta" data-i18n="paketi.cta">Choose this package</a></div>
         </article>
       </div>
 
@@ -1029,45 +975,39 @@
            cjenika, pa CTA vodi na razgovor umjesto na "kupi paket". -->
       <article class="gv" data-reveal>
         <div class="gv__main">
-          <h3 data-i18n="paketi.gv.title">Google vidljivost</h3>
-          <p class="gv__price"><span data-i18n="paketi.gv.price" data-price="199">Od 199 €</span><small data-i18n="common.oneTime">jednokratno</small></p>
-          <p class="gv__lead" data-i18n="paketi.gv.lead">
-            Vaš ulazak u proces Google vidljivosti — osnovni setup i optimizacija.
-            Za one koji već imaju web stranicu i žele da ih ljudi pronađu.
-          </p>
-          <p class="gv__next" data-i18n="paketi.gv.next">
-            Nakon prvih rezultata predlažemo prilagođen plan za daljnji rast,
-            ovisno o Vašim ciljevima i tržištu.
-          </p>
-          <p class="gv__maint" data-i18n-html="paketi.gv.maint" data-price="39">+ <b>39 € mjesečno</b> za kontinuirano praćenje i optimizaciju</p>
+          <h3 data-i18n="paketi.gv.title">Google visibility</h3>
+          <p class="gv__price"><span data-i18n="paketi.gv.price" data-price="199">From €199</span><small data-i18n="common.oneTime">one-off</small></p>
+          <p class="gv__lead" data-i18n="paketi.gv.lead">Your way into the Google visibility process — the basic setup and optimisation. For those who already have a website and want people to find it.</p>
+          <p class="gv__next" data-i18n="paketi.gv.next">Once the first results are in, we propose a plan tailored to further growth, based on your goals and your market.</p>
+          <p class="gv__maint" data-i18n-html="paketi.gv.maint" data-price="39">+ <b>€39 per month</b> for ongoing monitoring and optimisation</p>
           <a href="#kontakt" class="btn btn--solid gv__cta">
-            <span data-i18n="paketi.gv.cta">Zatražite besplatnu analizu i prilagođenu ponudu</span>
+            <span data-i18n="paketi.gv.cta">Request a free audit and a tailored quote</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </a>
         </div>
 
         <div class="gv__list">
-          <h4 data-i18n="paketi.gv.listTitle">Što je uključeno</h4>
+          <h4 data-i18n="paketi.gv.listTitle">What's included</h4>
           <ul>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5" /></svg>
-              <span data-i18n="paketi.gv.b1">Postavljanje i optimizacija Google poslovnog profila</span>
+              <span data-i18n="paketi.gv.b1">Setting up and optimising your Google Business Profile</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5" /></svg>
-              <span data-i18n="paketi.gv.b2">Osnovni tehnički SEO audit</span>
+              <span data-i18n="paketi.gv.b2">A basic technical SEO audit</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5" /></svg>
-              <span data-i18n="paketi.gv.b3">Optimizacija naslova i opisa za jednu do dvije ključne stranice</span>
+              <span data-i18n="paketi.gv.b3">Optimised titles and descriptions for one or two key pages</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5" /></svg>
-              <span data-i18n="paketi.gv.b4">Postavljanje Google Search Consolea i Analyticsa</span>
+              <span data-i18n="paketi.gv.b4">Google Search Console and Analytics set up</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5" /></svg>
-              <span data-i18n="paketi.gv.b5">Početni izvještaj s preporukama</span>
+              <span data-i18n="paketi.gv.b5">An opening report with recommendations</span>
             </li>
           </ul>
         </div>
@@ -1075,17 +1015,14 @@
 
       <article class="pk pk--wide" data-reveal>
         <div class="pk__head">
-          <h3 data-i18n="paketi.webshop.title">Webshop</h3>
-          <p class="pk__price"><span data-i18n="paketi.webshop.price" data-price="699">Od 699 €</span><small data-i18n="common.oneTime">jednokratno</small></p>
+          <h3 data-i18n="paketi.webshop.title">Online store</h3>
+          <p class="pk__price"><span data-i18n="paketi.webshop.price" data-price="699">From €699</span><small data-i18n="common.oneTime">one-off</small></p>
         </div>
-        <p class="pk__d" data-i18n="paketi.webshop.d">Izrada webshopa prema potrebama Vašeg poslovanja. Točna cijena ovisi o funkcionalnostima i opsegu projekta.</p>
-        <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta" data-i18n="paketi.webshop.cta">Kontaktirajte nas</a></div>
+        <p class="pk__d" data-i18n="paketi.webshop.d">An online store built around the way your business works. The exact price depends on the features and the scope of the project.</p>
+        <div class="pk__foot"><a href="#kontakt" class="btn btn--ghost pk__cta" data-i18n="paketi.webshop.cta">Get in touch</a></div>
       </article>
 
-      <p class="packs__note" data-reveal data-i18n="paketi.note">
-        Dodatne podstranice, webshop, rezervacije, online plaćanje, AI agenti i druge
-        funkcionalnosti dostupne su prema potrebama poslovanja.
-      </p>
+      <p class="packs__note" data-reveal data-i18n="paketi.note">Extra pages, an online store, bookings, online payment, AI agents and other features are available as your business needs them.</p>
     </div>
   </section>
 
@@ -1095,33 +1032,33 @@
   <section class="section" id="proces">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="eyebrow" data-i18n="proces.eyebrow">Proces</span>
+        <span class="eyebrow" data-i18n="proces.eyebrow">Process</span>
       </div>
 
       <div class="sec__body">
-        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="proces.title">Od poziva do objave<br />u <em>četiri koraka</em>.</h2>
+        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="proces.title">From the first call to launch<br />in <em>four steps</em>.</h2>
       </div>
 
       <div class="proc">
         <div class="proc__s" data-reveal style="--i:0">
           <span>1</span>
-          <h3 data-i18n="proces.i1.t">Razgovor</h3>
-          <p data-i18n="proces.i1.d">Upoznajemo vaš posao, tko su vam klijenti i što stranica mora postići. Dogovorimo opseg i paket, dobijete cijenu i rok, bez obveze.</p>
+          <h3 data-i18n="proces.i1.t">Conversation</h3>
+          <p data-i18n="proces.i1.d">We get to know your business, who your clients are and what the site has to achieve. We agree the scope and the package, you get a price and a deadline, with no obligation.</p>
         </div>
         <div class="proc__s" data-reveal style="--i:1">
           <span>2</span>
-          <h3 data-i18n="proces.i2.t">Dizajn</h3>
-          <p data-i18n="proces.i2.d">Slažemo izgled prema vašim fotografijama i brendu. Vi vidite i komentirate prije izrade.</p>
+          <h3 data-i18n="proces.i2.t">Design</h3>
+          <p data-i18n="proces.i2.d">We put the look together from your photos and your brand. You see it and comment on it before we build.</p>
         </div>
         <div class="proc__s" data-reveal style="--i:2">
           <span>3</span>
-          <h3 data-i18n="proces.i3.t">Izrada</h3>
-          <p data-i18n="proces.i3.d">Gradimo stranicu, pišemo tekstove, obrađujemo fotografije i postavljamo temelje za Google.</p>
+          <h3 data-i18n="proces.i3.t">Build</h3>
+          <p data-i18n="proces.i3.d">We build the site, write the copy, edit the photos and lay the groundwork for Google.</p>
         </div>
         <div class="proc__s" data-reveal style="--i:3">
           <span>4</span>
-          <h3 data-i18n="proces.i4.t">Objava</h3>
-          <p data-i18n="proces.i4.d">Domena, e-mail, SSL i objava. Stranica je vaša — pokazujemo vam kako je sami mijenjate.</p>
+          <h3 data-i18n="proces.i4.t">Launch</h3>
+          <p data-i18n="proces.i4.d">Domain, e-mail, SSL and going live. The site is yours — we show you how to change it yourself.</p>
         </div>
       </div>
     </div>
@@ -1136,91 +1073,91 @@
   <section class="section" id="faq">
     <div class="wrap grid12">
       <div class="sec__label" data-reveal>
-        <span class="eyebrow" data-i18n="faq.eyebrow">Pitanja</span>
+        <span class="eyebrow" data-i18n="faq.eyebrow">Questions</span>
       </div>
 
       <div class="sec__body">
-        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="faq.title">Pitanja i <em>odgovori.</em></h2>
+        <h2 class="sec__title" data-reveal style="--i:1" data-i18n-html="faq.title">Questions and <em>answers.</em></h2>
         <div class="sec__text" data-reveal style="--i:2">
-          <p data-i18n="faq.lead">Ono što nas klijenti najčešće pitaju prije nego krenemo. Ako Vaše pitanje nije ovdje, samo nam pišite.</p>
+          <p data-i18n="faq.lead">The things clients ask us most often before we start. If your question isn't here, just write to us.</p>
         </div>
       </div>
 
       <div class="faq">
         <details class="faq__i" data-reveal style="--i:0">
-          <summary><span data-i18n="faq.q1">Koliko traje izrada web stranice?</span><span class="faq__ico" aria-hidden="true"></span></summary>
+          <summary><span data-i18n="faq.q1">How long does it take to build a website?</span><span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p data-i18n-html="faq.a1">Uobičajen rok je do 2 tjedna od trenutka kad dogovorimo sadržaj i dobijemo materijale. Veći opseg — više podstranica, rezervacije ili webshop — može potrajati dulje. Točan rok dogovorimo na početku i držimo Vas u tijeku.</p>
+            <p data-i18n-html="faq.a1">The usual turnaround is up to 2 weeks from the moment we agree the content and receive your materials. A larger scope — more pages, bookings or an online store — can take longer. We agree the exact deadline at the start and keep you posted.</p>
           </div>
         </details>
 
         <details class="faq__i" data-reveal style="--i:1">
-          <summary><span data-i18n="faq.q2">Moram li ja pripremiti tekstove?</span><span class="faq__ico" aria-hidden="true"></span></summary>
+          <summary><span data-i18n="faq.q2">Do I have to prepare the copy?</span><span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p data-i18n-html="faq.a2">Ne morate. Ako imate gotove tekstove, rado ih koristimo. Ako nemate, pišemo ih mi — na temelju kratkog razgovora o tome čime se bavite i tko su Vaši klijenti. Vi ih samo pročitate i potvrdite.</p>
+            <p data-i18n-html="faq.a2">You don't. If you already have copy, we are glad to use it. If you don't, we write it — based on a short conversation about what you do and who your clients are. All you do is read it through and approve it.</p>
           </div>
         </details>
 
         <details class="faq__i" data-reveal style="--i:2">
-          <summary><span data-i18n="faq.q3">Moram li imati fotografije?</span><span class="faq__ico" aria-hidden="true"></span></summary>
+          <summary><span data-i18n="faq.q3">Do I need to have photographs?</span><span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p data-i18n-html="faq.a3">Da. Fotografije Vašeg prostora, proizvoda ili radova su nam potrebne — one prikazuju ono što stvarno nudite i nijedna kupljena fotografija ih ne može zamijeniti. Vi ih pošaljete, a mi ih obradimo, izrežemo i pripremimo za web.</p>
+            <p data-i18n-html="faq.a3">Yes. We need photographs of your space, your products or your work — they show what you actually offer, and no bought stock photo can stand in for them. You send them over, and we edit, crop and prepare them for the web.</p>
           </div>
         </details>
 
         <details class="faq__i" data-reveal style="--i:3">
-          <summary><span data-i18n="faq.q4">Je li domena uključena?</span><span class="faq__ico" aria-hidden="true"></span></summary>
+          <summary><span data-i18n="faq.q4">Is the domain included?</span><span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p data-i18n-html="faq.a4">Jest. Registraciju domene i cijelo tehničko postavljanje odrađujemo mi, a domena je uključena u cijenu koju zajedno definiramo na kraju — konačan iznos ovisi o nastavku koji odaberete (.hr, .com i slično). Domena je registrirana na Vaše ime i ostaje Vaša.</p>
+            <p data-i18n-html="faq.a4">It is. We handle the domain registration and all the technical setup, and the domain is included in the price we agree together at the end — the final amount depends on the extension you choose (.hr, .com and so on). The domain is registered in your name and stays yours.</p>
           </div>
         </details>
 
         <details class="faq__i" data-reveal style="--i:4">
-          <summary><span data-i18n="faq.q5">Što ako već imam web stranicu?</span><span class="faq__ico" aria-hidden="true"></span></summary>
+          <summary><span data-i18n="faq.q5">What if I already have a website?</span><span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p data-i18n-html="faq.a5">Onda radimo redizajn: zadržavamo sadržaj i postojeću adresu, a mijenjamo izgled, brzinu i strukturu — bez gubitka pozicije na Googleu. Ako je stranica u redu, a problem je samo vidljivost, tu je zasebna usluga Google vidljivosti.</p>
+            <p data-i18n-html="faq.a5">Then we do a redesign: we keep the content and the existing address, and change the look, the speed and the structure — without losing your position on Google. If the site itself is fine and visibility is the only problem, there is a separate Google visibility service for that.</p>
           </div>
         </details>
 
         <details class="faq__i" data-reveal style="--i:5">
-          <summary><span data-i18n="faq.q6">Mogu li kasnije sam mijenjati sadržaj?</span><span class="faq__ico" aria-hidden="true"></span></summary>
+          <summary><span data-i18n="faq.q6">Can I change the content myself later on?</span><span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p data-i18n-html="faq.a6">Možete. Nakon objave pokažemo Vam kako sami mijenjate tekstove, cijene i fotografije. Ako Vam se ne da ili nemate vremena, sitne izmjene ulaze u održavanje pa ih odradimo mi.</p>
+            <p data-i18n-html="faq.a6">You can. After launch we show you how to change the copy, prices and photographs yourself. If you would rather not, or haven't the time, small changes are part of maintenance and we make them for you.</p>
           </div>
         </details>
 
         <details class="faq__i" data-reveal style="--i:6">
-          <summary><span data-i18n="faq.q7">Što uključuje održavanje?</span><span class="faq__ico" aria-hidden="true"></span></summary>
+          <summary><span data-i18n="faq.q7">What does maintenance cover?</span><span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p data-i18n-html="faq.a7">Hosting, SSL certifikat, sigurnosna ažuriranja i sigurnosne kopije, praćenje rada stranice i sitne izmjene sadržaja. Iznos je unaprijed poznat — nema naplate po satu ni računa koji Vas iznenadi.</p>
+            <p data-i18n-html="faq.a7">Hosting, the SSL certificate, security updates and backups, monitoring that the site is running, and small content changes. The amount is known in advance — no hourly billing, no invoices that catch you off guard.</p>
           </div>
         </details>
 
         <details class="faq__i" data-reveal style="--i:7">
-          <summary><span data-i18n="faq.q8">Mogu li imati web na više jezika?</span><span class="faq__ico" aria-hidden="true"></span></summary>
+          <summary><span data-i18n="faq.q8">Can I have the site in several languages?</span><span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p data-i18n-html="faq.a8">Da, višejezičnost je uključena u sve pakete. Najčešće su to hrvatski, engleski, njemački i talijanski, ali dodajemo bilo koji jezik koji Vam treba.</p>
+            <p data-i18n-html="faq.a8">Yes, multiple languages are included in every package. The usual set is Croatian, English, German and Italian, but we will add whichever language you need.</p>
           </div>
         </details>
 
         <details class="faq__i" data-reveal style="--i:8">
-          <summary><span data-i18n="faq.q9">Možete li napraviti online rezervacije?</span><span class="faq__ico" aria-hidden="true"></span></summary>
+          <summary><span data-i18n="faq.q9">Can you build online bookings?</span><span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p data-i18n-html="faq.a9">Možemo. Sustav rezervacija s kalendarom dostupnosti dio je Premium paketa, a po dogovoru ga dodajemo i na manji paket. Kalendar se može sinkronizirati s Booking.com-om i Airbnb-om, pa nema dvostrukih rezervacija.</p>
+            <p data-i18n-html="faq.a9">We can. A booking system with an availability calendar is part of the Premium package, and we add it to a smaller package by arrangement. The calendar can sync with Booking.com and Airbnb, so there are no double bookings.</p>
           </div>
         </details>
 
         <details class="faq__i" data-reveal style="--i:9">
-          <summary><span data-i18n="faq.q10">Mogu li dobiti online plaćanje?</span><span class="faq__ico" aria-hidden="true"></span></summary>
+          <summary><span data-i18n="faq.q10">Can I take payments online?</span><span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p data-i18n-html="faq.a10">Da. Postavljamo plaćanje karticom preko provjerenih servisa. Novac ide izravno na Vaš račun — mi nismo posrednik u naplati.</p>
+            <p data-i18n-html="faq.a10">Yes. We set up card payments through established providers. The money goes straight to your account — we are not a middleman in the transaction.</p>
           </div>
         </details>
 
         <details class="faq__i" data-reveal style="--i:10">
-          <summary><span data-i18n="faq.q11">Radite li webshop?</span><span class="faq__ico" aria-hidden="true"></span></summary>
+          <summary><span data-i18n="faq.q11">Do you build online stores?</span><span class="faq__ico" aria-hidden="true"></span></summary>
           <div class="faq__a">
-            <p data-i18n-html="faq.a11">Radimo. Webshop kreće od 699 €, a konačna cijena ovisi o broju proizvoda, načinima plaćanja i dostave te integracijama koje su Vam potrebne.</p>
+            <p data-i18n-html="faq.a11">We do. An online store starts from €699, and the final price depends on the number of products, the payment and delivery methods, and the integrations you need.</p>
           </div>
         </details>
       </div>
@@ -1238,90 +1175,90 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Koliko traje izrada web stranice?",
+        "name": "How long does it take to build a website?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Uobičajen rok je do 2 tjedna od trenutka kad dogovorimo sadržaj i dobijemo materijale. Veći opseg — više podstranica, rezervacije ili webshop — može potrajati dulje. Točan rok dogovorimo na početku i držimo Vas u tijeku."
+          "text": "The usual turnaround is up to 2 weeks from the moment we agree the content and receive your materials. A larger scope — more pages, bookings or an online store — can take longer. We agree the exact deadline at the start and keep you posted."
         }
       },
       {
         "@type": "Question",
-        "name": "Moram li ja pripremiti tekstove?",
+        "name": "Do I have to prepare the copy?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ne morate. Ako imate gotove tekstove, rado ih koristimo. Ako nemate, pišemo ih mi — na temelju kratkog razgovora o tome čime se bavite i tko su Vaši klijenti. Vi ih samo pročitate i potvrdite."
+          "text": "You don't. If you already have copy, we are glad to use it. If you don't, we write it — based on a short conversation about what you do and who your clients are. All you do is read it through and approve it."
         }
       },
       {
         "@type": "Question",
-        "name": "Moram li imati fotografije?",
+        "name": "Do I need to have photographs?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Da. Fotografije Vašeg prostora, proizvoda ili radova su nam potrebne — one prikazuju ono što stvarno nudite i nijedna kupljena fotografija ih ne može zamijeniti. Vi ih pošaljete, a mi ih obradimo, izrežemo i pripremimo za web."
+          "text": "Yes. We need photographs of your space, your products or your work — they show what you actually offer, and no bought stock photo can stand in for them. You send them over, and we edit, crop and prepare them for the web."
         }
       },
       {
         "@type": "Question",
-        "name": "Je li domena uključena?",
+        "name": "Is the domain included?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Jest. Registraciju domene i cijelo tehničko postavljanje odrađujemo mi, a domena je uključena u cijenu koju zajedno definiramo na kraju — konačan iznos ovisi o nastavku koji odaberete (.hr, .com i slično). Domena je registrirana na Vaše ime i ostaje Vaša."
+          "text": "It is. We handle the domain registration and all the technical setup, and the domain is included in the price we agree together at the end — the final amount depends on the extension you choose (.hr, .com and so on). The domain is registered in your name and stays yours."
         }
       },
       {
         "@type": "Question",
-        "name": "Što ako već imam web stranicu?",
+        "name": "What if I already have a website?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Onda radimo redizajn: zadržavamo sadržaj i postojeću adresu, a mijenjamo izgled, brzinu i strukturu — bez gubitka pozicije na Googleu. Ako je stranica u redu, a problem je samo vidljivost, tu je zasebna usluga Google vidljivosti."
+          "text": "Then we do a redesign: we keep the content and the existing address, and change the look, the speed and the structure — without losing your position on Google. If the site itself is fine and visibility is the only problem, there is a separate Google visibility service for that."
         }
       },
       {
         "@type": "Question",
-        "name": "Mogu li kasnije sam mijenjati sadržaj?",
+        "name": "Can I change the content myself later on?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Možete. Nakon objave pokažemo Vam kako sami mijenjate tekstove, cijene i fotografije. Ako Vam se ne da ili nemate vremena, sitne izmjene ulaze u održavanje pa ih odradimo mi."
+          "text": "You can. After launch we show you how to change the copy, prices and photographs yourself. If you would rather not, or haven't the time, small changes are part of maintenance and we make them for you."
         }
       },
       {
         "@type": "Question",
-        "name": "Što uključuje održavanje?",
+        "name": "What does maintenance cover?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Hosting, SSL certifikat, sigurnosna ažuriranja i sigurnosne kopije, praćenje rada stranice i sitne izmjene sadržaja. Iznos je unaprijed poznat — nema naplate po satu ni računa koji Vas iznenadi."
+          "text": "Hosting, the SSL certificate, security updates and backups, monitoring that the site is running, and small content changes. The amount is known in advance — no hourly billing, no invoices that catch you off guard."
         }
       },
       {
         "@type": "Question",
-        "name": "Mogu li imati web na više jezika?",
+        "name": "Can I have the site in several languages?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Da, višejezičnost je uključena u sve pakete. Najčešće su to hrvatski, engleski, njemački i talijanski, ali dodajemo bilo koji jezik koji Vam treba."
+          "text": "Yes, multiple languages are included in every package. The usual set is Croatian, English, German and Italian, but we will add whichever language you need."
         }
       },
       {
         "@type": "Question",
-        "name": "Možete li napraviti online rezervacije?",
+        "name": "Can you build online bookings?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Možemo. Sustav rezervacija s kalendarom dostupnosti dio je Premium paketa, a po dogovoru ga dodajemo i na manji paket. Kalendar se može sinkronizirati s Booking.com-om i Airbnb-om, pa nema dvostrukih rezervacija."
+          "text": "We can. A booking system with an availability calendar is part of the Premium package, and we add it to a smaller package by arrangement. The calendar can sync with Booking.com and Airbnb, so there are no double bookings."
         }
       },
       {
         "@type": "Question",
-        "name": "Mogu li dobiti online plaćanje?",
+        "name": "Can I take payments online?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Da. Postavljamo plaćanje karticom preko provjerenih servisa. Novac ide izravno na Vaš račun — mi nismo posrednik u naplati."
+          "text": "Yes. We set up card payments through established providers. The money goes straight to your account — we are not a middleman in the transaction."
         }
       },
       {
         "@type": "Question",
-        "name": "Radite li webshop?",
+        "name": "Do you build online stores?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Radimo. Webshop kreće od 699 €, a konačna cijena ovisi o broju proizvoda, načinima plaćanja i dostave te integracijama koje su Vam potrebne."
+          "text": "We do. An online store starts from €699, and the final price depends on the number of products, the payment and delivery methods, and the integrations you need."
         }
       }
     ]
@@ -1334,10 +1271,10 @@
     <div class="wrap grid12">
       <div class="cta" data-reveal>
         <div>
-          <span class="eyebrow" style="color:#FFFFFF" data-i18n="kontakt.eyebrow">Kontakt</span>
-          <h2 style="margin-top:1.25rem" data-i18n-html="kontakt.title">Recite nam što vam treba.<br /><em>Ostalo je na nama.</em></h2>
+          <span class="eyebrow" style="color:#FFFFFF" data-i18n="kontakt.eyebrow">Contact</span>
+          <h2 style="margin-top:1.25rem" data-i18n-html="kontakt.title">Tell us what you need.<br /><em>We'll take it from there.</em></h2>
         </div>
-        <p data-i18n="kontakt.p">Ne morate znati kako se to zove ni kako izgleda. Napišite u par rečenica čime se bavite i što vas trenutno koči — nema stranice, stranica je zastarjela, ili vas nitko ne pronalazi na Googleu. Odgovorimo u roku od jednog radnog dana, s okvirnom cijenom i rokom. Bez obveze i bez prodajnog pritiska.</p>
+        <p data-i18n="kontakt.p">You don't need to know what it is called or what it should look like. Write a couple of sentences about what you do and what is holding you back right now — no website, an outdated one, or nobody finding you on Google. We reply within one working day with a ballpark price and a timeline. No obligation, no sales pressure.</p>
 
         <div class="cta__row">
           <a href="mailto:info@lotastudio.eu" class="cta__link ulink">
@@ -1356,10 +1293,10 @@
 
         <div class="cta__row">
           <a href="mailto:info@lotastudio.eu" class="btn btn--solid">
-            <span data-i18n="kontakt.ctaPrimary">Zatražite ponudu</span>
+            <span data-i18n="kontakt.ctaPrimary">Request a quote</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a href="tel:+385924631565" class="btn btn--ghost" data-i18n="kontakt.ctaSecondary">Nazovite nas</a>
+          <a href="tel:+385924631565" class="btn btn--ghost" data-i18n="kontakt.ctaSecondary">Call us</a>
         </div>
       </div>
     </div>
@@ -1372,8 +1309,8 @@
   <div class="wrap">
     <div class="foot__in">
       <div class="foot__brand">
-        <img src="assets/logo.svg" alt="Lota Studio" width="452" height="177" />
-        <p data-i18n-html="foot.tagline">Web stranice i digitalna rješenja<br />Oglašavanje s radošću ❤️</p>
+        <img src="/assets/logo.svg" alt="Lota Studio" width="452" height="177" />
+        <p data-i18n-html="foot.tagline">Websites and digital solutions<br />Advertising, with joy ❤️</p>
       </div>
       <div class="foot__contact">
         <a href="mailto:info@lotastudio.eu" class="ulink">
@@ -1396,7 +1333,7 @@
   </div>
 </footer>
 
-<script src="assets/lang.js?v=1"></script>
-<script src="assets/lota.js?v=2"></script>
+<script src="/assets/lang.js?v=1"></script>
+<script src="/assets/lota.js?v=2"></script>
 </body>
 </html>

@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "ctaPrimary": "Zatražite ponudu",
+    "ctaSecondary": "Pogledajte radove",
+    "eyebrow": "Web &amp; digitalna rješenja",
+    "lead": "Izrađujemo moderne, profesionalne i funkcionalne web stranice koje predstavljaju Vaš posao, privlače pažnju i pomažu Vam da budete vidljiviji online.",
+    "railContact": "Kontakt",
+    "railPhone": "Telefon",
+    "railTag": "Oglašavanje<br />s radošću ❤️",
+    "slogan": "Vaša ideja. Naša digitalna priča. ❤️",
+    "title": "Web stranice koje<br /><em>rade za vas.</em>"
+  },
+  "trust": {
+    "i1": {
+      "d": "Što ide na koju stranicu",
+      "t": "Struktura"
+    },
+    "i2": {
+      "d": "Izgled po Vašem brendu",
+      "t": "Dizajn"
+    },
+    "i3": {
+      "d": "Pišemo ih umjesto Vas",
+      "t": "Tekstovi"
+    },
+    "i4": {
+      "d": "Obrada i priprema za web",
+      "t": "Fotografije"
+    },
+    "i5": {
+      "d": "Registracija i postavljanje",
+      "t": "Domena"
+    },
+    "i6": {
+      "d": "Poslovni, na Vašoj domeni",
+      "t": "E-mail"
+    },
+    "i7": {
+      "d": "Da Vas ljudi pronađu",
+      "t": "Google"
+    },
+    "i8": {
+      "d": "Puštamo stranicu uživo",
+      "t": "Objava"
+    },
+    "i9": {
+      "d": "Brinemo i nakon objave",
+      "t": "Održavanje"
+    },
+    "sub": "Mi rješavamo sve, od ideje do objave:",
+    "title": "Vi ne morate znati kako napraviti <em>web stranicu.</em>"
+  }
+}
