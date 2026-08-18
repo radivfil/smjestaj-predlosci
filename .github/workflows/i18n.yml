@@ -46,6 +46,9 @@ jobs:
       - name: Provjeri round-trip (HR mora ostati identican)
         run: node tools/i18n.js verify
 
+      - name: Testiraj logiku odabira jezika
+        run: node tools/test-lang.js
+
       - name: Sagradi jezicne verzije
         run: node tools/i18n.js build
 

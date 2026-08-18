@@ -10,7 +10,14 @@
 (function () {
   "use strict";
 
-  var LANGS = ["hr", "en", "de", "es", "it"];
+  /* Popis jezika NE upisujemo rucno: build u izbornik stavlja samo jezike
+     koji stvarno postoje, pa ga citamo odande. Inace bismo posjetitelja s
+     njemackim preglednikom poslali na /de/ prije nego ta verzija postoji. */
+  var menu = document.getElementById("langMenu");
+  var opts = menu ? Array.prototype.slice.call(menu.querySelectorAll('[role="option"]')) : [];
+  var current = (document.documentElement.getAttribute("lang") || "hr").slice(0, 2).toLowerCase();
+  var LANGS = [current].concat(opts.map(function (a) { return a.getAttribute("data-lang"); }))
+    .filter(function (v, i, arr) { return v && arr.indexOf(v) === i; });
   var KEY = "lota-lang";
   var SESSION_KEY = "lota-lang-redirected";
 
@@ -24,7 +31,6 @@
     set: function () { try { sessionStorage.setItem(SESSION_KEY, "1"); } catch (e) {} }
   };
 
-  var current = (document.documentElement.getAttribute("lang") || "hr").slice(0, 2).toLowerCase();
   var pathFor = function (code) { return code === "hr" ? "/" : "/" + code + "/"; };
   var closest = function (el, sel) {
     return el && el.closest ? el.closest(sel) : null;
@@ -33,11 +39,8 @@
   /* ---------- 1. dropdown ---------- */
   var wrap = document.getElementById("lang");
   var btn = document.getElementById("langBtn");
-  var menu = document.getElementById("langMenu");
 
   if (wrap && btn && menu) {
-    var opts = Array.prototype.slice.call(menu.querySelectorAll('[role="option"]'));
-
     var isOpen = function () { return btn.getAttribute("aria-expanded") === "true"; };
     var setOpen = function (open) {
       wrap.classList.toggle("is-open", open);
