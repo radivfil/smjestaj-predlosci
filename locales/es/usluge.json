@@ -1,0 +1,21 @@
+{
+  "usluge": {
+    "eyebrow": "Servicios",
+    "i1": {
+      "t": "Una página a la medida de su negocio",
+      "d": "La página entera, del boceto a la publicación: diseño, textos, edición de fotos, galería, tarifas o servicios, mapa y formulario de contacto. Peluquería, consulta médica, restaurante, gimnasio o apartamento: montamos la estructura según cómo deciden realmente sus clientes. Entregamos terminado, no a medias."
+    },
+    "i2": {
+      "t": "Rediseño de una página existente",
+      "d": "¿Tiene una página que parece anticuada o se rompe en el móvil? Mantenemos el contenido y la dirección, y cambiamos el aspecto y la velocidad, sin perder su posición en Google."
+    },
+    "i3": {
+      "t": "Visibilidad en Google",
+      "d": "Cimientos técnicos, Perfil de Empresa en Google, textos escritos para la búsqueda y medición de resultados. Se explica en detalle en la sección de arriba."
+    },
+    "i4": {
+      "t": "Dominio, correo y mantenimiento",
+      "d": "Registro del dominio, correo profesional con su propio nombre en lugar de una dirección de Gmail, certificado SSL y cambios de contenido más adelante, cuando los necesite."
+    }
+  }
+}

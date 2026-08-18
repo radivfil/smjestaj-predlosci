@@ -119,6 +119,8 @@ function findNodes(html) {
   return out;
 }
 
+const SCRIPT_RE = new RegExp(String.raw`<script[sS]*?</script>`, "g");
+const TAG_RE = new RegExp(String.raw`<[^>]+>`, "g");
 const collapse = (s) => s.replace(/\s+/g, " ").trim();
 
 /* Tekst -> predlozak s {p0}, {p1}... umjesto formatiranih cijena. */
@@ -369,8 +371,22 @@ function verify() {
   const has = (l) => Object.keys(loadLocale(l.code)).some((k) => base[k] != null);
   const avail = LANGS.filter((l) => !l.dir || has(l));
   const out = render(html, { ...hr, dir: "" }, base, base, avail);
-  const textOf = (s) => collapse(
-    s.split("<body>")[1].replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ")
+  /* Generirane blokove (hreflang, izbornik jezika, JSON-LD) izuzimamo:
+     mijenjaju se kad se doda jezik, a nisu prijevod sadrzaja. */
+  const stripGen = (x) => {
+    ["alternates", "langmenu", "ldbiz", "ldfaq"].forEach((m) => {
+      const open = "<!-- i18n:" + m + " -->", close = "<!-- /i18n:" + m + " -->";
+      let i;
+      while ((i = x.indexOf(open)) !== -1) {
+        const j = x.indexOf(close, i);
+        if (j === -1) break;
+        x = x.slice(0, i) + x.slice(j + close.length);
+      }
+    });
+    return x;
+  };
+  const textOf = (str) => collapse(
+    stripGen(str).split("<body>")[1].replace(SCRIPT_RE, "").replace(TAG_RE, " ")
   );
   const a = textOf(html), b = textOf(out);
   if (a === b) { console.log("verify: OK — HR round-trip je identican (" + a.split(" ").length + " rijeci)"); return true; }

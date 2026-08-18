@@ -1,0 +1,21 @@
+{
+  "usluge": {
+    "eyebrow": "Leistungen",
+    "i1": {
+      "t": "Eine Webseite nach Maß Ihres Geschäfts",
+      "d": "Die ganze Seite von der Skizze bis zum Start: Design, Texte, Bildbearbeitung, Galerie, Preisliste oder Leistungen, Karte und Anfrageformular. Salon, Praxis, Restaurant, Fitnessstudio oder Ferienwohnung — die Struktur richtet sich danach, wie Ihre Kunden tatsächlich entscheiden. Wir liefern fertig, nicht halbfertig."
+    },
+    "i2": {
+      "t": "Redesign einer bestehenden Seite",
+      "d": "Sie haben eine Seite, die veraltet aussieht oder am Handy auseinanderfällt? Wir behalten Inhalt und Adresse und ändern Aussehen und Tempo — ohne Ihre Position bei Google zu verlieren."
+    },
+    "i3": {
+      "t": "Sichtbarkeit bei Google",
+      "d": "Technisches Fundament, Google Unternehmensprofil, Texte für die Suche und Messung der Ergebnisse. Ausführlich im Abschnitt darüber beschrieben."
+    },
+    "i4": {
+      "t": "Domain, E-Mail und Betreuung",
+      "d": "Domainregistrierung, eine geschäftliche E-Mail auf Ihren Namen statt einer Gmail-Adresse, SSL-Zertifikat und spätere Inhaltsänderungen, wann immer Sie sie brauchen."
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "faq": {
+    "eyebrow": "Fragen",
+    "title": "Fragen und <em>Antworten.</em>",
+    "lead": "Das, was Kunden uns vor dem Start am häufigsten fragen. Steht Ihre Frage nicht dabei, schreiben Sie uns einfach.",
+    "q1": "Wie lange dauert die Erstellung einer Webseite?",
+    "a1": "Üblich sind bis zu 2 Wochen ab dem Moment, in dem die Inhalte abgestimmt sind und wir Ihre Unterlagen haben. Ein größerer Umfang — mehr Unterseiten, Buchungen oder ein Onlineshop — kann länger dauern. Den genauen Termin legen wir am Anfang fest und halten Sie auf dem Laufenden.",
+    "q2": "Muss ich die Texte selbst vorbereiten?",
+    "a2": "Müssen Sie nicht. Haben Sie schon Texte, verwenden wir sie gern. Haben Sie keine, schreiben wir sie — auf Grundlage eines kurzen Gesprächs darüber, was Sie tun und wer Ihre Kunden sind. Sie lesen sie nur durch und geben sie frei.",
+    "q3": "Muss ich Fotos haben?",
+    "a3": "Ja. Wir brauchen Fotos von Ihren Räumen, Ihren Produkten oder Ihrer Arbeit — sie zeigen, was Sie tatsächlich anbieten, und kein gekauftes Foto kann sie ersetzen. Sie schicken sie uns, wir bearbeiten, schneiden zu und machen sie webfertig.",
+    "q4": "Ist die Domain enthalten?",
+    "a4": "Ja. Die Registrierung der Domain und die gesamte technische Einrichtung übernehmen wir, und die Domain ist in dem Preis enthalten, den wir am Ende gemeinsam festlegen — der endgültige Betrag hängt von der gewählten Endung ab (.hr, .com und so weiter). Die Domain läuft auf Ihren Namen und bleibt Ihre.",
+    "q5": "Was, wenn ich schon eine Webseite habe?",
+    "a5": "Dann machen wir ein Redesign: Inhalt und bestehende Adresse bleiben, Aussehen, Tempo und Struktur ändern sich — ohne Ihre Position bei Google zu verlieren. Ist die Seite selbst in Ordnung und nur die Sichtbarkeit das Problem, gibt es dafür die eigene Leistung Google-Sichtbarkeit.",
+    "q6": "Kann ich die Inhalte später selbst ändern?",
+    "a6": "Können Sie. Nach dem Start zeigen wir Ihnen, wie Sie Texte, Preise und Fotos selbst ändern. Wenn Sie lieber nicht wollen oder keine Zeit haben, gehören kleine Änderungen zur Betreuung und wir machen sie für Sie.",
+    "q7": "Was umfasst die Betreuung?",
+    "a7": "Hosting, SSL-Zertifikat, Sicherheitsupdates und Backups, Überwachung, dass die Seite läuft, und kleine Inhaltsänderungen. Der Betrag steht vorab fest — keine Abrechnung nach Stunden, keine Rechnung, die Sie überrascht.",
+    "q8": "Kann ich die Seite in mehreren Sprachen haben?",
+    "a8": "Ja, Mehrsprachigkeit ist in jedem Paket enthalten. Üblich sind Kroatisch, Englisch, Deutsch und Italienisch, aber wir ergänzen jede Sprache, die Sie brauchen.",
+    "q9": "Können Sie Online-Buchungen einrichten?",
+    "a9": "Können wir. Ein Buchungssystem mit Belegungskalender gehört zum Premium-Paket, nach Absprache ergänzen wir es auch in einem kleineren Paket. Der Kalender lässt sich mit Booking.com und Airbnb synchronisieren, so gibt es keine Doppelbuchungen.",
+    "q10": "Kann ich Zahlungen online annehmen?",
+    "a10": "Ja. Wir richten Kartenzahlung über etablierte Anbieter ein. Das Geld geht direkt auf Ihr Konto — wir sind kein Vermittler bei der Zahlung.",
+    "q11": "Bauen Sie Onlineshops?",
+    "a11": "Bauen wir. Ein Onlineshop beginnt ab 699 €, der endgültige Preis hängt von der Zahl der Produkte, den Zahlungs- und Versandarten und den benötigten Integrationen ab."
+  }
+}

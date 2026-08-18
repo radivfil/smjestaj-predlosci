@@ -1,0 +1,21 @@
+{
+  "usluge": {
+    "eyebrow": "Servizi",
+    "i1": {
+      "t": "Un sito su misura per la vostra attività",
+      "d": "Tutto il sito, dallo schizzo alla pubblicazione: design, testi, ritocco delle foto, galleria, listino o servizi, mappa e modulo di richiesta. Salone, studio medico, ristorante, palestra o appartamento: costruiamo la struttura secondo il modo in cui i vostri clienti decidono davvero. Consegniamo finito, non a metà."
+    },
+    "i2": {
+      "t": "Restyling di un sito esistente",
+      "d": "Avete un sito che sembra datato o si sfalda sul telefono? Manteniamo contenuti e indirizzo e cambiamo aspetto e velocità, senza perdere la vostra posizione su Google."
+    },
+    "i3": {
+      "t": "Visibilità su Google",
+      "d": "Fondamenta tecniche, profilo dell'attività su Google, testi scritti per la ricerca e misurazione dei risultati. Spiegato in dettaglio nella sezione qui sopra."
+    },
+    "i4": {
+      "t": "Dominio, e-mail e manutenzione",
+      "d": "Registrazione del dominio, e-mail professionale a vostro nome al posto di un indirizzo Gmail, certificato SSL e modifiche ai contenuti in seguito, quando vi servono."
+    }
+  }
+}

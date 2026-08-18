@@ -1,0 +1,63 @@
+{
+  "paketi": {
+    "eyebrow": "Paquetes",
+    "title": "Precio claro para la creación,<br /><em>precio claro para el mantenimiento.</em>",
+    "p1": "No hacemos solo una página web. Le ayudamos a que su negocio sea visible allí donde sus futuros clientes ya están buscando: en Google.",
+    "p2": "La creación se paga <strong>una sola vez</strong> y usted conoce el precio antes de empezar. El mantenimiento es un importe aparte, fijado de antemano: alojamiento, seguridad, actualizaciones y pequeños cambios de contenido van incluidos. Sin facturación por horas y sin facturas que le sorprendan.",
+    "cta": "Elegir este paquete",
+    "note": "Páginas adicionales, tienda online, reservas, pago en línea, agentes de IA y otras funciones están disponibles según lo que necesite su negocio.",
+    "basic": {
+      "price": "Desde {p0}",
+      "maint": "Mantenimiento <b>{p0} al mes</b> o <b>{p1} al año</b> <span>{p2} a precio mensual → {p3} pagando al año, un ahorro de {p4}</span>",
+      "b1": "Hasta 5 páginas",
+      "b2": "Diseño profesional",
+      "b3": "Adaptada a móviles, tabletas y ordenadores",
+      "b4": "Varios idiomas",
+      "b5": "SEO básico",
+      "b6": "Formulario de contacto y Google Maps"
+    },
+    "business": {
+      "price": "Desde {p0}",
+      "maint": "Mantenimiento <b>{p0} al mes</b> o <b>{p1} al año</b> <span>{p2} a precio mensual → {p3} pagando al año, un ahorro de {p4}</span>",
+      "b1": "Todo lo del paquete Basic",
+      "b2": "Hasta 10 páginas",
+      "b3": "Perfil de Empresa en Google",
+      "b4": "Estructura SEO y redacción de textos",
+      "b5": "Analítica y medición",
+      "b6": "Blog",
+      "b7": "Formularios avanzados e integraciones",
+      "b8": "Soporte prioritario"
+    },
+    "premium": {
+      "price": "Desde {p0}",
+      "maint": "Mantenimiento <b>{p0} al mes</b> o <b>{p1} al año</b> <span>{p2} a precio mensual → {p3} pagando al año, un ahorro de {p4}</span>",
+      "b1": "Todo lo del paquete Business",
+      "b2": "Hasta 15 páginas",
+      "b3": "Reservas en línea",
+      "b4": "Pago en línea",
+      "b5": "Agente de IA / chatbot",
+      "b6": "SEO avanzado",
+      "b7": "Analítica avanzada"
+    },
+    "gv": {
+      "title": "Visibilidad en Google",
+      "price": "Desde {p0}",
+      "lead": "Su entrada en el proceso de visibilidad en Google: la configuración básica y la optimización. Para quien ya tiene una página web y quiere que la gente la encuentre.",
+      "next": "Tras los primeros resultados le proponemos un plan adaptado para seguir creciendo, según sus objetivos y su mercado.",
+      "maint": "+ <b>{p0} al mes</b> de seguimiento y optimización continuos",
+      "cta": "Pida un análisis gratuito y un presupuesto a medida",
+      "listTitle": "Qué incluye",
+      "b1": "Creación y optimización de su Perfil de Empresa en Google",
+      "b2": "Una auditoría SEO técnica básica",
+      "b3": "Títulos y descripciones optimizados para una o dos páginas clave",
+      "b4": "Configuración de Google Search Console y Analytics",
+      "b5": "Un informe inicial con recomendaciones"
+    },
+    "webshop": {
+      "title": "Tienda online",
+      "price": "Desde {p0}",
+      "d": "Una tienda online hecha a la medida de su negocio. El precio exacto depende de las funciones y del alcance del proyecto.",
+      "cta": "Contacte con nosotros"
+    }
+  }
+}

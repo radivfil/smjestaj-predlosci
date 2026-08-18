@@ -1,0 +1,22 @@
+{
+  "proces": {
+    "eyebrow": "Ablauf",
+    "title": "Vom ersten Anruf bis zum Start<br />in <em>vier Schritten</em>.",
+    "i1": {
+      "t": "Gespräch",
+      "d": "Wir lernen Ihr Geschäft kennen, wer Ihre Kunden sind und was die Seite erreichen muss. Wir legen Umfang und Paket fest, Sie bekommen Preis und Termin, unverbindlich."
+    },
+    "i2": {
+      "t": "Design",
+      "d": "Wir gestalten das Aussehen aus Ihren Fotos und Ihrer Marke. Sie sehen und kommentieren es, bevor wir bauen."
+    },
+    "i3": {
+      "t": "Umsetzung",
+      "d": "Wir bauen die Seite, schreiben die Texte, bearbeiten die Fotos und legen das Fundament für Google."
+    },
+    "i4": {
+      "t": "Start",
+      "d": "Domain, E-Mail, SSL und Veröffentlichung. Die Seite gehört Ihnen — wir zeigen Ihnen, wie Sie sie selbst ändern."
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "radovi": {
+    "eyebrow": "Referenzen",
+    "title": "Seiten, an denen<br /><em>wir gearbeitet haben.</em>",
+    "lead": "Drei Objekte, drei verschiedene Umfänge — von der einseitigen Visitenkarte bis zum System mit Buchungen und Kalendersynchronisation. Klicken Sie sich durch und sehen Sie die Seite genau so, wie ein Gast sie sieht.",
+    "cardCta": "Seite ansehen",
+    "i1": {
+      "d": "Drei Apartments, vier Sprachen und ein echtes Buchungssystem mit Kartenzahlung. Dazu kommen ein Eigentümerbereich und Kalendersynchronisation mit Booking.com und Airbnb.",
+      "m1": "Eigentümerbereich",
+      "m2": "iCal-Sync",
+      "m3": "Stripe"
+    },
+    "i2": {
+      "d": "Zwei Apartments im selben Haus in Petrčane bei Zadar. Garten und Terrasse, Balkon, kostenloser Parkplatz und direkte Anfrage — ohne Vermittler und ohne Provision.",
+      "m1": "Zwei Apartments",
+      "m2": "Galerie",
+      "m3": "Anfrage"
+    },
+    "i3": {
+      "d": "Eine Wohnung mit Terrasse und Meerblick auf der Halbinsel Pelješac. Galerie, Saisonpreise, Karte und Kontakt — alles auf einer schnellen Seite.",
+      "m1": "Galerie",
+      "m2": "Preisliste",
+      "m3": "Karte"
+    }
+  }
+}

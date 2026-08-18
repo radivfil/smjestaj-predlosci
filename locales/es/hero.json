@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "ctaPrimary": "Pedir presupuesto",
+    "ctaSecondary": "Ver nuestros trabajos",
+    "eyebrow": "Web &amp; soluciones digitales",
+    "lead": "Creamos páginas web modernas y profesionales que presentan bien su negocio, mantienen la atención y hacen que le encuentren más fácilmente en internet.",
+    "railContact": "Contacto",
+    "railPhone": "Teléfono",
+    "railTag": "Publicidad<br />hecha con gusto ❤️",
+    "slogan": "Su idea. Nuestra historia digital. ❤️",
+    "title": "Páginas web que<br /><em>trabajan para usted.</em>"
+  },
+  "trust": {
+    "title": "No hace falta que sepa cómo se hace una <em>página web.</em>",
+    "sub": "Nosotros nos ocupamos de todo, de la idea a la publicación:",
+    "i1": { "t": "Estructura", "d": "Qué va en cada página" },
+    "i2": { "t": "Diseño", "d": "A la medida de su marca" },
+    "i3": { "t": "Textos", "d": "Los escribimos nosotros" },
+    "i4": { "t": "Fotos", "d": "Editadas y listas para la web" },
+    "i5": { "t": "Dominio", "d": "Registro y configuración" },
+    "i6": { "t": "Correo", "d": "Profesional, en su dominio" },
+    "i7": { "t": "Google", "d": "Para que le encuentren" },
+    "i8": { "t": "Publicación", "d": "Ponemos la página en línea" },
+    "i9": { "t": "Mantenimiento", "d": "Seguimos después de publicar" }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "radovi": {
+    "eyebrow": "Lavori",
+    "title": "Siti su cui<br /><em>abbiamo lavorato.</em>",
+    "lead": "Tre strutture, tre ampiezze diverse: dal biglietto da visita di una sola pagina al sistema con prenotazioni e sincronizzazione dei calendari. Entrate e guardate il sito esattamente come lo vede un ospite.",
+    "cardCta": "Guarda il sito",
+    "i1": {
+      "d": "Tre appartamenti, quattro lingue e un vero sistema di prenotazione con pagamento con carta. Il sito comprende un pannello per il proprietario e la sincronizzazione dei calendari con Booking.com e Airbnb.",
+      "m1": "Pannello proprietario",
+      "m2": "Sincronizzazione iCal",
+      "m3": "Stripe"
+    },
+    "i2": {
+      "d": "Due appartamenti nello stesso edificio a Petrčane, vicino a Zara. Giardino e terrazza, balcone, parcheggio gratuito e richiesta diretta, senza intermediari né commissioni.",
+      "m1": "Due appartamenti",
+      "m2": "Galleria",
+      "m3": "Richiesta"
+    },
+    "i3": {
+      "d": "Un appartamento con terrazza e vista mare sulla penisola di Pelješac. Galleria, listino per stagione, mappa e contatti: tutto su una sola pagina veloce.",
+      "m1": "Galleria",
+      "m2": "Listino",
+      "m3": "Mappa"
+    }
+  }
+}

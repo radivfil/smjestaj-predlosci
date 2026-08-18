@@ -1,0 +1,35 @@
+{
+  "common": { "oneTime": "una tantum" },
+  "drawer": {
+    "about": "Chi siamo",
+    "contact": "Contatti",
+    "faq": "Domande e risposte",
+    "packages": "Pacchetti",
+    "promo": "Promozione",
+    "services": "Servizi",
+    "visibility": "Visibilità",
+    "works": "Lavori"
+  },
+  "foot": { "tagline": "Siti web e soluzioni digitali<br />Pubblicità fatta con piacere ❤️" },
+  "lang": { "label": "Lingua del sito", "menuLabel": "Scegliete una lingua" },
+  "meta": {
+    "description": "Lota Studio realizza siti web moderni e soluzioni digitali per ogni settore — saloni, studi medici, ristoranti, artigiani e strutture ricettive. Design, realizzazione e visibilità su Google, telemarketing e promozione dal vivo — con un prezzo chiaro per la realizzazione e per la manutenzione.",
+    "ogDescription": "Design, realizzazione e visibilità su Google per ogni settore — con un prezzo chiaro per la realizzazione e la manutenzione.",
+    "ogTitle": "Lota Studio — siti web e soluzioni digitali",
+    "schemaDescription": "Siti web e soluzioni digitali — design, realizzazione e visibilità su Google.",
+    "title": "Lota Studio — siti web e soluzioni digitali"
+  },
+  "nav": {
+    "about": "Chi siamo",
+    "burgerAria": "Apri il menu",
+    "cta": "Richiedi un preventivo",
+    "faq": "Domande",
+    "logoAlt": "Lota Studio",
+    "logoAria": "Lota Studio — home",
+    "menuAria": "Menu principale",
+    "packages": "Pacchetti",
+    "promo": "Promozione",
+    "services": "Servizi",
+    "works": "Lavori"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "proces": {
+    "eyebrow": "Come lavoriamo",
+    "title": "Dalla prima telefonata alla pubblicazione<br />in <em>quattro passi</em>.",
+    "i1": {
+      "t": "Colloquio",
+      "d": "Conosciamo la vostra attività, chi sono i vostri clienti e cosa deve ottenere il sito. Concordiamo l'ampiezza e il pacchetto, voi ricevete prezzo e tempi, senza impegno."
+    },
+    "i2": {
+      "t": "Design",
+      "d": "Componiamo l'aspetto a partire dalle vostre foto e dal vostro marchio. Lo vedete e lo commentate prima che iniziamo a costruire."
+    },
+    "i3": {
+      "t": "Realizzazione",
+      "d": "Costruiamo il sito, scriviamo i testi, ritocchiamo le foto e posiamo le fondamenta per Google."
+    },
+    "i4": {
+      "t": "Pubblicazione",
+      "d": "Dominio, e-mail, SSL e messa online. Il sito è vostro: vi mostriamo come modificarlo da soli."
+    }
+  }
+}

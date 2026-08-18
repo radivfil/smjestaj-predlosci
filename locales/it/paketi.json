@@ -1,0 +1,63 @@
+{
+  "paketi": {
+    "eyebrow": "Pacchetti",
+    "title": "Prezzo chiaro per la realizzazione,<br /><em>prezzo chiaro per la manutenzione.</em>",
+    "p1": "Non facciamo soltanto un sito. Vi aiutiamo a rendere visibile la vostra attività dove i vostri futuri clienti stanno già cercando: su Google.",
+    "p2": "La realizzazione si paga <strong>una volta sola</strong> e il prezzo lo conoscete prima di iniziare. La manutenzione è un importo a parte, stabilito in anticipo: hosting, sicurezza, aggiornamenti e piccole modifiche ai contenuti sono compresi. Nessun conteggio a ore, nessuna fattura a sorpresa.",
+    "cta": "Scegli questo pacchetto",
+    "note": "Pagine aggiuntive, negozio online, prenotazioni, pagamento online, agenti IA e altre funzioni sono disponibili secondo le esigenze della vostra attività.",
+    "basic": {
+      "price": "Da {p0}",
+      "maint": "Manutenzione <b>{p0} al mese</b> oppure <b>{p1} all'anno</b> <span>{p2} a tariffa mensile → {p3} pagando annualmente, un risparmio di {p4}</span>",
+      "b1": "Fino a 5 pagine",
+      "b2": "Design professionale",
+      "b3": "Adattato a telefoni, tablet e computer",
+      "b4": "Più lingue",
+      "b5": "SEO di base",
+      "b6": "Modulo di contatto e Google Maps"
+    },
+    "business": {
+      "price": "Da {p0}",
+      "maint": "Manutenzione <b>{p0} al mese</b> oppure <b>{p1} all'anno</b> <span>{p2} a tariffa mensile → {p3} pagando annualmente, un risparmio di {p4}</span>",
+      "b1": "Tutto il pacchetto Basic",
+      "b2": "Fino a 10 pagine",
+      "b3": "Profilo dell'attività su Google",
+      "b4": "Struttura SEO e stesura dei testi",
+      "b5": "Analytics e misurazione",
+      "b6": "Blog",
+      "b7": "Moduli avanzati e integrazioni",
+      "b8": "Assistenza prioritaria"
+    },
+    "premium": {
+      "price": "Da {p0}",
+      "maint": "Manutenzione <b>{p0} al mese</b> oppure <b>{p1} all'anno</b> <span>{p2} a tariffa mensile → {p3} pagando annualmente, un risparmio di {p4}</span>",
+      "b1": "Tutto il pacchetto Business",
+      "b2": "Fino a 15 pagine",
+      "b3": "Prenotazioni online",
+      "b4": "Pagamento online",
+      "b5": "Agente IA / chatbot",
+      "b6": "SEO avanzata",
+      "b7": "Analytics avanzata"
+    },
+    "gv": {
+      "title": "Visibilità su Google",
+      "price": "Da {p0}",
+      "lead": "Il vostro ingresso nel percorso di visibilità su Google: la configurazione di base e l'ottimizzazione. Per chi ha già un sito e vuole che la gente lo trovi.",
+      "next": "Dopo i primi risultati proponiamo un piano su misura per crescere ancora, in base ai vostri obiettivi e al vostro mercato.",
+      "maint": "+ <b>{p0} al mese</b> per monitoraggio e ottimizzazione continui",
+      "cta": "Richiedete un'analisi gratuita e un preventivo su misura",
+      "listTitle": "Cosa è compreso",
+      "b1": "Creazione e ottimizzazione del vostro profilo attività su Google",
+      "b2": "Un audit SEO tecnico di base",
+      "b3": "Titoli e descrizioni ottimizzati per una o due pagine chiave",
+      "b4": "Configurazione di Google Search Console e Analytics",
+      "b5": "Un primo report con le raccomandazioni"
+    },
+    "webshop": {
+      "title": "Negozio online",
+      "price": "Da {p0}",
+      "d": "Un negozio online costruito sul modo in cui lavora la vostra attività. Il prezzo esatto dipende dalle funzioni e dall'ampiezza del progetto.",
+      "cta": "Contattateci"
+    }
+  }
+}
