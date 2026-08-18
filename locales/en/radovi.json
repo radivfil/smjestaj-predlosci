@@ -1,0 +1,26 @@
+{
+  "radovi": {
+    "eyebrow": "Our work",
+    "title": "Sites we have<br /><em>worked on.</em>",
+    "lead": "Three properties, three different scopes — from a one-page calling card to a system with bookings and calendar sync. Click through to see the site exactly as a guest sees it.",
+    "cardCta": "View the site",
+    "i1": {
+      "d": "Three flats, four languages and a real booking system with card payment. The site comes with an owner's panel and calendar sync with Booking.com and Airbnb.",
+      "m1": "Owner's panel",
+      "m2": "iCal sync",
+      "m3": "Stripe"
+    },
+    "i2": {
+      "d": "Two flats in the same building in Petrčane near Zadar. Garden and terrace, balcony, free parking and direct enquiries — no middlemen, no commission.",
+      "m1": "Two flats",
+      "m2": "Gallery",
+      "m3": "Enquiry"
+    },
+    "i3": {
+      "d": "A flat with a terrace and a sea view on the Pelješac peninsula. Gallery, seasonal price list, map and contact — all on one fast page.",
+      "m1": "Gallery",
+      "m2": "Price list",
+      "m3": "Map"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "usluge": {
+    "eyebrow": "Usluge",
+    "i1": {
+      "d": "Cijela stranica od skice do objave: dizajn, tekstovi, obrada fotografija, galerija, cjenik ili usluge, karta i obrazac za upit. Salon, ordinacija, restoran, teretana ili apartman — strukturu slažemo prema tome kako vaši klijenti stvarno donose odluku. Isporučujemo gotovo, ne polugotovo.",
+      "t": "Web stranica po mjeri vašeg posla"
+    },
+    "i2": {
+      "d": "Imate stranicu koja izgleda zastarjelo ili se raspada na mobitelu? Zadržavamo sadržaj i adresu, mijenjamo izgled i brzinu — bez gubitka pozicije na Googleu.",
+      "t": "Redizajn postojeće stranice"
+    },
+    "i3": {
+      "d": "Tehnički temelji, Google poslovni profil, tekstovi pisani za pretragu i mjerenje rezultata. Detaljno je opisano u sekciji iznad.",
+      "t": "Vidljivost na Googleu"
+    },
+    "i4": {
+      "d": "Registracija domene, poslovni e-mail na vašem imenu umjesto gmaila, SSL certifikat i kasnije izmjene sadržaja kad vam zatrebaju.",
+      "t": "Domena, e-mail i održavanje"
+    }
+  }
+}
