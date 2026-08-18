@@ -489,7 +489,7 @@ de: {
 
   "home.rooms.eyebrow": "Apartments",
   "home.rooms.h2": "Drei Apartments, drei verschiedene Stimmungen",
-  "home.rooms.p": "Erdgeschoss mit überdachter Terrasse im Garten, Apartment in der ersten Etage 1 mit Balkon und Apartment in der ersten Etage 2 für zwei. Alle mit Klimaanlage, Küche, WLAN und Parkplatz.",
+  "home.rooms.p": "Erdgeschoss mit überdachter Terrasse im Garten, Apartment 1 in der ersten Etage mit Balkon und Apartment 2 in der ersten Etage für zwei. Alle mit Klimaanlage, Küche, WLAN und Parkplatz.",
 
   "home.gallery.eyebrow": "Galerie",
   "home.gallery.h2": "Haus und Garten",
@@ -531,9 +531,9 @@ de: {
 
   "unit.a1.name": "Apartment im Erdgeschoss",
   "unit.a1.desc": "Erdgeschossapartment mit Zugang zur überdachten Terrasse und zum Garten, im Sommer der beliebteste Teil des Hauses. Großer Tisch draußen, Vorhänge für Schatten und wenige Schritte zum Grill. Praktisch für Familien mit kleinen Kindern, da der Hof stufenlos erreichbar ist.",
-  "unit.a2.name": "Apartment in der ersten Etage 1",
+  "unit.a2.name": "Apartment 1 in der ersten Etage",
   "unit.a2.desc": "Das größere der beiden Apartments in der ersten Etage, mit eigenem Balkon über dem Garten und das hellste im Haus. Durch die Lage fängt es die Nachmittagsbrise ein, und zwischen den Baumkronen zeigt sich das Meer. Für bis zu fünf Personen.",
-  "unit.a3.name": "Apartment in der ersten Etage 2",
+  "unit.a3.name": "Apartment 2 in der ersten Etage",
   "unit.a3.desc": "Das kleinere der beiden Apartments in der ersten Etage, für zwei, ruhig und abseits des Hofes. Für Paare, die nur ein gutes Bett, Klimaanlage und fünf Minuten zum Meer brauchen, und einen Platz für den Sonnenuntergang.",
 
   "feat.terrace": "Überdachte Terrasse", "feat.balcony": "Eigener Balkon", "feat.ac": "Klimaanlage",
@@ -548,7 +548,7 @@ de: {
   "gal.filter.all": "Alle", "gal.filter.interior": "Innen", "gal.filter.exterior": "Haus und Garten",
   "gal.filter.surroundings": "Umgebung", "gal.filter.activities": "Aktivitäten",
   "gal.facade": "Villa Emilia vom Hof aus", "gal.terrace": "Überdachte Terrasse mit Esstisch",
-  "gal.garden": "Gepflasterter Weg durch den Garten zum Grill", "gal.balcony": "Balkon des Apartments in der ersten Etage 1",
+  "gal.garden": "Gepflasterter Weg durch den Garten zum Grill", "gal.balcony": "Balkon des Apartments 1 in der ersten Etage",
   "gal.side": "Hausseite und Olivengarten", "gal.yard": "Hof und Parkfläche",
   "gal.balconies": "Balkone zum Garten", "gal.fig": "Das Haus aus dem Schatten des Feigenbaums",
   "gal.lemons": "Zitronen aus unserem Garten", "gal.sunset": "Sonnenuntergang über dem Meer, wenige Minuten vom Haus",
@@ -702,7 +702,7 @@ it: {
 
   "home.rooms.eyebrow": "Appartamenti",
   "home.rooms.h2": "Tre appartamenti, tre atmosfere diverse",
-  "home.rooms.p": "Piano terra con terrazza coperta nel giardino, appartamento al primo piano 1 con balcone e appartamento al primo piano 2 per due. Tutti con aria condizionata, cucina attrezzata, WiFi e parcheggio.",
+  "home.rooms.p": "Piano terra con terrazza coperta nel giardino, appartamento 1 al primo piano con balcone e appartamento 2 al primo piano per due. Tutti con aria condizionata, cucina attrezzata, WiFi e parcheggio.",
 
   "home.gallery.eyebrow": "Galleria",
   "home.gallery.h2": "La casa e il giardino",
@@ -744,9 +744,9 @@ it: {
 
   "unit.a1.name": "Appartamento al piano terra",
   "unit.a1.desc": "Appartamento al piano terra con uscita sulla terrazza coperta e sul giardino, d'estate la parte più richiesta della casa. Tavolo grande all'aperto, tende per l'ombra e pochi passi dalla griglia. Comodo per famiglie con bambini piccoli, perché il cortile non ha gradini.",
-  "unit.a2.name": "Appartamento al primo piano 1",
+  "unit.a2.name": "Appartamento 1 al primo piano",
   "unit.a2.desc": "Il più grande dei due appartamenti al primo piano, con balcone privato sopra il giardino e il più luminoso della casa. Per la sua posizione prende la brezza del pomeriggio e tra le chiome si intravede il mare. Ospita fino a cinque persone.",
-  "unit.a3.name": "Appartamento al primo piano 2",
+  "unit.a3.name": "Appartamento 2 al primo piano",
   "unit.a3.desc": "Il più piccolo dei due appartamenti al primo piano, per due, tranquillo e defilato rispetto al cortile. Per coppie a cui basta un buon letto, l'aria condizionata e cinque minuti dal mare, e un posto da cui guardare il tramonto.",
 
   "feat.terrace": "Terrazza coperta", "feat.balcony": "Balcone privato", "feat.ac": "Aria condizionata",
@@ -761,7 +761,7 @@ it: {
   "gal.filter.all": "Tutto", "gal.filter.interior": "Interni", "gal.filter.exterior": "Casa e giardino",
   "gal.filter.surroundings": "Dintorni", "gal.filter.activities": "Attività",
   "gal.facade": "Villa Emilia vista dal cortile", "gal.terrace": "Terrazza coperta con tavolo da pranzo",
-  "gal.garden": "Vialetto nel giardino verso la griglia", "gal.balcony": "Balcone dell'appartamento al primo piano 1",
+  "gal.garden": "Vialetto nel giardino verso la griglia", "gal.balcony": "Balcone dell'appartamento 1 al primo piano",
   "gal.side": "Lato della casa e giardino di ulivi", "gal.yard": "Cortile e area parcheggio",
   "gal.balconies": "Balconi verso il giardino", "gal.fig": "La casa dall'ombra del fico",
   "gal.lemons": "Limoni del nostro giardino", "gal.sunset": "Tramonto sul mare, a pochi minuti dalla casa",
