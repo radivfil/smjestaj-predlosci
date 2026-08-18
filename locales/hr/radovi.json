@@ -1,0 +1,26 @@
+{
+  "radovi": {
+    "cardCta": "Pogledaj stranicu",
+    "eyebrow": "Radovi",
+    "i1": {
+      "d": "Tri apartmana, četiri jezika i pravi sustav rezervacije s plaćanjem karticom. Uz stranicu ide vlasnički panel i sinkronizacija kalendara s Booking.com-om i Airbnb-om.",
+      "m1": "Vlasnički panel",
+      "m2": "iCal sync",
+      "m3": "Stripe"
+    },
+    "i2": {
+      "d": "Dva apartmana u istoj zgradi u Petrčanima kraj Zadra. Vrt i terasa, balkon, besplatan parking i izravan upit — bez posrednika i provizije.",
+      "m1": "Dva apartmana",
+      "m2": "Galerija",
+      "m3": "Upit"
+    },
+    "i3": {
+      "d": "Apartman s terasom i pogledom na more na Pelješcu. Galerija, cjenik po sezoni, karta i kontakt — sve na jednoj brzoj stranici.",
+      "m1": "Galerija",
+      "m2": "Cjenik",
+      "m3": "Karta"
+    },
+    "lead": "Tri objekta, tri različita opsega — od jednostranične vizitke do sustava s rezervacijama i sinkronizacijom kalendara. Kliknite da vidite stranicu kakvu gost stvarno vidi.",
+    "title": "Stranice na kojima<br /><em>smo radili.</em>"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "common": {
+    "oneTime": "one-off"
+  },
+  "drawer": {
+    "about": "About us",
+    "contact": "Contact",
+    "faq": "Questions and answers",
+    "packages": "Packages",
+    "promo": "Promotion",
+    "services": "Services",
+    "visibility": "Visibility",
+    "works": "Our work"
+  },
+  "foot": {
+    "tagline": "Websites and digital solutions<br />Advertising, with joy ❤️"
+  },
+  "lang": {
+    "label": "Site language",
+    "menuLabel": "Choose a language"
+  },
+  "meta": {
+    "description": "Lota Studio builds modern websites and digital solutions for every line of work — salons, medical practices, restaurants, trades and holiday rentals. Design, build and visibility on Google, telephone marketing and live promotion — with a clear price for both the build and the upkeep.",
+    "ogDescription": "Design, build and visibility on Google for every line of work — with a clear price for the build and the upkeep.",
+    "ogTitle": "Lota Studio — websites and digital solutions",
+    "schemaDescription": "Websites and digital solutions — design, build and visibility on Google.",
+    "title": "Lota Studio — websites and digital solutions"
+  },
+  "nav": {
+    "about": "About",
+    "burgerAria": "Open menu",
+    "cta": "Request a quote",
+    "faq": "FAQ",
+    "logoAlt": "Lota Studio",
+    "logoAria": "Lota Studio — home",
+    "menuAria": "Main menu",
+    "packages": "Packages",
+    "promo": "Promotion",
+    "services": "Services",
+    "works": "Work"
+  }
+}

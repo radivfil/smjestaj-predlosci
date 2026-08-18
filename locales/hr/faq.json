@@ -1,0 +1,29 @@
+{
+  "faq": {
+    "a1": "Uobičajen rok je do 2 tjedna od trenutka kad dogovorimo sadržaj i dobijemo materijale. Veći opseg — više podstranica, rezervacije ili webshop — može potrajati dulje. Točan rok dogovorimo na početku i držimo Vas u tijeku.",
+    "a10": "Da. Postavljamo plaćanje karticom preko provjerenih servisa. Novac ide izravno na Vaš račun — mi nismo posrednik u naplati.",
+    "a11": "Radimo. Webshop kreće od 699 €, a konačna cijena ovisi o broju proizvoda, načinima plaćanja i dostave te integracijama koje su Vam potrebne.",
+    "a2": "Ne morate. Ako imate gotove tekstove, rado ih koristimo. Ako nemate, pišemo ih mi — na temelju kratkog razgovora o tome čime se bavite i tko su Vaši klijenti. Vi ih samo pročitate i potvrdite.",
+    "a3": "Da. Fotografije Vašeg prostora, proizvoda ili radova su nam potrebne — one prikazuju ono što stvarno nudite i nijedna kupljena fotografija ih ne može zamijeniti. Vi ih pošaljete, a mi ih obradimo, izrežemo i pripremimo za web.",
+    "a4": "Jest. Registraciju domene i cijelo tehničko postavljanje odrađujemo mi, a domena je uključena u cijenu koju zajedno definiramo na kraju — konačan iznos ovisi o nastavku koji odaberete (.hr, .com i slično). Domena je registrirana na Vaše ime i ostaje Vaša.",
+    "a5": "Onda radimo redizajn: zadržavamo sadržaj i postojeću adresu, a mijenjamo izgled, brzinu i strukturu — bez gubitka pozicije na Googleu. Ako je stranica u redu, a problem je samo vidljivost, tu je zasebna usluga Google vidljivosti.",
+    "a6": "Možete. Nakon objave pokažemo Vam kako sami mijenjate tekstove, cijene i fotografije. Ako Vam se ne da ili nemate vremena, sitne izmjene ulaze u održavanje pa ih odradimo mi.",
+    "a7": "Hosting, SSL certifikat, sigurnosna ažuriranja i sigurnosne kopije, praćenje rada stranice i sitne izmjene sadržaja. Iznos je unaprijed poznat — nema naplate po satu ni računa koji Vas iznenadi.",
+    "a8": "Da, višejezičnost je uključena u sve pakete. Najčešće su to hrvatski, engleski, njemački i talijanski, ali dodajemo bilo koji jezik koji Vam treba.",
+    "a9": "Možemo. Sustav rezervacija s kalendarom dostupnosti dio je Premium paketa, a po dogovoru ga dodajemo i na manji paket. Kalendar se može sinkronizirati s Booking.com-om i Airbnb-om, pa nema dvostrukih rezervacija.",
+    "eyebrow": "Pitanja",
+    "lead": "Ono što nas klijenti najčešće pitaju prije nego krenemo. Ako Vaše pitanje nije ovdje, samo nam pišite.",
+    "q1": "Koliko traje izrada web stranice?",
+    "q10": "Mogu li dobiti online plaćanje?",
+    "q11": "Radite li webshop?",
+    "q2": "Moram li ja pripremiti tekstove?",
+    "q3": "Moram li imati fotografije?",
+    "q4": "Je li domena uključena?",
+    "q5": "Što ako već imam web stranicu?",
+    "q6": "Mogu li kasnije sam mijenjati sadržaj?",
+    "q7": "Što uključuje održavanje?",
+    "q8": "Mogu li imati web na više jezika?",
+    "q9": "Možete li napraviti online rezervacije?",
+    "title": "Pitanja i <em>odgovori.</em>"
+  }
+}

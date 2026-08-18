@@ -1,0 +1,22 @@
+{
+  "proces": {
+    "eyebrow": "Proceso",
+    "title": "De la primera llamada a la publicación<br />en <em>cuatro pasos</em>.",
+    "i1": {
+      "t": "Conversación",
+      "d": "Conocemos su negocio, quiénes son sus clientes y qué tiene que conseguir la página. Acordamos el alcance y el paquete, y usted recibe precio y plazo, sin compromiso."
+    },
+    "i2": {
+      "t": "Diseño",
+      "d": "Componemos el aspecto a partir de sus fotos y su marca. Usted lo ve y lo comenta antes de que empecemos a construir."
+    },
+    "i3": {
+      "t": "Desarrollo",
+      "d": "Construimos la página, escribimos los textos, editamos las fotos y ponemos los cimientos para Google."
+    },
+    "i4": {
+      "t": "Publicación",
+      "d": "Dominio, correo, SSL y salida en línea. La página es suya: le enseñamos a cambiarla usted mismo."
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "faq": {
+    "eyebrow": "Domande",
+    "title": "Domande e <em>risposte.</em>",
+    "lead": "Quello che i clienti ci chiedono più spesso prima di iniziare. Se la vostra domanda non c'è, scriveteci senz'altro.",
+    "q1": "Quanto tempo ci vuole per realizzare un sito?",
+    "a1": "Di solito fino a 2 settimane dal momento in cui concordiamo i contenuti e riceviamo il vostro materiale. Un progetto più ampio — più pagine, prenotazioni o un negozio online — può richiedere di più. I tempi esatti li fissiamo all'inizio e vi teniamo aggiornati.",
+    "q2": "Devo preparare io i testi?",
+    "a2": "Non serve. Se avete già i testi, li usiamo volentieri. Se non li avete, li scriviamo noi, partendo da una breve chiacchierata su cosa fate e chi sono i vostri clienti. A voi resta solo leggerli e approvarli.",
+    "q3": "Devo avere delle foto?",
+    "a3": "Sì. Ci servono foto dei vostri spazi, dei vostri prodotti o del vostro lavoro: mostrano quello che offrite davvero e nessuna foto acquistata può sostituirle. Voi ce le inviate, noi le ritocchiamo, le tagliamo e le prepariamo per il web.",
+    "q4": "Il dominio è compreso?",
+    "a4": "Sì. La registrazione del dominio e tutta la configurazione tecnica le facciamo noi, e il dominio è compreso nel prezzo che concordiamo insieme alla fine: l'importo finale dipende dall'estensione che scegliete (.hr, .com e così via). Il dominio è registrato a vostro nome e resta vostro.",
+    "q5": "E se ho già un sito?",
+    "a5": "Allora facciamo un restyling: manteniamo i contenuti e l'indirizzo esistente e cambiamo aspetto, velocità e struttura, senza perdere la vostra posizione su Google. Se il sito va bene e il problema è solo la visibilità, per quello c'è il servizio a parte di visibilità su Google.",
+    "q6": "Potrò modificare i contenuti da solo in seguito?",
+    "a6": "Sì. Dopo la pubblicazione vi mostriamo come cambiare da soli testi, prezzi e foto. Se preferite non farlo o non avete tempo, le piccole modifiche rientrano nella manutenzione e le facciamo noi.",
+    "q7": "Cosa comprende la manutenzione?",
+    "a7": "Hosting, certificato SSL, aggiornamenti di sicurezza e copie di backup, controllo che il sito funzioni e piccole modifiche ai contenuti. L'importo si conosce in anticipo: nessun conteggio a ore, nessuna fattura a sorpresa.",
+    "q8": "Posso avere il sito in più lingue?",
+    "a8": "Sì, le lingue multiple sono comprese in tutti i pacchetti. Di solito sono croato, inglese, tedesco e italiano, ma aggiungiamo qualsiasi lingua vi serva.",
+    "q9": "Potete realizzare le prenotazioni online?",
+    "a9": "Certo. Il sistema di prenotazione con calendario delle disponibilità fa parte del pacchetto Premium e, su accordo, lo aggiungiamo anche a un pacchetto più piccolo. Il calendario può sincronizzarsi con Booking.com e Airbnb, così non ci sono doppie prenotazioni.",
+    "q10": "Posso incassare online?",
+    "a10": "Sì. Configuriamo il pagamento con carta tramite fornitori affermati. Il denaro arriva direttamente sul vostro conto: noi non facciamo da intermediari nell'incasso.",
+    "q11": "Realizzate negozi online?",
+    "a11": "Sì. Un negozio online parte da 699 € e il prezzo finale dipende dal numero di prodotti, dalle modalità di pagamento e spedizione e dalle integrazioni che vi servono."
+  }
+}

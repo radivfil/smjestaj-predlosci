@@ -1,0 +1,29 @@
+{
+  "faq": {
+    "eyebrow": "Preguntas",
+    "title": "Preguntas y <em>respuestas.</em>",
+    "lead": "Lo que más nos preguntan los clientes antes de empezar. Si su pregunta no está aquí, escríbanos sin más.",
+    "q1": "¿Cuánto se tarda en hacer una página web?",
+    "a1": "Lo habitual son hasta 2 semanas desde el momento en que acordamos el contenido y recibimos sus materiales. Un alcance mayor —más páginas, reservas o una tienda online— puede llevar más tiempo. El plazo exacto lo fijamos al principio y le vamos informando.",
+    "q2": "¿Tengo que preparar yo los textos?",
+    "a2": "No hace falta. Si ya tiene textos, los usamos con gusto. Si no los tiene, los escribimos nosotros, a partir de una conversación breve sobre a qué se dedica y quiénes son sus clientes. Usted solo los lee y los aprueba.",
+    "q3": "¿Necesito tener fotos?",
+    "a3": "Sí. Necesitamos fotos de su local, sus productos o su trabajo: son las que muestran lo que ofrece de verdad, y ninguna foto comprada puede sustituirlas. Usted nos las envía y nosotros las editamos, las recortamos y las preparamos para la web.",
+    "q4": "¿El dominio está incluido?",
+    "a4": "Sí. El registro del dominio y toda la configuración técnica los hacemos nosotros, y el dominio va incluido en el precio que acordamos juntos al final; el importe final depende de la extensión que elija (.hr, .com y demás). El dominio queda registrado a su nombre y es suyo.",
+    "q5": "¿Y si ya tengo una página web?",
+    "a5": "Entonces hacemos un rediseño: mantenemos el contenido y la dirección actual, y cambiamos el aspecto, la velocidad y la estructura, sin perder su posición en Google. Si la página está bien y el único problema es la visibilidad, para eso existe el servicio aparte de visibilidad en Google.",
+    "q6": "¿Podré cambiar el contenido yo mismo más adelante?",
+    "a6": "Sí. Después de publicar le enseñamos a cambiar usted mismo los textos, los precios y las fotos. Si prefiere no hacerlo o no tiene tiempo, los cambios pequeños entran en el mantenimiento y los hacemos nosotros.",
+    "q7": "¿Qué incluye el mantenimiento?",
+    "a7": "Alojamiento, certificado SSL, actualizaciones de seguridad y copias de seguridad, vigilancia de que la página funcione y pequeños cambios de contenido. El importe se conoce de antemano: sin facturación por horas y sin facturas que le sorprendan.",
+    "q8": "¿Puedo tener la web en varios idiomas?",
+    "a8": "Sí, tener varios idiomas va incluido en todos los paquetes. Lo habitual es croata, inglés, alemán e italiano, pero añadimos el idioma que necesite.",
+    "q9": "¿Pueden hacer reservas en línea?",
+    "a9": "Sí. El sistema de reservas con calendario de disponibilidad forma parte del paquete Premium, y lo añadimos también a un paquete menor si así lo acordamos. El calendario puede sincronizarse con Booking.com y Airbnb, de modo que no hay reservas duplicadas.",
+    "q10": "¿Puedo cobrar en línea?",
+    "a10": "Sí. Configuramos el pago con tarjeta a través de proveedores consolidados. El dinero va directamente a su cuenta: nosotros no somos intermediarios en el cobro.",
+    "q11": "¿Hacen tiendas online?",
+    "a11": "Sí. Una tienda online parte de 699 €, y el precio final depende del número de productos, de las formas de pago y envío y de las integraciones que necesite."
+  }
+}

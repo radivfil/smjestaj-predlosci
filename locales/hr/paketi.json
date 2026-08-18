@@ -1,0 +1,63 @@
+{
+  "paketi": {
+    "basic": {
+      "b1": "Do 5 podstranica",
+      "b2": "Profesionalan dizajn",
+      "b3": "Prilagodba mobitelima, tabletima i računalima",
+      "b4": "Višejezičnost",
+      "b5": "Osnovni SEO",
+      "b6": "Kontakt forma i Google Maps",
+      "maint": "Održavanje <b>{p0} mjesečno</b> ili <b>{p1} godišnje</b> <span>{p2} po mjesečnoj cijeni → {p3} uz godišnje plaćanje, ušteda {p4}</span>",
+      "price": "Od {p0}"
+    },
+    "business": {
+      "b1": "Sve iz Basic paketa",
+      "b2": "Do 10 podstranica",
+      "b3": "Google poslovni profil",
+      "b4": "SEO struktura i copywriting",
+      "b5": "Analitika i mjerenje",
+      "b6": "Blog",
+      "b7": "Napredne forme i integracije",
+      "b8": "Prioritetna podrška",
+      "maint": "Održavanje <b>{p0} mjesečno</b> ili <b>{p1} godišnje</b> <span>{p2} po mjesečnoj cijeni → {p3} uz godišnje plaćanje, ušteda {p4}</span>",
+      "price": "Od {p0}"
+    },
+    "cta": "Odaberite paket",
+    "eyebrow": "Paketi",
+    "gv": {
+      "b1": "Postavljanje i optimizacija Google poslovnog profila",
+      "b2": "Osnovni tehnički SEO audit",
+      "b3": "Optimizacija naslova i opisa za jednu do dvije ključne stranice",
+      "b4": "Postavljanje Google Search Consolea i Analyticsa",
+      "b5": "Početni izvještaj s preporukama",
+      "cta": "Zatražite besplatnu analizu i prilagođenu ponudu",
+      "lead": "Vaš ulazak u proces Google vidljivosti — osnovni setup i optimizacija. Za one koji već imaju web stranicu i žele da ih ljudi pronađu.",
+      "listTitle": "Što je uključeno",
+      "maint": "+ <b>{p0} mjesečno</b> za kontinuirano praćenje i optimizaciju",
+      "next": "Nakon prvih rezultata predlažemo prilagođen plan za daljnji rast, ovisno o Vašim ciljevima i tržištu.",
+      "price": "Od {p0}",
+      "title": "Google vidljivost"
+    },
+    "note": "Dodatne podstranice, webshop, rezervacije, online plaćanje, AI agenti i druge funkcionalnosti dostupne su prema potrebama poslovanja.",
+    "p1": "Ne radimo samo web stranicu. Pomažemo Vam da Vaše poslovanje bude vidljivo tamo gdje Vas Vaši budući klijenti već traže — na Googleu.",
+    "p2": "Izradu plaćate <strong>jednokratno</strong> i cijenu znate prije nego počnemo. Održavanje je zaseban, unaprijed definiran iznos — hosting, sigurnost, ažuriranja i sitne izmjene sadržaja ulaze u njega. Nema naplate po satu, nema računa koji vas iznenadi.",
+    "premium": {
+      "b1": "Sve iz Business paketa",
+      "b2": "Do 15 podstranica",
+      "b3": "Online rezervacije",
+      "b4": "Online plaćanje",
+      "b5": "AI agent / chatbot",
+      "b6": "Napredni SEO",
+      "b7": "Napredna analitika",
+      "maint": "Održavanje <b>{p0} mjesečno</b> ili <b>{p1} godišnje</b> <span>{p2} po mjesečnoj cijeni → {p3} uz godišnje plaćanje, ušteda {p4}</span>",
+      "price": "Od {p0}"
+    },
+    "title": "Jasna cijena izrade,<br /><em>jasna cijena održavanja.</em>",
+    "webshop": {
+      "cta": "Kontaktirajte nas",
+      "d": "Izrada webshopa prema potrebama Vašeg poslovanja. Točna cijena ovisi o funkcionalnostima i opsegu projekta.",
+      "price": "Od {p0}",
+      "title": "Webshop"
+    }
+  }
+}

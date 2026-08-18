@@ -1,0 +1,63 @@
+{
+  "paketi": {
+    "eyebrow": "Pakete",
+    "title": "Klarer Preis für die Erstellung,<br /><em>klarer Preis für die Betreuung.</em>",
+    "p1": "Wir bauen nicht nur eine Webseite. Wir sorgen dafür, dass Ihr Geschäft dort sichtbar wird, wo Ihre künftigen Kunden ohnehin schon suchen — bei Google.",
+    "p2": "Die Erstellung zahlen Sie <strong>einmalig</strong>, und den Preis kennen Sie, bevor wir anfangen. Die Betreuung ist ein getrennter, vorab festgelegter Betrag — Hosting, Sicherheit, Updates und kleine Inhaltsänderungen sind darin enthalten. Keine Abrechnung nach Stunden, keine Rechnung, die Sie überrascht.",
+    "cta": "Dieses Paket wählen",
+    "note": "Weitere Unterseiten, Onlineshop, Buchungen, Online-Zahlung, KI-Agenten und andere Funktionen sind verfügbar, wie Ihr Geschäft sie braucht.",
+    "basic": {
+      "price": "Ab {p0}",
+      "maint": "Betreuung <b>{p0} monatlich</b> oder <b>{p1} jährlich</b> <span>{p2} bei monatlicher Zahlung → {p3} bei jährlicher Zahlung, {p4} gespart</span>",
+      "b1": "Bis zu 5 Unterseiten",
+      "b2": "Professionelles Design",
+      "b3": "Angepasst an Handy, Tablet und Computer",
+      "b4": "Mehrsprachigkeit",
+      "b5": "Basis-SEO",
+      "b6": "Kontaktformular und Google Maps"
+    },
+    "business": {
+      "price": "Ab {p0}",
+      "maint": "Betreuung <b>{p0} monatlich</b> oder <b>{p1} jährlich</b> <span>{p2} bei monatlicher Zahlung → {p3} bei jährlicher Zahlung, {p4} gespart</span>",
+      "b1": "Alles aus dem Basic-Paket",
+      "b2": "Bis zu 10 Unterseiten",
+      "b3": "Google Unternehmensprofil",
+      "b4": "SEO-Struktur und Texterstellung",
+      "b5": "Analytics und Messung",
+      "b6": "Blog",
+      "b7": "Erweiterte Formulare und Integrationen",
+      "b8": "Bevorzugter Support"
+    },
+    "premium": {
+      "price": "Ab {p0}",
+      "maint": "Betreuung <b>{p0} monatlich</b> oder <b>{p1} jährlich</b> <span>{p2} bei monatlicher Zahlung → {p3} bei jährlicher Zahlung, {p4} gespart</span>",
+      "b1": "Alles aus dem Business-Paket",
+      "b2": "Bis zu 15 Unterseiten",
+      "b3": "Online-Buchungen",
+      "b4": "Online-Zahlung",
+      "b5": "KI-Agent / Chatbot",
+      "b6": "Fortgeschrittenes SEO",
+      "b7": "Erweiterte Analytics"
+    },
+    "gv": {
+      "title": "Google-Sichtbarkeit",
+      "price": "Ab {p0}",
+      "lead": "Ihr Einstieg in die Google-Sichtbarkeit — die grundlegende Einrichtung und Optimierung. Für alle, die schon eine Webseite haben und wollen, dass man sie findet.",
+      "next": "Nach den ersten Ergebnissen schlagen wir einen auf weiteres Wachstum zugeschnittenen Plan vor, je nach Ihren Zielen und Ihrem Markt.",
+      "maint": "+ <b>{p0} monatlich</b> für laufende Beobachtung und Optimierung",
+      "cta": "Kostenlose Analyse und passendes Angebot anfordern",
+      "listTitle": "Was enthalten ist",
+      "b1": "Einrichtung und Optimierung Ihres Google Unternehmensprofils",
+      "b2": "Ein technisches SEO-Basisaudit",
+      "b3": "Optimierte Titel und Beschreibungen für ein bis zwei wichtige Seiten",
+      "b4": "Einrichtung von Google Search Console und Analytics",
+      "b5": "Ein erster Bericht mit Empfehlungen"
+    },
+    "webshop": {
+      "title": "Onlineshop",
+      "price": "Ab {p0}",
+      "d": "Ein Onlineshop, gebaut nach der Arbeitsweise Ihres Betriebs. Der genaue Preis hängt von den Funktionen und dem Umfang des Projekts ab.",
+      "cta": "Kontaktieren Sie uns"
+    }
+  }
+}

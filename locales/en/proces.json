@@ -1,0 +1,22 @@
+{
+  "proces": {
+    "eyebrow": "Process",
+    "title": "From the first call to launch<br />in <em>four steps</em>.",
+    "i1": {
+      "t": "Conversation",
+      "d": "We get to know your business, who your clients are and what the site has to achieve. We agree the scope and the package, you get a price and a deadline, with no obligation."
+    },
+    "i2": {
+      "t": "Design",
+      "d": "We put the look together from your photos and your brand. You see it and comment on it before we build."
+    },
+    "i3": {
+      "t": "Build",
+      "d": "We build the site, write the copy, edit the photos and lay the groundwork for Google."
+    },
+    "i4": {
+      "t": "Launch",
+      "d": "Domain, e-mail, SSL and going live. The site is yours — we show you how to change it yourself."
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "proces": {
+    "eyebrow": "Proces",
+    "i1": {
+      "d": "Upoznajemo vaš posao, tko su vam klijenti i što stranica mora postići. Dogovorimo opseg i paket, dobijete cijenu i rok, bez obveze.",
+      "t": "Razgovor"
+    },
+    "i2": {
+      "d": "Slažemo izgled prema vašim fotografijama i brendu. Vi vidite i komentirate prije izrade.",
+      "t": "Dizajn"
+    },
+    "i3": {
+      "d": "Gradimo stranicu, pišemo tekstove, obrađujemo fotografije i postavljamo temelje za Google.",
+      "t": "Izrada"
+    },
+    "i4": {
+      "d": "Domena, e-mail, SSL i objava. Stranica je vaša — pokazujemo vam kako je sami mijenjate.",
+      "t": "Objava"
+    },
+    "title": "Od poziva do objave<br />u <em>četiri koraka</em>."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "vidljivost": {
+    "eyebrow": "Visibilità",
+    "title": "Perché la gente vi<br /><em>trovi</em> su Google.",
+    "lead": "Un bel sito che nessuno trova non vale nulla. Per questo ogni sito che facciamo esce con le fondamenta della visibilità già posate: non come un extra, ma come parte del lavoro.",
+    "i1": "<strong>Fondamenta tecniche</strong> Titoli, descrizioni e dati strutturati che Google legge, indirizzi di pagina puliti, sitemap e caricamento veloce. Senza questo, il resto non serve.",
+    "i2": "<strong>Profilo dell'attività su Google</strong> Creiamo e curiamo il profilo con cui comparite sulla mappa e nella ricerca locale, spesso il primo contatto dell'ospite con voi.",
+    "i3": "<strong>Testi scritti per la ricerca</strong> Contenuti che rispondono a ciò che le persone digitano davvero: la località, il tipo di alloggio, la distanza dal mare, il parcheggio, gli animali.",
+    "i4": "<strong>Misurazione</strong> Analytics e Search Console, così si vede da dove arrivano i visitatori e quali ricerche portano prenotazioni, invece di tirare a indovinare."
+  }
+}

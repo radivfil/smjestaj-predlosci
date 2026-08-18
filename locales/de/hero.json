@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "ctaPrimary": "Angebot anfordern",
+    "ctaSecondary": "Referenzen ansehen",
+    "eyebrow": "Web &amp; digitale Lösungen",
+    "lead": "Wir bauen moderne, professionelle Webseiten, die Ihr Unternehmen richtig zeigen, Aufmerksamkeit halten und dafür sorgen, dass man Sie online leichter findet.",
+    "railContact": "Kontakt",
+    "railPhone": "Telefon",
+    "railTag": "Werbung<br />mit Freude ❤️",
+    "slogan": "Ihre Idee. Unsere digitale Geschichte. ❤️",
+    "title": "Webseiten, die<br /><em>für Sie arbeiten.</em>"
+  },
+  "trust": {
+    "title": "Sie müssen nicht wissen, wie man eine <em>Webseite baut.</em>",
+    "sub": "Wir übernehmen alles, von der Idee bis zum Start:",
+    "i1": { "t": "Struktur", "d": "Was auf welche Seite gehört" },
+    "i2": { "t": "Design", "d": "Passend zu Ihrer Marke" },
+    "i3": { "t": "Texte", "d": "Wir schreiben sie für Sie" },
+    "i4": { "t": "Fotos", "d": "Bearbeitet und webfertig" },
+    "i5": { "t": "Domain", "d": "Registrierung und Einrichtung" },
+    "i6": { "t": "E-Mail", "d": "Geschäftlich, auf Ihrer Domain" },
+    "i7": { "t": "Google", "d": "Damit man Sie findet" },
+    "i8": { "t": "Start", "d": "Wir stellen die Seite online" },
+    "i9": { "t": "Betreuung", "d": "Auch nach dem Start da" }
+  }
+}

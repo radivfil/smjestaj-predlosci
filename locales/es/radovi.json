@@ -1,0 +1,26 @@
+{
+  "radovi": {
+    "eyebrow": "Trabajos",
+    "title": "Páginas en las que<br /><em>hemos trabajado.</em>",
+    "lead": "Tres alojamientos, tres alcances distintos: desde una tarjeta de visita de una sola página hasta un sistema con reservas y sincronización de calendarios. Entre y vea la página tal como la ve un cliente.",
+    "cardCta": "Ver la página",
+    "i1": {
+      "d": "Tres apartamentos, cuatro idiomas y un sistema de reservas real con pago con tarjeta. La página incluye un panel para el propietario y sincronización de calendarios con Booking.com y Airbnb.",
+      "m1": "Panel del propietario",
+      "m2": "Sincronización iCal",
+      "m3": "Stripe"
+    },
+    "i2": {
+      "d": "Dos apartamentos en el mismo edificio en Petrčane, cerca de Zadar. Jardín y terraza, balcón, aparcamiento gratuito y consulta directa, sin intermediarios ni comisiones.",
+      "m1": "Dos apartamentos",
+      "m2": "Galería",
+      "m3": "Consulta"
+    },
+    "i3": {
+      "d": "Un apartamento con terraza y vistas al mar en la península de Pelješac. Galería, tarifas por temporada, mapa y contacto, todo en una sola página rápida.",
+      "m1": "Galería",
+      "m2": "Tarifas",
+      "m3": "Mapa"
+    }
+  }
+}

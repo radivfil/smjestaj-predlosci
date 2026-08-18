@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "ctaPrimary": "Richiedi un preventivo",
+    "ctaSecondary": "Guarda i lavori",
+    "eyebrow": "Web &amp; soluzioni digitali",
+    "lead": "Realizziamo siti web moderni e professionali che presentano bene la vostra attività, tengono viva l'attenzione e vi rendono più facili da trovare online.",
+    "railContact": "Contatti",
+    "railPhone": "Telefono",
+    "railTag": "Pubblicità<br />fatta con piacere ❤️",
+    "slogan": "La vostra idea. La nostra storia digitale. ❤️",
+    "title": "Siti web che<br /><em>lavorano per voi.</em>"
+  },
+  "trust": {
+    "title": "Non dovete sapere come si fa un <em>sito web.</em>",
+    "sub": "Ce ne occupiamo noi, dall'idea alla pubblicazione:",
+    "i1": { "t": "Struttura", "d": "Cosa va su quale pagina" },
+    "i2": { "t": "Design", "d": "Costruito sul vostro marchio" },
+    "i3": { "t": "Testi", "d": "Li scriviamo noi per voi" },
+    "i4": { "t": "Foto", "d": "Ritoccate e pronte per il web" },
+    "i5": { "t": "Dominio", "d": "Registrazione e configurazione" },
+    "i6": { "t": "E-mail", "d": "Professionale, sul vostro dominio" },
+    "i7": { "t": "Google", "d": "Perché la gente vi trovi" },
+    "i8": { "t": "Pubblicazione", "d": "Mettiamo il sito online" },
+    "i9": { "t": "Manutenzione", "d": "Ci siamo anche dopo" }
+  }
+}
