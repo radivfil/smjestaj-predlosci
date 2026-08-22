@@ -4,10 +4,22 @@
     "title": "Promoción que<br /><em>llega a la gente</em> ❤️",
     "p1": "Además de crear páginas web y soluciones digitales, hacemos promoción: la que acerca lo que usted ofrece a personas reales.",
     "p2": "Con casi una década de experiencia, ayudamos a empresas, autónomos y emprendedores a presentar sus productos y servicios como toca, llegar a nuevos contactos y crear nuevas oportunidades de negocio.",
-    "i1": { "t": "Marketing telefónico", "d": "Conversación directa con clientes potenciales." },
-    "i2": { "t": "Promoción en directo", "d": "Presentar productos y servicios en persona." },
-    "i3": { "t": "Publicidad y promoción", "d": "Más visibilidad y mayor alcance." },
-    "i4": { "t": "Búsqueda de nuevos clientes", "d": "Un enfoque activo que crea nuevos contactos." },
+    "i1": {
+      "t": "Marketing telefónico",
+      "d": "Conversación directa con clientes potenciales."
+    },
+    "i2": {
+      "t": "Promoción en directo",
+      "d": "Presentar productos y servicios en persona."
+    },
+    "i3": {
+      "t": "Google Ads y Meta Ads",
+      "d": "Más visibilidad y mayor alcance."
+    },
+    "i4": {
+      "t": "Búsqueda de nuevos clientes",
+      "d": "Un enfoque activo que crea nuevos contactos."
+    },
     "close": "No creemos que una buena promoción se acabe en que la gente vea su anuncio. Lo que importa es que le <strong>vean, le recuerden y den el siguiente paso</strong>.",
     "punch": "Usted tiene un producto o un servicio.<br /> Nosotros hacemos que se entere la gente adecuada. ❤️",
     "cta": "Pedir presupuesto de promoción"

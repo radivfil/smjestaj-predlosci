@@ -4,10 +4,22 @@
     "title": "Promozione che<br /><em>arriva alle persone</em> ❤️",
     "p1": "Oltre a realizzare siti web e soluzioni digitali, ci occupiamo anche di promozione: quella che avvicina la vostra offerta a persone in carne e ossa.",
     "p2": "Con quasi un decennio di esperienza aiutiamo aziende, artigiani e imprenditori a presentare prodotti e servizi nel modo giusto, a raggiungere nuovi contatti e a creare nuove opportunità di lavoro.",
-    "i1": { "t": "Telemarketing", "d": "Dialogo diretto con potenziali clienti." },
-    "i2": { "t": "Promozione dal vivo", "d": "Presentare prodotti e servizi di persona." },
-    "i3": { "t": "Pubblicità e promozione", "d": "Più visibilità e maggiore portata." },
-    "i4": { "t": "Ricerca di nuovi clienti", "d": "Un approccio attivo che crea nuovi contatti." },
+    "i1": {
+      "t": "Telemarketing",
+      "d": "Dialogo diretto con potenziali clienti."
+    },
+    "i2": {
+      "t": "Promozione dal vivo",
+      "d": "Presentare prodotti e servizi di persona."
+    },
+    "i3": {
+      "t": "Google Ads e Meta Ads",
+      "d": "Più visibilità e maggiore portata."
+    },
+    "i4": {
+      "t": "Ricerca di nuovi clienti",
+      "d": "Un approccio attivo che crea nuovi contatti."
+    },
     "close": "Non crediamo che una buona promozione finisca quando la gente vede il vostro annuncio. Conta che vi <strong>notino, vi ricordino e facciano il passo successivo</strong>.",
     "punch": "Voi avete un prodotto o un servizio.<br /> Noi facciamo in modo che lo scoprano le persone giuste. ❤️",
     "cta": "Richiedi un preventivo per la promozione"

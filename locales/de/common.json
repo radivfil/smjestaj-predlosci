@@ -1,5 +1,7 @@
 {
-  "common": { "oneTime": "einmalig" },
+  "common": {
+    "oneTime": "einmalig"
+  },
   "drawer": {
     "about": "Über uns",
     "contact": "Kontakt",
@@ -10,8 +12,13 @@
     "visibility": "Sichtbarkeit",
     "works": "Referenzen"
   },
-  "foot": { "tagline": "Webseiten und digitale Lösungen<br />Werbung, mit Freude gemacht ❤️" },
-  "lang": { "label": "Sprache der Seite", "menuLabel": "Sprache wählen" },
+  "foot": {
+    "tagline": "Webseiten und digitale Lösungen<br />Werbung, mit Freude gemacht ❤️"
+  },
+  "lang": {
+    "label": "Sprache der Seite",
+    "menuLabel": "Sprache wählen"
+  },
   "meta": {
     "description": "Lota Studio erstellt moderne Webseiten und digitale Lösungen für jede Branche — Salons, Praxen, Restaurants, Handwerk und Ferienunterkünfte. Design, Umsetzung und Sichtbarkeit bei Google, Telefonmarketing und Live-Promotion — mit klarem Preis für Erstellung und Betreuung.",
     "ogDescription": "Design, Umsetzung und Sichtbarkeit bei Google für jede Branche — mit klarem Preis für Erstellung und Betreuung.",
@@ -31,5 +38,8 @@
     "promo": "Promotion",
     "services": "Leistungen",
     "works": "Referenzen"
+  },
+  "wa": {
+    "label": "Schreiben Sie uns auf WhatsApp"
   }
 }

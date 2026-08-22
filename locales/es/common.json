@@ -1,5 +1,7 @@
 {
-  "common": { "oneTime": "pago único" },
+  "common": {
+    "oneTime": "pago único"
+  },
   "drawer": {
     "about": "Quiénes somos",
     "contact": "Contacto",
@@ -10,8 +12,13 @@
     "visibility": "Visibilidad",
     "works": "Trabajos"
   },
-  "foot": { "tagline": "Páginas web y soluciones digitales<br />Publicidad hecha con gusto ❤️" },
-  "lang": { "label": "Idioma de la página", "menuLabel": "Elija un idioma" },
+  "foot": {
+    "tagline": "Páginas web y soluciones digitales<br />Publicidad hecha con gusto ❤️"
+  },
+  "lang": {
+    "label": "Idioma de la página",
+    "menuLabel": "Elija un idioma"
+  },
   "meta": {
     "description": "Lota Studio crea páginas web modernas y soluciones digitales para cualquier sector — peluquerías, consultas médicas, restaurantes, oficios y alojamientos turísticos. Diseño, desarrollo y visibilidad en Google, marketing telefónico y promoción en directo — con un precio claro para la creación y el mantenimiento.",
     "ogDescription": "Diseño, desarrollo y visibilidad en Google para cualquier sector — con un precio claro para la creación y el mantenimiento.",
@@ -31,5 +38,8 @@
     "promo": "Promoción",
     "services": "Servicios",
     "works": "Trabajos"
+  },
+  "wa": {
+    "label": "Escríbanos por WhatsApp"
   }
 }

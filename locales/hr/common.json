@@ -38,5 +38,8 @@
     "promo": "Promocija",
     "services": "Usluge",
     "works": "Radovi"
+  },
+  "wa": {
+    "label": "Pišite nam na WhatsApp"
   }
 }

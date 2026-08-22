@@ -38,5 +38,8 @@
     "promo": "Promotion",
     "services": "Services",
     "works": "Work"
+  },
+  "wa": {
+    "label": "Message us on WhatsApp"
   }
 }
