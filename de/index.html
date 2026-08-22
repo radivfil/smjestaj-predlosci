@@ -171,6 +171,10 @@
 /* Zakljucni odlomci ispod numerirane liste */
 .plist + .sec__text{ margin-top:clamp(1.5rem,3vw,2rem); }
 
+/* Naglasena zavrsna misao unutar .sec__text — ista velicina kao okolni
+   tekst, samo tamnija i deblja (kao <strong> drugdje u sekciji). */
+.sec__strong{ color:var(--ink); font-weight:600; }
+
 /* ---------- NUMERIRANA LISTA ---------- */
 .plist{ list-style:none; margin-top:2.25rem; display:grid; gap:1.25rem; }
 .plist li{ display:grid; grid-template-columns:auto 1fr; gap:1rem; align-items:start; }
@@ -742,7 +746,7 @@
 
         <div class="sec__text" data-reveal style="--i:9">
           <p data-i18n="onama.close1">Von der ersten Idee bis zum Start sprechen Sie direkt mit den Menschen, die an Ihrem Projekt arbeiten.</p>
-          <p data-i18n="onama.close2">Ihr Geschäft ist einzigartig. Ihre Webseite sollte es auch sein.</p>
+          <p class="sec__strong" data-i18n="onama.close2">Ihr Geschäft ist einzigartig. Ihre Webseite sollte es auch sein.</p>
         </div>
       </div>
     </div>
