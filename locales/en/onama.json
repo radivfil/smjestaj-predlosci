@@ -1,12 +1,17 @@
 {
   "onama": {
+    "close1": "From the first idea to launch, you speak directly with the people working on your project.",
+    "close2": "Your business is one of a kind. Your website deserves to be the same.",
     "eyebrow": "About us",
-    "title": "Who are <em>we?</em>",
     "p1": "We are a small team of young, professional and university-educated specialists who believe that a good website is more than a pretty design — it is the <strong>first step towards a stronger business</strong>.",
     "p2": "We started out building websites and digital solutions for private landlords and tourist accommodation, where we saw just how much a good online presence shortens the path from a first look at an offer to an enquiry and a booking.",
     "p3": "Today we bring that knowledge and experience to other trades and businesses that need a modern, professional and genuinely useful online presence.",
-    "p4": "We take particular care to get to know you, your business and what you actually need. <strong>We don't sell the same solution to everyone</strong> — every website is shaped around your wishes, your goals and the way you work.",
-    "p5": "Our goal is a simple one: to create a digital solution that represents you well, makes a good first impression and helps your clients find you more easily.",
-    "p6": "Being a small team, we keep things direct and personal. From the first conversation to the finished project, we are here for you."
+    "title": "Who are <em>we?</em>",
+    "why1": "<strong>We don't work for you. We work with you.</strong> First we get to know you, your business and what you want to achieve. Only then do we start building.",
+    "why2": "<strong>We don't work from a template.</strong> Every project is built from scratch – around your brand, your clients and what you need.",
+    "why3": "<strong>Everything in one place.</strong> Web, SEO, Google Ads and Meta Ads – without five different contractors and without being passed from one person to the next.",
+    "why4": "<strong>Two perspectives. One result.</strong> A male and a female point of view. More angles, a better solution.",
+    "why5": "<strong>A website that works for you.</strong> Everything your business needs for more visibility, more enquiries and more sales.",
+    "whyTitle": "Why choose us?"
   }
 }

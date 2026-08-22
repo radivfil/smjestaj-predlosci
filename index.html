@@ -153,6 +153,12 @@
 #vidljivost .sec__label{ grid-row:1; }
 #vidljivost .sec__body--left{ grid-row:2; }
 
+/* Podnaslov unutar tijela sekcije (npr. "Zasto odabrati nas?") — ista
+   velicina kao naslovi kartica, da ne konkurira naslovu sekcije. */
+.sec__sub{ margin-top:clamp(2.25rem,4vw,3rem); font-size:1.35rem; }
+/* Zakljucni odlomci ispod numerirane liste */
+.plist + .sec__text{ margin-top:clamp(1.5rem,3vw,2rem); }
+
 /* ---------- NUMERIRANA LISTA ---------- */
 .plist{ list-style:none; margin-top:2.25rem; display:grid; gap:1.25rem; }
 .plist li{ display:grid; grid-template-columns:auto 1fr; gap:1rem; align-items:start; }
@@ -709,19 +715,41 @@
             Danas svoje znanje i iskustvo širimo i na druge djelatnosti i poslovanja kojima je
             potrebna moderna, profesionalna i funkcionalna online prisutnost.
           </p>
-          <p data-i18n-html="onama.p4">
-            Posebnu pažnju posvećujemo tome da upoznamo Vas, Vaše poslovanje i Vaše potrebe.
-            <strong>Ne nudimo isto rješenje svima</strong> – svaku web stranicu prilagođavamo
-            Vašim željama, ciljevima i načinu poslovanja.
-          </p>
-          <p data-i18n-html="onama.p5">
-            Naš cilj je jednostavan: stvoriti digitalno rješenje koje će Vas kvalitetno
-            predstaviti, ostaviti dobar prvi dojam i pomoći Vašim klijentima da Vas lakše pronađu.
-          </p>
-          <p data-i18n-html="onama.p6">
-            Kao mali tim, njegujemo direktan i osoban pristup. Od prvog razgovora do završetka
-            projekta, tu smo za Vas.
-          </p>
+        </div>
+
+        <h3 class="sec__sub" data-reveal style="--i:3" data-i18n="onama.whyTitle">Zašto odabrati nas?</h3>
+
+        <ol class="plist">
+          <li data-reveal style="--i:4">
+            <b>1</b>
+            <p data-i18n-html="onama.why1"><strong>Ne radimo za Vas. Radimo s Vama.</strong>
+              Prvo upoznajemo Vas, Vaš posao i ono što želite postići. Tek onda krećemo u izradu.</p>
+          </li>
+          <li data-reveal style="--i:5">
+            <b>2</b>
+            <p data-i18n-html="onama.why2"><strong>Ne radimo po šabloni.</strong>
+              Svaki projekt gradimo od nule – prema Vašem brendu, klijentima i Vašim potrebama.</p>
+          </li>
+          <li data-reveal style="--i:6">
+            <b>3</b>
+            <p data-i18n-html="onama.why3"><strong>Sve na jednom mjestu.</strong>
+              Web, SEO, Google Ads i Meta Ads – bez pet različitih suradnika i bez prebacivanja s osobe na osobu.</p>
+          </li>
+          <li data-reveal style="--i:7">
+            <b>4</b>
+            <p data-i18n-html="onama.why4"><strong>Dvije perspektive. Jedan rezultat.</strong>
+              Muška i ženska perspektiva. Više pogleda, bolje rješenje.</p>
+          </li>
+          <li data-reveal style="--i:8">
+            <b>5</b>
+            <p data-i18n-html="onama.why5"><strong>Web koji radi za Vas.</strong>
+              Sve što Vašem biznisu treba za više vidljivosti, upita i prodaje.</p>
+          </li>
+        </ol>
+
+        <div class="sec__text" data-reveal style="--i:9">
+          <p data-i18n="onama.close1">Od prve ideje do lansiranja, direktno razgovarate s ljudima koji rade na Vašem projektu.</p>
+          <p data-i18n="onama.close2">Vaš posao je jedinstven. Vaša web stranica zaslužuje biti isto.</p>
         </div>
       </div>
     </div>

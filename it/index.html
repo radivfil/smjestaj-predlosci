@@ -165,6 +165,12 @@
 #vidljivost .sec__label{ grid-row:1; }
 #vidljivost .sec__body--left{ grid-row:2; }
 
+/* Podnaslov unutar tijela sekcije (npr. "Zasto odabrati nas?") — ista
+   velicina kao naslovi kartica, da ne konkurira naslovu sekcije. */
+.sec__sub{ margin-top:clamp(2.25rem,4vw,3rem); font-size:1.35rem; }
+/* Zakljucni odlomci ispod numerirane liste */
+.plist + .sec__text{ margin-top:clamp(1.5rem,3vw,2rem); }
+
 /* ---------- NUMERIRANA LISTA ---------- */
 .plist{ list-style:none; margin-top:2.25rem; display:grid; gap:1.25rem; }
 .plist li{ display:grid; grid-template-columns:auto 1fr; gap:1rem; align-items:start; }
@@ -707,9 +713,36 @@
           <p data-i18n-html="onama.p1">Siamo una piccola squadra di professionisti giovani, con formazione universitaria, convinti che un buon sito non sia solo un bel design: è il <strong>primo passo verso un'attività più solida</strong>.</p>
           <p data-i18n-html="onama.p2">Abbiamo iniziato realizzando siti e soluzioni digitali per affittacamere e strutture ricettive, e lì abbiamo visto quanto una buona presenza online accorci la strada dalla prima occhiata all'offerta fino alla richiesta e alla prenotazione.</p>
           <p data-i18n-html="onama.p3">Oggi portiamo quelle competenze anche in altri settori e attività che hanno bisogno di una presenza online moderna, professionale e davvero utile.</p>
-          <p data-i18n-html="onama.p4">Ci teniamo particolarmente a conoscere voi, la vostra attività e ciò che vi serve davvero. <strong>Non vendiamo la stessa soluzione a tutti</strong>: ogni sito si adatta ai vostri desideri, ai vostri obiettivi e al vostro modo di lavorare.</p>
-          <p data-i18n-html="onama.p5">Il nostro obiettivo è semplice: creare una soluzione digitale che vi rappresenti bene, lasci una buona prima impressione e aiuti i vostri clienti a trovarvi con facilità.</p>
-          <p data-i18n-html="onama.p6">Essendo una squadra piccola, curiamo un rapporto diretto e personale. Dalla prima chiacchierata al progetto finito, siamo qui per voi.</p>
+        </div>
+
+        <h3 class="sec__sub" data-reveal style="--i:3" data-i18n="onama.whyTitle">Perché sceglierci?</h3>
+
+        <ol class="plist">
+          <li data-reveal style="--i:4">
+            <b>1</b>
+            <p data-i18n-html="onama.why1"><strong>Non lavoriamo per voi. Lavoriamo con voi.</strong> Prima conosciamo voi, la vostra attività e quello che volete ottenere. Solo dopo iniziamo a costruire.</p>
+          </li>
+          <li data-reveal style="--i:5">
+            <b>2</b>
+            <p data-i18n-html="onama.why2"><strong>Non lavoriamo su modelli preconfezionati.</strong> Ogni progetto nasce da zero, sul vostro marchio, sui vostri clienti e su ciò che vi serve.</p>
+          </li>
+          <li data-reveal style="--i:6">
+            <b>3</b>
+            <p data-i18n-html="onama.why3"><strong>Tutto in un unico posto.</strong> Web, SEO, Google Ads e Meta Ads, senza cinque fornitori diversi e senza essere passati da una persona all'altra.</p>
+          </li>
+          <li data-reveal style="--i:7">
+            <b>4</b>
+            <p data-i18n-html="onama.why4"><strong>Due prospettive. Un risultato.</strong> Uno sguardo maschile e uno femminile. Più punti di vista, soluzione migliore.</p>
+          </li>
+          <li data-reveal style="--i:8">
+            <b>5</b>
+            <p data-i18n-html="onama.why5"><strong>Un sito che lavora per voi.</strong> Tutto ciò che serve alla vostra attività per più visibilità, più richieste e più vendite.</p>
+          </li>
+        </ol>
+
+        <div class="sec__text" data-reveal style="--i:9">
+          <p data-i18n="onama.close1">Dalla prima idea alla pubblicazione, parlate direttamente con le persone che lavorano al vostro progetto.</p>
+          <p data-i18n="onama.close2">La vostra attività è unica. Il vostro sito merita di esserlo altrettanto.</p>
         </div>
       </div>
     </div>

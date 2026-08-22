@@ -1,12 +1,17 @@
 {
   "onama": {
+    "close1": "Von der ersten Idee bis zum Start sprechen Sie direkt mit den Menschen, die an Ihrem Projekt arbeiten.",
+    "close2": "Ihr Geschäft ist einzigartig. Ihre Webseite sollte es auch sein.",
     "eyebrow": "Über uns",
-    "title": "Wer sind <em>wir?</em>",
     "p1": "Wir sind ein kleines Team junger, professioneller und akademisch ausgebildeter Fachleute, die überzeugt sind: Eine gute Webseite ist mehr als schönes Design — sie ist der <strong>erste Schritt zu einem stärkeren Geschäft</strong>.",
     "p2": "Angefangen haben wir mit Webseiten und digitalen Lösungen für private Vermieter und touristische Unterkünfte. Dort haben wir gesehen, wie sehr ein guter Online-Auftritt den Weg vom ersten Blick auf das Angebot bis zur Anfrage und Buchung verkürzt.",
     "p3": "Heute bringen wir dieses Wissen auch in andere Branchen und Betriebe ein, die einen modernen, professionellen und wirklich brauchbaren Online-Auftritt benötigen.",
-    "p4": "Besonders wichtig ist uns, Sie, Ihr Geschäft und Ihren tatsächlichen Bedarf kennenzulernen. <strong>Wir verkaufen nicht allen dieselbe Lösung</strong> — jede Webseite richtet sich nach Ihren Wünschen, Ihren Zielen und Ihrer Arbeitsweise.",
-    "p5": "Unser Ziel ist einfach: eine digitale Lösung zu schaffen, die Sie gut vertritt, einen guten ersten Eindruck hinterlässt und Ihren Kunden hilft, Sie leichter zu finden.",
-    "p6": "Als kleines Team bleiben wir direkt und persönlich. Vom ersten Gespräch bis zum fertigen Projekt sind wir für Sie da."
+    "title": "Wer sind <em>wir?</em>",
+    "why1": "<strong>Wir arbeiten nicht für Sie. Wir arbeiten mit Ihnen.</strong> Zuerst lernen wir Sie kennen, Ihr Geschäft und das, was Sie erreichen wollen. Erst dann fangen wir an zu bauen.",
+    "why2": "<strong>Wir arbeiten nicht nach Schablone.</strong> Jedes Projekt entsteht von Grund auf – nach Ihrer Marke, Ihren Kunden und Ihrem Bedarf.",
+    "why3": "<strong>Alles an einem Ort.</strong> Web, SEO, Google Ads und Meta Ads – ohne fünf verschiedene Dienstleister und ohne von einer Person zur nächsten gereicht zu werden.",
+    "why4": "<strong>Zwei Perspektiven. Ein Ergebnis.</strong> Eine männliche und eine weibliche Sicht. Mehr Blickwinkel, bessere Lösung.",
+    "why5": "<strong>Eine Webseite, die für Sie arbeitet.</strong> Alles, was Ihr Geschäft für mehr Sichtbarkeit, mehr Anfragen und mehr Verkäufe braucht.",
+    "whyTitle": "Warum wir?"
   }
 }

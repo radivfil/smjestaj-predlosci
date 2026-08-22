@@ -1,12 +1,17 @@
 {
   "onama": {
+    "close1": "Od prve ideje do lansiranja, direktno razgovarate s ljudima koji rade na Vašem projektu.",
+    "close2": "Vaš posao je jedinstven. Vaša web stranica zaslužuje biti isto.",
     "eyebrow": "O nama",
     "p1": "Mi smo mali tim mladih, profesionalnih i akademski obrazovanih stručnjaka koji vjeruju da dobra web stranica nije samo lijep dizajn – ona je <strong>prvi korak prema uspješnijem poslovanju</strong>.",
     "p2": "Naš put započeo je izradom web stranica i digitalnih rješenja za iznajmljivače i turistički smještaj, gdje smo prepoznali koliko kvalitetna online prezentacija može olakšati put od prvog pregleda ponude do upita i rezervacije.",
     "p3": "Danas svoje znanje i iskustvo širimo i na druge djelatnosti i poslovanja kojima je potrebna moderna, profesionalna i funkcionalna online prisutnost.",
-    "p4": "Posebnu pažnju posvećujemo tome da upoznamo Vas, Vaše poslovanje i Vaše potrebe. <strong>Ne nudimo isto rješenje svima</strong> – svaku web stranicu prilagođavamo Vašim željama, ciljevima i načinu poslovanja.",
-    "p5": "Naš cilj je jednostavan: stvoriti digitalno rješenje koje će Vas kvalitetno predstaviti, ostaviti dobar prvi dojam i pomoći Vašim klijentima da Vas lakše pronađu.",
-    "p6": "Kao mali tim, njegujemo direktan i osoban pristup. Od prvog razgovora do završetka projekta, tu smo za Vas.",
-    "title": "Tko smo <em>mi?</em>"
+    "title": "Tko smo <em>mi?</em>",
+    "why1": "<strong>Ne radimo za Vas. Radimo s Vama.</strong> Prvo upoznajemo Vas, Vaš posao i ono što želite postići. Tek onda krećemo u izradu.",
+    "why2": "<strong>Ne radimo po šabloni.</strong> Svaki projekt gradimo od nule – prema Vašem brendu, klijentima i Vašim potrebama.",
+    "why3": "<strong>Sve na jednom mjestu.</strong> Web, SEO, Google Ads i Meta Ads – bez pet različitih suradnika i bez prebacivanja s osobe na osobu.",
+    "why4": "<strong>Dvije perspektive. Jedan rezultat.</strong> Muška i ženska perspektiva. Više pogleda, bolje rješenje.",
+    "why5": "<strong>Web koji radi za Vas.</strong> Sve što Vašem biznisu treba za više vidljivosti, upita i prodaje.",
+    "whyTitle": "Zašto odabrati nas?"
   }
 }

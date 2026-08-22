@@ -165,6 +165,12 @@
 #vidljivost .sec__label{ grid-row:1; }
 #vidljivost .sec__body--left{ grid-row:2; }
 
+/* Podnaslov unutar tijela sekcije (npr. "Zasto odabrati nas?") — ista
+   velicina kao naslovi kartica, da ne konkurira naslovu sekcije. */
+.sec__sub{ margin-top:clamp(2.25rem,4vw,3rem); font-size:1.35rem; }
+/* Zakljucni odlomci ispod numerirane liste */
+.plist + .sec__text{ margin-top:clamp(1.5rem,3vw,2rem); }
+
 /* ---------- NUMERIRANA LISTA ---------- */
 .plist{ list-style:none; margin-top:2.25rem; display:grid; gap:1.25rem; }
 .plist li{ display:grid; grid-template-columns:auto 1fr; gap:1rem; align-items:start; }
@@ -707,9 +713,36 @@
           <p data-i18n-html="onama.p1">Somos un equipo pequeño de profesionales jóvenes con formación universitaria, convencidos de que una buena página web es más que un diseño bonito: es el <strong>primer paso hacia un negocio más fuerte</strong>.</p>
           <p data-i18n-html="onama.p2">Empezamos creando páginas web y soluciones digitales para propietarios de alojamientos turísticos, y allí vimos hasta qué punto una buena presencia en internet acorta el camino desde el primer vistazo a la oferta hasta la consulta y la reserva.</p>
           <p data-i18n-html="onama.p3">Hoy llevamos ese conocimiento y esa experiencia a otros sectores y negocios que necesitan una presencia en internet moderna, profesional y realmente útil.</p>
-          <p data-i18n-html="onama.p4">Ponemos especial cuidado en conocerle a usted, su negocio y lo que de verdad necesita. <strong>No vendemos la misma solución a todo el mundo</strong>: cada página se adapta a sus deseos, sus objetivos y su forma de trabajar.</p>
-          <p data-i18n-html="onama.p5">Nuestro objetivo es sencillo: crear una solución digital que le represente bien, cause una buena primera impresión y ayude a sus clientes a encontrarle con facilidad.</p>
-          <p data-i18n-html="onama.p6">Al ser un equipo pequeño, cuidamos el trato directo y personal. Desde la primera conversación hasta el proyecto terminado, estamos aquí para usted.</p>
+        </div>
+
+        <h3 class="sec__sub" data-reveal style="--i:3" data-i18n="onama.whyTitle">¿Por qué elegirnos?</h3>
+
+        <ol class="plist">
+          <li data-reveal style="--i:4">
+            <b>1</b>
+            <p data-i18n-html="onama.why1"><strong>No trabajamos para usted. Trabajamos con usted.</strong> Primero le conocemos a usted, su negocio y lo que quiere conseguir. Solo entonces empezamos a construir.</p>
+          </li>
+          <li data-reveal style="--i:5">
+            <b>2</b>
+            <p data-i18n-html="onama.why2"><strong>No trabajamos con plantillas.</strong> Cada proyecto se construye desde cero, según su marca, sus clientes y lo que necesita.</p>
+          </li>
+          <li data-reveal style="--i:6">
+            <b>3</b>
+            <p data-i18n-html="onama.why3"><strong>Todo en un mismo sitio.</strong> Web, SEO, Google Ads y Meta Ads, sin cinco proveedores distintos y sin que le pasen de una persona a otra.</p>
+          </li>
+          <li data-reveal style="--i:7">
+            <b>4</b>
+            <p data-i18n-html="onama.why4"><strong>Dos perspectivas. Un resultado.</strong> Una mirada masculina y otra femenina. Más puntos de vista, mejor solución.</p>
+          </li>
+          <li data-reveal style="--i:8">
+            <b>5</b>
+            <p data-i18n-html="onama.why5"><strong>Una web que trabaja para usted.</strong> Todo lo que su negocio necesita para más visibilidad, más consultas y más ventas.</p>
+          </li>
+        </ol>
+
+        <div class="sec__text" data-reveal style="--i:9">
+          <p data-i18n="onama.close1">Desde la primera idea hasta la publicación, habla directamente con las personas que trabajan en su proyecto.</p>
+          <p data-i18n="onama.close2">Su negocio es único. Su página web merece serlo también.</p>
         </div>
       </div>
     </div>

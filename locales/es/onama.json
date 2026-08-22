@@ -1,12 +1,17 @@
 {
   "onama": {
+    "close1": "Desde la primera idea hasta la publicación, habla directamente con las personas que trabajan en su proyecto.",
+    "close2": "Su negocio es único. Su página web merece serlo también.",
     "eyebrow": "Quiénes somos",
-    "title": "¿Quiénes somos <em>nosotros?</em>",
     "p1": "Somos un equipo pequeño de profesionales jóvenes con formación universitaria, convencidos de que una buena página web es más que un diseño bonito: es el <strong>primer paso hacia un negocio más fuerte</strong>.",
     "p2": "Empezamos creando páginas web y soluciones digitales para propietarios de alojamientos turísticos, y allí vimos hasta qué punto una buena presencia en internet acorta el camino desde el primer vistazo a la oferta hasta la consulta y la reserva.",
     "p3": "Hoy llevamos ese conocimiento y esa experiencia a otros sectores y negocios que necesitan una presencia en internet moderna, profesional y realmente útil.",
-    "p4": "Ponemos especial cuidado en conocerle a usted, su negocio y lo que de verdad necesita. <strong>No vendemos la misma solución a todo el mundo</strong>: cada página se adapta a sus deseos, sus objetivos y su forma de trabajar.",
-    "p5": "Nuestro objetivo es sencillo: crear una solución digital que le represente bien, cause una buena primera impresión y ayude a sus clientes a encontrarle con facilidad.",
-    "p6": "Al ser un equipo pequeño, cuidamos el trato directo y personal. Desde la primera conversación hasta el proyecto terminado, estamos aquí para usted."
+    "title": "¿Quiénes somos <em>nosotros?</em>",
+    "why1": "<strong>No trabajamos para usted. Trabajamos con usted.</strong> Primero le conocemos a usted, su negocio y lo que quiere conseguir. Solo entonces empezamos a construir.",
+    "why2": "<strong>No trabajamos con plantillas.</strong> Cada proyecto se construye desde cero, según su marca, sus clientes y lo que necesita.",
+    "why3": "<strong>Todo en un mismo sitio.</strong> Web, SEO, Google Ads y Meta Ads, sin cinco proveedores distintos y sin que le pasen de una persona a otra.",
+    "why4": "<strong>Dos perspectivas. Un resultado.</strong> Una mirada masculina y otra femenina. Más puntos de vista, mejor solución.",
+    "why5": "<strong>Una web que trabaja para usted.</strong> Todo lo que su negocio necesita para más visibilidad, más consultas y más ventas.",
+    "whyTitle": "¿Por qué elegirnos?"
   }
 }
