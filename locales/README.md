@@ -32,3 +32,21 @@ node tools/i18n.js verify    # provjera da HR ostaje identičan
 node tools/i18n.js build     # gradi jezične verzije
 node tools/i18n.js status    # koliko je prevedeno po jeziku
 ```
+
+## Zastarjeli prijevodi
+
+Kad se **promijeni hrvatski tekst** postojećeg ključa, prijevodi tiho ostanu
+stari — ključ i dalje postoji, pa ga provjera „nedostaje li prijevod" ne vidi.
+Zato `locales/_state.json` uz svaki prijevod pamti otisak hrvatskog izvornika
+u trenutku prevođenja.
+
+```
+node tools/i18n.js status        # prijavljuje ZASTARJELO uz popis ključeva
+node tools/i18n.js seal de       # zapečati njemački kao usklađen s hrvatskim
+node tools/i18n.js seal          # zapečati sve jezike
+```
+
+Redoslijed je uvijek isti: promijeni hrvatski → `extract` → `status` pokaže
+što je zastarjelo → osvježi te prijevode → `seal` → `build`.
+
+`_state.json` generira alat; ne uređuje se ručno.

@@ -33,6 +33,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 
 const ROOT = path.join(__dirname, "..");
 const SRC = path.join(ROOT, "index.html");
@@ -343,6 +344,8 @@ function build() {
   LANGS.filter((l) => l.dir).forEach((lang) => {
     const dict = loadLocale(lang.code);
     const have = Object.keys(base).filter((k) => dict[k] != null && dict[k] !== "").length;
+    const stale = staleKeys(lang.code, base, dict, loadState());
+    if (stale.length) console.log("  ! " + lang.short + " ima " + stale.length + " zastarjelih prijevoda: " + stale.slice(0, 4).join(", "));
     /* Jezik bez ijednog prijevoda se ne gradi — cijela stranica bi bila
        hrvatska pod stranim hreflangom, sto je za Google duplikat. */
     if (!have) { console.log("build: /" + lang.dir + "/ preskoceno — nema prijevoda"); return; }
@@ -403,18 +406,72 @@ function verify() {
   return false;
 }
 
+
+/* ---------- OTISCI HRVATSKOG IZVORNIKA ----------
+   Kad se promijeni hrvatska vrijednost postojeceg kljuca, prijevodi tiho
+   ostanu stari — kljuc postoji, pa ih nijedna provjera ne prijavi. Zato uz
+   svaki prijevod pamtimo otisak hrvatskog teksta u trenutku prevodenja.
+   Ne poklapa li se s danasnjim, prijevod je ZASTARJEO.
+
+   Nakon sto prijevod osvjezis, zapecati ga:  node tools/i18n.js seal <jezik>
+   ------------------------------------------------ */
+const STATE = path.join(LOCALES, '_state.json');
+const fingerprint = (v) => crypto.createHash('sha1').update(String(v), 'utf8').digest('hex').slice(0, 10);
+
+function loadState() {
+  try { return JSON.parse(fs.readFileSync(STATE, 'utf8')); }
+  catch (e) { return { _opis: 'Otisci hrvatskog izvornika u trenutku prijevoda. Generira tools/i18n.js, ne uredivati rucno.', hashes: {} }; }
+}
+function saveState(st) {
+  Object.keys(st.hashes).forEach((l) => {
+    const sorted = {};
+    Object.keys(st.hashes[l]).sort().forEach((k) => (sorted[k] = st.hashes[l][k]));
+    st.hashes[l] = sorted;
+  });
+  fs.writeFileSync(STATE, JSON.stringify(st, null, 2) + String.fromCharCode(10), 'utf8');
+}
+/* Kljucevi koji imaju prijevod, ali je hrvatski izvornik u meduvremenu izmijenjen. */
+function staleKeys(langCode, base, dict, st) {
+  const h = (st.hashes && st.hashes[langCode]) || {};
+  return Object.keys(base).filter((k) =>
+    dict[k] != null && dict[k] !== '' && h[k] !== fingerprint(base[k]));
+}
+/* Oznaci trenutne prijevode kao uskladene s danasnjim hrvatskim tekstom. */
+function seal(only) {
+  const base = loadLocale(DEFAULT_LANG);
+  const st = loadState();
+  LANGS.filter((l) => l.dir).filter((l) => !only || l.code === only).forEach((l) => {
+    const d = loadLocale(l.code);
+    st.hashes[l.code] = st.hashes[l.code] || {};
+    let n = 0;
+    Object.keys(base).forEach((k) => {
+      if (d[k] != null && d[k] !== '') { st.hashes[l.code][k] = fingerprint(base[k]); n++; }
+    });
+    Object.keys(st.hashes[l.code]).forEach((k) => { if (!(k in base)) delete st.hashes[l.code][k]; });
+    console.log('seal: ' + l.short + ' — zapecaceno ' + n + ' prijevoda');
+  });
+  saveState(st);
+}
 /* ---------- STATUS ---------- */
 function status() {
   const base = loadLocale(DEFAULT_LANG);
   const keys = Object.keys(base);
+  const st = loadState();
+  let total = 0;
   console.log("kljuceva u HR izvoru: " + keys.length);
   LANGS.filter((l) => l.dir).forEach((l) => {
     const d = loadLocale(l.code);
     const have = keys.filter((k) => d[k] != null && d[k] !== "").length;
     const missing = keys.filter((k) => d[k] == null || d[k] === "");
+    const stale = staleKeys(l.code, base, d, st);
     console.log("  " + l.short + ": " + have + "/" + keys.length +
-      (missing.length ? "  nedostaje: " + missing.slice(0, 5).join(", ") + (missing.length > 5 ? " (+" + (missing.length - 5) + ")" : "") : ""));
+      (missing.length ? "  nedostaje: " + missing.slice(0, 5).join(", ") + (missing.length > 5 ? " (+" + (missing.length - 5) + ")" : "") : "") +
+      (stale.length ? "  ZASTARJELO (" + stale.length + "): " + stale.slice(0, 5).join(", ") + (stale.length > 5 ? " (+" + (stale.length - 5) + ")" : "") : ""));
+    total += stale.length;
   });
+  if (total) console.log(String.fromCharCode(10) + 'Zastarjelih prijevoda: ' + total +
+    '. Osvjezi tekst pa pokreni: node tools/i18n.js seal <jezik>');
+  return total;
 }
 
 const cmd = process.argv[2] || "help";
@@ -422,5 +479,6 @@ if (cmd === "extract") extract();
 else if (cmd === "build") build();
 else if (cmd === "verify") verify();
 else if (cmd === "status") status();
+else if (cmd === "seal") seal(process.argv[3]);
 else if (cmd === "all") { extract(); if (verify()) build(); }
-else console.log("Koristi: node tools/i18n.js extract|build|verify|status|all");
+else console.log("Koristi: node tools/i18n.js extract|build|verify|status|seal [jezik]|all");
