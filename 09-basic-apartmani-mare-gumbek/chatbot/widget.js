@@ -534,11 +534,83 @@
     root.classList.remove('is-open');
     launcher.setAttribute('aria-expanded', 'false');
     launcher.focus();
+    kbSync();   // otvoren je sad false, pa ovo skida mjere tipkovnice
   }
 
   function autoVisina() {
     input.style.height = 'auto';
     input.style.height = Math.min(input.scrollHeight, 110) + 'px';
+  }
+
+  /* ==========================================================
+     7b. TIPKOVNICA NA MOBITELU (VisualViewport)
+     ----------------------------------------------------------
+     CSS (interactive-widget=resizes-content + dvh) rjesava Chrome na
+     Androidu, ali ne i iOS: Safari ignorira interactive-widget, a dvh se
+     ondje ne skuplja kad se digne tipkovnica — panel bi ostao pune visine
+     s unosom skrivenim iza tipkovnice.
+
+     Ovaj sloj mjeri razliku izmedu layout viewporta i vizualnog viewporta.
+     Na iOS-u je ta razlika visina tipkovnice; na Androidu s resizes-content
+     oba se skupe pa razlika ispadne ~0 i sloj se sam iskljuci.
+     ========================================================== */
+  var KB_PRAG = 100;   // manje od ovoga je adresna traka, ne tipkovnica
+
+  /* Dijagnostika za provjeru na stvarnom telefonu: otvorite stranicu s
+     ?cbdebug=1 na kraju URL-a i brojke se ispisuju preko widgeta.
+     Iskljuceno je dok se parametar izricito ne doda. */
+  // typeof provjera jer se ista datoteka ucitava i u Nodeu (test-demo.js),
+  // gdje `location` ne postoji.
+  var DEBUG = typeof location !== 'undefined' &&
+              /[?&]cbdebug=1/.test(location.search);
+  var dbgBox = null;
+
+  function ispisiDijagnostiku(vv, inset, mjeri) {
+    if (!dbgBox) {
+      dbgBox = document.createElement('div');
+      dbgBox.style.cssText =
+        'position:fixed;left:4px;top:4px;z-index:9999;padding:6px 8px;' +
+        'font:11px/1.4 monospace;background:rgba(0,0,0,.82);color:#0f0;' +
+        'border-radius:6px;pointer-events:none;white-space:pre';
+      document.body.appendChild(dbgBox);
+    }
+    dbgBox.textContent = [
+      'layout  ' + document.documentElement.clientHeight,
+      'visual  ' + Math.round(vv.height),
+      'offsetY ' + Math.round(vv.offsetTop),
+      'inset   ' + inset + (inset > KB_PRAG ? '  <- tipkovnica' : ''),
+      'mjeri   ' + mjeri,
+      'is-kb   ' + root.classList.contains('is-kb')
+    ].join('\n');
+  }
+
+  function kbSync() {
+    var vv = window.visualViewport;
+    if (!vv || !root) return;
+
+    // Mjeri se samo dok je unos stvarno fokusiran. Inace bi skupljanje
+    // adresne trake pri skrolanju stranice izgledalo kao tipkovnica.
+    var mjeri = otvoren && document.activeElement === input;
+    var inset = mjeri
+      ? Math.max(0, Math.round(
+          document.documentElement.clientHeight - vv.height - vv.offsetTop))
+      : 0;
+
+    if (inset > KB_PRAG) {
+      var tekPodignuta = !root.classList.contains('is-kb');
+      root.style.setProperty('--cb-kb', inset + 'px');
+      root.style.setProperty('--cb-vv', Math.round(vv.height) + 'px');
+      root.classList.add('is-kb');
+      // Samo pri pojavi tipkovnice: inace bi svaki pomak vizualnog
+      // viewporta vracao gosta na dno dok prelistava povijest.
+      if (tekPodignuta) naDno();
+    } else if (root.classList.contains('is-kb')) {
+      root.classList.remove('is-kb');
+      root.style.removeProperty('--cb-kb');
+      root.style.removeProperty('--cb-vv');
+    }
+
+    if (DEBUG) ispisiDijagnostiku(vv, inset, mjeri);
   }
 
   /* ==========================================================
@@ -624,6 +696,16 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && otvoren) zatvori();
     });
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', kbSync);
+      // `scroll` jer iOS pri otvorenoj tipkovnici pomice vizualni viewport
+      // (mijenja se offsetTop), a ne samo njegovu visinu.
+      window.visualViewport.addEventListener('scroll', kbSync);
+    }
+    // Android javi novu visinu tek koju desetinku sekunde nakon fokusa.
+    input.addEventListener('focus', function () { setTimeout(kbSync, 80); });
+    input.addEventListener('blur', function () { setTimeout(kbSync, 80); });
   }
 
   /* ==========================================================

@@ -275,6 +275,19 @@
 }
 .cb__foot a { color: var(--sea); font-weight: 600; }
 
+/* ---------- PODIGNUTA TIPKOVNICA ---------- */
+/* Klasu `is-kb` i varijable --cb-kb / --cb-vv postavlja VisualViewport
+   sloj u widget.js, i to samo kad izmjeri stvarnu tipkovnicu. Potreban je
+   jer iOS Safari ne poznaje interactive-widget, a dvh se ondje ne skuplja
+   za tipkovnicu — panel bi ostao pune visine, s unosom iza tipkovnice.
+   Na Androidu s resizes-content mjerenje ispadne 0 i ova pravila se nikad
+   ne aktiviraju; ondje sve rijesi CSS iznad. */
+.cb.is-kb .cb__launcher { bottom: calc(1.5rem + var(--cb-kb)); }
+.cb.is-kb .cb__panel {
+  bottom: calc(1.5rem + 60px + .75rem + var(--cb-kb));
+  height: min(560px, calc(var(--cb-vv) - 10rem));
+}
+
 /* ---------- MOBITEL ---------- */
 /* Ista granica (720px) na kojoj se pojavljuje .mobile-cta traka. */
 @media (max-width: 720px) {
@@ -303,6 +316,17 @@
     border-bottom: 0;
     transform-origin: bottom center;
   }
+  /* Na mobitelu panel prekrije tocno vidljivi dio: dize se za visinu
+     tipkovnice i dobiva visinu vizualnog viewporta. */
+  .cb.is-kb .cb__launcher {
+    bottom: calc(var(--cb-cta-h) + .75rem + var(--cb-kb));
+  }
+  .cb.is-kb .cb__panel {
+    bottom: var(--cb-kb);
+    height: var(--cb-vv);
+    border-radius: 0;
+  }
+
   .cb__msg { max-width: 88%; font-size: .92rem; }
   .cb__input { font-size: 16px; }
   .cb__form { padding-bottom: calc(.75rem + env(safe-area-inset-bottom)); }
