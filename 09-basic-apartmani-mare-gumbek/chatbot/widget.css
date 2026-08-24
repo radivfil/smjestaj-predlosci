@@ -67,7 +67,11 @@
   bottom: calc(1.5rem + 60px + .75rem);
   z-index: var(--cb-z-panel);
   width: 380px;
+  /* vh je *large* jedinica — ne mijenja se ni za adresnu traku ni za
+     tipkovnicu. dvh prati stvarno dostupnu visinu; prvi red je fallback
+     za preglednike bez dvh podrske. */
   height: min(560px, calc(100vh - 10rem));
+  height: min(560px, calc(100dvh - 10rem));
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -278,10 +282,15 @@
      traka ionako nije potrebna. */
   .cb__panel {
     right: 0; left: 0;
+    top: auto;
     bottom: 0;
-    top: 7vh;
     width: auto;
-    height: auto;
+    /* Visina se racuna od dna prema gore umjesto preko `top` inseta: tako
+       je jedna vrijednost dovoljna da je kasnije preuzme VisualViewport
+       sloj. 93dvh ostavlja isti razmak na vrhu kao prijasnji top: 7vh,
+       ali se skuplja kad se tipkovnica digne. */
+    height: 93vh;
+    height: 93dvh;
     border-radius: 20px 20px 0 0;
     border-bottom: 0;
     transform-origin: bottom center;
@@ -293,8 +302,14 @@
 }
 
 /* Vrlo niski ekrani u landscapeu — panel bez gornjeg razmaka. */
+/* Vrlo niski ekrani u landscapeu — i Android s podignutom tipkovnicom,
+   gdje preostala visina cesto padne ispod 460px. Panel tada uzima sve. */
 @media (max-height: 460px) and (max-width: 720px) {
-  .cb__panel { top: 0; border-radius: 0; }
+  .cb__panel {
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+  }
 }
 
 /* Ispis stranice ne treba widget. */
