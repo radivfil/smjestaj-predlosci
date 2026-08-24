@@ -141,6 +141,10 @@
 /* ---------- TIJEK RAZGOVORA ---------- */
 .cb__log {
   flex: 1 1 auto;
+  /* Bez ovoga se flex stavka ne moze skupiti ispod visine svog sadrzaja
+     (default je min-height: auto), pa rastuca povijest poruka gura header
+     i unos izvan panela umjesto da se sama skrola. */
+  min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 1.1rem;
@@ -229,6 +233,9 @@
 }
 .cb__input {
   flex: 1 1 auto;
+  /* Vodoravni parnjak min-height: 0 — bez njega textarea ne pada ispod
+     svoje zadane sirine i gumb za slanje ispadne iz trake. */
+  min-width: 0;
   resize: none;
   max-height: 110px;
   padding: .6rem .8rem;
@@ -259,6 +266,7 @@
 .cb__send svg { width: 18px; height: 18px; }
 
 .cb__foot {
+  flex: 0 0 auto;
   padding: 0 .75rem .6rem;
   background: var(--surface);
   color: var(--text-muted);
