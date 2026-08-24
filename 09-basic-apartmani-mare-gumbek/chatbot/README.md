@@ -98,6 +98,53 @@ Sučelje widgeta ostaje na hrvatskom u oba slučaja — mijenja se u `UI`.
 
 ---
 
+## Tipkovnica na mobitelu
+
+Panel je `position: fixed`, pa ga podizanje tipkovnice može izgurati izvan
+ekrana. Rješenje ima tri sloja:
+
+1. **`interactive-widget=resizes-content`** u viewport meta tagu
+   (`index.html`) — Chrome na Androidu tada skuplja i *layout* viewport, ne
+   samo vizualni. Vrijedi za cijelu stranicu, ne samo za widget.
+2. **`dvh` umjesto `vh`** — panel se sam prilagodi dostupnoj visini. `vh`
+   red ostaje ispred kao fallback za starije preglednike.
+3. **VisualViewport sloj** u `widget.js` — nužan za iOS, koji ignorira
+   `interactive-widget`, a `dvh` se ondje ne skuplja za tipkovnicu. Mjeri
+   `documentElement.clientHeight - visualViewport.height - offsetTop`;
+   rezultat ide u `--cb-kb`, `--cb-vv` i klasu `is-kb`. Na Androidu s
+   `resizes-content` mjerenje ispadne ~0 i sloj se sam isključi.
+
+### Provjera na stvarnom uređaju
+
+Otvorite stranicu s `?cbdebug=1` na kraju URL-a — brojke se ispisuju u
+gornjem lijevom kutu:
+
+```
+layout  844      ← documentElement.clientHeight
+visual  508      ← visualViewport.height
+offsetY 0
+inset   336  <- tipkovnica
+mjeri   true     ← panel otvoren i unos fokusiran
+is-kb   true
+```
+
+Očekivano po sustavu, kad se tapne u polje za unos:
+
+| | `layout` | `inset` | `is-kb` | Tko rješava |
+| --- | --- | --- | --- | --- |
+| Android Chrome 108+ | **smanji se** | ~0 | `false` | CSS (`resizes-content` + `dvh`) |
+| iOS Safari | ostaje isti | visina tipkovnice | `true` | VisualViewport sloj |
+
+Ako na Androidu `layout` **ne** padne, meta tag nije stigao do preglednika
+(provjerite keširanu verziju stranice). Ako na iOS-u `is-kb` ostane
+`false`, a panel je izgurao header, javite izmjerene brojke.
+
+Provjerite u oba slučaja: zaglavlje ostaje na mjestu, zadnja poruka je
+vidljiva iznad tipkovnice, polje za unos je dostupno, i nema skoka layouta
+pri pojavi i nestanku tipkovnice.
+
+---
+
 ## Što još nije riješeno
 
 - **Backend nije napravljen** — čeka odluku o hostingu.
