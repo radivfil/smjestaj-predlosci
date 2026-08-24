@@ -5,7 +5,13 @@
   <link rel="icon" href="../favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="../favicon.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- interactive-widget=resizes-content: Chrome na Androidu od v108 po
+       defaultu (resizes-visual) pri podizanju tipkovnice mijenja samo
+       vizualni viewport, a layout viewport ostaje pune visine — pa
+       position:fixed elementi i vh/dvh jedinice ostanu prevelike i
+       preglednik ih odskrola izvan vidljivog dijela. Ovime se skuplja
+       stvarni layout viewport, pa se sve preracuna na dostupan prostor. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
   <title>Apartmani Mare i Gumbek — smještaj u Petrčanima kraj Zadra</title>
   <meta name="description" content="Apartmani Mare i Gumbek — dva odvojena apartmana u istoj zgradi u Petrčanima kraj Zadra. Vrt i terasa, balkon, klima, besplatan parking, plaža na 800 m. Rezervacija na upit, bez provizije." />
 
