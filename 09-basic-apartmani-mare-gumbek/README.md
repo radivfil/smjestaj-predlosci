@@ -35,6 +35,15 @@ Plaža Donje Petrčane 800 m (~9 min hoda), centar Zadra 12 km.
 Namjerno **nema** online plaćanja ni kalendara dostupnosti — to je premium tier
 (vidi `07-premium-villa-serena` i `08-premium-villa-emilia`).
 
+## Chat widget
+
+Virtualni asistent u donjem desnom kutu — mapa `chatbot/`. Radi u **demo
+načinu** dok se ne odabere hosting za backend: odgovara lokalno, iz baze
+znanja izvučene iz ove stranice, na 6 jezika, uz vidljivu napomenu gostu.
+
+Detalji, uređivanje baze znanja i uključivanje pravog Claude API-ja:
+[`chatbot/README.md`](chatbot/README.md).
+
 ## Fotografije
 
 `images/mare/` i `images/gumbek/` — po apartmanu. U `images/` su tri zajedničke:
