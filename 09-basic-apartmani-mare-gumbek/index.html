@@ -214,6 +214,37 @@
   .nav-toggle { display: none; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer; flex-direction: column; justify-content: center; gap: 6px; padding: 0; }
   .nav-toggle span { display: block; height: 2px; width: 26px; background: #fff; transition: transform .3s, opacity .3s, background .35s; margin-inline: auto; }
   .scrolled .nav-toggle span { background: var(--text); }
+
+  /* OTVOREN IZBORNIK — citljivost zaglavlja.
+     Ladica je var(--surface), u svijetloj temi cisto bijela. Na vrhu
+     stranice zaglavlje jos nema .scrolled, pa su brand, prekidac teme i
+     linije hamburgera bijeli (#fff) jer lebde nad tamnom hero slikom.
+     Kad se ladica uvuce ispod njih, ispada bijelo na bijelom — izmjereni
+     kontrast 1.00:1, tj. gumb za zatvaranje je doslovno nevidljiv.
+     Zato pri otvorenom izborniku sve troje prelazi na boje za citanje
+     (15.11:1 u svijetloj, 13.26:1 u tamnoj temi). */
+  .site-header.nav-open .nav-toggle span { background: var(--text); }
+  .site-header.nav-open .brand { color: var(--text); }
+  .site-header.nav-open .theme-toggle { border-color: var(--border); background: var(--surface-2); color: var(--text); }
+
+  /* Zatamnjena pozadina iza ladice — tap bilo gdje izvan izbornika ga
+     zatvara. z-index 89 je tik ispod ladice (90), a iznad sadrzaja. */
+  .nav-overlay {
+    position: fixed; inset: 0; z-index: 89;
+    background: rgba(9, 32, 38, .5);
+    opacity: 0; visibility: hidden;
+    transition: opacity .35s var(--ease), visibility .35s;
+    -webkit-tap-highlight-color: transparent;
+    border: 0; padding: 0; width: 100%; cursor: pointer;
+  }
+  .nav-overlay.open { opacity: 1; visibility: visible; }
+
+  /* Sticky traka (z-index 95) i chat gumb (96) inace plutaju iznad
+     zatamnjenja (89) — dark overlay s gumbima koji lebde nad njim izgleda
+     kao greska, a tap na njih ostavio bi izbornik otvorenim. Dok je
+     izbornik otvoren, oba se sklanjaju. */
+  body.nav-open .mobile-cta,
+  body.nav-open .cb__launcher { opacity: 0; pointer-events: none; }
   .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -225,7 +256,19 @@
     .nav-links a { color: var(--text); font-size: 1.1rem; }
     .nav-links .btn { margin-top: .5rem; }
     .brand { font-size: 1.15rem; }
+
+    /* Ladica je pozicionirana (z-index 90) i lezi u istom stacking
+       kontekstu kao brand i gumbi, koji su nepozicionirani — a pozicioniran
+       element s pozitivnim z-indexom uvijek prekriva nepozicionirani, bez
+       obzira na redoslijed u markupu. Zato je otvorena ladica prekrivala
+       sam gumb za zatvaranje: elementFromPoint na sredini gumba vracao je
+       ul.nav-links, pa prst nije mogao doci do njega.
+       91 ih dize tik iznad ladice. */
+    .brand, .nav-actions { position: relative; z-index: 91; }
   }
+
+  /* Iznad 980px nema ladice, pa ni pozadine iza nje. */
+  @media (min-width: 981px) { .nav-overlay { display: none; } }
 
   /* ============================================================
      5. HERO
@@ -711,6 +754,10 @@
       </div>
     </div>
   </header>
+
+  <!-- Pozadina iza otvorenog mobilnog izbornika. <button>, ne <div>, da je
+       dostupna i tipkovnici i citacima ekrana. -->
+  <button class="nav-overlay" id="navOverlay" type="button" tabindex="-1" aria-label="Zatvori izbornik"></button>
 
   <main id="main">
     <!-- ==================== HERO ==================== -->
@@ -1302,12 +1349,34 @@
     /* 3. MOBILNA NAVIGACIJA */
     const navToggle = document.getElementById("navToggle");
     const navLinks = document.getElementById("navLinks");
-    const closeNav = () => { navLinks.classList.remove("open"); navToggle.setAttribute("aria-expanded", "false"); };
-    navToggle.addEventListener("click", () => {
-      const open = navLinks.classList.toggle("open");
+    const navOverlay = document.getElementById("navOverlay");
+
+    /* Jedno mjesto koje postavlja cijelo stanje izbornika, da ladica,
+       pozadina, boje zaglavlja i ARIA nikad ne odu u razlicite strane.
+       Klasa nav-open na zaglavlju daje citljive boje nad bijelom ladicom
+       (bez nje su brand i linije X-a bijeli na bijelom). */
+    const setNav = (open) => {
+      navLinks.classList.toggle("open", open);
+      navOverlay.classList.toggle("open", open);
+      header.classList.toggle("nav-open", open);
+      document.body.classList.toggle("nav-open", open);
       navToggle.setAttribute("aria-expanded", String(open));
-    });
+      navToggle.setAttribute("aria-label", open ? "Zatvori izbornik" : "Otvori izbornik");
+    };
+    const closeNav = () => setNav(false);
+
+    /* Cetiri nacina zatvaranja: isti gumb (sad X), tap izvan izbornika,
+       Escape (nize, uz lightbox) i klik na bilo koju stavku izbornika. */
+    navToggle.addEventListener("click", () => setNav(!navLinks.classList.contains("open")));
+    navOverlay.addEventListener("click", closeNav);
     navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+
+    /* Ladica se iznad 980px vise ne prikazuje — ako se prozor prosiri dok
+       je otvorena, stanje bi ostalo zaglavljeno (zatamnjena pozadina bez
+       vidljivog izbornika). */
+    window.matchMedia("(min-width: 981px)").addEventListener("change", e => {
+      if (e.matches) closeNav();
+    });
 
     /* 4. SCROLL REVEAL */
     const reveals = document.querySelectorAll("[data-reveal]");
