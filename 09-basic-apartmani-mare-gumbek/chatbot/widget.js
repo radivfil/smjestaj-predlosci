@@ -518,6 +518,9 @@
     if (otvoren) return;
     otvoren = true;
     root.classList.add('is-open', 'is-seen');
+    // Klasa na <body> da stranica moze skloniti zaglavlje dok je chat
+    // otvoren (vidi index.html) — inace iznad panela ostane odrezana traka.
+    document.body.classList.add('cb-open');
     launcher.setAttribute('aria-expanded', 'true');
     try { localStorage.setItem('cb-seen', '1'); } catch (e) { /* privatni način */ }
 
@@ -532,6 +535,7 @@
     if (!otvoren) return;
     otvoren = false;
     root.classList.remove('is-open');
+    document.body.classList.remove('cb-open');
     launcher.setAttribute('aria-expanded', 'false');
     launcher.focus();
     kbSync();   // otvoren je sad false, pa ovo skida mjere tipkovnice

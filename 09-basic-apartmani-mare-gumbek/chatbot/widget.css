@@ -12,10 +12,13 @@
    ============================================================ */
 
 .cb {
-  /* Sticky traka .mobile-cta ima z-index 95 — launcher mora iznad nje,
-     a panel iznad launchera. */
+  /* Slojevi na stranici: .mobile-cta 95, .site-header 100, .lightbox 200.
+     Launcher stoji iznad sticky trake, a panel iznad zaglavlja stranice —
+     inace se zaglavlje (100) crta preko otvorenog panela i brand
+     "Apartmani Mare i Gumbek" prekrije naslov "Virtualni asistent".
+     Ispod lightboxa (200) jer galerija ostaje najgornji sloj. */
   --cb-z-launcher: 96;
-  --cb-z-panel: 98;
+  --cb-z-panel: 120;
   /* Visina sticky trake na mobitelu: .7rem + gumb (~2.75rem) + .7rem. */
   --cb-cta-h: 4.9rem;
   --cb-user: var(--sea-deep);
@@ -327,6 +330,9 @@
     height: var(--cb-vv);
     border-radius: 0;
   }
+  /* Dok se tipka, prostor je dragocjen — demo napomena je vec procitana
+     pri otvaranju i vraca se cim tipkovnica nestane. */
+  .cb.is-kb .cb__demo { display: none; }
 
   .cb__msg { max-width: 88%; font-size: .92rem; }
   .cb__input { font-size: 16px; }
