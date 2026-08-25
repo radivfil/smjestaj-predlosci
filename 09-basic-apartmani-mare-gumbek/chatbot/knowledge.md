@@ -86,13 +86,9 @@ nekoliko konoba i šljunčane plaže.
 | Plaža Donje Petrčane | 800 m, oko 9 minuta hoda |
 | Luka i riva Petrčane (konobe uz more) | nekoliko minuta hoda |
 | Centar Zadra i Morske orgulje | 12 km, oko 20 minuta vožnje |
-| Zračna luka Zadar | oko 20–30 minuta vožnje *(vidi napomenu)* |
+| Zračna luka Zadar | 23 km, oko 25 minuta vožnje |
 | Autobusna i trajektna luka Zadar | oko 15 minuta vožnje |
 | Nin — pješčana plaža i solana | oko 15 minuta vožnje |
-
-**Napomena o zračnoj luci:** stranica navodi dva različita podatka — sekcija
-„Lokacija" kaže **oko 30 minuta**, a „Dobro je znati" **20-ak minuta**.
-Dok se ne uskladi, bot odgovara **„otprilike 20 do 30 minuta vožnje"**.
 
 Izleti koje stranica spominje: NP Kornati i Telašćica, NP Krka, Plitvička jezera,
 Nin sa sjeverne strane. U Zadru: Morske orgulje, Pozdrav Suncu, rimski forum,
@@ -134,7 +130,7 @@ Dobro je znati:
 
 - **Vrijeme prijave i odjave dogovara se unaprijed** — nema objavljenog fiksnog sata;
   gost javi kada planira stići i vlasnici se prilagode. *(Vidi odjeljak 10.)*
-- Zračna luka Zadar je 20-ak minuta vožnje; autobusna i trajektna luka Zadar oko 15 minuta.
+- Zračna luka Zadar je 25-ak minuta vožnje; autobusna i trajektna luka Zadar oko 15 minuta.
 - **Parking je besplatan**, u dvorištu zgrade, **jedno mjesto po apartmanu**.
 - **Posteljina, ručnici i finalno čišćenje uključeni su u cijenu.**
 - Ako gostu nešto treba tijekom boravka — **nazove** i rješava se isti dan.
