@@ -338,7 +338,11 @@
   /* ============================================================
      7. JEDINICE (apartmani)
      ============================================================ */
-  .units__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 2.25rem; }
+  /* min(330px, 100%) umjesto golih 330px: na 360px ekranu kontejner je
+     320px (2x20px gutter), pa bi fiksni minimum od 330px prelio karticu
+     izvan ekrana i body{overflow-x:hidden} bi joj odrezao desni rub.
+     Iznad ~370px kontejnera ponasanje je nepromijenjeno. */
+  .units__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr)); gap: 2.25rem; }
   .unit-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform .35s var(--ease), box-shadow .35s; }
   .unit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
   .unit-card__img { position: relative; aspect-ratio: 3/2; overflow: hidden; }
