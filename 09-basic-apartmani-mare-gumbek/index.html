@@ -203,7 +203,7 @@
   .scrolled .nav-links .btn { color: #fff; }
   .nav-actions { display: flex; align-items: center; gap: .75rem; }
 
-  .theme-toggle { width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,.4); background: rgba(255,255,255,.12); color: #fff; cursor: pointer; display: grid; place-items: center; transition: background .3s, color .35s, border-color .35s; }
+  .theme-toggle { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.4); background: rgba(255,255,255,.12); color: #fff; cursor: pointer; display: grid; place-items: center; transition: background .3s, color .35s, border-color .35s; }
   .scrolled .theme-toggle { border-color: var(--border); background: var(--surface-2); color: var(--text); }
   .theme-toggle:hover { color: var(--terra); }
   .theme-toggle svg { width: 20px; height: 20px; }
@@ -588,6 +588,11 @@
   .contact-list li { display: flex; gap: .9rem; align-items: flex-start; min-width: 0; }
   .contact-list li > span, .contact-list li > a { min-width: 0; overflow-wrap: break-word; }
   .contact-list svg { width: 22px; height: 22px; color: var(--sea); flex-shrink: 0; margin-top: .15rem; }
+  /* Telefon, e-mail i WhatsApp bili su visoki 26px — ispod preporucenih
+     44px za dodir. Poravnanje i izgled ostaju isti, raste samo
+     povrsina za prst. Ne odnosi se na .maplink, koji stoji unutar
+     tekstualnog bloka s adresom. */
+  .contact-list li > a { display: inline-flex; align-items: center; min-height: 44px; }
   .contact-list a:hover { color: var(--terra); }
   .contact__langs { margin-top: 2rem; font-size: .88rem; color: var(--text-muted); }
 
@@ -623,7 +628,7 @@
   .footer__grid a { font-size: .92rem; transition: color .25s; }
   .footer__grid a:hover { color: var(--terra-soft); }
   .socials { display: flex; gap: .75rem; margin-top: 1.25rem; }
-  .socials a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; transition: background .25s, border-color .25s; }
+  .socials a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; transition: background .25s, border-color .25s; }
   .socials a:hover { background: rgba(255,255,255,.12); border-color: var(--terra-soft); }
   .socials svg { width: 18px; height: 18px; }
   .footer__bottom { border-top: 1px solid rgba(255,255,255,.12); padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .85rem; }

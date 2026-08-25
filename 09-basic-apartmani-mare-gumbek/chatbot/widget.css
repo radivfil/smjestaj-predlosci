@@ -252,7 +252,8 @@
 .cb__input:focus { outline: 2px solid var(--sea); outline-offset: -1px; border-color: var(--sea); }
 .cb__send {
   flex: 0 0 auto;
-  width: 40px; height: 40px;
+  /* 44x44 je preporucena minimalna povrsina za dodir. */
+  width: 44px; height: 44px;
   display: grid; place-items: center;
   border: 0; border-radius: 12px;
   background: var(--sea-deep);
