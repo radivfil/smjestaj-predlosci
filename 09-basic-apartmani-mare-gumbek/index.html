@@ -251,7 +251,7 @@
 
   @media (max-width: 980px) {
     .nav-toggle { display: flex; }
-    .nav-links { position: fixed; inset: 0 0 0 auto; width: min(82vw, 330px); flex-direction: column; align-items: flex-start; justify-content: center; gap: 1.6rem; background: var(--surface); padding: 2rem var(--gutter); transform: translateX(100%); transition: transform .4s var(--ease); box-shadow: var(--shadow); z-index: 90; overflow-y: auto; }
+    .nav-links { position: fixed; inset: 0 0 0 auto; width: min(82vw, 330px); flex-direction: column; align-items: flex-start; justify-content: center; justify-content: safe center; gap: 1.6rem; background: var(--surface); padding: 2rem var(--gutter); transform: translateX(100%); transition: transform .4s var(--ease); box-shadow: var(--shadow); z-index: 90; overflow-y: auto; }
     .nav-links.open { transform: translateX(0); }
     .nav-links a { color: var(--text); font-size: 1.1rem; }
     .nav-links .btn { margin-top: .5rem; }
@@ -264,7 +264,19 @@
        sam gumb za zatvaranje: elementFromPoint na sredini gumba vracao je
        ul.nav-links, pa prst nije mogao doci do njega.
        91 ih dize tik iznad ladice. */
-    .brand, .nav-actions { position: relative; z-index: 91; }
+    .brand, .nav-actions { position: relative; z-index: 92; }
+
+    /* Neprozirna traka zaglavlja dok je izbornik otvoren.
+       Vlastita pozadina zaglavlja se ne vidi jer je ladica pozicionirana
+       (z-index 90) i prekriva je, pa su stavke izbornika probijale iza
+       brand teksta — vidljivo na snimci s Androida. Ovaj sloj lezi izmedu
+       ladice (90) i sadrzaja zaglavlja (92), pa brand i X uvijek imaju
+       poznatu podlogu ispod sebe. */
+    .site-header.nav-open::before {
+      content: ""; position: absolute; inset: 0; z-index: 91;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
   }
 
   /* Iznad 980px nema ladice, pa ni pozadine iza nje. */
