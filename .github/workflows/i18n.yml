@@ -1,6 +1,6 @@
 name: Jezicne verzije (i18n)
 
-# Regenerira /en/, /de/, /es/, /it/ iz index.html i locales/.
+# Regenerira /en/, /de/, /es/, /it/, /sl/ iz index.html i locales/.
 #
 # KAKO RADI:
 #   1) extract — hrvatski tekst iz index.html se prepisuje u locales/hr/*.json
@@ -8,7 +8,7 @@ name: Jezicne verzije (i18n)
 #   3) build   — gradi jezicne verzije; jezik bez prijevoda se preskace
 #
 # Izvor istine je index.html. Prijevode uredujes u locales/<jezik>/*.json,
-# a mape /en/, /de/, /es/, /it/ se NE uredjuju rucno — ovaj workflow ih
+# a mape /en/, /de/, /es/, /it/, /sl/ se NE uredjuju rucno — ovaj workflow ih
 # prepisuje pri svakom pushu.
 
 on:
