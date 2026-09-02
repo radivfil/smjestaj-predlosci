@@ -180,6 +180,17 @@ h1,h2,h3,h4{ font-family:var(--display); font-weight:700; line-height:1.06; lett
 .foot__contact{ display:flex; flex-direction:column; gap:.4rem; }
 .foot__contact a{ display:inline-flex; align-items:center; gap:.6rem; min-height:44px; }
 .foot__contact svg{ width:16px; height:16px; flex:none; color:var(--pink); }
+/* Ikone drustvenih mreza: 44px tap target, boja iz palete (ne brend boje),
+   hover jednak ostalim interaktivnim elementima footera. */
+.foot__social{ display:flex; align-items:center; gap:.15rem; margin-left:-.75rem; }
+.foot__social a{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:50%; color:var(--ink-soft);
+  transition:color .2s var(--ease), background .2s var(--ease);
+}
+.foot__social a:hover{ color:var(--ink); background:var(--sand); }
+.foot__social a:focus-visible{ outline:2px solid var(--ink); outline-offset:-2px; }
+.foot__social svg{ width:20px; height:20px; flex:none; }
 .foot__legal{ margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--line);
               color:var(--ink-faint); font-size:.85rem; display:flex; flex-wrap:wrap; gap:.75rem 1.5rem; justify-content:space-between; }
 

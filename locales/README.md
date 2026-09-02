@@ -8,9 +8,9 @@ i ne uređuje se ručno.
 
 1. Otvori `locales/<jezik>/<datoteka>.json` (npr. `locales/en/paketi.json`).
 2. Prepiši vrijednost. Ključevi se ne diraju.
-3. Commitaj i pushaj — GitHub Action regenerira `/en/`, `/de/`, `/es/`, `/it/`.
+3. Commitaj i pushaj — GitHub Action regenerira `/en/`, `/de/`, `/es/`, `/it/`, `/sl/`.
 
-Mape `/en/`, `/de/`, `/es/`, `/it/` su **generirane** — ručna izmjena u njima
+Mape `/en/`, `/de/`, `/es/`, `/it/`, `/sl/` su **generirane** — ručna izmjena u njima
 nestaje pri sljedećem buildu.
 
 ## Pravila

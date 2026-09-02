@@ -1,0 +1,29 @@
+{
+  "faq": {
+    "eyebrow": "Vprašanja",
+    "title": "Vprašanja in <em>odgovori.</em>",
+    "lead": "Tisto, kar nas stranke najpogosteje vprašajo, preden začnemo. Če vašega vprašanja ni med njimi, nam kar pišite.",
+    "q1": "Koliko traja izdelava spletne strani?",
+    "a1": "Običajen rok je do 2 tedna od trenutka, ko se dogovorimo o vsebini in prejmemo gradiva. Večji obseg — več podstrani, rezervacije ali spletna trgovina — lahko traja dlje. Točen rok se dogovorimo na začetku in Vas sproti obveščamo.",
+    "q2": "Ali moram besedila pripraviti sam?",
+    "a2": "Ni treba. Če imate besedila že pripravljena, jih z veseljem uporabimo. Če jih nimate, jih napišemo mi — na podlagi kratkega pogovora o tem, s čim se ukvarjate in kdo so Vaše stranke. Vi jih samo preberete in potrdite.",
+    "q3": "Ali moram imeti fotografije?",
+    "a3": "Da. Fotografije Vašega prostora, izdelkov ali del potrebujemo — prikazujejo tisto, kar zares ponujate, in nobena kupljena fotografija jih ne more nadomestiti. Vi jih pošljete, mi pa jih obdelamo, obrežemo in pripravimo za splet.",
+    "q4": "Ali je domena vključena?",
+    "a4": "Je. Registracijo domene in celotno tehnično nastavitev opravimo mi, domena pa je vključena v ceno, ki jo skupaj določimo na koncu — končni znesek je odvisen od končnice, ki jo izberete (.hr, .com in podobno). Domena je registrirana na Vaše ime in ostane Vaša.",
+    "q5": "Kaj pa, če spletno stran že imam?",
+    "a5": "Potem gre za prenovo: ohranimo vsebino in obstoječi naslov, spremenimo pa videz, hitrost in strukturo — brez izgube položaja na Googlu. Če je stran v redu, težava pa je le vidnost, je za to na voljo ločena storitev Google vidnosti.",
+    "q6": "Ali lahko vsebino pozneje spreminjam sam?",
+    "a6": "Lahko. Po objavi Vam pokažemo, kako sami spremenite besedila, cene in fotografije. Če se Vam ne da ali nimate časa, manjše spremembe spadajo v vzdrževanje, zato jih opravimo mi.",
+    "q7": "Kaj vključuje vzdrževanje?",
+    "a7": "Gostovanje, SSL certifikat, varnostne posodobitve in varnostne kopije, spremljanje delovanja strani in manjše spremembe vsebine. Znesek je znan vnaprej — brez obračuna po urah in brez računa, ki Vas preseneti.",
+    "q8": "Ali imam lahko spletno stran v več jezikih?",
+    "a8": "Da, večjezičnost je vključena v vse pakete. Najpogosteje so to hrvaščina, angleščina, nemščina in italijanščina, dodamo pa katerikoli jezik, ki ga potrebujete.",
+    "q9": "Ali lahko naredite spletne rezervacije?",
+    "a9": "Lahko. Rezervacijski sistem s koledarjem razpoložljivosti je del paketa Premium, po dogovoru pa ga dodamo tudi na manjši paket. Koledar je mogoče sinhronizirati z Booking.com in Airbnb, tako da ni dvojnih rezervacij.",
+    "q10": "Ali lahko dobim spletno plačilo?",
+    "a10": "Da. Nastavimo plačilo s kartico prek preverjenih ponudnikov. Denar gre neposredno na Vaš račun — mi nismo posrednik pri plačilu.",
+    "q11": "Ali izdelujete spletne trgovine?",
+    "a11": "Izdelujemo. Spletna trgovina se začne pri 699 €, končna cena pa je odvisna od števila izdelkov, načinov plačila in dostave ter integracij, ki jih potrebujete."
+  }
+}

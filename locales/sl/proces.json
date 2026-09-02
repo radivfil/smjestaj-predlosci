@@ -1,0 +1,22 @@
+{
+  "proces": {
+    "eyebrow": "Proces",
+    "title": "Od klica do objave<br />v <em>štirih korakih</em>.",
+    "i1": {
+      "t": "Pogovor",
+      "d": "Spoznamo vaše podjetje, kdo so vaše stranke in kaj mora stran doseči. Dogovorimo se za obseg in paket, dobite ceno in rok, brez obveznosti."
+    },
+    "i2": {
+      "t": "Oblikovanje",
+      "d": "Videz sestavimo po vaših fotografijah in blagovni znamki. Vidite in komentirate še pred izdelavo."
+    },
+    "i3": {
+      "t": "Izdelava",
+      "d": "Gradimo stran, pišemo besedila, obdelamo fotografije in postavimo temelje za Google."
+    },
+    "i4": {
+      "t": "Objava",
+      "d": "Domena, e-pošta, SSL in objava. Stran je vaša — pokažemo vam, kako jo sami spreminjate."
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "ctaPrimary": "Zahtevajte ponudbo",
+    "ctaSecondary": "Oglejte si reference",
+    "eyebrow": "Splet &amp; digitalne rešitve",
+    "lead": "Izdelujemo sodobne, profesionalne in funkcionalne spletne strani, ki predstavijo vaše podjetje, pritegnejo pozornost in poskrbijo, da ste na spletu bolj vidni.",
+    "railContact": "Kontakt",
+    "railPhone": "Telefon",
+    "railTag": "Oglaševanje<br />z veseljem ❤️",
+    "slogan": "Vaša ideja. Naša digitalna zgodba. ❤️",
+    "title": "Spletne strani, ki<br /><em>delajo za vas.</em>"
+  },
+  "trust": {
+    "title": "Ni vam treba vedeti, kako se izdela <em>spletna stran.</em>",
+    "sub": "Za vse poskrbimo mi, od ideje do objave:",
+    "i1": {
+      "t": "Struktura",
+      "d": "Kaj sodi na katero stran"
+    },
+    "i2": {
+      "t": "Oblikovanje",
+      "d": "Videz po vaši blagovni znamki"
+    },
+    "i3": {
+      "t": "Besedila",
+      "d": "Napišemo jih namesto vas"
+    },
+    "i4": {
+      "t": "Fotografije",
+      "d": "Obdelava in priprava za splet"
+    },
+    "i5": {
+      "t": "Domena",
+      "d": "Registracija in nastavitev"
+    },
+    "i6": {
+      "t": "E-pošta",
+      "d": "Poslovna, na vaši domeni"
+    },
+    "i7": {
+      "t": "Google",
+      "d": "Da vas ljudje najdejo"
+    },
+    "i8": {
+      "t": "Objava",
+      "d": "Stran postavimo v živo"
+    },
+    "i9": {
+      "t": "Vzdrževanje",
+      "d": "Skrbimo tudi po objavi"
+    }
+  }
+}

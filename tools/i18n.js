@@ -13,7 +13,7 @@
 
    NACINI RADA:
      node tools/i18n.js extract   index.html  -> locales/hr/*.json (+ HR JSON-LD)
-     node tools/i18n.js build     index.html + locales/* -> /en/ /de/ /es/ /it/
+     node tools/i18n.js build     index.html + locales/* -> /en/ /de/ /es/ /it/ /sl/
      node tools/i18n.js verify    round-trip test: gradi HR u .tmp i usporeduje
      node tools/i18n.js status    koliko je kljuceva prevedeno po jeziku
 
@@ -47,7 +47,10 @@ const LANGS = [
   { code: "en", native: "English",  short: "EN", intl: "en-GB", og: "en_GB", dir: "en" },
   { code: "de", native: "Deutsch",  short: "DE", intl: "de-DE", og: "de_DE", dir: "de" },
   { code: "es", native: "Español",  short: "ES", intl: "es-ES", og: "es_ES", dir: "es" },
-  { code: "it", native: "Italiano", short: "IT", intl: "it-IT", og: "it_IT", dir: "it" }
+  { code: "it", native: "Italiano", short: "IT", intl: "it-IT", og: "it_IT", dir: "it" },
+  /* Kod jezika je "sl" (ISO 639-1), kratica na gumbu "SI" — tako je
+     posjetitelju prepoznatljivije, kao i na oznakama drzave. */
+  { code: "sl", native: "Slovenščina", short: "SI", intl: "sl-SI", og: "sl_SI", dir: "sl" }
 ];
 
 /* Prefiks kljuca -> datoteka u kojoj zivi (namespace). */

@@ -1,0 +1,21 @@
+{
+  "usluge": {
+    "eyebrow": "Storitve",
+    "i1": {
+      "t": "Spletna stran po meri vašega posla",
+      "d": "Celotna stran od skice do objave: oblikovanje, besedila, obdelava fotografij, galerija, cenik ali storitve, zemljevid in obrazec za povpraševanje. Salon, ambulanta, restavracija, fitnes ali apartma — strukturo sestavimo glede na to, kako se vaše stranke zares odločajo. Dostavimo dokončano, ne na pol narejeno."
+    },
+    "i2": {
+      "t": "Prenova obstoječe strani",
+      "d": "Imate stran, ki izgleda zastarelo ali razpada na telefonu? Ohranimo vsebino in naslov, spremenimo videz in hitrost — brez izgube položaja na Googlu."
+    },
+    "i3": {
+      "t": "Vidnost na Googlu",
+      "d": "Tehnični temelji, Google poslovni profil, besedila, pisana za iskanje, in merjenje rezultatov. Podrobno je opisano v razdelku zgoraj."
+    },
+    "i4": {
+      "t": "Domena, e-pošta in vzdrževanje",
+      "d": "Registracija domene, poslovna e-pošta na vašem imenu namesto gmaila, SSL certifikat in poznejše spremembe vsebine, ko jih potrebujete."
+    }
+  }
+}

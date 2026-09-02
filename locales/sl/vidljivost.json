@@ -1,0 +1,11 @@
+{
+  "vidljivost": {
+    "eyebrow": "Vidnost",
+    "title": "Da vas ljudje<br /><em>najdejo</em> na Googlu.",
+    "lead": "Lepa stran, ki je nihče ne najde, ni vredna nič. Zato gre vsaka naša stran v svet z urejenimi temelji vidnosti — ne kot doplačilo, ampak kot del posla.",
+    "i1": "<strong>Tehnični temelji</strong> Naslovi, opisi in strukturirani podatki, ki jih Google bere, čist naslov strani, zemljevid strani in hitro nalaganje. Brez tega ostalo ne pomaga.",
+    "i2": "<strong>Google poslovni profil</strong> Nastavimo in uredimo profil, s katerim se pojavite na zemljevidu in v lokalnem iskanju — pogosto prvi stik gosta z vami.",
+    "i3": "<strong>Besedila, pisana za iskanje</strong> Vsebina, ki odgovarja na to, kar ljudje dejansko vtipkajo: kraj, tip nastanitve, bližina morja, parkirišče, hišni ljubljenčki.",
+    "i4": "<strong>Merjenje</strong> Analitika in Search Console, da se vidi, od kod prihajajo obiskovalci in katera iskanja prinesejo rezervacije — namesto ugibanja."
+  }
+}

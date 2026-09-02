@@ -46,7 +46,11 @@ const T = [
   ["EN stranica — nikad ne preusmjerava dalje",
    { pageLang: "en", menuLangs: ["hr"], navLangs: ["de"] }, null],
   ["HR stranica, svi jezici u pogonu, njemacki preglednik",
-   { pageLang: "hr", menuLangs: ["en", "de", "es", "it"], navLangs: ["de-AT", "de"] }, "/de/"]
+   { pageLang: "hr", menuLangs: ["en", "de", "es", "it", "sl"], navLangs: ["de-AT", "de"] }, "/de/"],
+  ["HR stranica, slovenski preglednik, /sl/ postoji",
+   { pageLang: "hr", menuLangs: ["en", "de", "es", "it", "sl"], navLangs: ["sl-SI", "sl"] }, "/sl/"],
+  ["SL stranica — nikad ne preusmjerava dalje",
+   { pageLang: "sl", menuLangs: ["hr", "en"], navLangs: ["de"] }, null]
 ];
 
 let bad = 0;

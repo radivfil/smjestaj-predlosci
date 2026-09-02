@@ -1,0 +1,26 @@
+{
+  "radovi": {
+    "eyebrow": "Reference",
+    "title": "Strani, na katerih<br /><em>smo delali.</em>",
+    "lead": "Trije objekti, trije različni obsegi — od enostranske vizitke do sistema z rezervacijami in sinhronizacijo koledarja. Kliknite in si oglejte stran takšno, kot jo vidi gost.",
+    "cardCta": "Oglejte si stran",
+    "i1": {
+      "d": "Trije apartmaji, štirje jeziki in pravi rezervacijski sistem s plačilom s kartico. Ob strani gresta lastniška plošča in sinhronizacija koledarja z Booking.com in Airbnb.",
+      "m1": "Lastniška plošča",
+      "m2": "iCal sync",
+      "m3": "Stripe"
+    },
+    "i2": {
+      "d": "Dva apartmaja v isti stavbi v Petrčanah pri Zadru. Vrt in terasa, balkon, brezplačno parkirišče in neposredno povpraševanje — brez posrednikov in provizij.",
+      "m1": "Dva apartmaja",
+      "m2": "Galerija",
+      "m3": "Povpraševanje"
+    },
+    "i3": {
+      "d": "Apartma s teraso in pogledom na morje na Pelješcu. Galerija, cenik po sezonah, zemljevid in kontakt — vse na eni hitri strani.",
+      "m1": "Galerija",
+      "m2": "Cenik",
+      "m3": "Zemljevid"
+    }
+  }
+}

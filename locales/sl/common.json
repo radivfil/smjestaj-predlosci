@@ -1,0 +1,48 @@
+{
+  "common": {
+    "oneTime": "enkratno"
+  },
+  "drawer": {
+    "about": "O nas",
+    "contact": "Kontakt",
+    "faq": "Vprašanja in odgovori",
+    "packages": "Paketi",
+    "promo": "Promocija",
+    "services": "Storitve",
+    "visibility": "Vidnost",
+    "works": "Reference"
+  },
+  "foot": {
+    "facebookAria": "Obiščite našo Facebook stran",
+    "instagramAria": "Obiščite naš Instagram profil",
+    "rights": "Vse pravice pridržane.",
+    "tagline": "Spletne strani in digitalne rešitve<br />Oglaševanje z veseljem ❤️"
+  },
+  "lang": {
+    "label": "Jezik strani",
+    "menuLabel": "Izberite jezik"
+  },
+  "meta": {
+    "description": "Lota Studio izdeluje sodobne spletne strani in digitalne rešitve za vse dejavnosti — salone, ambulante, restavracije, obrtnike in nastanitve. Oblikovanje, izdelava in vidnost na Googlu, telefonski marketing in promocija v živo — z jasno ceno izdelave in vzdrževanja.",
+    "ogDescription": "Oblikovanje, izdelava in vidnost na Googlu za vse dejavnosti — z jasno ceno izdelave in vzdrževanja.",
+    "ogTitle": "Lota Studio — spletne strani in digitalne rešitve",
+    "schemaDescription": "Izdelava spletnih strani in digitalnih rešitev — oblikovanje, izdelava in vidnost na Googlu.",
+    "title": "Lota Studio — spletne strani in digitalne rešitve"
+  },
+  "nav": {
+    "about": "O nas",
+    "burgerAria": "Odpri meni",
+    "cta": "Zahtevajte ponudbo",
+    "faq": "Vprašanja",
+    "logoAlt": "Lota Studio",
+    "logoAria": "Lota Studio — domov",
+    "menuAria": "Glavni meni",
+    "packages": "Paketi",
+    "promo": "Promocija",
+    "services": "Storitve",
+    "works": "Reference"
+  },
+  "wa": {
+    "label": "Pišite nam na WhatsApp"
+  }
+}

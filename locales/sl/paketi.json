@@ -1,0 +1,63 @@
+{
+  "paketi": {
+    "eyebrow": "Paketi",
+    "title": "Jasna cena izdelave,<br /><em>jasna cena vzdrževanja.</em>",
+    "p1": "Ne delamo samo spletne strani. Pomagamo Vam, da bo Vaše podjetje vidno tam, kjer Vas Vaše bodoče stranke že iščejo — na Googlu.",
+    "p2": "Izdelavo plačate <strong>enkratno</strong> in ceno poznate, preden začnemo. Vzdrževanje je ločen, vnaprej določen znesek — gostovanje, varnost, posodobitve in manjše spremembe vsebine so vključeni. Brez obračuna po urah, brez računa, ki vas preseneti.",
+    "cta": "Izberite paket",
+    "note": "Dodatne podstrani, spletna trgovina, rezervacije, spletno plačilo, agenti umetne inteligence in druge funkcionalnosti so na voljo glede na potrebe poslovanja.",
+    "basic": {
+      "price": "Od {p0}",
+      "maint": "Vzdrževanje <b>{p0} mesečno</b> ali <b>{p1} letno</b> <span>{p2} po mesečni ceni → {p3} ob letnem plačilu, prihranek {p4}</span>",
+      "b1": "Do 5 podstrani",
+      "b2": "Profesionalno oblikovanje",
+      "b3": "Prilagojeno telefonom, tablicam in računalnikom",
+      "b4": "Večjezičnost",
+      "b5": "Osnovni SEO",
+      "b6": "Kontaktni obrazec in Google Zemljevidi"
+    },
+    "business": {
+      "price": "Od {p0}",
+      "maint": "Vzdrževanje <b>{p0} mesečno</b> ali <b>{p1} letno</b> <span>{p2} po mesečni ceni → {p3} ob letnem plačilu, prihranek {p4}</span>",
+      "b1": "Vse iz paketa Basic",
+      "b2": "Do 10 podstrani",
+      "b3": "Google poslovni profil",
+      "b4": "SEO struktura in pisanje besedil",
+      "b5": "Analitika in merjenje",
+      "b6": "Blog",
+      "b7": "Napredni obrazci in integracije",
+      "b8": "Prednostna podpora"
+    },
+    "premium": {
+      "price": "Od {p0}",
+      "maint": "Vzdrževanje <b>{p0} mesečno</b> ali <b>{p1} letno</b> <span>{p2} po mesečni ceni → {p3} ob letnem plačilu, prihranek {p4}</span>",
+      "b1": "Vse iz paketa Business",
+      "b2": "Do 15 podstrani",
+      "b3": "Spletne rezervacije",
+      "b4": "Spletno plačilo",
+      "b5": "Agent umetne inteligence / klepetalni robot",
+      "b6": "Napredni SEO",
+      "b7": "Napredna analitika"
+    },
+    "gv": {
+      "title": "Vidnost na Googlu",
+      "lead": "Vaš vstop v proces Google vidnosti — osnovna nastavitev in optimizacija. Za tiste, ki spletno stran že imajo in želijo, da jih ljudje najdejo.",
+      "listTitle": "Kaj je vključeno",
+      "b1": "Nastavitev in optimizacija Google poslovnega profila",
+      "b2": "Osnovni tehnični pregled SEO",
+      "b3": "Optimizacija naslovov in opisov za eno do dve ključni strani",
+      "b4": "Nastavitev orodij Google Search Console in Analytics",
+      "b5": "Začetno poročilo s priporočili",
+      "price": "Od {p0}",
+      "maint": "+ <b>{p0} mesečno</b> za stalno spremljanje in optimizacijo",
+      "next": "Po prvih rezultatih predlagamo prilagojen načrt za nadaljnjo rast, glede na Vaše cilje in trg.",
+      "cta": "Zahtevajte brezplačno analizo in prilagojeno ponudbo"
+    },
+    "webshop": {
+      "title": "Spletna trgovina",
+      "d": "Izdelava spletne trgovine po potrebah Vašega poslovanja. Točna cena je odvisna od funkcionalnosti in obsega projekta.",
+      "price": "Od {p0}",
+      "cta": "Kontaktirajte nas"
+    }
+  }
+}
