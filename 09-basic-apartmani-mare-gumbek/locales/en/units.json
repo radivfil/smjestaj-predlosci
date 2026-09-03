@@ -1,0 +1,113 @@
+{
+  "about": {
+    "badge": "apartments, one house",
+    "eyebrow": "About us",
+    "h2": "Two apartments, one house, room enough for everyone.",
+    "imgAlt": "Petrčane from the air — a turquoise bay with a marina, the village, vineyards and Velebit in the background",
+    "lead": "Mare and Gumbek are two independent apartments in the same house in Petrčane, a quiet village on the Zadar riviera. Each has its own entrance, kitchen, bathroom, air conditioning and outdoor space — Mare a garden and a large covered terrace, Gumbek a balcony and two floors.",
+    "p2": "That is why they are most often taken by two families or groups of friends travelling together: the children play in the courtyard, dinner is shared on the terrace, and when the day is over everyone returns to their own apartment. No reception, no corridors, no neighbours on the other side of a thin wall — just two locked doors and two holidays that do not have to be coordinated.",
+    "p3": "You are welcome to take just one, of course. Both are equipped for a real holiday rather than a quick look around: dishwasher, hob, coffee machine, TV, fast Wi-Fi and a free parking space in the courtyard.",
+    "score": "Overall guest rating on Booking.com<br /><small>For apartment Mare, based on 5 guest reviews written after their stay.</small>",
+    "stat1": "Separate apartments in the same house",
+    "stat2": "To Donje Petrčane beach",
+    "stat2Num": "800 m",
+    "stat3": "Drive to the centre of Zadar",
+    "stat3Num": "15 min"
+  },
+  "amen": {
+    "ac": {
+      "d": "In both apartments, so even an August afternoon passes in the cool.",
+      "t": "Air conditioning"
+    },
+    "beach": {
+      "d": "About ten minutes of easy walking to Donje Petrčane beach, with no main road to cross.",
+      "t": "Beach 800 m away"
+    },
+    "eyebrow": "Facilities",
+    "h2": "What both apartments have",
+    "kitchen": {
+      "d": "Oven, hob, dishwasher, microwave, coffee machine and enough crockery for the whole party.",
+      "t": "Full kitchen"
+    },
+    "outdoor": {
+      "d": "Mare has a garden and a covered terrace with an outdoor kitchen, Gumbek a balcony with an awning.",
+      "t": "Your own outdoor space"
+    },
+    "parking": {
+      "d": "Your own space in the courtyard, right by the entrance — no driving around looking for one.",
+      "t": "Free parking"
+    },
+    "wifi": {
+      "d": "In both apartments, with no data limit — enough for working remotely too.",
+      "t": "Free Wi-Fi"
+    }
+  },
+  "units": {
+    "askText": "The price depends on the dates, the number of guests and the length of your stay. Send us your dates and we will come back with an exact offer.",
+    "askText2": "The price depends on the dates, the number of guests and the length of your stay. Send us your dates and we will come back with an exact offer.",
+    "askTitle": "Booking on request",
+    "askTitle2": "Booking on request",
+    "eyebrow": "Accommodation",
+    "f": {
+      "ac": "Air conditioning",
+      "ac2": "Air conditioning",
+      "balcony": "Balcony with awning",
+      "dishwasher": "Dishwasher",
+      "dishwasher2": "Dishwasher",
+      "fireplace": "Stone fireplace",
+      "garden": "Private garden",
+      "outKitchen": "Outdoor kitchen",
+      "oven": "Oven and hob",
+      "parking": "Parking",
+      "parking2": "Parking",
+      "terrace": "Covered terrace",
+      "tv": "TV",
+      "twoFloors": "Two floors",
+      "washer": "Washing machine",
+      "wifi": "Wi-Fi",
+      "wifi2": "Wi-Fi"
+    },
+    "gumbek": {
+      "alt1": "Apartment Gumbek — living room with a dining table and a spiral staircase to the upper floor",
+      "alt2": "Apartment Gumbek — balcony with an awning, a table and four chairs",
+      "alt3": "Apartment Gumbek — bedroom under a roof window and a bathroom with a shower",
+      "aria1": "Enlarge: Apartment Gumbek, living room and staircase",
+      "aria2": "Enlarge: Apartment Gumbek, balcony",
+      "aria3": "Enlarge: Apartment Gumbek, bedroom",
+      "badge": "Two floors",
+      "cap1": "Apartment Gumbek — living room with the spiral staircase",
+      "cap2": "Apartment Gumbek — balcony with an awning",
+      "cap3": "Apartment Gumbek — bedroom and bathroom on the upper floor",
+      "cta": "Check availability for Gumbek",
+      "desc": "A two-floor apartment joined by a spiral staircase: downstairs a spacious living room with a dining area, kitchen and a balcony with an awning, upstairs the bedrooms and a bathroom under a roof window. It sits above street level, so it is bright all day and quiet in the evening.",
+      "imgAlt": "Apartment Gumbek — bright living room with a leather sofa and access to the balcony",
+      "name": "Apartment Gumbek",
+      "spec1": "up to 4 guests",
+      "spec2": "2 bedrooms",
+      "spec3": "2 floors"
+    },
+    "h2": "Two apartments, two different moods",
+    "lead": "Both have their own entrance, a full kitchen, a bathroom, air conditioning and their own outdoor space. Take one or both — click any photo to see it larger.",
+    "mare": {
+      "alt1": "Apartment Mare — dining room with large sliding doors onto the covered terrace",
+      "alt2": "Apartment Mare — bedroom with a double and an extra bed, a TV and a wardrobe",
+      "alt3": "Apartment Mare — kitchen with an oven, induction hob, dishwasher and washing machine",
+      "aria1": "Enlarge: Apartment Mare, dining room",
+      "aria2": "Enlarge: Apartment Mare, bedroom",
+      "aria3": "Enlarge: Apartment Mare, kitchen",
+      "badge": "Garden and large terrace",
+      "cap1": "Apartment Mare — dining room opening onto the terrace",
+      "cap2": "Apartment Mare — bedroom",
+      "cap3": "Apartment Mare — kitchen",
+      "cta": "Check availability for Mare",
+      "desc": "A ground-floor apartment with its own garden and a covered terrace that is really a second living room — it has an outdoor kitchen with a sink, a stone fireplace for grilling and a table for six. Inside there is a bright dining room, a living room and a bedroom, all level with the courtyard, without a single step.",
+      "imgAlt": "Apartment Mare — large covered terrace with an outdoor kitchen, a stone fireplace and a table for six",
+      "name": "Apartment Mare",
+      "spec1": "up to 6 guests",
+      "spec2": "2 bedrooms",
+      "spec3": "ground floor + garden"
+    },
+    "priceOnAsk": "Price <small>on request</small>",
+    "priceOnAsk2": "Price <small>on request</small>"
+  }
+}

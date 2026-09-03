@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "aria": "Welcome",
+    "bgAlt": "The house with apartments Mare and Gumbek in Petrčane — white façade, balconies and a parking courtyard",
+    "ctaUnits": "See the apartments",
+    "h1": "Apartments Mare & Gumbek<br /><em>two homes under one roof.</em>",
+    "p": "Two separate apartments in the same house in Petrčane — each with its own kitchen, bathroom, air conditioning and outdoor space. The beach is a ten-minute walk away, Zadar a quarter of an hour by car. Ideal for two families or groups travelling together who still want a place of their own.",
+    "tag1": "◆ Petrčane, Zadar County",
+    "tag2": "★ Guest rating 10/10 · Booking.com",
+    "tag3": "◆ Free parking"
+  },
+  "quick": {
+    "aria": "Quick availability enquiry",
+    "g1": "1 guest",
+    "g10": "10 guests",
+    "g2": "2 guests",
+    "g3": "3 guests",
+    "g4": "4 guests",
+    "g5": "5 guests",
+    "g6": "6 guests",
+    "g7": "7 guests",
+    "g8": "8 guests",
+    "g9": "9 guests",
+    "guests": "Guests",
+    "in": "Arrival",
+    "out": "Departure",
+    "submit": "Check dates"
+  }
+}

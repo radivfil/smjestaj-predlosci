@@ -1,0 +1,84 @@
+{
+  "a11y": {
+    "mainNav": "Main navigation",
+    "menuClose": "Close menu",
+    "menuOpen": "Open menu",
+    "skip": "Skip to content",
+    "theme": "Switch between light and dark theme"
+  },
+  "brand": {
+    "home": "Apartments Mare and Gumbek — home",
+    "name": "Apartments Mare & Gumbek"
+  },
+  "cta": {
+    "checkAvail": "Check availability",
+    "inquiry": "Send an enquiry"
+  },
+  "foot": {
+    "about": "Two separate apartments in the same house in Petrčane. Garden and terrace, balcony, air conditioning and free parking — the beach is 800 m away.",
+    "addr": "Petrčane IX 2a<br />23231 Petrčane, Croatia",
+    "amen": "Facilities",
+    "brand": "Mare & Gumbek",
+    "checkin": "Arrival",
+    "direct": "Book direct — no commission.",
+    "gallery": "Gallery",
+    "gumbek": "Apartment Gumbek",
+    "h1": "Accommodation",
+    "h2": "Information",
+    "h3": "Contact",
+    "howto": "Finding us",
+    "inquiry": "Send an enquiry",
+    "mare": "Apartment Mare",
+    "price": "Price and booking",
+    "rights": "Apartments Mare & Gumbek. All rights reserved.",
+    "wa": "Message us on WhatsApp"
+  },
+  "js": {
+    "mailBodyArrival": "Arrival",
+    "mailBodyDeparture": "Departure",
+    "mailBodyEmail": "Email",
+    "mailBodyGuests": "Number of guests",
+    "mailBodyMessage": "Message",
+    "mailBodyName": "Full name",
+    "mailBodyUnit": "Apartment",
+    "mailSubject": "Accommodation enquiry — {in} to {out}",
+    "menuClose": "Close menu",
+    "menuOpen": "Open menu",
+    "sending": "Sending…",
+    "subjectField": "Enquiry {in} – {out} · {unit} · {guests} guest(s) · {lang}"
+  },
+  "lang": {
+    "change": "Change the language of this page",
+    "label": "Language",
+    "offer": "This page is also available in English.",
+    "offerNo": "No, thanks",
+    "offerNoAria": "Dismiss language suggestion",
+    "offerYes": "Switch to English"
+  },
+  "lightbox": {
+    "aria": "Photo gallery",
+    "close": "Close gallery",
+    "next": "Next photo",
+    "prev": "Previous photo"
+  },
+  "meta": {
+    "desc": "Apartments Mare and Gumbek — two separate apartments in the same house in Petrčane near Zadar. Garden and terrace, balcony, air conditioning, free parking, beach 800 m away. Book on request, no commission.",
+    "ogDesc": "Two apartments in the same house in Petrčane. Garden, terrace and balcony, air conditioning, free parking, beach 800 m away. Zadar 12 km.",
+    "ogImageAlt": "Petrčane from the air — a turquoise bay with a marina and the village by the sea",
+    "ogTitle": "Apartments Mare & Gumbek — Petrčane near Zadar",
+    "title": "Apartments Mare & Gumbek — holiday apartments in Petrčane near Zadar"
+  },
+  "mobile": {
+    "call": "Call us",
+    "inquiry": "Send an enquiry",
+    "wa": "Message us on WhatsApp"
+  },
+  "nav": {
+    "about": "About us",
+    "checkin": "Arrival",
+    "gallery": "Gallery",
+    "location": "Location",
+    "price": "Price",
+    "units": "Apartments"
+  }
+}

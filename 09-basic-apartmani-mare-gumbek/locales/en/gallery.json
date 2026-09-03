@@ -1,0 +1,67 @@
+{
+  "gal": {
+    "eyebrow": "Gallery",
+    "h2": "The house, the terrace and the surroundings",
+    "i1": {
+      "alt": "The house with apartments Mare and Gumbek — white façade, balconies and a paved parking courtyard",
+      "aria": "Enlarge photo: The house and the parking courtyard",
+      "cap": "The house and the parking courtyard"
+    },
+    "i10": {
+      "alt": "A tended garden with Mediterranean plants and stone slabs in front of the house",
+      "aria": "Enlarge photo: The garden in front of the house",
+      "cap": "The garden in front of the house"
+    },
+    "i11": {
+      "alt": "The village of Petrčane from the air — houses, olive groves and vineyards, Velebit in the background",
+      "aria": "Enlarge photo: The village and vineyards from the air",
+      "cap": "The village and vineyards from the air"
+    },
+    "i12": {
+      "alt": "Apartment Mare — bathroom with a shower cabin and a washbasin",
+      "aria": "Enlarge photo: The bathroom of apartment Mare",
+      "cap": "The bathroom of apartment Mare"
+    },
+    "i2": {
+      "alt": "The shared covered terrace with a stone fireplace for grilling, an outdoor sink and a table for six",
+      "aria": "Enlarge photo: Covered terrace with the stone fireplace",
+      "cap": "Covered terrace with the stone fireplace"
+    },
+    "i3": {
+      "alt": "The covered terrace of apartment Mare with a table for six and an outdoor kitchen",
+      "aria": "Enlarge photo: The terrace of apartment Mare",
+      "cap": "The terrace of apartment Mare"
+    },
+    "i4": {
+      "alt": "Petrčane bay from the air — the harbour with boats, a pine-covered peninsula and Zadar in the distance",
+      "aria": "Enlarge photo: Petrčane bay from the air",
+      "cap": "Petrčane bay from the air"
+    },
+    "i5": {
+      "alt": "Apartment Mare — living room with a sofa, an extra bed and air conditioning",
+      "aria": "Enlarge photo: The living room of apartment Mare",
+      "cap": "The living room of apartment Mare"
+    },
+    "i6": {
+      "alt": "The covered terrace looking onto the tended garden and stone flower beds",
+      "aria": "Enlarge photo: Terrace with a view of the garden",
+      "cap": "Terrace with a view of the garden"
+    },
+    "i7": {
+      "alt": "Apartment Gumbek — balcony with an awning, a table and four chairs",
+      "aria": "Enlarge photo: The balcony of apartment Gumbek",
+      "cap": "The balcony of apartment Gumbek"
+    },
+    "i8": {
+      "alt": "The Petrčane coast from the air — a pebble beach, houses by the sea and vineyards inland",
+      "aria": "Enlarge photo: The coast and the beach from the air",
+      "cap": "The coast and the beach from the air"
+    },
+    "i9": {
+      "alt": "Apartment Gumbek — kitchen with an induction hob, a dishwasher and a microwave",
+      "aria": "Enlarge photo: The kitchen of apartment Gumbek",
+      "cap": "The kitchen of apartment Gumbek"
+    },
+    "lead": "The shared space that belongs to both apartments — the covered terrace with the stone fireplace, the garden, the courtyard with parking, and Petrčane from the air. Click any photo; use the arrows or swipe to move through the whole set."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "know": {
+    "h3": "Good to know",
+    "k1": "<strong>Check-in and check-out times</strong> are agreed in advance — tell us when you expect to arrive and we will fit around you.",
+    "k2": "Flying in? Zadar Airport is about <strong>25 minutes</strong> away by car, and the bus and ferry port in Zadar about <strong>15 minutes</strong>.",
+    "k3": "Parking is <strong>free</strong> and sits in the courtyard of the house — one space per apartment.",
+    "k4": "Bed linen, towels and the final cleaning are <strong>included</strong> in the price; there is nothing extra to pay.",
+    "k5": "Need something during your stay? <strong>Give us a call</strong> — we answer and sort it out the same day."
+  },
+  "loc": {
+    "addr": "<strong>Petrčane IX 2a</strong>, 23231 Petrčane",
+    "cta": "Check availability for your dates",
+    "eyebrow": "Location",
+    "h2": "Petrčane — twelve kilometres from Zadar",
+    "lead": "Petrčane is a quiet village on the Zadar riviera: a harbour with small boats, a pine wood, a handful of taverns and pebble beaches. Close enough for morning coffee in the old town of Zadar, far enough aside that in the evening you hear only the crickets.",
+    "mapTitle": "Petrčane on the map — Apartments Mare & Gumbek",
+    "n1": "<strong>Donje Petrčane beach</strong> — 800 m, about a 9-minute walk",
+    "n2": "<strong>Petrčane harbour and seafront</strong> — a few minutes on foot, taverns by the sea",
+    "n3": "<strong>Zadar centre and the Sea Organ</strong> — 12 km, about a 20-minute drive",
+    "n4": "<strong>Zadar Airport</strong> — 23 km, about a 25-minute drive",
+    "n5": "<strong>Nin, its sandy beach and salt pans</strong> — about a 15-minute drive",
+    "n6": "<strong>Day trips</strong> — Kornati and Telašćica national parks, Krka, Plitvice Lakes",
+    "navBtn": "Open in maps",
+    "p2": "Zadar is an excellent base for exploring — the Sea Organ and the Greeting to the Sun, the Roman forum and St Donatus — while Kornati, Krka and the Plitvice Lakes all work as day trips. To the north lie Nin with its sandy beach and salt pans, and the channel below Velebit.",
+    "photoAlt": "Petrčane from the air — the harbour with boats, the seafront and the stone houses of the village by the sea",
+    "photoCap": "Petrčane from the air — the harbour and the seafront, a few minutes' walk from the apartments."
+  },
+  "price": {
+    "eyebrow": "Price",
+    "h2": "Ask us for availability and the price",
+    "lead": "We do not publish a fixed price list, because nine times out of ten it would mislead you — the price changes with the season, the length of the stay and the number of guests. Send us your dates and we will come back with one clear figure, with nothing hidden.",
+    "note": "We usually reply to enquiries the same day. Booking with us directly means no portal commission.",
+    "s1": {
+      "d": "Your dates, the number of guests and which apartment interests you — or both, if you are travelling as two families.",
+      "t": "You send your dates"
+    },
+    "s2": {
+      "d": "You receive the total for the whole stay, with the tourist tax shown separately.",
+      "t": "We come back with a price"
+    },
+    "s3": {
+      "d": "An enquiry commits you to nothing. The booking is confirmed only once you explicitly agree.",
+      "t": "You confirm, with no obligation"
+    },
+    "x1": "<strong>Included in the price</strong> Bed linen and towels, the final cleaning, water and electricity, air conditioning, parking and Wi-Fi.",
+    "x2": "<strong>Tourist tax</strong> Charged separately, at the current official rate — tell us how many guests are coming and their ages and we will work it out exactly.",
+    "x3": "<strong>The whole house</strong> Taking both apartments? Say so in your enquiry — for a joint booking we make you one offer.",
+    "x4": "<strong>Children</strong> Very welcome. Tell us how many are coming and how old they are so we can suggest how to arrange the beds."
+  },
+  "steps": {
+    "eyebrow": "Arrival",
+    "h2": "From enquiry to keys in hand",
+    "lead": "No portals, no middlemen, no queuing at a reception desk. We arrange everything directly — by message or by phone.",
+    "s1": {
+      "d": "Through the form on this page or by phone. Tell us your dates, the number of guests and which apartment interests you.",
+      "t": "You send an enquiry"
+    },
+    "s2": {
+      "d": "We come back with availability and the total price for your dates, usually the same day.",
+      "t": "You receive an offer"
+    },
+    "s3": {
+      "d": "Once you confirm, we agree your arrival time and send all the directions — the address is Petrčane IX 2a.",
+      "t": "Confirmation and directions"
+    },
+    "s4": {
+      "d": "You park in your own space in the courtyard and collect the keys from us at a time we agree beforehand.",
+      "t": "Arrival and keys"
+    }
+  },
+  "who": {
+    "eyebrow": "Who it suits",
+    "h2": "Who settles in best with us",
+    "lead": "Two apartments in the same house solve something one large apartment cannot: company when you want it, quiet when you need it.",
+    "p1": {
+      "d": "The most common arrangement. The children play in the courtyard all day, dinner is shared on the terrace of apartment Mare, and afterwards everyone goes through their own door. No sharing a bathroom, no coordinating schedules.",
+      "t": "Two families together",
+      "u": "Mare + Gumbek"
+    },
+    "p2": {
+      "d": "A ground floor without steps, a garden by the door, a covered terrace for shade at midday and a full kitchen for the days you stay in. The car is parked five metres from the entrance.",
+      "t": "A family with children",
+      "u": "Apartment Mare"
+    },
+    "p3": {
+      "d": "Two floors mean sleeping upstairs and living downstairs. Morning coffee on the balcony under the awning, the beach a ten-minute walk away and Zadar twenty minutes by car.",
+      "t": "A couple or two friends",
+      "u": "Apartment Gumbek"
+    }
+  }
+}
