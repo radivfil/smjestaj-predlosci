@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "aria": "Dobrodošli",
+    "bgAlt": "Zgrada s apartmanima Mare i Gumbek u Petrčanima — bijela fasada, balkoni i parkirno dvorište",
+    "ctaUnits": "Pogledaj apartmane",
+    "h1": "Apartmani Mare i Gumbek<br /><em>dva doma pod istim krovom.</em>",
+    "p": "Dva odvojena apartmana u istoj zgradi u Petrčanima — svaki s vlastitom kuhinjom, kupaonicom, klimom i vanjskim prostorom. Plaža je desetak minuta hoda, Zadar četvrt sata vožnje. Idealno za dvije obitelji ili grupe koje putuju zajedno, a žele svoj mir.",
+    "tag1": "◆ Petrčane, Zadarska županija",
+    "tag2": "★ Ocjena gostiju 10/10 · Booking.com",
+    "tag3": "◆ Besplatan parking"
+  },
+  "quick": {
+    "aria": "Brzi upit za termin",
+    "g1": "1 osoba",
+    "g10": "10 osoba",
+    "g2": "2 osobe",
+    "g3": "3 osobe",
+    "g4": "4 osobe",
+    "g5": "5 osoba",
+    "g6": "6 osoba",
+    "g7": "7 osoba",
+    "g8": "8 osoba",
+    "g9": "9 osoba",
+    "guests": "Gosti",
+    "in": "Dolazak",
+    "out": "Odlazak",
+    "submit": "Provjeri termin"
+  }
+}

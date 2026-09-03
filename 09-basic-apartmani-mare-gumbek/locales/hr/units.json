@@ -1,0 +1,113 @@
+{
+  "about": {
+    "badge": "apartmana, ista zgrada",
+    "eyebrow": "O nama",
+    "h2": "Dva apartmana, jedna zgrada, dovoljno mjesta za sve.",
+    "imgAlt": "Petrčane iz zraka — tirkizni zaljev s marinom, mjesto, vinogradi i Velebit u pozadini",
+    "lead": "Mare i Gumbek dva su samostalna apartmana u istoj zgradi u Petrčanima, mirnom mjestu na zadarskoj rivijeri. Svaki ima vlastiti ulaz, kuhinju, kupaonicu, klimu i svoj vanjski prostor — Mare vrt i veliku natkrivenu terasu, Gumbek balkon i dvije etaže.",
+    "p2": "Zato ih najčešće uzimaju dvije obitelji ili grupe prijatelja koje putuju zajedno: djeca se igraju u dvorištu, večera je zajednička na terasi, a kad dan završi, svatko se vrati u svoj apartman. Nema recepcije, nema hodnika, nema susjeda s druge strane tankog zida — samo dva zaključana vrata i dva odmora koja se ne moraju usklađivati.",
+    "p3": "Možete, naravno, uzeti i samo jedan. Oba su opremljena za normalno ljetovanje, ne za razgledavanje: perilica posuđa, ploča za kuhanje, aparat za kavu, TV, brzi Wi-Fi i besplatno parkirno mjesto u dvorištu.",
+    "score": "Ukupna ocjena gostiju na Booking.comu<br /><small>Za apartman Mare, na temelju 5 recenzija gostiju nakon boravka.</small>",
+    "stat1": "Odvojena apartmana u istoj zgradi",
+    "stat2": "Do plaže Donje Petrčane",
+    "stat2Num": "800 m",
+    "stat3": "Vožnje do centra Zadra",
+    "stat3Num": "15 min"
+  },
+  "amen": {
+    "ac": {
+      "d": "U svakom apartmanu, pa i kolovoško poslijepodne prođe u hladu.",
+      "t": "Klima"
+    },
+    "beach": {
+      "d": "Desetak minuta lagane šetnje do plaže Donje Petrčane, bez prelaska prometnice.",
+      "t": "Plaža na 800 m"
+    },
+    "eyebrow": "Sadržaji",
+    "h2": "Ono što oba apartmana imaju",
+    "kitchen": {
+      "d": "Pećnica, ploča, perilica posuđa, mikrovalna, aparat za kavu i posuđe za cijelu ekipu.",
+      "t": "Puna kuhinja"
+    },
+    "outdoor": {
+      "d": "Mare ima vrt i natkrivenu terasu s vanjskom kuhinjom, Gumbek balkon s tendom.",
+      "t": "Vlastiti vanjski prostor"
+    },
+    "parking": {
+      "d": "Vlastito mjesto u dvorištu, pred ulazom — ne tražite mjesto po mjestu.",
+      "t": "Besplatan parking"
+    },
+    "wifi": {
+      "d": "U oba apartmana, bez ograničenja prometa — dovoljno i za rad na daljinu.",
+      "t": "Besplatan Wi-Fi"
+    }
+  },
+  "units": {
+    "askText": "Cijena ovisi o terminu, broju gostiju i duljini boravka. Pošaljite datume — javljamo se s točnom ponudom.",
+    "askText2": "Cijena ovisi o terminu, broju gostiju i duljini boravka. Pošaljite datume — javljamo se s točnom ponudom.",
+    "askTitle": "Rezervacija na upit",
+    "askTitle2": "Rezervacija na upit",
+    "eyebrow": "Smještaj",
+    "f": {
+      "ac": "Klima",
+      "ac2": "Klima",
+      "balcony": "Balkon s tendom",
+      "dishwasher": "Perilica posuđa",
+      "dishwasher2": "Perilica posuđa",
+      "fireplace": "Kameni kamin",
+      "garden": "Vlastiti vrt",
+      "outKitchen": "Vanjska kuhinja",
+      "oven": "Pećnica i ploča",
+      "parking": "Parking",
+      "parking2": "Parking",
+      "terrace": "Natkrivena terasa",
+      "tv": "TV",
+      "twoFloors": "Dvije etaže",
+      "washer": "Perilica rublja",
+      "wifi": "Wi-Fi",
+      "wifi2": "Wi-Fi"
+    },
+    "gumbek": {
+      "alt1": "Apartman Gumbek — dnevni boravak s blagovaonskim stolom i spiralnim stubištem na gornju etažu",
+      "alt2": "Apartman Gumbek — balkon s tendom, stolom i četiri stolice",
+      "alt3": "Apartman Gumbek — spavaonica pod krovnim prozorom i kupaonica s tuš kabinom",
+      "aria1": "Povećaj: Apartman Gumbek, boravak i stubište",
+      "aria2": "Povećaj: Apartman Gumbek, balkon",
+      "aria3": "Povećaj: Apartman Gumbek, spavaonica",
+      "badge": "Dvije etaže",
+      "cap1": "Apartman Gumbek — boravak sa spiralnim stubištem",
+      "cap2": "Apartman Gumbek — balkon s tendom",
+      "cap3": "Apartman Gumbek — spavaonica i kupaonica na gornjoj etaži",
+      "cta": "Provjerite dostupnost za Gumbek",
+      "desc": "Dvoetažni apartman povezan spiralnim stubištem: dolje prostrani dnevni boravak s blagovaonicom, kuhinjom i balkonom s tendom, gore spavaonice i kupaonica pod krovnim prozorom. Podignut je od ulice, pa je svijetlo cijeli dan, a večeri tihe.",
+      "imgAlt": "Apartman Gumbek — svijetli dnevni boravak s kožnom garniturom i izlazom na balkon",
+      "name": "Apartman Gumbek",
+      "spec1": "do 4 osobe",
+      "spec2": "2 spavaonice",
+      "spec3": "2 etaže"
+    },
+    "h2": "Dva apartmana, dva različita ugođaja",
+    "lead": "Oba imaju vlastiti ulaz, punu kuhinju, kupaonicu, klimu i svoj vanjski prostor. Uzmite jedan ili oba — kliknite fotografije za veći prikaz.",
+    "mare": {
+      "alt1": "Apartman Mare — blagovaonica s velikim kliznim vratima prema natkrivenoj terasi",
+      "alt2": "Apartman Mare — spavaonica s bračnim i pomoćnim ležajem, TV-om i ormarom",
+      "alt3": "Apartman Mare — kuhinja s pećnicom, indukcijskom pločom, perilicom posuđa i perilicom rublja",
+      "aria1": "Povećaj: Apartman Mare, blagovaonica",
+      "aria2": "Povećaj: Apartman Mare, spavaonica",
+      "aria3": "Povećaj: Apartman Mare, kuhinja",
+      "badge": "Vrt i velika terasa",
+      "cap1": "Apartman Mare — blagovaonica s izlazom na terasu",
+      "cap2": "Apartman Mare — spavaonica",
+      "cap3": "Apartman Mare — kuhinja",
+      "cta": "Provjerite dostupnost za Mare",
+      "desc": "Apartman u prizemlju s vlastitim vrtom i natkrivenom terasom koja je zapravo druga dnevna soba — ima vanjsku kuhinju sa sudoperom, kameni kamin za peku i stol za šest osoba. Unutra su svijetla blagovaonica, dnevni boravak i spavaonica, sve u ravnini s dvorištem, bez stepenica.",
+      "imgAlt": "Apartman Mare — velika natkrivena terasa s vanjskom kuhinjom, kamenim kaminom i stolom za šest",
+      "name": "Apartman Mare",
+      "spec1": "do 6 osoba",
+      "spec2": "2 spavaonice",
+      "spec3": "prizemlje + vrt"
+    },
+    "priceOnAsk": "Cijena <small>na upit</small>",
+    "priceOnAsk2": "Cijena <small>na upit</small>"
+  }
+}

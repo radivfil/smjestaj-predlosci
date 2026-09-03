@@ -1,0 +1,91 @@
+{
+  "know": {
+    "h3": "Dobro je znati",
+    "k1": "<strong>Vrijeme prijave i odjave</strong> dogovaramo unaprijed — recite u koje vrijeme planirate stići pa se prilagodimo.",
+    "k2": "Dolazite avionom? Zračna luka Zadar je <strong>25-ak minuta</strong> vožnje, autobusna i trajektna luka Zadar oko <strong>15 minuta</strong>.",
+    "k3": "Parking je <strong>besplatan</strong> i nalazi se u dvorištu zgrade — jedno mjesto po apartmanu.",
+    "k4": "Posteljina, ručnici i finalno čišćenje <strong>uključeni</strong> su u cijenu, ne plaćate ih dodatno.",
+    "k5": "Trebate nešto tijekom boravka? <strong>Nazovite</strong> — javljamo se i rješavamo isti dan."
+  },
+  "loc": {
+    "addr": "<strong>Petrčane IX 2a</strong>, 23231 Petrčane",
+    "cta": "Provjerite dostupnost za svoj termin",
+    "eyebrow": "Lokacija",
+    "h2": "Petrčane — dvanaest kilometara od Zadra",
+    "lead": "Petrčane su mirno mjesto na zadarskoj rivijeri: luka s brodicama, borova šuma, nekoliko konoba i šljunčane plaže. Dovoljno blizu da ujutro budete na kavi u staroj gradskoj jezgri Zadra, dovoljno po strani da navečer čujete samo cvrčke.",
+    "mapTitle": "Petrčane na karti — smještaj Apartmani Mare i Gumbek",
+    "n1": "<strong>Plaža Donje Petrčane</strong> — 800 m, oko 9 minuta hoda",
+    "n2": "<strong>Luka i riva Petrčane</strong> — nekoliko minuta hoda, konobe uz more",
+    "n3": "<strong>Centar Zadra i Morske orgulje</strong> — 12 km, oko 20 minuta vožnje",
+    "n4": "<strong>Zračna luka Zadar</strong> — 23 km, oko 25 minuta vožnje",
+    "n5": "<strong>Nin, pješčana plaža i solana</strong> — oko 15 minuta vožnje",
+    "n6": "<strong>Izleti</strong> — NP Kornati i Telašćica, NP Krka, Plitvička jezera",
+    "navBtn": "Otvori u navigaciji",
+    "p2": "Zadar je odlična baza za istraživanje — Morske orgulje i Pozdrav Suncu, rimski forum i Sveti Donat — a Kornati, Krka i Plitvička jezera izleti su od jednog dana. Sa sjeverne strane su Nin s pješčanom plažom i solanom te podvelebitski kanal.",
+    "photoAlt": "Petrčane iz zraka — luka s brodicama, riva i kamene kuće mjesta uz more",
+    "photoCap": "Petrčane iz zraka — luka i riva, nekoliko minuta hoda od apartmana."
+  },
+  "price": {
+    "eyebrow": "Cijena",
+    "h2": "Provjerite dostupnost i cijenu upitom",
+    "lead": "Ne objavljujemo fiksni cjenik jer bi vas u devet od deset slučajeva doveo u zabludu — cijena se mijenja po sezoni, duljini boravka i broju gostiju. Pošaljite datume i javljamo se s jednim konkretnim iznosom, bez skrivenih dodataka.",
+    "note": "Na upite odgovaramo u pravilu isti dan. Rezervacijom direktno kod nas nema provizije portala.",
+    "s1": {
+      "d": "Termin, broj gostiju i koji vas apartman zanima — ili oba, ako putujete u dvije obitelji.",
+      "t": "Pošaljete datume"
+    },
+    "s2": {
+      "d": "Dobivate ukupan iznos za cijeli boravak, s razdvojenom boravišnom pristojbom.",
+      "t": "Javljamo se s cijenom"
+    },
+    "s3": {
+      "d": "Upit ništa ne obvezuje. Rezervacija je potvrđena tek kad se vi izričito složite.",
+      "t": "Potvrđujete bez obveze"
+    },
+    "x1": "<strong>Uključeno u cijenu</strong> Posteljina i ručnici, finalno čišćenje, voda i struja, klima, parking i Wi-Fi.",
+    "x2": "<strong>Boravišna pristojba</strong> Obračunava se dodatno, prema važećoj odluci — recite nam broj gostiju i njihove godine pa računamo točno.",
+    "x3": "<strong>Cijela zgrada</strong> Uzimate oba apartmana? Recite to u upitu — za zajedničku rezervaciju radimo jednu ponudu.",
+    "x4": "<strong>Djeca</strong> Dobrodošla su. Napišite koliko ih je i koliko su stara da predložimo raspored ležajeva."
+  },
+  "steps": {
+    "eyebrow": "Dolazak",
+    "h2": "Od upita do ključa u ruci",
+    "lead": "Nema portala, posrednika ni čekanja na recepciji. Dogovaramo se direktno — porukom ili telefonom.",
+    "s1": {
+      "d": "Obrascem na ovoj stranici ili pozivom. Napišite termin, broj gostiju i koji vas apartman zanima.",
+      "t": "Pošaljete upit"
+    },
+    "s2": {
+      "d": "Javljamo se s dostupnošću i ukupnom cijenom za vaš termin, u pravilu isti dan.",
+      "t": "Dobivate ponudu"
+    },
+    "s3": {
+      "d": "Nakon vaše potvrde dogovaramo vrijeme dolaska i šaljemo sve upute — adresa je Petrčane IX 2a.",
+      "t": "Potvrda i upute"
+    },
+    "s4": {
+      "d": "Parkirate na svom mjestu u dvorištu, a ključeve preuzimate od nas u vrijeme koje unaprijed dogovorimo.",
+      "t": "Dolazak i ključevi"
+    }
+  },
+  "who": {
+    "eyebrow": "Za koga su",
+    "h2": "Tko se kod nas najbolje smjesti",
+    "lead": "Dva apartmana u istoj zgradi rješavaju problem koji jedan veliki apartman ne može: zajedništvo kad ga želite, tišinu kad vam treba.",
+    "p1": {
+      "d": "Najčešći scenarij. Djeca se cijeli dan igraju u dvorištu, večera je zajednička na terasi apartmana Mare, a nakon nje svatko ide svojim vratima. Bez dijeljenja kupaonice i bez usklađivanja rasporeda.",
+      "t": "Dvije obitelji zajedno",
+      "u": "Mare + Gumbek"
+    },
+    "p2": {
+      "d": "Prizemlje bez stepenica, vrt pred vratima, natkrivena terasa za hlad u podne i puna kuhinja za dane kad se ne ide van. Auto je parkiran pet metara od ulaza.",
+      "t": "Obitelj s djecom",
+      "u": "Apartman Mare"
+    },
+    "p3": {
+      "d": "Dvije etaže znače da je spavaći dio gore, a život dolje. Jutarnja kava na balkonu s tendom, plaža na desetak minuta hoda i Zadar na dvadeset minuta vožnje.",
+      "t": "Par ili dvoje prijatelja",
+      "u": "Apartman Gumbek"
+    }
+  }
+}

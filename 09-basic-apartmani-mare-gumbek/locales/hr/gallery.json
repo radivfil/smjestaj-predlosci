@@ -1,0 +1,67 @@
+{
+  "gal": {
+    "eyebrow": "Galerija",
+    "h2": "Zgrada, terasa i okoliš",
+    "i1": {
+      "alt": "Zgrada s apartmanima Mare i Gumbek — bijela fasada, balkoni i popločeno parkirno dvorište",
+      "aria": "Povećaj fotografiju: Zgrada i parkirno dvorište",
+      "cap": "Zgrada i parkirno dvorište"
+    },
+    "i10": {
+      "alt": "Uređeni vrt s mediteranskim biljem i kamenim pločama pred zgradom",
+      "aria": "Povećaj fotografiju: Vrt pred zgradom",
+      "cap": "Vrt pred zgradom"
+    },
+    "i11": {
+      "alt": "Naselje Petrčane iz zraka — kuće, maslinici i vinogradi, Velebit u pozadini",
+      "aria": "Povećaj fotografiju: Naselje i vinogradi iz zraka",
+      "cap": "Naselje i vinogradi iz zraka"
+    },
+    "i12": {
+      "alt": "Apartman Mare — kupaonica s tuš kabinom i umivaonikom",
+      "aria": "Povećaj fotografiju: Kupaonica apartmana Mare",
+      "cap": "Kupaonica apartmana Mare"
+    },
+    "i2": {
+      "alt": "Zajednička natkrivena terasa s kamenim kaminom za peku, vanjskim sudoperom i stolom za šest",
+      "aria": "Povećaj fotografiju: Natkrivena terasa s kamenim kaminom",
+      "cap": "Natkrivena terasa s kamenim kaminom"
+    },
+    "i3": {
+      "alt": "Natkrivena terasa apartmana Mare sa stolom za šest i vanjskom kuhinjom",
+      "aria": "Povećaj fotografiju: Terasa apartmana Mare",
+      "cap": "Terasa apartmana Mare"
+    },
+    "i4": {
+      "alt": "Uvala Petrčane iz zraka — luka s brodicama, poluotok s borovom šumom i Zadar u daljini",
+      "aria": "Povećaj fotografiju: Uvala Petrčane iz zraka",
+      "cap": "Uvala Petrčane iz zraka"
+    },
+    "i5": {
+      "alt": "Apartman Mare — dnevni boravak sa sofom, dodatnim ležajem i klimom",
+      "aria": "Povećaj fotografiju: Dnevni boravak apartmana Mare",
+      "cap": "Dnevni boravak apartmana Mare"
+    },
+    "i6": {
+      "alt": "Natkrivena terasa s pogledom na uređeni vrt i kamene gredice",
+      "aria": "Povećaj fotografiju: Terasa s pogledom na vrt",
+      "cap": "Terasa s pogledom na vrt"
+    },
+    "i7": {
+      "alt": "Apartman Gumbek — balkon s tendom, stolom i četiri stolice",
+      "aria": "Povećaj fotografiju: Balkon apartmana Gumbek",
+      "cap": "Balkon apartmana Gumbek"
+    },
+    "i8": {
+      "alt": "Obala Petrčana iz zraka — šljunčana plaža, kuće uz more i vinogradi u zaleđu",
+      "aria": "Povećaj fotografiju: Obala i plaža iz zraka",
+      "cap": "Obala i plaža iz zraka"
+    },
+    "i9": {
+      "alt": "Apartman Gumbek — kuhinja s indukcijskom pločom, perilicom posuđa i mikrovalnom",
+      "aria": "Povećaj fotografiju: Kuhinja apartmana Gumbek",
+      "cap": "Kuhinja apartmana Gumbek"
+    },
+    "lead": "Zajednički prostor koji dijele oba apartmana — natkrivena terasa s kamenim kaminom, vrt, dvorište s parkingom i Petrčane iz zraka. Kliknite bilo koju fotografiju; strelicama ili prstom listate kroz cijeli set."
+  }
+}

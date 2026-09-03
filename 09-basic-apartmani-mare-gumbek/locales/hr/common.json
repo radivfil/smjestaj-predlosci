@@ -1,0 +1,84 @@
+{
+  "a11y": {
+    "mainNav": "Glavna navigacija",
+    "menuClose": "Zatvori izbornik",
+    "menuOpen": "Otvori izbornik",
+    "skip": "Preskoči na sadržaj",
+    "theme": "Promijeni svijetlu/tamnu temu"
+  },
+  "brand": {
+    "home": "Apartmani Mare i Gumbek — početna",
+    "name": "Apartmani Mare i Gumbek"
+  },
+  "cta": {
+    "checkAvail": "Provjerite dostupnost",
+    "inquiry": "Pošalji upit"
+  },
+  "foot": {
+    "about": "Dva odvojena apartmana u istoj zgradi u Petrčanima. Vrt i terasa, balkon, klima i besplatan parking — plaža na 800 m.",
+    "addr": "Petrčane IX 2a<br />23231 Petrčane, Hrvatska",
+    "amen": "Sadržaji",
+    "brand": "Mare i Gumbek",
+    "checkin": "Dolazak",
+    "direct": "Rezervirajte direktno — bez provizije.",
+    "gallery": "Galerija",
+    "gumbek": "Apartman Gumbek",
+    "h1": "Smještaj",
+    "h2": "Informacije",
+    "h3": "Kontakt",
+    "howto": "Kako do nas",
+    "inquiry": "Pošalji upit",
+    "mare": "Apartman Mare",
+    "price": "Cijena i rezervacija",
+    "rights": "Apartmani Mare i Gumbek. Sva prava pridržana.",
+    "wa": "Pišite nam na WhatsApp"
+  },
+  "js": {
+    "mailBodyArrival": "Dolazak",
+    "mailBodyDeparture": "Odlazak",
+    "mailBodyEmail": "E-mail",
+    "mailBodyGuests": "Broj gostiju",
+    "mailBodyMessage": "Poruka",
+    "mailBodyName": "Ime i prezime",
+    "mailBodyUnit": "Jedinica",
+    "mailSubject": "Upit za smještaj — {in} do {out}",
+    "menuClose": "Zatvori izbornik",
+    "menuOpen": "Otvori izbornik",
+    "sending": "Šaljem…",
+    "subjectField": "Upit {in} – {out} · {unit} · {guests} gost(iju) · {lang}"
+  },
+  "lang": {
+    "change": "Promijeni jezik stranice",
+    "label": "Jezik",
+    "offer": "Ova je stranica dostupna i na hrvatskom.",
+    "offerNo": "Ne, hvala",
+    "offerNoAria": "Zatvori ponudu jezika",
+    "offerYes": "Prebaci na hrvatski"
+  },
+  "lightbox": {
+    "aria": "Galerija fotografija",
+    "close": "Zatvori galeriju",
+    "next": "Sljedeća fotografija",
+    "prev": "Prethodna fotografija"
+  },
+  "meta": {
+    "desc": "Apartmani Mare i Gumbek — dva odvojena apartmana u istoj zgradi u Petrčanima kraj Zadra. Vrt i terasa, balkon, klima, besplatan parking, plaža na 800 m. Rezervacija na upit, bez provizije.",
+    "ogDesc": "Dva apartmana u istoj zgradi u Petrčanima. Vrt, terasa i balkon, klima, besplatan parking, plaža na 800 m. Zadar 12 km.",
+    "ogImageAlt": "Petrčane iz zraka — tirkizni zaljev s marinom i mjesto uz more",
+    "ogTitle": "Apartmani Mare i Gumbek — Petrčane kraj Zadra",
+    "title": "Apartmani Mare i Gumbek — smještaj u Petrčanima kraj Zadra"
+  },
+  "mobile": {
+    "call": "Nazovite",
+    "inquiry": "Pošalji upit",
+    "wa": "Pišite nam na WhatsApp"
+  },
+  "nav": {
+    "about": "O nama",
+    "checkin": "Dolazak",
+    "gallery": "Galerija",
+    "location": "Lokacija",
+    "price": "Cijena",
+    "units": "Apartmani"
+  }
+}

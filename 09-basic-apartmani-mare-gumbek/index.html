@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hr" data-theme="light">
+<html lang="hr" data-theme="light" data-i18n-lang="hr" data-i18n-base="/09-basic-apartmani-mare-gumbek">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="../favicon.ico" sizes="any" />
@@ -12,19 +12,27 @@
        preglednik ih odskrola izvan vidljivog dijela. Ovime se skuplja
        stvarni layout viewport, pa se sve preracuna na dostupan prostor. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
-  <title>Apartmani Mare i Gumbek — smještaj u Petrčanima kraj Zadra</title>
-  <meta name="description" content="Apartmani Mare i Gumbek — dva odvojena apartmana u istoj zgradi u Petrčanima kraj Zadra. Vrt i terasa, balkon, klima, besplatan parking, plaža na 800 m. Rezervacija na upit, bez provizije." />
+  <title data-i18n="meta.title">Apartmani Mare i Gumbek — smještaj u Petrčanima kraj Zadra</title>
+  <meta name="description" data-i18n-content="meta.desc" content="Apartmani Mare i Gumbek — dva odvojena apartmana u istoj zgradi u Petrčanima kraj Zadra. Vrt i terasa, balkon, klima, besplatan parking, plaža na 800 m. Rezervacija na upit, bez provizije." />
 
   <!-- Open Graph / dijeljenje na društvenim mrežama -->
-  <meta property="og:title" content="Apartmani Mare i Gumbek — Petrčane kraj Zadra" />
-  <meta property="og:description" content="Dva apartmana u istoj zgradi u Petrčanima. Vrt, terasa i balkon, klima, besplatan parking, plaža na 800 m. Zadar 12 km." />
+  <meta property="og:title" data-i18n-content="meta.ogTitle" content="Apartmani Mare i Gumbek — Petrčane kraj Zadra" />
+  <meta property="og:description" data-i18n-content="meta.ogDesc" content="Dva apartmana u istoj zgradi u Petrčanima. Vrt, terasa i balkon, klima, besplatan parking, plaža na 800 m. Zadar 12 km." />
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="hr_HR" />
-  <meta property="og:url" content="https://lotastudio.eu/09-basic-apartmani-mare-gumbek/" />
   <meta property="og:image" content="https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/petrcane-zaljev-dron.jpg" />
-  <meta property="og:image:alt" content="Petrčane iz zraka — tirkizni zaljev s marinom i mjesto uz more" />
+  <meta property="og:image:alt" data-i18n-content="meta.ogImageAlt" content="Petrčane iz zraka — tirkizni zaljev s marinom i mjesto uz more" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0c6b80" />
+
+  <!-- Canonical, og:url i hreflang po jeziku. GENERIRA tools/i18n.js pri
+       buildu — ne uredivati rucno, blok se prepisuje. -->
+  <!-- i18n:alternates -->
+  <link rel="canonical" href="https://lotastudio.eu/09-basic-apartmani-mare-gumbek/" />
+  <meta property="og:url" content="https://lotastudio.eu/09-basic-apartmani-mare-gumbek/" />
+  <meta property="og:locale" content="hr_HR" />
+  <link rel="alternate" hreflang="hr" href="https://lotastudio.eu/09-basic-apartmani-mare-gumbek/" />
+  <link rel="alternate" hreflang="x-default" href="https://lotastudio.eu/09-basic-apartmani-mare-gumbek/" />
+  <!-- /i18n:alternates -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -210,6 +218,40 @@
   .theme-toggle .moon { display: none; }
   [data-theme="dark"] .theme-toggle .sun { display: none; }
   [data-theme="dark"] .theme-toggle .moon { display: block; }
+
+  /* ---------- PREKIDAC JEZIKA ----------
+     Prati izgled prekidaca teme: bijeli obrub dok zaglavlje lebdi nad
+     hero slikom, tokeni cim se stranica odskrola ili otvori izbornik.
+     Gumb je 44px visok jer je to najmanja pouzdana povrsina za dodir. */
+  .lang { position: relative; }
+  .lang__btn { display: inline-flex; align-items: center; gap: .35rem; height: 44px; padding-inline: .7rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.4); background: rgba(255,255,255,.12); color: #fff; cursor: pointer; font: inherit; font-size: .85rem; font-weight: 600; letter-spacing: .04em; transition: background .3s, color .35s, border-color .35s; }
+  .scrolled .lang__btn, .site-header.nav-open .lang__btn { border-color: var(--border); background: var(--surface-2); color: var(--text); }
+  .lang__btn:hover { color: var(--terra); }
+  .lang__btn svg { width: 18px; height: 18px; flex: none; }
+  .lang__cur { line-height: 1; }
+
+  .lang__menu { position: absolute; top: calc(100% + .5rem); right: 0; min-width: 170px; margin: 0; padding: .35rem; list-style: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); box-shadow: var(--shadow); opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity .22s var(--ease), transform .22s var(--ease), visibility .22s; }
+  .lang.open .lang__menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .lang__menu a { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 44px; padding: .5rem .7rem; border-radius: var(--radius-sm); color: var(--text); font-size: .95rem; }
+  .lang__menu a:hover, .lang__menu a:focus-visible { background: var(--surface-2); color: var(--terra); }
+  .lang__menu small { font-size: .7rem; font-weight: 600; letter-spacing: .08em; color: var(--text-muted); }
+  /* Aktivni jezik nosi kvacicu, ne samo boju — boja sama nije dovoljna. */
+  .lang__menu a[aria-selected="true"] { font-weight: 600; color: var(--sea); }
+  .lang__menu a[aria-selected="true"]::after { content: "✓"; font-size: .8rem; color: var(--sea); }
+  .lang__menu a[aria-selected="true"] small { display: none; }
+
+  /* Traka koja pri prvom posjetu nudi jezik preglednika. Lijevo dolje, da
+     ne pokrije chat gumb (desno) ni sticky CTA traku (dno, mobitel). */
+  .lang-offer { position: fixed; left: 1rem; bottom: 1rem; z-index: 97; display: flex; align-items: center; gap: .8rem; max-width: min(460px, calc(100% - 2rem)); padding: .85rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); box-shadow: var(--shadow); opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease); }
+  .lang-offer.show { opacity: 1; transform: translateY(0); }
+  .lang-offer p { margin: 0; font-size: .9rem; color: var(--text); }
+  .lang-offer .btn { flex: none; padding: .55rem .9rem; font-size: .85rem; }
+  .lang-offer__no { flex: none; min-width: 44px; min-height: 44px; border: none; background: none; color: var(--text-muted); font: inherit; font-size: .85rem; cursor: pointer; text-decoration: underline; }
+  .lang-offer__no:hover { color: var(--text); }
+  @media (max-width: 720px) {
+    .lang-offer { left: .6rem; right: .6rem; max-width: none; bottom: calc(4.6rem + env(safe-area-inset-bottom)); flex-wrap: wrap; }
+    .lang-offer p { flex: 1 1 100%; }
+  }
 
   .nav-toggle { display: none; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer; flex-direction: column; justify-content: center; gap: 6px; padding: 0; }
   .nav-toggle span { display: block; height: 2px; width: 26px; background: #fff; transition: transform .3s, opacity .3s, background .35s; margin-inline: auto; }
@@ -750,32 +792,51 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Preskoči na sadržaj</a>
 
   <!-- ==================== HEADER ==================== -->
   <header class="site-header" id="header">
     <div class="container nav">
-      <a href="#" class="brand" aria-label="Apartmani Mare i Gumbek — početna">
+      <a href="#" class="brand" data-i18n-aria="brand.home" aria-label="Apartmani Mare i Gumbek — početna">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg>
-        Apartmani Mare i Gumbek
+        <span data-i18n="brand.name">Apartmani Mare i Gumbek</span>
       </a>
-      <nav aria-label="Glavna navigacija">
+      <nav data-i18n-aria="a11y.mainNav" aria-label="Glavna navigacija">
         <ul class="nav-links" id="navLinks">
-          <li><a href="#about">O nama</a></li>
-          <li><a href="#units">Apartmani</a></li>
-          <li><a href="#pricing">Cijena</a></li>
-          <li><a href="#gallery">Galerija</a></li>
-          <li><a href="#checkin">Dolazak</a></li>
-          <li><a href="#location">Lokacija</a></li>
-          <li><a href="#upit" class="btn btn-primary">Pošalji upit</a></li>
+          <li><a href="#about" data-i18n="nav.about">O nama</a></li>
+          <li><a href="#units" data-i18n="nav.units">Apartmani</a></li>
+          <li><a href="#pricing" data-i18n="nav.price">Cijena</a></li>
+          <li><a href="#gallery" data-i18n="nav.gallery">Galerija</a></li>
+          <li><a href="#checkin" data-i18n="nav.checkin">Dolazak</a></li>
+          <li><a href="#location" data-i18n="nav.location">Lokacija</a></li>
+          <li><a href="#upit" class="btn btn-primary" data-i18n="cta.inquiry">Pošalji upit</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Promijeni svijetlu/tamnu temu">
+        <button class="theme-toggle" id="themeToggle" data-i18n-aria="a11y.theme" aria-label="Promijeni svijetlu/tamnu temu">
           <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
           <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         </button>
-        <button class="nav-toggle" id="navToggle" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="navLinks">
+        <!-- ---------- PREKIDAC JEZIKA ----------
+             Stoji u .nav-actions, pa je vidljiv i na mobitelu (gdje se
+             .nav-links sklapa u hamburger) i na desktopu. Popis jezika
+             GENERIRA tools/i18n.js — blok se pri buildu prepisuje. -->
+        <div class="lang" id="lang">
+          <button type="button" class="lang__btn" id="langBtn"
+                  aria-haspopup="listbox" aria-expanded="false" aria-controls="langMenu"
+                  data-i18n-aria="lang.change" aria-label="Promijeni jezik stranice">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            <span class="lang__cur" id="langCurrent">HR</span>
+          </button>
+          <ul class="lang__menu" id="langMenu" role="listbox" tabindex="-1"
+              data-i18n-aria="lang.label" aria-label="Jezik">
+<!-- i18n:langmenu -->
+    <li role="none"><a role="option" hreflang="hr" lang="hr" href="/09-basic-apartmani-mare-gumbek/" data-lang="hr" aria-selected="true"><span>Hrvatski</span><small>HR</small></a></li>
+  <!-- /i18n:langmenu -->
+          </ul>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" data-i18n-aria="a11y.menuOpen" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="navLinks">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -784,46 +845,47 @@
 
   <!-- Pozadina iza otvorenog mobilnog izbornika. <button>, ne <div>, da je
        dostupna i tipkovnici i citacima ekrana. -->
-  <button class="nav-overlay" id="navOverlay" type="button" tabindex="-1" aria-label="Zatvori izbornik"></button>
+  <button class="nav-overlay" id="navOverlay" type="button" tabindex="-1" data-i18n-aria="a11y.menuClose" aria-label="Zatvori izbornik"></button>
 
   <main id="main">
     <!-- ==================== HERO ==================== -->
-    <section class="hero" aria-label="Dobrodošli">
+    <section class="hero" data-i18n-aria="hero.aria" aria-label="Dobrodošli">
       <img class="hero__bg" src="images/zgrada.jpg" width="1600" height="1066"
+        data-i18n-alt="hero.bgAlt"
         alt="Zgrada s apartmanima Mare i Gumbek u Petrčanima — bijela fasada, balkoni i parkirno dvorište"
         fetchpriority="high" decoding="async" />
       <div class="container hero__inner">
         <div class="hero__tags" data-reveal>
-          <span>◆ Petrčane, Zadarska županija</span>
-          <span>★ Ocjena gostiju 10/10 · Booking.com</span>
-          <span>◆ Besplatan parking</span>
+          <span data-i18n="hero.tag1">◆ Petrčane, Zadarska županija</span>
+          <span data-i18n="hero.tag2">★ Ocjena gostiju 10/10 · Booking.com</span>
+          <span data-i18n="hero.tag3">◆ Besplatan parking</span>
         </div>
-        <h1 data-reveal>Apartmani Mare i Gumbek<br /><em>dva doma pod istim krovom.</em></h1>
-        <p data-reveal>Dva odvojena apartmana u istoj zgradi u Petrčanima — svaki s vlastitom kuhinjom, kupaonicom, klimom i vanjskim prostorom. Plaža je desetak minuta hoda, Zadar četvrt sata vožnje. Idealno za dvije obitelji ili grupe koje putuju zajedno, a žele svoj mir.</p>
+        <h1 data-reveal data-i18n-html="hero.h1">Apartmani Mare i Gumbek<br /><em>dva doma pod istim krovom.</em></h1>
+        <p data-reveal data-i18n="hero.p">Dva odvojena apartmana u istoj zgradi u Petrčanima — svaki s vlastitom kuhinjom, kupaonicom, klimom i vanjskim prostorom. Plaža je desetak minuta hoda, Zadar četvrt sata vožnje. Idealno za dvije obitelji ili grupe koje putuju zajedno, a žele svoj mir.</p>
         <div class="hero__cta" data-reveal>
-          <a href="#units" class="btn btn-primary">Pogledaj apartmane</a>
-          <a href="#upit" class="btn btn-light">Provjerite dostupnost</a>
+          <a href="#units" class="btn btn-primary" data-i18n="hero.ctaUnits">Pogledaj apartmane</a>
+          <a href="#upit" class="btn btn-light" data-i18n="cta.checkAvail">Provjerite dostupnost</a>
         </div>
 
         <!-- Brzi upit — prepopunjava veliku formu ispod -->
-        <form class="book-bar" data-reveal id="quickBar" aria-label="Brzi upit za termin">
-          <div class="bf"><label class="lbl-date" for="qb-in"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Dolazak</label><input type="date" id="qb-in" /></div>
-          <div class="bf"><label class="lbl-date" for="qb-out"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Odlazak</label><input type="date" id="qb-out" /></div>
-          <div class="bf"><label for="qb-guests">Gosti</label>
+        <form class="book-bar" data-reveal id="quickBar" data-i18n-aria="quick.aria" aria-label="Brzi upit za termin">
+          <div class="bf"><label class="lbl-date" for="qb-in"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span data-i18n="quick.in">Dolazak</span></label><input type="date" id="qb-in" /></div>
+          <div class="bf"><label class="lbl-date" for="qb-out"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span data-i18n="quick.out">Odlazak</span></label><input type="date" id="qb-out" /></div>
+          <div class="bf"><label for="qb-guests" data-i18n="quick.guests">Gosti</label>
             <select id="qb-guests">
-              <option value="1">1 osoba</option>
-              <option value="2" selected>2 osobe</option>
-              <option value="3">3 osobe</option>
-              <option value="4">4 osobe</option>
-              <option value="5">5 osoba</option>
-              <option value="6">6 osoba</option>
-              <option value="7">7 osoba</option>
-              <option value="8">8 osoba</option>
-              <option value="9">9 osoba</option>
-              <option value="10">10 osoba</option>
+              <option value="1" data-i18n="quick.g1">1 osoba</option>
+              <option value="2" selected data-i18n="quick.g2">2 osobe</option>
+              <option value="3" data-i18n="quick.g3">3 osobe</option>
+              <option value="4" data-i18n="quick.g4">4 osobe</option>
+              <option value="5" data-i18n="quick.g5">5 osoba</option>
+              <option value="6" data-i18n="quick.g6">6 osoba</option>
+              <option value="7" data-i18n="quick.g7">7 osoba</option>
+              <option value="8" data-i18n="quick.g8">8 osoba</option>
+              <option value="9" data-i18n="quick.g9">9 osoba</option>
+              <option value="10" data-i18n="quick.g10">10 osoba</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary">Provjeri termin</button>
+          <button type="submit" class="btn btn-primary" data-i18n="quick.submit">Provjeri termin</button>
         </form>
       </div>
     </section>
@@ -832,26 +894,26 @@
     <section class="section" id="about">
       <div class="container about__grid">
         <div class="about__media" data-reveal>
-          <img src="images/petrcane-zaljev-dron.jpg" width="1600" height="1066" alt="Petrčane iz zraka — tirkizni zaljev s marinom, mjesto, vinogradi i Velebit u pozadini" loading="lazy" />
-          <div class="badge"><strong>2</strong><span>apartmana, ista zgrada</span></div>
+          <img src="images/petrcane-zaljev-dron.jpg" width="1600" height="1066" data-i18n-alt="about.imgAlt" alt="Petrčane iz zraka — tirkizni zaljev s marinom, mjesto, vinogradi i Velebit u pozadini" loading="lazy" />
+          <div class="badge"><strong>2</strong><span data-i18n="about.badge">apartmana, ista zgrada</span></div>
         </div>
         <div data-reveal>
-          <span class="eyebrow">O nama</span>
-          <h2>Dva apartmana, jedna zgrada, dovoljno mjesta za sve.</h2>
-          <p class="lead">Mare i Gumbek dva su samostalna apartmana u istoj zgradi u Petrčanima, mirnom mjestu na zadarskoj rivijeri. Svaki ima vlastiti ulaz, kuhinju, kupaonicu, klimu i svoj vanjski prostor — Mare vrt i veliku natkrivenu terasu, Gumbek balkon i dvije etaže.</p>
-          <p style="margin-top:1rem;color:var(--text-muted)">Zato ih najčešće uzimaju dvije obitelji ili grupe prijatelja koje putuju zajedno: djeca se igraju u dvorištu, večera je zajednička na terasi, a kad dan završi, svatko se vrati u svoj apartman. Nema recepcije, nema hodnika, nema susjeda s druge strane tankog zida — samo dva zaključana vrata i dva odmora koja se ne moraju usklađivati.</p>
-          <p style="margin-top:1rem;color:var(--text-muted)">Možete, naravno, uzeti i samo jedan. Oba su opremljena za normalno ljetovanje, ne za razgledavanje: perilica posuđa, ploča za kuhanje, aparat za kavu, TV, brzi Wi-Fi i besplatno parkirno mjesto u dvorištu.</p>
+          <span class="eyebrow" data-i18n="about.eyebrow">O nama</span>
+          <h2 data-i18n="about.h2">Dva apartmana, jedna zgrada, dovoljno mjesta za sve.</h2>
+          <p class="lead" data-i18n="about.lead">Mare i Gumbek dva su samostalna apartmana u istoj zgradi u Petrčanima, mirnom mjestu na zadarskoj rivijeri. Svaki ima vlastiti ulaz, kuhinju, kupaonicu, klimu i svoj vanjski prostor — Mare vrt i veliku natkrivenu terasu, Gumbek balkon i dvije etaže.</p>
+          <p style="margin-top:1rem;color:var(--text-muted)" data-i18n="about.p2">Zato ih najčešće uzimaju dvije obitelji ili grupe prijatelja koje putuju zajedno: djeca se igraju u dvorištu, večera je zajednička na terasi, a kad dan završi, svatko se vrati u svoj apartman. Nema recepcije, nema hodnika, nema susjeda s druge strane tankog zida — samo dva zaključana vrata i dva odmora koja se ne moraju usklađivati.</p>
+          <p style="margin-top:1rem;color:var(--text-muted)" data-i18n="about.p3">Možete, naravno, uzeti i samo jedan. Oba su opremljena za normalno ljetovanje, ne za razgledavanje: perilica posuđa, ploča za kuhanje, aparat za kavu, TV, brzi Wi-Fi i besplatno parkirno mjesto u dvorištu.</p>
           <dl class="stats">
-            <div><dt>2</dt><dd>Odvojena apartmana u istoj zgradi</dd></div>
-            <div><dt>800 m</dt><dd>Do plaže Donje Petrčane</dd></div>
-            <div><dt>15 min</dt><dd>Vožnje do centra Zadra</dd></div>
+            <div><dt>2</dt><dd data-i18n="about.stat1">Odvojena apartmana u istoj zgradi</dd></div>
+            <div><dt data-i18n="about.stat2Num">800 m</dt><dd data-i18n="about.stat2">Do plaže Donje Petrčane</dd></div>
+            <div><dt data-i18n="about.stat3Num">15 min</dt><dd data-i18n="about.stat3">Vožnje do centra Zadra</dd></div>
           </dl>
           <!-- Ukupna ocjena gostiju s Booking.coma. Atribucija navodi apartman
                Mare jer se ocjena odnosi na taj oglas — Gumbek ima svoj. -->
           <p class="score" data-reveal>
             <span class="score__stars" aria-hidden="true">★★★★★</span>
             <span class="score__num">10<small>/10</small></span>
-            <span class="score__txt">Ukupna ocjena gostiju na Booking.comu<br /><small>Za apartman Mare, na temelju 5 recenzija gostiju nakon boravka.</small></span>
+            <span class="score__txt" data-i18n-html="about.score">Ukupna ocjena gostiju na Booking.comu<br /><small>Za apartman Mare, na temelju 5 recenzija gostiju nakon boravka.</small></span>
           </p>
         </div>
       </div>
@@ -861,9 +923,9 @@
     <section class="section" id="units">
       <div class="container">
         <div class="section-head center" data-reveal>
-          <span class="eyebrow">Smještaj</span>
-          <h2>Dva apartmana, dva različita ugođaja</h2>
-          <p class="lead">Oba imaju vlastiti ulaz, punu kuhinju, kupaonicu, klimu i svoj vanjski prostor. Uzmite jedan ili oba — kliknite fotografije za veći prikaz.</p>
+          <span class="eyebrow" data-i18n="units.eyebrow">Smještaj</span>
+          <h2 data-i18n="units.h2">Dva apartmana, dva različita ugođaja</h2>
+          <p class="lead" data-i18n="units.lead">Oba imaju vlastiti ulaz, punu kuhinju, kupaonicu, klimu i svoj vanjski prostor. Uzmite jedan ili oba — kliknite fotografije za veći prikaz.</p>
         </div>
         <div class="units__grid">
 
@@ -873,41 +935,41 @@
                procijenjen s fotografija (spavaonica + izvlacni lezaj u boravku). -->
           <article class="unit-card" data-reveal>
             <div class="unit-card__img">
-              <img src="images/mare/mare-01-terasa.jpg" width="1600" height="1066" alt="Apartman Mare — velika natkrivena terasa s vanjskom kuhinjom, kamenim kaminom i stolom za šest" loading="lazy" />
-              <span class="unit-card__badge">Vrt i velika terasa</span>
-              <span class="unit-card__price">Cijena <small>na upit</small></span>
+              <img src="images/mare/mare-01-terasa.jpg" width="1600" height="1066" data-i18n-alt="units.mare.imgAlt" alt="Apartman Mare — velika natkrivena terasa s vanjskom kuhinjom, kamenim kaminom i stolom za šest" loading="lazy" />
+              <span class="unit-card__badge" data-i18n="units.mare.badge">Vrt i velika terasa</span>
+              <span class="unit-card__price" data-i18n-html="units.priceOnAsk">Cijena <small>na upit</small></span>
             </div>
             <div class="unit-card__body">
-              <h3>Apartman Mare</h3>
-              <p>Apartman u prizemlju s vlastitim vrtom i natkrivenom terasom koja je zapravo druga dnevna soba — ima vanjsku kuhinju sa sudoperom, kameni kamin za peku i stol za šest osoba. Unutra su svijetla blagovaonica, dnevni boravak i spavaonica, sve u ravnini s dvorištem, bez stepenica.</p>
+              <h3 data-i18n="units.mare.name">Apartman Mare</h3>
+              <p data-i18n="units.mare.desc">Apartman u prizemlju s vlastitim vrtom i natkrivenom terasom koja je zapravo druga dnevna soba — ima vanjsku kuhinju sa sudoperom, kameni kamin za peku i stol za šest osoba. Unutra su svijetla blagovaonica, dnevni boravak i spavaonica, sve u ravnini s dvorištem, bez stepenica.</p>
 
               <ul class="unit-specs">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg> do 6 osoba</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5l9-3 9 3v16M9 21v-6h6v6"/></svg> 2 spavaonice</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg> prizemlje + vrt</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg> <span data-i18n="units.mare.spec1">do 6 osoba</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5l9-3 9 3v16M9 21v-6h6v6"/></svg> <span data-i18n="units.mare.spec2">2 spavaonice</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg> <span data-i18n="units.mare.spec3">prizemlje + vrt</span></li>
               </ul>
 
               <!-- vlastite fotografije jedinice -->
               <div class="thumbs">
-                <button class="thumb" data-lightbox data-gallery="mare" data-caption="Apartman Mare — blagovaonica s izlazom na terasu" aria-label="Povećaj: Apartman Mare, blagovaonica">
-                  <img src="images/mare/mare-02-blagovaonica.jpg" alt="Apartman Mare — blagovaonica s velikim kliznim vratima prema natkrivenoj terasi" loading="lazy" />
+                <button class="thumb" data-lightbox data-gallery="mare" data-i18n-caption="units.mare.cap1" data-caption="Apartman Mare — blagovaonica s izlazom na terasu" data-i18n-aria="units.mare.aria1" aria-label="Povećaj: Apartman Mare, blagovaonica">
+                  <img src="images/mare/mare-02-blagovaonica.jpg" data-i18n-alt="units.mare.alt1" alt="Apartman Mare — blagovaonica s velikim kliznim vratima prema natkrivenoj terasi" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-gallery="mare" data-caption="Apartman Mare — spavaonica" aria-label="Povećaj: Apartman Mare, spavaonica">
-                  <img src="images/mare/mare-04-spavaonica.jpg" alt="Apartman Mare — spavaonica s bračnim i pomoćnim ležajem, TV-om i ormarom" loading="lazy" />
+                <button class="thumb" data-lightbox data-gallery="mare" data-i18n-caption="units.mare.cap2" data-caption="Apartman Mare — spavaonica" data-i18n-aria="units.mare.aria2" aria-label="Povećaj: Apartman Mare, spavaonica">
+                  <img src="images/mare/mare-04-spavaonica.jpg" data-i18n-alt="units.mare.alt2" alt="Apartman Mare — spavaonica s bračnim i pomoćnim ležajem, TV-om i ormarom" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-gallery="mare" data-caption="Apartman Mare — kuhinja" aria-label="Povećaj: Apartman Mare, kuhinja">
-                  <img src="images/mare/mare-05-kuhinja.jpg" alt="Apartman Mare — kuhinja s pećnicom, indukcijskom pločom, perilicom posuđa i perilicom rublja" loading="lazy" />
+                <button class="thumb" data-lightbox data-gallery="mare" data-i18n-caption="units.mare.cap3" data-caption="Apartman Mare — kuhinja" data-i18n-aria="units.mare.aria3" aria-label="Povećaj: Apartman Mare, kuhinja">
+                  <img src="images/mare/mare-05-kuhinja.jpg" data-i18n-alt="units.mare.alt3" alt="Apartman Mare — kuhinja s pećnicom, indukcijskom pločom, perilicom posuđa i perilicom rublja" loading="lazy" />
                 </button>
               </div>
 
-              <ul class="unit-features"><li>Vlastiti vrt</li><li>Natkrivena terasa</li><li>Vanjska kuhinja</li><li>Kameni kamin</li><li>Klima</li><li>Perilica rublja</li><li>Perilica posuđa</li><li>Wi-Fi</li><li>Parking</li></ul>
+              <ul class="unit-features"><li data-i18n="units.f.garden">Vlastiti vrt</li><li data-i18n="units.f.terrace">Natkrivena terasa</li><li data-i18n="units.f.outKitchen">Vanjska kuhinja</li><li data-i18n="units.f.fireplace">Kameni kamin</li><li data-i18n="units.f.ac">Klima</li><li data-i18n="units.f.washer">Perilica rublja</li><li data-i18n="units.f.dishwasher">Perilica posuđa</li><li data-i18n="units.f.wifi">Wi-Fi</li><li data-i18n="units.f.parking">Parking</li></ul>
 
               <div class="unit-ask">
-                <strong>Rezervacija na upit</strong>
-                <p>Cijena ovisi o terminu, broju gostiju i duljini boravka. Pošaljite datume — javljamo se s točnom ponudom.</p>
+                <strong data-i18n="units.askTitle">Rezervacija na upit</strong>
+                <p data-i18n="units.askText">Cijena ovisi o terminu, broju gostiju i duljini boravka. Pošaljite datume — javljamo se s točnom ponudom.</p>
               </div>
 
-              <a href="#upit" class="btn btn-primary" data-pick-unit="Apartman Mare (do 6 os.)">Provjerite dostupnost za Mare</a>
+              <a href="#upit" class="btn btn-primary" data-pick-unit="mare" data-i18n="units.mare.cta">Provjerite dostupnost za Mare</a>
             </div>
           </article>
 
@@ -916,40 +978,40 @@
                Booking naslov: "Two Story, Two-Bedroom Apartment by the Sea". -->
           <article class="unit-card" data-reveal>
             <div class="unit-card__img">
-              <img src="images/gumbek/gumbek-01-dnevni-boravak.jpg" width="1600" height="1066" alt="Apartman Gumbek — svijetli dnevni boravak s kožnom garniturom i izlazom na balkon" loading="lazy" />
-              <span class="unit-card__badge">Dvije etaže</span>
-              <span class="unit-card__price">Cijena <small>na upit</small></span>
+              <img src="images/gumbek/gumbek-01-dnevni-boravak.jpg" width="1600" height="1066" data-i18n-alt="units.gumbek.imgAlt" alt="Apartman Gumbek — svijetli dnevni boravak s kožnom garniturom i izlazom na balkon" loading="lazy" />
+              <span class="unit-card__badge" data-i18n="units.gumbek.badge">Dvije etaže</span>
+              <span class="unit-card__price" data-i18n-html="units.priceOnAsk2">Cijena <small>na upit</small></span>
             </div>
             <div class="unit-card__body">
-              <h3>Apartman Gumbek</h3>
-              <p>Dvoetažni apartman povezan spiralnim stubištem: dolje prostrani dnevni boravak s blagovaonicom, kuhinjom i balkonom s tendom, gore spavaonice i kupaonica pod krovnim prozorom. Podignut je od ulice, pa je svijetlo cijeli dan, a večeri tihe.</p>
+              <h3 data-i18n="units.gumbek.name">Apartman Gumbek</h3>
+              <p data-i18n="units.gumbek.desc">Dvoetažni apartman povezan spiralnim stubištem: dolje prostrani dnevni boravak s blagovaonicom, kuhinjom i balkonom s tendom, gore spavaonice i kupaonica pod krovnim prozorom. Podignut je od ulice, pa je svijetlo cijeli dan, a večeri tihe.</p>
 
               <ul class="unit-specs">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg> do 4 osobe</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5l9-3 9 3v16M9 21v-6h6v6"/></svg> 2 spavaonice</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg> 2 etaže</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg> <span data-i18n="units.gumbek.spec1">do 4 osobe</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V5l9-3 9 3v16M9 21v-6h6v6"/></svg> <span data-i18n="units.gumbek.spec2">2 spavaonice</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg> <span data-i18n="units.gumbek.spec3">2 etaže</span></li>
               </ul>
 
               <div class="thumbs">
-                <button class="thumb" data-lightbox data-gallery="gumbek" data-caption="Apartman Gumbek — boravak sa spiralnim stubištem" aria-label="Povećaj: Apartman Gumbek, boravak i stubište">
-                  <img src="images/gumbek/gumbek-02-stubiste.jpg" alt="Apartman Gumbek — dnevni boravak s blagovaonskim stolom i spiralnim stubištem na gornju etažu" loading="lazy" />
+                <button class="thumb" data-lightbox data-gallery="gumbek" data-i18n-caption="units.gumbek.cap1" data-caption="Apartman Gumbek — boravak sa spiralnim stubištem" data-i18n-aria="units.gumbek.aria1" aria-label="Povećaj: Apartman Gumbek, boravak i stubište">
+                  <img src="images/gumbek/gumbek-02-stubiste.jpg" data-i18n-alt="units.gumbek.alt1" alt="Apartman Gumbek — dnevni boravak s blagovaonskim stolom i spiralnim stubištem na gornju etažu" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-gallery="gumbek" data-caption="Apartman Gumbek — balkon s tendom" aria-label="Povećaj: Apartman Gumbek, balkon">
-                  <img src="images/gumbek/gumbek-03-balkon.jpg" alt="Apartman Gumbek — balkon s tendom, stolom i četiri stolice" loading="lazy" />
+                <button class="thumb" data-lightbox data-gallery="gumbek" data-i18n-caption="units.gumbek.cap2" data-caption="Apartman Gumbek — balkon s tendom" data-i18n-aria="units.gumbek.aria2" aria-label="Povećaj: Apartman Gumbek, balkon">
+                  <img src="images/gumbek/gumbek-03-balkon.jpg" data-i18n-alt="units.gumbek.alt2" alt="Apartman Gumbek — balkon s tendom, stolom i četiri stolice" loading="lazy" />
                 </button>
-                <button class="thumb" data-lightbox data-gallery="gumbek" data-caption="Apartman Gumbek — spavaonica i kupaonica na gornjoj etaži" aria-label="Povećaj: Apartman Gumbek, spavaonica">
-                  <img src="images/gumbek/gumbek-05-spavaonica.jpg" alt="Apartman Gumbek — spavaonica pod krovnim prozorom i kupaonica s tuš kabinom" loading="lazy" />
+                <button class="thumb" data-lightbox data-gallery="gumbek" data-i18n-caption="units.gumbek.cap3" data-caption="Apartman Gumbek — spavaonica i kupaonica na gornjoj etaži" data-i18n-aria="units.gumbek.aria3" aria-label="Povećaj: Apartman Gumbek, spavaonica">
+                  <img src="images/gumbek/gumbek-05-spavaonica.jpg" data-i18n-alt="units.gumbek.alt3" alt="Apartman Gumbek — spavaonica pod krovnim prozorom i kupaonica s tuš kabinom" loading="lazy" />
                 </button>
               </div>
 
-              <ul class="unit-features"><li>Balkon s tendom</li><li>Dvije etaže</li><li>Klima</li><li>Perilica posuđa</li><li>Pećnica i ploča</li><li>TV</li><li>Wi-Fi</li><li>Parking</li></ul>
+              <ul class="unit-features"><li data-i18n="units.f.balcony">Balkon s tendom</li><li data-i18n="units.f.twoFloors">Dvije etaže</li><li data-i18n="units.f.ac2">Klima</li><li data-i18n="units.f.dishwasher2">Perilica posuđa</li><li data-i18n="units.f.oven">Pećnica i ploča</li><li data-i18n="units.f.tv">TV</li><li data-i18n="units.f.wifi2">Wi-Fi</li><li data-i18n="units.f.parking2">Parking</li></ul>
 
               <div class="unit-ask">
-                <strong>Rezervacija na upit</strong>
-                <p>Cijena ovisi o terminu, broju gostiju i duljini boravka. Pošaljite datume — javljamo se s točnom ponudom.</p>
+                <strong data-i18n="units.askTitle2">Rezervacija na upit</strong>
+                <p data-i18n="units.askText2">Cijena ovisi o terminu, broju gostiju i duljini boravka. Pošaljite datume — javljamo se s točnom ponudom.</p>
               </div>
 
-              <a href="#upit" class="btn btn-primary" data-pick-unit="Apartman Gumbek (do 4 os.)">Provjerite dostupnost za Gumbek</a>
+              <a href="#upit" class="btn btn-primary" data-pick-unit="gumbek" data-i18n="units.gumbek.cta">Provjerite dostupnost za Gumbek</a>
             </div>
           </article>
 
@@ -961,33 +1023,33 @@
     <section class="section tinted" id="amenities">
       <div class="container">
         <div class="section-head center" data-reveal>
-          <span class="eyebrow">Sadržaji</span>
-          <h2>Ono što oba apartmana imaju</h2>
+          <span class="eyebrow" data-i18n="amen.eyebrow">Sadržaji</span>
+          <h2 data-i18n="amen.h2">Ono što oba apartmana imaju</h2>
         </div>
         <div class="amenities__grid">
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M2 8.82a15 15 0 0 1 20 0M12 20h.01"/></svg></div>
-            <h3>Besplatan Wi-Fi</h3><p>U oba apartmana, bez ograničenja prometa — dovoljno i za rad na daljinu.</p>
+            <h3 data-i18n="amen.wifi.t">Besplatan Wi-Fi</h3><p data-i18n="amen.wifi.d">U oba apartmana, bez ograničenja prometa — dovoljno i za rad na daljinu.</p>
           </div>
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1M2 12h20"/></svg></div>
-            <h3>Klima</h3><p>U svakom apartmanu, pa i kolovoško poslijepodne prođe u hladu.</p>
+            <h3 data-i18n="amen.ac.t">Klima</h3><p data-i18n="amen.ac.d">U svakom apartmanu, pa i kolovoško poslijepodne prođe u hladu.</p>
           </div>
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17V9l2-4h8l2 4v8M7 20v-3M17 20v-3"/><circle cx="8.5" cy="13.5" r="1"/><circle cx="15.5" cy="13.5" r="1"/></svg></div>
-            <h3>Besplatan parking</h3><p>Vlastito mjesto u dvorištu, pred ulazom — ne tražite mjesto po mjestu.</p>
+            <h3 data-i18n="amen.parking.t">Besplatan parking</h3><p data-i18n="amen.parking.d">Vlastito mjesto u dvorištu, pred ulazom — ne tražite mjesto po mjestu.</p>
           </div>
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2M8 7v13M16 7v13M4 20h16"/></svg></div>
-            <h3>Puna kuhinja</h3><p>Pećnica, ploča, perilica posuđa, mikrovalna, aparat za kavu i posuđe za cijelu ekipu.</p>
+            <h3 data-i18n="amen.kitchen.t">Puna kuhinja</h3><p data-i18n="amen.kitchen.d">Pećnica, ploča, perilica posuđa, mikrovalna, aparat za kavu i posuđe za cijelu ekipu.</p>
           </div>
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12v9M12 3a9 9 0 0 0-9 9h18a9 9 0 0 0-9-9z"/></svg></div>
-            <h3>Vlastiti vanjski prostor</h3><p>Mare ima vrt i natkrivenu terasu s vanjskom kuhinjom, Gumbek balkon s tendom.</p>
+            <h3 data-i18n="amen.outdoor.t">Vlastiti vanjski prostor</h3><p data-i18n="amen.outdoor.d">Mare ima vrt i natkrivenu terasu s vanjskom kuhinjom, Gumbek balkon s tendom.</p>
           </div>
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7c2 0 2 1.5 4 1.5S8 7 10 7s2 1.5 4 1.5S16 7 18 7s2 1.5 4 1.5M2 13c2 0 2 1.5 4 1.5S8 13 10 13s2 1.5 4 1.5S16 13 18 13s2 1.5 4 1.5M2 19c2 0 2 1.5 4 1.5S8 19 10 19s2 1.5 4 1.5S16 19 18 19s2 1.5 4 1.5"/></svg></div>
-            <h3>Plaža na 800 m</h3><p>Desetak minuta lagane šetnje do plaže Donje Petrčane, bez prelaska prometnice.</p>
+            <h3 data-i18n="amen.beach.t">Plaža na 800 m</h3><p data-i18n="amen.beach.d">Desetak minuta lagane šetnje do plaže Donje Petrčane, bez prelaska prometnice.</p>
           </div>
         </div>
       </div>
@@ -997,34 +1059,34 @@
     <section class="section" id="pricing">
       <div class="container">
         <div class="section-head" data-reveal>
-          <span class="eyebrow">Cijena</span>
-          <h2>Provjerite dostupnost i cijenu upitom</h2>
-          <p class="lead">Ne objavljujemo fiksni cjenik jer bi vas u devet od deset slučajeva doveo u zabludu — cijena se mijenja po sezoni, duljini boravka i broju gostiju. Pošaljite datume i javljamo se s jednim konkretnim iznosom, bez skrivenih dodataka.</p>
+          <span class="eyebrow" data-i18n="price.eyebrow">Cijena</span>
+          <h2 data-i18n="price.h2">Provjerite dostupnost i cijenu upitom</h2>
+          <p class="lead" data-i18n="price.lead">Ne objavljujemo fiksni cjenik jer bi vas u devet od deset slučajeva doveo u zabludu — cijena se mijenja po sezoni, duljini boravka i broju gostiju. Pošaljite datume i javljamo se s jednim konkretnim iznosom, bez skrivenih dodataka.</p>
         </div>
         <div class="pricing__ask" data-reveal>
           <div class="pricing__ask-card">
             <span class="pricing__ask-num">01</span>
-            <h3>Pošaljete datume</h3>
-            <p>Termin, broj gostiju i koji vas apartman zanima — ili oba, ako putujete u dvije obitelji.</p>
+            <h3 data-i18n="price.s1.t">Pošaljete datume</h3>
+            <p data-i18n="price.s1.d">Termin, broj gostiju i koji vas apartman zanima — ili oba, ako putujete u dvije obitelji.</p>
           </div>
           <div class="pricing__ask-card">
             <span class="pricing__ask-num">02</span>
-            <h3>Javljamo se s cijenom</h3>
-            <p>Dobivate ukupan iznos za cijeli boravak, s razdvojenom boravišnom pristojbom.</p>
+            <h3 data-i18n="price.s2.t">Javljamo se s cijenom</h3>
+            <p data-i18n="price.s2.d">Dobivate ukupan iznos za cijeli boravak, s razdvojenom boravišnom pristojbom.</p>
           </div>
           <div class="pricing__ask-card">
             <span class="pricing__ask-num">03</span>
-            <h3>Potvrđujete bez obveze</h3>
-            <p>Upit ništa ne obvezuje. Rezervacija je potvrđena tek kad se vi izričito složite.</p>
+            <h3 data-i18n="price.s3.t">Potvrđujete bez obveze</h3>
+            <p data-i18n="price.s3.d">Upit ništa ne obvezuje. Rezervacija je potvrđena tek kad se vi izričito složite.</p>
           </div>
         </div>
         <ul class="pricing__extras" data-reveal>
-          <li><strong>Uključeno u cijenu</strong> Posteljina i ručnici, finalno čišćenje, voda i struja, klima, parking i Wi-Fi.</li>
-          <li><strong>Boravišna pristojba</strong> Obračunava se dodatno, prema važećoj odluci — recite nam broj gostiju i njihove godine pa računamo točno.</li>
-          <li><strong>Cijela zgrada</strong> Uzimate oba apartmana? Recite to u upitu — za zajedničku rezervaciju radimo jednu ponudu.</li>
-          <li><strong>Djeca</strong> Dobrodošla su. Napišite koliko ih je i koliko su stara da predložimo raspored ležajeva.</li>
+          <li data-i18n-html="price.x1"><strong>Uključeno u cijenu</strong> Posteljina i ručnici, finalno čišćenje, voda i struja, klima, parking i Wi-Fi.</li>
+          <li data-i18n-html="price.x2"><strong>Boravišna pristojba</strong> Obračunava se dodatno, prema važećoj odluci — recite nam broj gostiju i njihove godine pa računamo točno.</li>
+          <li data-i18n-html="price.x3"><strong>Cijela zgrada</strong> Uzimate oba apartmana? Recite to u upitu — za zajedničku rezervaciju radimo jednu ponudu.</li>
+          <li data-i18n-html="price.x4"><strong>Djeca</strong> Dobrodošla su. Napišite koliko ih je i koliko su stara da predložimo raspored ležajeva.</li>
         </ul>
-        <p class="pricing__note" data-reveal>Na upite odgovaramo u pravilu isti dan. Rezervacijom direktno kod nas nema provizije portala.</p>
+        <p class="pricing__note" data-reveal data-i18n="price.note">Na upite odgovaramo u pravilu isti dan. Rezervacijom direktno kod nas nema provizije portala.</p>
       </div>
     </section>
 
@@ -1032,23 +1094,35 @@
     <section class="section tinted" id="gallery">
       <div class="container">
         <div class="section-head center" data-reveal>
-          <span class="eyebrow">Galerija</span>
-          <h2>Zgrada, terasa i okoliš</h2>
-          <p class="lead">Zajednički prostor koji dijele oba apartmana — natkrivena terasa s kamenim kaminom, vrt, dvorište s parkingom i Petrčane iz zraka. Kliknite bilo koju fotografiju; strelicama ili prstom listate kroz cijeli set.</p>
+          <span class="eyebrow" data-i18n="gal.eyebrow">Galerija</span>
+          <h2 data-i18n="gal.h2">Zgrada, terasa i okoliš</h2>
+          <p class="lead" data-i18n="gal.lead">Zajednički prostor koji dijele oba apartmana — natkrivena terasa s kamenim kaminom, vrt, dvorište s parkingom i Petrčane iz zraka. Kliknite bilo koju fotografiju; strelicama ili prstom listate kroz cijeli set.</p>
         </div>
         <div class="gallery__grid">
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Zgrada i parkirno dvorište" data-reveal aria-label="Povećaj fotografiju: Zgrada i parkirno dvorište"><img src="images/zajednicko/zajednicko-01-zgrada.jpg" alt="Zgrada s apartmanima Mare i Gumbek — bijela fasada, balkoni i popločeno parkirno dvorište" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Natkrivena terasa s kamenim kaminom" data-reveal aria-label="Povećaj fotografiju: Natkrivena terasa s kamenim kaminom"><img src="images/zajednicko/zajednicko-02-terasa-kamin.jpg" alt="Zajednička natkrivena terasa s kamenim kaminom za peku, vanjskim sudoperom i stolom za šest" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Terasa apartmana Mare" data-reveal aria-label="Povećaj fotografiju: Terasa apartmana Mare"><img src="images/mare/mare-01-terasa.jpg" alt="Natkrivena terasa apartmana Mare sa stolom za šest i vanjskom kuhinjom" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Uvala Petrčane iz zraka" data-reveal aria-label="Povećaj fotografiju: Uvala Petrčane iz zraka"><img src="images/zajednicko/zajednicko-04-uvala-dron.jpg" alt="Uvala Petrčane iz zraka — luka s brodicama, poluotok s borovom šumom i Zadar u daljini" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Dnevni boravak apartmana Mare" data-reveal aria-label="Povećaj fotografiju: Dnevni boravak apartmana Mare"><img src="images/mare/mare-03-dnevni-boravak.jpg" alt="Apartman Mare — dnevni boravak sa sofom, dodatnim ležajem i klimom" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Terasa s pogledom na vrt" data-reveal aria-label="Povećaj fotografiju: Terasa s pogledom na vrt"><img src="images/zajednicko/zajednicko-03-terasa-vrt.jpg" alt="Natkrivena terasa s pogledom na uređeni vrt i kamene gredice" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Balkon apartmana Gumbek" data-reveal aria-label="Povećaj fotografiju: Balkon apartmana Gumbek"><img src="images/gumbek/gumbek-03-balkon.jpg" alt="Apartman Gumbek — balkon s tendom, stolom i četiri stolice" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Obala i plaža iz zraka" data-reveal aria-label="Povećaj fotografiju: Obala i plaža iz zraka"><img src="images/zajednicko/zajednicko-05-obala-dron.jpg" alt="Obala Petrčana iz zraka — šljunčana plaža, kuće uz more i vinogradi u zaleđu" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Kuhinja apartmana Gumbek" data-reveal aria-label="Povećaj fotografiju: Kuhinja apartmana Gumbek"><img src="images/gumbek/gumbek-04-kuhinja.jpg" alt="Apartman Gumbek — kuhinja s indukcijskom pločom, perilicom posuđa i mikrovalnom" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Vrt pred zgradom" data-reveal aria-label="Povećaj fotografiju: Vrt pred zgradom"><img src="images/mare/mare-07-vrt.jpg" alt="Uređeni vrt s mediteranskim biljem i kamenim pločama pred zgradom" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Naselje i vinogradi iz zraka" data-reveal aria-label="Povećaj fotografiju: Naselje i vinogradi iz zraka"><img src="images/zajednicko/zajednicko-06-naselje-dron.jpg" alt="Naselje Petrčane iz zraka — kuće, maslinici i vinogradi, Velebit u pozadini" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-caption="Kupaonica apartmana Mare" data-reveal aria-label="Povećaj fotografiju: Kupaonica apartmana Mare"><img src="images/mare/mare-06-kupaonica.jpg" alt="Apartman Mare — kupaonica s tuš kabinom i umivaonikom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i1.cap" data-caption="Zgrada i parkirno dvorište" data-reveal data-i18n-aria="gal.i1.aria" aria-label="Povećaj fotografiju: Zgrada i parkirno dvorište">
+            <img src="images/zajednicko/zajednicko-01-zgrada.jpg" data-i18n-alt="gal.i1.alt" alt="Zgrada s apartmanima Mare i Gumbek — bijela fasada, balkoni i popločeno parkirno dvorište" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i2.cap" data-caption="Natkrivena terasa s kamenim kaminom" data-reveal data-i18n-aria="gal.i2.aria" aria-label="Povećaj fotografiju: Natkrivena terasa s kamenim kaminom">
+            <img src="images/zajednicko/zajednicko-02-terasa-kamin.jpg" data-i18n-alt="gal.i2.alt" alt="Zajednička natkrivena terasa s kamenim kaminom za peku, vanjskim sudoperom i stolom za šest" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i3.cap" data-caption="Terasa apartmana Mare" data-reveal data-i18n-aria="gal.i3.aria" aria-label="Povećaj fotografiju: Terasa apartmana Mare">
+            <img src="images/mare/mare-01-terasa.jpg" data-i18n-alt="gal.i3.alt" alt="Natkrivena terasa apartmana Mare sa stolom za šest i vanjskom kuhinjom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i4.cap" data-caption="Uvala Petrčane iz zraka" data-reveal data-i18n-aria="gal.i4.aria" aria-label="Povećaj fotografiju: Uvala Petrčane iz zraka">
+            <img src="images/zajednicko/zajednicko-04-uvala-dron.jpg" data-i18n-alt="gal.i4.alt" alt="Uvala Petrčane iz zraka — luka s brodicama, poluotok s borovom šumom i Zadar u daljini" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i5.cap" data-caption="Dnevni boravak apartmana Mare" data-reveal data-i18n-aria="gal.i5.aria" aria-label="Povećaj fotografiju: Dnevni boravak apartmana Mare">
+            <img src="images/mare/mare-03-dnevni-boravak.jpg" data-i18n-alt="gal.i5.alt" alt="Apartman Mare — dnevni boravak sa sofom, dodatnim ležajem i klimom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i6.cap" data-caption="Terasa s pogledom na vrt" data-reveal data-i18n-aria="gal.i6.aria" aria-label="Povećaj fotografiju: Terasa s pogledom na vrt">
+            <img src="images/zajednicko/zajednicko-03-terasa-vrt.jpg" data-i18n-alt="gal.i6.alt" alt="Natkrivena terasa s pogledom na uređeni vrt i kamene gredice" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i7.cap" data-caption="Balkon apartmana Gumbek" data-reveal data-i18n-aria="gal.i7.aria" aria-label="Povećaj fotografiju: Balkon apartmana Gumbek">
+            <img src="images/gumbek/gumbek-03-balkon.jpg" data-i18n-alt="gal.i7.alt" alt="Apartman Gumbek — balkon s tendom, stolom i četiri stolice" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i8.cap" data-caption="Obala i plaža iz zraka" data-reveal data-i18n-aria="gal.i8.aria" aria-label="Povećaj fotografiju: Obala i plaža iz zraka">
+            <img src="images/zajednicko/zajednicko-05-obala-dron.jpg" data-i18n-alt="gal.i8.alt" alt="Obala Petrčana iz zraka — šljunčana plaža, kuće uz more i vinogradi u zaleđu" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i9.cap" data-caption="Kuhinja apartmana Gumbek" data-reveal data-i18n-aria="gal.i9.aria" aria-label="Povećaj fotografiju: Kuhinja apartmana Gumbek">
+            <img src="images/gumbek/gumbek-04-kuhinja.jpg" data-i18n-alt="gal.i9.alt" alt="Apartman Gumbek — kuhinja s indukcijskom pločom, perilicom posuđa i mikrovalnom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i10.cap" data-caption="Vrt pred zgradom" data-reveal data-i18n-aria="gal.i10.aria" aria-label="Povećaj fotografiju: Vrt pred zgradom">
+            <img src="images/mare/mare-07-vrt.jpg" data-i18n-alt="gal.i10.alt" alt="Uređeni vrt s mediteranskim biljem i kamenim pločama pred zgradom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i11.cap" data-caption="Naselje i vinogradi iz zraka" data-reveal data-i18n-aria="gal.i11.aria" aria-label="Povećaj fotografiju: Naselje i vinogradi iz zraka">
+            <img src="images/zajednicko/zajednicko-06-naselje-dron.jpg" data-i18n-alt="gal.i11.alt" alt="Naselje Petrčane iz zraka — kuće, maslinici i vinogradi, Velebit u pozadini" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i12.cap" data-caption="Kupaonica apartmana Mare" data-reveal data-i18n-aria="gal.i12.aria" aria-label="Povećaj fotografiju: Kupaonica apartmana Mare">
+            <img src="images/mare/mare-06-kupaonica.jpg" data-i18n-alt="gal.i12.alt" alt="Apartman Mare — kupaonica s tuš kabinom i umivaonikom" loading="lazy" /></button>
         </div>
       </div>
     </section>
@@ -1057,38 +1131,38 @@
     <section class="section steps" id="checkin">
       <div class="container">
         <div class="section-head" data-reveal style="max-width:600px">
-          <span class="eyebrow">Dolazak</span>
-          <h2>Od upita do ključa u ruci</h2>
-          <p class="lead" style="color:rgba(255,255,255,.9)">Nema portala, posrednika ni čekanja na recepciji. Dogovaramo se direktno — porukom ili telefonom.</p>
+          <span class="eyebrow" data-i18n="steps.eyebrow">Dolazak</span>
+          <h2 data-i18n="steps.h2">Od upita do ključa u ruci</h2>
+          <p class="lead" style="color:rgba(255,255,255,.9)" data-i18n="steps.lead">Nema portala, posrednika ni čekanja na recepciji. Dogovaramo se direktno — porukom ili telefonom.</p>
         </div>
         <div class="steps__grid">
           <div class="step" data-reveal>
-            <h3>Pošaljete upit</h3>
-            <p>Obrascem na ovoj stranici ili pozivom. Napišite termin, broj gostiju i koji vas apartman zanima.</p>
+            <h3 data-i18n="steps.s1.t">Pošaljete upit</h3>
+            <p data-i18n="steps.s1.d">Obrascem na ovoj stranici ili pozivom. Napišite termin, broj gostiju i koji vas apartman zanima.</p>
           </div>
           <div class="step" data-reveal>
-            <h3>Dobivate ponudu</h3>
-            <p>Javljamo se s dostupnošću i ukupnom cijenom za vaš termin, u pravilu isti dan.</p>
+            <h3 data-i18n="steps.s2.t">Dobivate ponudu</h3>
+            <p data-i18n="steps.s2.d">Javljamo se s dostupnošću i ukupnom cijenom za vaš termin, u pravilu isti dan.</p>
           </div>
           <div class="step" data-reveal>
-            <h3>Potvrda i upute</h3>
-            <p>Nakon vaše potvrde dogovaramo vrijeme dolaska i šaljemo sve upute — adresa je Petrčane IX 2a.</p>
+            <h3 data-i18n="steps.s3.t">Potvrda i upute</h3>
+            <p data-i18n="steps.s3.d">Nakon vaše potvrde dogovaramo vrijeme dolaska i šaljemo sve upute — adresa je Petrčane IX 2a.</p>
           </div>
           <div class="step" data-reveal>
-            <h3>Dolazak i ključevi</h3>
-            <p>Parkirate na svom mjestu u dvorištu, a ključeve preuzimate od nas u vrijeme koje unaprijed dogovorimo.</p>
+            <h3 data-i18n="steps.s4.t">Dolazak i ključevi</h3>
+            <p data-i18n="steps.s4.d">Parkirate na svom mjestu u dvorištu, a ključeve preuzimate od nas u vrijeme koje unaprijed dogovorimo.</p>
           </div>
         </div>
 
         <div class="checkin-note" data-reveal>
-          <h3>Dobro je znati</h3>
+          <h3 data-i18n="know.h3">Dobro je znati</h3>
           <!-- ✏️ ZAMIJENI stvarnim vremenima prijave/odjave kad ih klijent potvrdi -->
           <ul>
-            <li><strong>Vrijeme prijave i odjave</strong> dogovaramo unaprijed — recite u koje vrijeme planirate stići pa se prilagodimo.</li>
-            <li>Dolazite avionom? Zračna luka Zadar je <strong>25-ak minuta</strong> vožnje, autobusna i trajektna luka Zadar oko <strong>15 minuta</strong>.</li>
-            <li>Parking je <strong>besplatan</strong> i nalazi se u dvorištu zgrade — jedno mjesto po apartmanu.</li>
-            <li>Posteljina, ručnici i finalno čišćenje <strong>uključeni</strong> su u cijenu, ne plaćate ih dodatno.</li>
-            <li>Trebate nešto tijekom boravka? <strong>Nazovite</strong> — javljamo se i rješavamo isti dan.</li>
+            <li data-i18n-html="know.k1"><strong>Vrijeme prijave i odjave</strong> dogovaramo unaprijed — recite u koje vrijeme planirate stići pa se prilagodimo.</li>
+            <li data-i18n-html="know.k2">Dolazite avionom? Zračna luka Zadar je <strong>25-ak minuta</strong> vožnje, autobusna i trajektna luka Zadar oko <strong>15 minuta</strong>.</li>
+            <li data-i18n-html="know.k3">Parking je <strong>besplatan</strong> i nalazi se u dvorištu zgrade — jedno mjesto po apartmanu.</li>
+            <li data-i18n-html="know.k4">Posteljina, ručnici i finalno čišćenje <strong>uključeni</strong> su u cijenu, ne plaćate ih dodatno.</li>
+            <li data-i18n-html="know.k5">Trebate nešto tijekom boravka? <strong>Nazovite</strong> — javljamo se i rješavamo isti dan.</li>
           </ul>
         </div>
       </div>
@@ -1098,40 +1172,40 @@
     <section class="section" id="location">
       <div class="container location__grid">
         <div data-reveal>
-          <span class="eyebrow">Lokacija</span>
-          <h2>Petrčane — dvanaest kilometara od Zadra</h2>
-          <p class="lead">Petrčane su mirno mjesto na zadarskoj rivijeri: luka s brodicama, borova šuma, nekoliko konoba i šljunčane plaže. Dovoljno blizu da ujutro budete na kavi u staroj gradskoj jezgri Zadra, dovoljno po strani da navečer čujete samo cvrčke.</p>
-          <p style="margin-top:1rem;color:var(--text-muted)">Zadar je odlična baza za istraživanje — Morske orgulje i Pozdrav Suncu, rimski forum i Sveti Donat — a Kornati, Krka i Plitvička jezera izleti su od jednog dana. Sa sjeverne strane su Nin s pješčanom plažom i solanom te podvelebitski kanal.</p>
+          <span class="eyebrow" data-i18n="loc.eyebrow">Lokacija</span>
+          <h2 data-i18n="loc.h2">Petrčane — dvanaest kilometara od Zadra</h2>
+          <p class="lead" data-i18n="loc.lead">Petrčane su mirno mjesto na zadarskoj rivijeri: luka s brodicama, borova šuma, nekoliko konoba i šljunčane plaže. Dovoljno blizu da ujutro budete na kavi u staroj gradskoj jezgri Zadra, dovoljno po strani da navečer čujete samo cvrčke.</p>
+          <p style="margin-top:1rem;color:var(--text-muted)" data-i18n="loc.p2">Zadar je odlična baza za istraživanje — Morske orgulje i Pozdrav Suncu, rimski forum i Sveti Donat — a Kornati, Krka i Plitvička jezera izleti su od jednog dana. Sa sjeverne strane su Nin s pješčanom plažom i solanom te podvelebitski kanal.</p>
           <ul class="nearby">
-            <li><span class="dot"></span><span><strong>Plaža Donje Petrčane</strong> — 800 m, oko 9 minuta hoda</span></li>
-            <li><span class="dot"></span><span><strong>Luka i riva Petrčane</strong> — nekoliko minuta hoda, konobe uz more</span></li>
-            <li><span class="dot"></span><span><strong>Centar Zadra i Morske orgulje</strong> — 12 km, oko 20 minuta vožnje</span></li>
-            <li><span class="dot"></span><span><strong>Zračna luka Zadar</strong> — 23 km, oko 25 minuta vožnje</span></li>
-            <li><span class="dot"></span><span><strong>Nin, pješčana plaža i solana</strong> — oko 15 minuta vožnje</span></li>
-            <li><span class="dot"></span><span><strong>Izleti</strong> — NP Kornati i Telašćica, NP Krka, Plitvička jezera</span></li>
+            <li><span class="dot"></span><span data-i18n-html="loc.n1"><strong>Plaža Donje Petrčane</strong> — 800 m, oko 9 minuta hoda</span></li>
+            <li><span class="dot"></span><span data-i18n-html="loc.n2"><strong>Luka i riva Petrčane</strong> — nekoliko minuta hoda, konobe uz more</span></li>
+            <li><span class="dot"></span><span data-i18n-html="loc.n3"><strong>Centar Zadra i Morske orgulje</strong> — 12 km, oko 20 minuta vožnje</span></li>
+            <li><span class="dot"></span><span data-i18n-html="loc.n4"><strong>Zračna luka Zadar</strong> — 23 km, oko 25 minuta vožnje</span></li>
+            <li><span class="dot"></span><span data-i18n-html="loc.n5"><strong>Nin, pješčana plaža i solana</strong> — oko 15 minuta vožnje</span></li>
+            <li><span class="dot"></span><span data-i18n-html="loc.n6"><strong>Izleti</strong> — NP Kornati i Telašćica, NP Krka, Plitvička jezera</span></li>
           </ul>
-          <a href="#upit" class="btn btn-primary" style="margin-top:2rem">Provjerite dostupnost za svoj termin</a>
+          <a href="#upit" class="btn btn-primary" style="margin-top:2rem" data-i18n="loc.cta">Provjerite dostupnost za svoj termin</a>
         </div>
         <div class="location__map" data-reveal>
           <figure class="location__photo">
-            <img src="images/petrcane-luka-dron.jpg" width="1600" height="1066" alt="Petrčane iz zraka — luka s brodicama, riva i kamene kuće mjesta uz more" loading="lazy" />
-            <figcaption>Petrčane iz zraka — luka i riva, nekoliko minuta hoda od apartmana.</figcaption>
+            <img src="images/petrcane-luka-dron.jpg" width="1600" height="1066" data-i18n-alt="loc.photoAlt" alt="Petrčane iz zraka — luka s brodicama, riva i kamene kuće mjesta uz more" loading="lazy" />
+            <figcaption data-i18n="loc.photoCap">Petrčane iz zraka — luka i riva, nekoliko minuta hoda od apartmana.</figcaption>
           </figure>
           <!-- ✏️ Ulica "Petrčane IX" nije u OpenStreetMap bazi, pa je marker na
                centru naselja (44.18666, 15.16152). Kad se dobiju točne
                koordinate zgrade, zamijeniti marker i suziti bbox.
                Gumb ispod ne ovisi o koordinatama — navigacija sama razrješava
                punu adresu, pa vodi na točno mjesto. -->
-          <iframe title="Petrčane na karti — smještaj Apartmani Mare i Gumbek" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          <iframe data-i18n-title="loc.mapTitle" title="Petrčane na karti — smještaj Apartmani Mare i Gumbek" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
             src="https://www.openstreetmap.org/export/embed.html?bbox=15.1355%2C44.1700%2C15.1975%2C44.2075&layer=mapnik&marker=44.18666%2C15.16152"></iframe>
           <p class="location__addr">
             <!-- Adresa mora biti JEDAN flex item. Prije je <strong> bio item, a
                  ", 23231 Petrčane" anonimni item, pa je gap trake (1rem) padao
                  izmedu adrese i zareza i radio vidljivu rupu. -->
-            <span class="location__addr-txt"><strong>Petrčane IX 2a</strong>, 23231 Petrčane</span>
+            <span class="location__addr-txt" data-i18n-html="loc.addr"><strong>Petrčane IX 2a</strong>, 23231 Petrčane</span>
             <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Petr%C4%8Dane%20IX%202a%2C%2023231%20Petr%C4%8Dane%2C%20Hrvatska" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Otvori u navigaciji
+              <span data-i18n="loc.navBtn">Otvori u navigaciji</span>
             </a>
           </p>
         </div>
@@ -1146,28 +1220,28 @@
     <section class="section tinted">
       <div class="container">
         <div class="section-head center" data-reveal style="max-width:620px">
-          <span class="eyebrow">Za koga su</span>
-          <h2>Tko se kod nas najbolje smjesti</h2>
-          <p class="lead">Dva apartmana u istoj zgradi rješavaju problem koji jedan veliki apartman ne može: zajedništvo kad ga želite, tišinu kad vam treba.</p>
+          <span class="eyebrow" data-i18n="who.eyebrow">Za koga su</span>
+          <h2 data-i18n="who.h2">Tko se kod nas najbolje smjesti</h2>
+          <p class="lead" data-i18n="who.lead">Dva apartmana u istoj zgradi rješavaju problem koji jedan veliki apartman ne može: zajedništvo kad ga želite, tišinu kad vam treba.</p>
         </div>
         <div class="profiles__grid">
           <article class="profile" data-reveal>
             <div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
-            <h3>Dvije obitelji zajedno</h3>
-            <p>Najčešći scenarij. Djeca se cijeli dan igraju u dvorištu, večera je zajednička na terasi apartmana Mare, a nakon nje svatko ide svojim vratima. Bez dijeljenja kupaonice i bez usklađivanja rasporeda.</p>
-            <span class="profile__unit">Mare + Gumbek</span>
+            <h3 data-i18n="who.p1.t">Dvije obitelji zajedno</h3>
+            <p data-i18n="who.p1.d">Najčešći scenarij. Djeca se cijeli dan igraju u dvorištu, večera je zajednička na terasi apartmana Mare, a nakon nje svatko ide svojim vratima. Bez dijeljenja kupaonice i bez usklađivanja rasporeda.</p>
+            <span class="profile__unit" data-i18n="who.p1.u">Mare + Gumbek</span>
           </article>
           <article class="profile" data-reveal>
             <div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12M9 21v-7h6v7"/></svg></div>
-            <h3>Obitelj s djecom</h3>
-            <p>Prizemlje bez stepenica, vrt pred vratima, natkrivena terasa za hlad u podne i puna kuhinja za dane kad se ne ide van. Auto je parkiran pet metara od ulaza.</p>
-            <span class="profile__unit">Apartman Mare</span>
+            <h3 data-i18n="who.p2.t">Obitelj s djecom</h3>
+            <p data-i18n="who.p2.d">Prizemlje bez stepenica, vrt pred vratima, natkrivena terasa za hlad u podne i puna kuhinja za dane kad se ne ide van. Auto je parkiran pet metara od ulaza.</p>
+            <span class="profile__unit" data-i18n="who.p2.u">Apartman Mare</span>
           </article>
           <article class="profile" data-reveal>
             <div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg></div>
-            <h3>Par ili dvoje prijatelja</h3>
-            <p>Dvije etaže znače da je spavaći dio gore, a život dolje. Jutarnja kava na balkonu s tendom, plaža na desetak minuta hoda i Zadar na dvadeset minuta vožnje.</p>
-            <span class="profile__unit">Apartman Gumbek</span>
+            <h3 data-i18n="who.p3.t">Par ili dvoje prijatelja</h3>
+            <p data-i18n="who.p3.d">Dvije etaže znače da je spavaći dio gore, a život dolje. Jutarnja kava na balkonu s tendom, plaža na desetak minuta hoda i Zadar na dvadeset minuta vožnje.</p>
+            <span class="profile__unit" data-i18n="who.p3.u">Apartman Gumbek</span>
           </article>
         </div>
       </div>
@@ -1177,85 +1251,85 @@
     <section class="section" id="upit">
       <div class="container contact__grid">
         <div class="contact__info" data-reveal>
-          <span class="eyebrow">Upit</span>
-          <h2>Provjerite svoj termin</h2>
-          <p>Recite nam kada dolazite i koliko vas je — javljamo se s cijenom i dostupnošću, u pravilu isti dan. Bez obveze i bez provizije portala.</p>
+          <span class="eyebrow" data-i18n="form.eyebrow">Upit</span>
+          <h2 data-i18n="form.h2">Provjerite svoj termin</h2>
+          <p data-i18n="form.intro">Recite nam kada dolazite i koliko vas je — javljamo se s cijenom i dostupnošću, u pravilu isti dan. Bez obveze i bez provizije portala.</p>
           <ul class="contact-list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Apartmani Mare i Gumbek<br /><strong>Petrčane IX 2a</strong><br />23231 Petrčane, Hrvatska<br /><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Petr%C4%8Dane%20IX%202a%2C%2023231%20Petr%C4%8Dane%2C%20Hrvatska" target="_blank" rel="noopener">Otvori u navigaciji →</a></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span><span data-i18n-html="form.addr">Apartmani Mare i Gumbek<br /><strong>Petrčane IX 2a</strong><br />23231 Petrčane, Hrvatska</span><br /><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Petr%C4%8Dane%20IX%202a%2C%2023231%20Petr%C4%8Dane%2C%20Hrvatska" target="_blank" rel="noopener" data-i18n="form.navLink">Otvori u navigaciji →</a></span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+38598751522">+385 98 751 522</a></li>
             <!-- ✏️ E-MAIL je jos placeholder — zamijeniti prije objave -->
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a></li>
-            <li><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer">WhatsApp — najbrži odgovor</a></li>
+            <li><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer" data-i18n="form.waLink">WhatsApp — najbrži odgovor</a></li>
           </ul>
-          <p class="contact__langs">Govorimo hrvatski, engleski i njemački. · Wir sprechen Deutsch. · We speak English.</p>
+          <p class="contact__langs" data-i18n="form.langs">Govorimo hrvatski, engleski i njemački. · Wir sprechen Deutsch. · We speak English.</p>
         </div>
 
         <!-- ✏️ FORMSPREE: otvorite besplatan račun na formspree.io, kopirajte ID
              obrasca (npr. "xdorwpqz") i upišite ga u FORMSPREE_ID u skripti pri dnu.
              Dok je prazan, forma otvara e-mail klijenta s pripremljenom porukom. -->
         <form class="form" id="inquiryForm" novalidate data-reveal>
-          <div class="form__msg ok" id="formOk" role="status">Hvala na upitu! Zaprimili smo ga i javljamo se u najkraćem roku s ponudom.</div>
-          <div class="form__msg err" id="formErr" role="alert">Slanje nije uspjelo. Pišite nam direktno na <a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a> nazovite <a href="tel:+38598751522">+385 98 751 522</a> ili nam pišite na <a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer">WhatsApp</a>.</div>
+          <div class="form__msg ok" id="formOk" role="status" data-i18n="form.ok">Hvala na upitu! Zaprimili smo ga i javljamo se u najkraćem roku s ponudom.</div>
+          <div class="form__msg err" id="formErr" role="alert" data-i18n-html="form.err">Slanje nije uspjelo. Pišite nam direktno na <a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a> nazovite <a href="tel:+38598751522">+385 98 751 522</a> ili nam pišite na <a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer">WhatsApp</a>.</div>
 
           <div class="form-row">
             <div class="field">
-              <label for="name">Ime i prezime <span class="req">*</span></label>
+              <label for="name" data-i18n-html="form.name">Ime i prezime <span class="req">*</span></label>
               <input type="text" id="name" name="name" required minlength="2" autocomplete="name" />
-              <span class="error-msg">Molimo unesite ime i prezime.</span>
+              <span class="error-msg" data-i18n="form.nameErr">Molimo unesite ime i prezime.</span>
             </div>
             <div class="field">
-              <label for="email">E-mail <span class="req">*</span></label>
+              <label for="email" data-i18n-html="form.email">E-mail <span class="req">*</span></label>
               <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" />
-              <span class="error-msg">Unesite ispravnu e-mail adresu.</span>
+              <span class="error-msg" data-i18n="form.emailErr">Unesite ispravnu e-mail adresu.</span>
             </div>
           </div>
 
           <div class="form-row">
             <div class="field">
-              <label class="lbl-date" for="checkin"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Datum dolaska <span class="req">*</span></label>
+              <label class="lbl-date" for="checkin"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span data-i18n-html="form.checkin">Datum dolaska <span class="req">*</span></span></label>
               <input type="date" id="checkin" name="checkin" required />
-              <span class="error-msg">Odaberite datum dolaska.</span>
+              <span class="error-msg" data-i18n="form.checkinErr">Odaberite datum dolaska.</span>
             </div>
             <div class="field">
-              <label class="lbl-date" for="checkout"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Datum odlaska <span class="req">*</span></label>
+              <label class="lbl-date" for="checkout"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span data-i18n-html="form.checkout">Datum odlaska <span class="req">*</span></span></label>
               <input type="date" id="checkout" name="checkout" required />
-              <span class="error-msg">Odlazak mora biti nakon dolaska.</span>
+              <span class="error-msg" data-i18n="form.checkoutErr">Odlazak mora biti nakon dolaska.</span>
             </div>
           </div>
 
           <div class="form-row">
             <div class="field">
-              <label for="guests">Broj gostiju <span class="req">*</span></label>
+              <label for="guests" data-i18n-html="form.guests">Broj gostiju <span class="req">*</span></label>
               <select id="guests" name="guests" required>
-                <option value="1">1 osoba</option>
-                <option value="2" selected>2 osobe</option>
-                <option value="3">3 osobe</option>
-                <option value="4">4 osobe</option>
-                <option value="5">5 osoba</option>
-                <option value="6">6 osoba</option>
-                <option value="7">7 osoba (oba apartmana)</option>
-                <option value="8">8 osoba (oba apartmana)</option>
-                <option value="9">9 osoba (oba apartmana)</option>
-                <option value="10">10 osoba (oba apartmana)</option>
+                <option value="1" data-i18n="form.g1">1 osoba</option>
+                <option value="2" selected data-i18n="form.g2">2 osobe</option>
+                <option value="3" data-i18n="form.g3">3 osobe</option>
+                <option value="4" data-i18n="form.g4">4 osobe</option>
+                <option value="5" data-i18n="form.g5">5 osoba</option>
+                <option value="6" data-i18n="form.g6">6 osoba</option>
+                <option value="7" data-i18n="form.g7">7 osoba (oba apartmana)</option>
+                <option value="8" data-i18n="form.g8">8 osoba (oba apartmana)</option>
+                <option value="9" data-i18n="form.g9">9 osoba (oba apartmana)</option>
+                <option value="10" data-i18n="form.g10">10 osoba (oba apartmana)</option>
               </select>
               <span class="error-msg"></span>
             </div>
             <div class="field">
-              <label for="unit">Jedinica</label>
+              <label for="unit" data-i18n="form.unitLabel">Jedinica</label>
               <select id="unit" name="unit">
-                <option>Apartman Mare (do 6 os.)</option>
-                <option>Apartman Gumbek (do 4 os.)</option>
-                <option>Oba apartmana</option>
-                <option selected>Nisam siguran/na — predložite</option>
+                <option value="mare" data-i18n="form.unit.mare">Apartman Mare (do 6 os.)</option>
+                <option value="gumbek" data-i18n="form.unit.gumbek">Apartman Gumbek (do 4 os.)</option>
+                <option value="oba" data-i18n="form.unit.oba">Oba apartmana</option>
+                <option value="open" selected data-i18n="form.unit.open">Nisam siguran/na — predložite</option>
               </select>
               <span class="error-msg"></span>
             </div>
           </div>
 
           <div class="field">
-            <label for="message">Poruka <span class="req">*</span></label>
+            <label for="message" data-i18n-html="form.message">Poruka <span class="req">*</span></label>
             <textarea id="message" name="message" required minlength="10" placeholder="Dolazimo autom, s nama je i dijete od 3 godine. Zanima nas ima li krevetića i koliko je do plaže…"></textarea>
-            <span class="error-msg">Napišite kratku poruku (najmanje 10 znakova).</span>
+            <span class="error-msg" data-i18n="form.messageErr">Napišite kratku poruku (najmanje 10 znakova).</span>
           </div>
 
           <!-- Formspree meta polja. _subject postavlja skripta prije slanja
@@ -1263,12 +1337,12 @@
                ispuni, Formspree tiho odbaci poruku. -->
           <input type="hidden" name="_subject" id="mailSubject" value="Novi upit — Apartmani Mare i Gumbek" />
           <div class="honeypot" aria-hidden="true">
-            <label for="_gotcha">Ostavite ovo polje prazno</label>
+            <label for="_gotcha" data-i18n="form.honeypot">Ostavite ovo polje prazno</label>
             <input type="text" name="_gotcha" id="_gotcha" tabindex="-1" autocomplete="off" />
           </div>
 
-          <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%">Pošalji upit</button>
-          <p class="form__note">Odgovaramo u pravilu isti dan. Podatke koristimo isključivo za odgovor na vaš upit i ne prosljeđujemo ih trećima.</p>
+          <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%" data-i18n="form.submit">Pošalji upit</button>
+          <p class="form__note" data-i18n="form.note">Odgovaramo u pravilu isti dan. Podatke koristimo isključivo za odgovor na vaš upit i ne prosljeđujemo ih trećima.</p>
         </form>
       </div>
     </section>
@@ -1279,50 +1353,50 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <a href="#" class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg> Mare i Gumbek</a>
-          <p>Dva odvojena apartmana u istoj zgradi u Petrčanima. Vrt i terasa, balkon, klima i besplatan parking — plaža na 800 m.</p>
+          <a href="#" class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg> <span data-i18n="foot.brand">Mare i Gumbek</span></a>
+          <p data-i18n="foot.about">Dva odvojena apartmana u istoj zgradi u Petrčanima. Vrt i terasa, balkon, klima i besplatan parking — plaža na 800 m.</p>
           <div class="socials">
             <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
             <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer" aria-label="Pišite nam na WhatsApp"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+            <a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer" data-i18n-aria="foot.wa" aria-label="Pišite nam na WhatsApp"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
           </div>
         </div>
-        <div><h4>Smještaj</h4><ul><li><a href="#units">Apartman Mare</a></li><li><a href="#units">Apartman Gumbek</a></li><li><a href="#pricing">Cijena i rezervacija</a></li><li><a href="#gallery">Galerija</a></li></ul></div>
-        <div><h4>Informacije</h4><ul><li><a href="#checkin">Dolazak</a></li><li><a href="#location">Kako do nas</a></li><li><a href="#amenities">Sadržaji</a></li><li><a href="#upit">Pošalji upit</a></li></ul></div>
-        <div><h4>Kontakt</h4><ul>
+        <div><h4 data-i18n="foot.h1">Smještaj</h4><ul><li><a href="#units" data-i18n="foot.mare">Apartman Mare</a></li><li><a href="#units" data-i18n="foot.gumbek">Apartman Gumbek</a></li><li><a href="#pricing" data-i18n="foot.price">Cijena i rezervacija</a></li><li><a href="#gallery" data-i18n="foot.gallery">Galerija</a></li></ul></div>
+        <div><h4 data-i18n="foot.h2">Informacije</h4><ul><li><a href="#checkin" data-i18n="foot.checkin">Dolazak</a></li><li><a href="#location" data-i18n="foot.howto">Kako do nas</a></li><li><a href="#amenities" data-i18n="foot.amen">Sadržaji</a></li><li><a href="#upit" data-i18n="foot.inquiry">Pošalji upit</a></li></ul></div>
+        <div><h4 data-i18n="foot.h3">Kontakt</h4><ul>
           <li><a href="tel:+38598751522">+385 98 751 522</a></li>
           <li><a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a></li>
-          <li>Petrčane IX 2a<br />23231 Petrčane, Hrvatska</li>
+          <li data-i18n-html="foot.addr">Petrčane IX 2a<br />23231 Petrčane, Hrvatska</li>
         </ul></div>
       </div>
       <div class="footer__bottom">
-        <span>© <span id="year"></span> Apartmani Mare i Gumbek. Sva prava pridržana.</span>
-        <span>Rezervirajte direktno — bez provizije.</span>
+        <span>© <span id="year"></span> <span data-i18n="foot.rights">Apartmani Mare i Gumbek. Sva prava pridržana.</span></span>
+        <span data-i18n="foot.direct">Rezervirajte direktno — bez provizije.</span>
       </div>
     </div>
   </footer>
 
   <!-- ==================== STICKY CTA (mobitel) ==================== -->
   <div class="mobile-cta">
-    <a href="#upit" class="btn btn-primary">Pošalji upit</a>
+    <a href="#upit" class="btn btn-primary" data-i18n="mobile.inquiry">Pošalji upit</a>
     <a href="tel:+38598751522" class="btn btn-ghost">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-      Nazovite
+      <span data-i18n="mobile.call">Nazovite</span>
     </a>
-    <a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer" class="btn btn-ghost mobile-cta__wa" aria-label="Pišite nam na WhatsApp">
+    <a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer" class="btn btn-ghost mobile-cta__wa" data-i18n-aria="mobile.wa" aria-label="Pišite nam na WhatsApp">
       <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
   </div>
 
   <!-- ==================== LIGHTBOX ==================== -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerija fotografija">
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" data-i18n-aria="lightbox.aria" aria-label="Galerija fotografija">
     <p class="lightbox__counter" id="lightboxCounter" aria-live="polite"></p>
-    <button class="lightbox__close" id="lightboxClose" aria-label="Zatvori galeriju">&times;</button>
-    <button class="lightbox__nav prev" id="lightboxPrev" aria-label="Prethodna fotografija">
+    <button class="lightbox__close" id="lightboxClose" data-i18n-aria="lightbox.close" aria-label="Zatvori galeriju">&times;</button>
+    <button class="lightbox__nav prev" id="lightboxPrev" data-i18n-aria="lightbox.prev" aria-label="Prethodna fotografija">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
     <img id="lightboxImg" src="" alt="" />
-    <button class="lightbox__nav next" id="lightboxNext" aria-label="Sljedeća fotografija">
+    <button class="lightbox__nav next" id="lightboxNext" data-i18n-aria="lightbox.next" aria-label="Sljedeća fotografija">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
     </button>
     <p class="lightbox__caption" id="lightboxCaption"></p>
@@ -1347,6 +1421,34 @@
     const FORMSPREE_ID = "";                     // npr. "xdorwpqz"
     const KONTAKT_MAIL = "info@mare-gumbek.hr";  // ✏️ zamijeniti pravom adresom
     /* -------------------------------------------------------- */
+
+    /* TEKSTOVI KOJE ISPISUJE SKRIPTA
+       Ne mogu nositi data-i18n atribut jer ih element jos nema u trenutku
+       ucitavanja. tools/i18n.js cita i prepisuje ovaj blok pri buildu, pa
+       svaka jezicna verzija dobiva svoje vrijednosti. Prekidac jezika ih
+       osvjezava iz rjecnika u pogonu (vidi assets/js/i18n.js).
+       {in}, {out}, {unit}, {guests}, {lang} su zamjenska mjesta. */
+    /* i18n:js */ const JS_TEXT = {
+    "lang.offer": "Ova je stranica dostupna i na hrvatskom.",
+    "lang.offerNo": "Ne, hvala",
+    "lang.offerNoAria": "Zatvori ponudu jezika",
+    "lang.offerYes": "Prebaci na hrvatski",
+    "js.mailBodyArrival": "Dolazak",
+    "js.mailBodyDeparture": "Odlazak",
+    "js.mailBodyEmail": "E-mail",
+    "js.mailBodyGuests": "Broj gostiju",
+    "js.mailBodyMessage": "Poruka",
+    "js.mailBodyName": "Ime i prezime",
+    "js.mailBodyUnit": "Jedinica",
+    "js.mailSubject": "Upit za smještaj — {in} do {out}",
+    "js.menuClose": "Zatvori izbornik",
+    "js.menuOpen": "Otvori izbornik",
+    "js.sending": "Šaljem…",
+    "js.subjectField": "Upit {in} – {out} · {unit} · {guests} gost(iju) · {lang}"
+  };
+    /* Prekidac jezika prepisuje JS_TEXT kad gost promijeni jezik. */
+    const T = (k) => (window.MG_JS_TEXT && window.MG_JS_TEXT[k]) || JS_TEXT[k] || "";
+    window.MG_JS_TEXT = JS_TEXT;
 
     const root = document.documentElement;
     root.classList.add("js");
@@ -1388,7 +1490,7 @@
       header.classList.toggle("nav-open", open);
       document.body.classList.toggle("nav-open", open);
       navToggle.setAttribute("aria-expanded", String(open));
-      navToggle.setAttribute("aria-label", open ? "Zatvori izbornik" : "Otvori izbornik");
+      navToggle.setAttribute("aria-label", open ? T("js.menuClose") : T("js.menuOpen"));
     };
     const closeNav = () => setNav(false);
 
@@ -1464,6 +1566,13 @@
       /* susjedi unaprijed — listanje bez bijelog bljeska */
       preload(index + 1); preload(index - 1);
     };
+
+    /* Promjena jezika dok je galerija otvorena: natpis i alt su vec
+       prevedeni na samim gumbima, ali prikazani tekst treba osvjeziti —
+       inace bi ostao na starom jeziku do sljedeceg listanja. */
+    document.addEventListener("mg:lang", () => {
+      if (lightbox.classList.contains("open") && current.length) render();
+    });
 
     const step = (delta) => {
       if (current.length < 2) return;
@@ -1577,8 +1686,9 @@
     document.querySelectorAll("[data-pick-unit]").forEach(btn => {
       btn.addEventListener("click", () => {
         const select = document.getElementById("unit");
-        const wanted = btn.dataset.pickUnit;
-        [...select.options].forEach(o => { if (o.value === wanted || o.textContent === wanted) select.value = o.value; });
+        /* Vrijednost opcije (mare/gumbek/oba/open) je stabilna kroz jezike,
+           za razliku od vidljivog teksta koji se prevodi. */
+        select.value = btn.dataset.pickUnit;
       });
     });
 
@@ -1609,16 +1719,22 @@
 
     const hideMessages = () => { okMsg.classList.remove("show"); errMsg.classList.remove("show"); };
 
+    /* U e-mail ide vidljivi naziv jedinice, ne interna vrijednost. */
+    const unitLabel = () => {
+      const sel = document.getElementById("unit");
+      return sel && sel.selectedOptions[0] ? sel.selectedOptions[0].textContent.trim() : "";
+    };
+
     const buildMailto = (data) => {
-      const subject = `Upit za smještaj — ${data.checkin} do ${data.checkout}`;
+      const subject = T("js.mailSubject").replace("{in}", data.checkin).replace("{out}", data.checkout);
       const body =
-        `Ime i prezime: ${data.name}\n` +
-        `E-mail: ${data.email}\n` +
-        `Dolazak: ${data.checkin}\n` +
-        `Odlazak: ${data.checkout}\n` +
-        `Broj gostiju: ${data.guests}\n` +
-        `Jedinica: ${data.unit}\n\n` +
-        `Poruka:\n${data.message}\n`;
+        `${T("js.mailBodyName")}: ${data.name}\n` +
+        `${T("js.mailBodyEmail")}: ${data.email}\n` +
+        `${T("js.mailBodyArrival")}: ${data.checkin}\n` +
+        `${T("js.mailBodyDeparture")}: ${data.checkout}\n` +
+        `${T("js.mailBodyGuests")}: ${data.guests}\n` +
+        `${T("js.mailBodyUnit")}: ${unitLabel()}\n\n` +
+        `${T("js.mailBodyMessage")}:\n${data.message}\n`;
       return `mailto:${KONTAKT_MAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     };
 
@@ -1637,7 +1753,10 @@
 
       /* Naslov e-maila dobiva termin i jedinicu — vidi se u inboxu bez otvaranja */
       const subjectField = document.getElementById("mailSubject");
-      if (subjectField) subjectField.value = `Upit ${data.checkin} – ${data.checkout} · ${data.unit} · ${data.guests} gost(iju)`;
+      if (subjectField) subjectField.value = T("js.subjectField")
+        .replace("{in}", data.checkin).replace("{out}", data.checkout)
+        .replace("{unit}", unitLabel()).replace("{guests}", data.guests)
+        .replace("{lang}", document.documentElement.lang.toUpperCase());
 
       /* Bez Formspree ID-a → otvaramo e-mail klijent s pripremljenom porukom */
       if (!FORMSPREE_ID) {
@@ -1649,7 +1768,7 @@
 
       submitBtn.disabled = true;
       const originalLabel = submitBtn.textContent;
-      submitBtn.textContent = "Šaljem…";
+      submitBtn.textContent = T("js.sending");
       try {
         const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
           method: "POST",
@@ -1685,6 +1804,9 @@
        Virtualni asistent. Sam se ubacuje u <body>, ne dira postojeci
        markup. Nacin rada se mijenja jednom konstantom (API_URL) na
        vrhu chatbot/widget.js; baza znanja je chatbot/knowledge.md. -->
+  <!-- Prekidac jezika. Rjecnik (assets/js/dict.js) se ucitava tek na prvi
+       dodir prekidaca, pa prvo ucitavanje stranice ostaje jednako brzo. -->
+  <script src="assets/js/i18n.js" defer></script>
   <script src="chatbot/widget.js" defer></script>
 </body>
 </html>
