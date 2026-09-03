@@ -1,0 +1,91 @@
+{
+  "know": {
+    "h3": "Gut zu wissen",
+    "k1": "<strong>Check-in- und Check-out-Zeiten</strong> stimmen wir vorab ab — sagen Sie uns, wann Sie ankommen möchten, wir richten uns danach.",
+    "k2": "Sie kommen mit dem Flugzeug? Der Flughafen Zadar ist rund <strong>25 Minuten</strong> entfernt, Bus- und Fährhafen Zadar etwa <strong>15 Minuten</strong>.",
+    "k3": "Der Parkplatz ist <strong>kostenlos</strong> und liegt im Hof des Hauses — ein Stellplatz pro Apartment.",
+    "k4": "Bettwäsche, Handtücher und die Endreinigung sind im Preis <strong>enthalten</strong>, es kommt nichts hinzu.",
+    "k5": "Sie brauchen während des Aufenthalts etwas? <strong>Rufen Sie an</strong> — wir melden uns und kümmern uns noch am selben Tag darum."
+  },
+  "loc": {
+    "addr": "<strong>Petrčane IX 2a</strong>, 23231 Petrčane",
+    "cta": "Verfügbarkeit für Ihren Termin anfragen",
+    "eyebrow": "Lage",
+    "h2": "Petrčane — zwölf Kilometer von Zadar",
+    "lead": "Petrčane ist ein ruhiger Ort an der Riviera von Zadar: ein Hafen mit kleinen Booten, ein Pinienwald, ein paar Konobas und Kiesstrände. Nah genug für den Morgenkaffee in der Altstadt von Zadar, weit genug abseits, dass abends nur die Grillen zu hören sind.",
+    "mapTitle": "Petrčane auf der Karte — Apartments Mare & Gumbek",
+    "n1": "<strong>Strand Donje Petrčane</strong> — 800 m, etwa 9 Minuten zu Fuß",
+    "n2": "<strong>Hafen und Uferpromenade Petrčane</strong> — wenige Minuten zu Fuß, Konobas am Meer",
+    "n3": "<strong>Zentrum von Zadar und die Meeresorgel</strong> — 12 km, etwa 20 Minuten Fahrt",
+    "n4": "<strong>Flughafen Zadar</strong> — 23 km, etwa 25 Minuten Fahrt",
+    "n5": "<strong>Nin mit Sandstrand und Salinen</strong> — etwa 15 Minuten Fahrt",
+    "n6": "<strong>Ausflüge</strong> — Nationalparks Kornati und Telašćica, Krka, Plitvicer Seen",
+    "navBtn": "In der Navigation öffnen",
+    "p2": "Zadar ist ein hervorragender Ausgangspunkt — Meeresorgel und Gruß an die Sonne, das römische Forum und die Kirche des heiligen Donatus — während Kornati, Krka und die Plitvicer Seen als Tagesausflüge gut zu schaffen sind. Im Norden liegen Nin mit Sandstrand und Salinen sowie der Kanal unterhalb des Velebit.",
+    "photoAlt": "Petrčane aus der Luft — Hafen mit Booten, Uferpromenade und die Steinhäuser des Ortes am Meer",
+    "photoCap": "Petrčane aus der Luft — Hafen und Uferpromenade, wenige Minuten zu Fuß von den Apartments."
+  },
+  "price": {
+    "eyebrow": "Preis",
+    "h2": "Verfügbarkeit und Preis auf Anfrage",
+    "lead": "Wir veröffentlichen keine feste Preisliste, denn in neun von zehn Fällen würde sie in die Irre führen — der Preis richtet sich nach Saison, Aufenthaltsdauer und Gästezahl. Schicken Sie uns Ihre Termine, und wir melden uns mit einem konkreten Betrag, ganz ohne versteckte Zuschläge.",
+    "note": "Anfragen beantworten wir in der Regel noch am selben Tag. Wer direkt bei uns bucht, zahlt keine Portalprovision.",
+    "s1": {
+      "d": "Termin, Gästezahl und welches Apartment Sie interessiert — oder beide, wenn Sie als zwei Familien reisen.",
+      "t": "Sie schicken Ihre Termine"
+    },
+    "s2": {
+      "d": "Sie erhalten den Gesamtbetrag für den ganzen Aufenthalt, die Kurtaxe getrennt ausgewiesen.",
+      "t": "Wir melden uns mit dem Preis"
+    },
+    "s3": {
+      "d": "Eine Anfrage verpflichtet zu nichts. Die Buchung gilt erst, wenn Sie ausdrücklich zustimmen.",
+      "t": "Sie bestätigen unverbindlich"
+    },
+    "x1": "<strong>Im Preis enthalten</strong> Bettwäsche und Handtücher, Endreinigung, Wasser und Strom, Klimaanlage, Parkplatz und WLAN.",
+    "x2": "<strong>Kurtaxe</strong> Wird zusätzlich berechnet, nach der geltenden Verordnung — nennen Sie uns die Zahl der Gäste und ihr Alter, dann rechnen wir es genau aus.",
+    "x3": "<strong>Das ganze Haus</strong> Sie nehmen beide Apartments? Schreiben Sie es in die Anfrage — für eine gemeinsame Buchung machen wir ein Angebot.",
+    "x4": "<strong>Kinder</strong> Sind herzlich willkommen. Schreiben Sie uns, wie viele mitkommen und wie alt sie sind, damit wir die Betten passend vorschlagen können."
+  },
+  "steps": {
+    "eyebrow": "Anreise",
+    "h2": "Von der Anfrage bis zum Schlüssel in der Hand",
+    "lead": "Keine Portale, keine Vermittler, kein Warten an der Rezeption. Wir machen alles direkt aus — per Nachricht oder Telefon.",
+    "s1": {
+      "d": "Über das Formular auf dieser Seite oder telefonisch. Nennen Sie Termin, Gästezahl und welches Apartment Sie interessiert.",
+      "t": "Sie senden eine Anfrage"
+    },
+    "s2": {
+      "d": "Wir melden uns mit der Verfügbarkeit und dem Gesamtpreis für Ihren Termin, in der Regel noch am selben Tag.",
+      "t": "Sie erhalten ein Angebot"
+    },
+    "s3": {
+      "d": "Nach Ihrer Bestätigung vereinbaren wir die Ankunftszeit und schicken alle Hinweise — die Adresse lautet Petrčane IX 2a.",
+      "t": "Bestätigung und Hinweise"
+    },
+    "s4": {
+      "d": "Sie parken auf Ihrem Stellplatz im Hof und bekommen die Schlüssel von uns, zu einer vorher vereinbarten Zeit.",
+      "t": "Ankunft und Schlüssel"
+    }
+  },
+  "who": {
+    "eyebrow": "Für wen",
+    "h2": "Wer sich bei uns am wohlsten fühlt",
+    "lead": "Zwei Apartments im selben Haus lösen etwas, was ein einzelnes großes Apartment nicht kann: Gemeinsamkeit, wenn Sie sie möchten, Ruhe, wenn Sie sie brauchen.",
+    "p1": {
+      "d": "Der häufigste Fall. Die Kinder spielen den ganzen Tag im Hof, das Abendessen gibt es gemeinsam auf der Terrasse des Apartments Mare, danach geht jeder durch seine eigene Tür. Ohne geteiltes Bad und ohne abgestimmte Tagespläne.",
+      "t": "Zwei Familien zusammen",
+      "u": "Mare + Gumbek"
+    },
+    "p2": {
+      "d": "Erdgeschoss ohne Stufen, Garten vor der Tür, überdachte Terrasse für den Schatten am Mittag und eine voll ausgestattete Küche für die Tage, an denen man daheim bleibt. Das Auto steht fünf Meter vom Eingang entfernt.",
+      "t": "Familie mit Kindern",
+      "u": "Apartment Mare"
+    },
+    "p3": {
+      "d": "Zwei Etagen bedeuten: oben geschlafen, unten gelebt. Morgenkaffee auf dem Balkon unter der Markise, der Strand rund zehn Minuten zu Fuß und Zadar zwanzig Minuten mit dem Auto.",
+      "t": "Paar oder zwei Freunde",
+      "u": "Apartment Gumbek"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "gal": {
+    "eyebrow": "Galerie",
+    "h2": "Haus, Terrasse und Umgebung",
+    "i1": {
+      "alt": "Das Haus mit den Apartments Mare und Gumbek — weiße Fassade, Balkone und gepflasterter Parkhof",
+      "aria": "Foto vergrößern: Haus und Parkhof",
+      "cap": "Haus und Parkhof"
+    },
+    "i10": {
+      "alt": "Gepflegter Garten mit mediterranen Pflanzen und Steinplatten vor dem Haus",
+      "aria": "Foto vergrößern: Garten vor dem Haus",
+      "cap": "Garten vor dem Haus"
+    },
+    "i11": {
+      "alt": "Der Ort Petrčane aus der Luft — Häuser, Olivenhaine und Weinberge, der Velebit im Hintergrund",
+      "aria": "Foto vergrößern: Ort und Weinberge aus der Luft",
+      "cap": "Ort und Weinberge aus der Luft"
+    },
+    "i12": {
+      "alt": "Apartment Mare — Bad mit Duschkabine und Waschbecken",
+      "aria": "Foto vergrößern: Bad im Apartment Mare",
+      "cap": "Bad im Apartment Mare"
+    },
+    "i2": {
+      "alt": "Die gemeinsame überdachte Terrasse mit Steinkamin zum Grillen, Außenspüle und Tisch für sechs",
+      "aria": "Foto vergrößern: Überdachte Terrasse mit Steinkamin",
+      "cap": "Überdachte Terrasse mit Steinkamin"
+    },
+    "i3": {
+      "alt": "Die überdachte Terrasse des Apartments Mare mit Tisch für sechs und Außenküche",
+      "aria": "Foto vergrößern: Terrasse des Apartments Mare",
+      "cap": "Terrasse des Apartments Mare"
+    },
+    "i4": {
+      "alt": "Die Bucht von Petrčane aus der Luft — Hafen mit Booten, bewaldete Halbinsel und Zadar in der Ferne",
+      "aria": "Foto vergrößern: Bucht von Petrčane aus der Luft",
+      "cap": "Bucht von Petrčane aus der Luft"
+    },
+    "i5": {
+      "alt": "Apartment Mare — Wohnzimmer mit Sofa, Zusatzbett und Klimaanlage",
+      "aria": "Foto vergrößern: Wohnzimmer im Apartment Mare",
+      "cap": "Wohnzimmer im Apartment Mare"
+    },
+    "i6": {
+      "alt": "Überdachte Terrasse mit Blick auf den gepflegten Garten und Steinbeete",
+      "aria": "Foto vergrößern: Terrasse mit Blick in den Garten",
+      "cap": "Terrasse mit Blick in den Garten"
+    },
+    "i7": {
+      "alt": "Apartment Gumbek — Balkon mit Markise, Tisch und vier Stühlen",
+      "aria": "Foto vergrößern: Balkon des Apartments Gumbek",
+      "cap": "Balkon des Apartments Gumbek"
+    },
+    "i8": {
+      "alt": "Die Küste von Petrčane aus der Luft — Kiesstrand, Häuser am Meer und Weinberge im Hinterland",
+      "aria": "Foto vergrößern: Küste und Strand aus der Luft",
+      "cap": "Küste und Strand aus der Luft"
+    },
+    "i9": {
+      "alt": "Apartment Gumbek — Küche mit Induktionskochfeld, Geschirrspüler und Mikrowelle",
+      "aria": "Foto vergrößern: Küche im Apartment Gumbek",
+      "cap": "Küche im Apartment Gumbek"
+    },
+    "lead": "Der gemeinsame Bereich beider Apartments — die überdachte Terrasse mit Steinkamin, der Garten, der Hof mit den Stellplätzen und Petrčane aus der Luft. Klicken Sie auf ein beliebiges Foto; mit den Pfeiltasten oder per Wisch blättern Sie durch die ganze Serie."
+  }
+}

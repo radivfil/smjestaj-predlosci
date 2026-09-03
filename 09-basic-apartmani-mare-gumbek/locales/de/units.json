@@ -1,0 +1,113 @@
+{
+  "about": {
+    "badge": "Apartments, ein Haus",
+    "eyebrow": "Über uns",
+    "h2": "Zwei Apartments, ein Haus, genug Platz für alle.",
+    "imgAlt": "Petrčane aus der Luft — türkisfarbene Bucht mit Marina, der Ort, Weinberge und der Velebit im Hintergrund",
+    "lead": "Mare und Gumbek sind zwei eigenständige Apartments im selben Haus in Petrčane, einem ruhigen Ort an der Riviera von Zadar. Jedes hat einen eigenen Eingang, eine eigene Küche, ein eigenes Bad, Klimaanlage und einen eigenen Außenbereich — Mare Garten und große überdachte Terrasse, Gumbek Balkon und zwei Etagen.",
+    "p2": "Deshalb buchen sie meist zwei Familien oder Freundesgruppen, die zusammen reisen: Die Kinder spielen im Hof, das Abendessen gibt es gemeinsam auf der Terrasse, und wenn der Tag zu Ende geht, geht jeder in sein eigenes Apartment. Keine Rezeption, keine Flure, keine Nachbarn hinter einer dünnen Wand — nur zwei abschließbare Türen und zwei Urlaube, die nicht aufeinander abgestimmt werden müssen.",
+    "p3": "Selbstverständlich können Sie auch nur eines nehmen. Beide sind für einen richtigen Urlaub ausgestattet, nicht für einen kurzen Blick: Geschirrspüler, Kochfeld, Kaffeemaschine, TV, schnelles WLAN und ein kostenloser Stellplatz im Hof.",
+    "score": "Gesamtbewertung der Gäste auf Booking.com<br /><small>Für das Apartment Mare, auf Grundlage von 5 Gästebewertungen nach dem Aufenthalt.</small>",
+    "stat1": "Getrennte Apartments im selben Haus",
+    "stat2": "Zum Strand Donje Petrčane",
+    "stat2Num": "800 m",
+    "stat3": "Fahrt ins Zentrum von Zadar",
+    "stat3Num": "15 Min."
+  },
+  "amen": {
+    "ac": {
+      "d": "In jedem Apartment, damit auch ein Augustnachmittag angenehm kühl bleibt.",
+      "t": "Klimaanlage"
+    },
+    "beach": {
+      "d": "Gut zehn Minuten gemütlich zu Fuß bis zum Strand Donje Petrčane, ohne eine Hauptstraße zu queren.",
+      "t": "Strand in 800 m"
+    },
+    "eyebrow": "Ausstattung",
+    "h2": "Was beide Apartments haben",
+    "kitchen": {
+      "d": "Backofen, Kochfeld, Geschirrspüler, Mikrowelle, Kaffeemaschine und Geschirr für die ganze Runde.",
+      "t": "Voll ausgestattete Küche"
+    },
+    "outdoor": {
+      "d": "Mare hat Garten und überdachte Terrasse mit Außenküche, Gumbek einen Balkon mit Markise.",
+      "t": "Eigener Außenbereich"
+    },
+    "parking": {
+      "d": "Eigener Stellplatz im Hof, direkt vor dem Eingang — kein Suchen im Ort.",
+      "t": "Kostenloser Parkplatz"
+    },
+    "wifi": {
+      "d": "In beiden Apartments, ohne Datenlimit — auch fürs Arbeiten aus der Ferne genug.",
+      "t": "Kostenloses WLAN"
+    }
+  },
+  "units": {
+    "askText": "Der Preis richtet sich nach Termin, Gästezahl und Aufenthaltsdauer. Schicken Sie uns Ihre Termine — wir melden uns mit einem genauen Angebot.",
+    "askText2": "Der Preis richtet sich nach Termin, Gästezahl und Aufenthaltsdauer. Schicken Sie uns Ihre Termine — wir melden uns mit einem genauen Angebot.",
+    "askTitle": "Buchung auf Anfrage",
+    "askTitle2": "Buchung auf Anfrage",
+    "eyebrow": "Unterkunft",
+    "f": {
+      "ac": "Klimaanlage",
+      "ac2": "Klimaanlage",
+      "balcony": "Balkon mit Markise",
+      "dishwasher": "Geschirrspüler",
+      "dishwasher2": "Geschirrspüler",
+      "fireplace": "Steinkamin",
+      "garden": "Eigener Garten",
+      "outKitchen": "Außenküche",
+      "oven": "Backofen und Kochfeld",
+      "parking": "Parkplatz",
+      "parking2": "Parkplatz",
+      "terrace": "Überdachte Terrasse",
+      "tv": "TV",
+      "twoFloors": "Zwei Etagen",
+      "washer": "Waschmaschine",
+      "wifi": "WLAN",
+      "wifi2": "WLAN"
+    },
+    "gumbek": {
+      "alt1": "Apartment Gumbek — Wohnzimmer mit Esstisch und Wendeltreppe in die obere Etage",
+      "alt2": "Apartment Gumbek — Balkon mit Markise, Tisch und vier Stühlen",
+      "alt3": "Apartment Gumbek — Schlafzimmer unter dem Dachfenster und Bad mit Dusche",
+      "aria1": "Vergrößern: Apartment Gumbek, Wohnzimmer und Treppe",
+      "aria2": "Vergrößern: Apartment Gumbek, Balkon",
+      "aria3": "Vergrößern: Apartment Gumbek, Schlafzimmer",
+      "badge": "Zwei Etagen",
+      "cap1": "Apartment Gumbek — Wohnzimmer mit der Wendeltreppe",
+      "cap2": "Apartment Gumbek — Balkon mit Markise",
+      "cap3": "Apartment Gumbek — Schlafzimmer und Bad in der oberen Etage",
+      "cta": "Verfügbarkeit für Gumbek anfragen",
+      "desc": "Ein Apartment über zwei Etagen, verbunden durch eine Wendeltreppe: unten ein geräumiges Wohnzimmer mit Essbereich, Küche und Balkon mit Markise, oben die Schlafzimmer und ein Bad unter dem Dachfenster. Es liegt etwas über der Straße, deshalb ist es den ganzen Tag hell und abends still.",
+      "imgAlt": "Apartment Gumbek — helles Wohnzimmer mit Ledergarnitur und Zugang zum Balkon",
+      "name": "Apartment Gumbek",
+      "spec1": "bis 4 Gäste",
+      "spec2": "2 Schlafzimmer",
+      "spec3": "2 Etagen"
+    },
+    "h2": "Zwei Apartments, zwei verschiedene Stimmungen",
+    "lead": "Beide haben einen eigenen Eingang, eine voll ausgestattete Küche, ein Bad, Klimaanlage und einen eigenen Außenbereich. Nehmen Sie eines oder beide — klicken Sie auf die Fotos für eine größere Ansicht.",
+    "mare": {
+      "alt1": "Apartment Mare — Esszimmer mit großer Schiebetür zur überdachten Terrasse",
+      "alt2": "Apartment Mare — Schlafzimmer mit Doppelbett und Zusatzbett, TV und Schrank",
+      "alt3": "Apartment Mare — Küche mit Backofen, Induktionskochfeld, Geschirrspüler und Waschmaschine",
+      "aria1": "Vergrößern: Apartment Mare, Esszimmer",
+      "aria2": "Vergrößern: Apartment Mare, Schlafzimmer",
+      "aria3": "Vergrößern: Apartment Mare, Küche",
+      "badge": "Garten und große Terrasse",
+      "cap1": "Apartment Mare — Esszimmer mit Zugang zur Terrasse",
+      "cap2": "Apartment Mare — Schlafzimmer",
+      "cap3": "Apartment Mare — Küche",
+      "cta": "Verfügbarkeit für Mare anfragen",
+      "desc": "Ein Apartment im Erdgeschoss mit eigenem Garten und einer überdachten Terrasse, die eigentlich ein zweites Wohnzimmer ist — mit Außenküche samt Spüle, Steinkamin zum Grillen und einem Tisch für sechs Personen. Innen ein helles Esszimmer, ein Wohnzimmer und ein Schlafzimmer, alles ebenerdig zum Hof, ganz ohne Stufen.",
+      "imgAlt": "Apartment Mare — große überdachte Terrasse mit Außenküche, Steinkamin und Tisch für sechs",
+      "name": "Apartment Mare",
+      "spec1": "bis 6 Gäste",
+      "spec2": "2 Schlafzimmer",
+      "spec3": "Erdgeschoss + Garten"
+    },
+    "priceOnAsk": "Preis <small>auf Anfrage</small>",
+    "priceOnAsk2": "Preis <small>auf Anfrage</small>"
+  }
+}

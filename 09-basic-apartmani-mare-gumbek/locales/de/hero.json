@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "aria": "Willkommen",
+    "bgAlt": "Das Haus mit den Apartments Mare und Gumbek in Petrčane — weiße Fassade, Balkone und Parkhof",
+    "ctaUnits": "Apartments ansehen",
+    "h1": "Apartments Mare & Gumbek<br /><em>zwei Zuhause unter einem Dach.</em>",
+    "p": "Zwei getrennte Apartments im selben Haus in Petrčane — jedes mit eigener Küche, eigenem Bad, Klimaanlage und eigenem Außenbereich. Zum Strand sind es rund zehn Minuten zu Fuß, nach Zadar eine Viertelstunde mit dem Auto. Ideal für zwei Familien oder Gruppen, die gemeinsam reisen und trotzdem ihre Ruhe haben möchten.",
+    "tag1": "◆ Petrčane, Gespanschaft Zadar",
+    "tag2": "★ Gästebewertung 10/10 · Booking.com",
+    "tag3": "◆ Kostenloser Parkplatz"
+  },
+  "quick": {
+    "aria": "Schnelle Terminanfrage",
+    "g1": "1 Gast",
+    "g10": "10 Gäste",
+    "g2": "2 Gäste",
+    "g3": "3 Gäste",
+    "g4": "4 Gäste",
+    "g5": "5 Gäste",
+    "g6": "6 Gäste",
+    "g7": "7 Gäste",
+    "g8": "8 Gäste",
+    "g9": "9 Gäste",
+    "guests": "Gäste",
+    "in": "Anreise",
+    "out": "Abreise",
+    "submit": "Termin prüfen"
+  }
+}
