@@ -1,0 +1,113 @@
+{
+  "about": {
+    "badge": "appartamenti, una casa",
+    "eyebrow": "Chi siamo",
+    "h2": "Due appartamenti, una casa, spazio a sufficienza per tutti.",
+    "imgAlt": "Petrčane dall'alto — la baia turchese con il porticciolo, il paese, i vigneti e il Velebit sullo sfondo",
+    "lead": "Mare e Gumbek sono due appartamenti indipendenti nella stessa casa a Petrčane, un paese tranquillo della riviera di Zara. Ciascuno ha ingresso, cucina, bagno, aria condizionata e spazio esterno propri — Mare il giardino e una grande terrazza coperta, Gumbek il balcone e due piani.",
+    "p2": "Per questo li scelgono soprattutto due famiglie o gruppi di amici che viaggiano insieme: i bambini giocano in cortile, la cena si fa tutti insieme in terrazza e, finita la giornata, ognuno rientra nel proprio appartamento. Niente reception, niente corridoi, niente vicini dietro una parete sottile — solo due porte che si chiudono a chiave e due vacanze che non devono mettersi d'accordo.",
+    "p3": "Naturalmente potete prenderne anche uno solo. Entrambi sono attrezzati per una vacanza vera, non per una visita veloce: lavastoviglie, piano cottura, macchina del caffè, TV, Wi-Fi veloce e un posto auto gratuito in cortile.",
+    "score": "Voto complessivo degli ospiti su Booking.com<br /><small>Per l'appartamento Mare, sulla base di 5 recensioni scritte dagli ospiti dopo il soggiorno.</small>",
+    "stat1": "Appartamenti indipendenti nella stessa casa",
+    "stat2": "Dalla spiaggia di Donje Petrčane",
+    "stat2Num": "800 m",
+    "stat3": "Di auto fino al centro di Zara",
+    "stat3Num": "15 min"
+  },
+  "amen": {
+    "ac": {
+      "d": "In ogni appartamento, così anche il pomeriggio d'agosto passa al fresco.",
+      "t": "Aria condizionata"
+    },
+    "beach": {
+      "d": "Una decina di minuti di passeggiata tranquilla fino alla spiaggia di Donje Petrčane, senza attraversare strade trafficate.",
+      "t": "Spiaggia a 800 m"
+    },
+    "eyebrow": "Servizi",
+    "h2": "Quello che hanno entrambi gli appartamenti",
+    "kitchen": {
+      "d": "Forno, piano cottura, lavastoviglie, microonde, macchina del caffè e stoviglie per tutta la compagnia.",
+      "t": "Cucina completa"
+    },
+    "outdoor": {
+      "d": "Mare ha il giardino e la terrazza coperta con cucina esterna, Gumbek il balcone con tenda da sole.",
+      "t": "Spazio esterno privato"
+    },
+    "parking": {
+      "d": "Posto auto proprio in cortile, davanti all'ingresso — senza girare per il paese a cercarlo.",
+      "t": "Parcheggio gratuito"
+    },
+    "wifi": {
+      "d": "In entrambi gli appartamenti, senza limiti di traffico — sufficiente anche per lavorare da remoto.",
+      "t": "Wi-Fi gratuito"
+    }
+  },
+  "units": {
+    "askText": "Il prezzo dipende dal periodo, dal numero di ospiti e dalla durata del soggiorno. Inviateci le date e vi risponderemo con un'offerta precisa.",
+    "askText2": "Il prezzo dipende dal periodo, dal numero di ospiti e dalla durata del soggiorno. Inviateci le date e vi risponderemo con un'offerta precisa.",
+    "askTitle": "Prenotazione su richiesta",
+    "askTitle2": "Prenotazione su richiesta",
+    "eyebrow": "Alloggio",
+    "f": {
+      "ac": "Aria condizionata",
+      "ac2": "Aria condizionata",
+      "balcony": "Balcone con tenda da sole",
+      "dishwasher": "Lavastoviglie",
+      "dishwasher2": "Lavastoviglie",
+      "fireplace": "Camino in pietra",
+      "garden": "Giardino privato",
+      "outKitchen": "Cucina esterna",
+      "oven": "Forno e piano cottura",
+      "parking": "Parcheggio",
+      "parking2": "Parcheggio",
+      "terrace": "Terrazza coperta",
+      "tv": "TV",
+      "twoFloors": "Due piani",
+      "washer": "Lavatrice",
+      "wifi": "Wi-Fi",
+      "wifi2": "Wi-Fi"
+    },
+    "gumbek": {
+      "alt1": "Appartamento Gumbek — soggiorno con tavolo da pranzo e scala a chiocciola verso il piano superiore",
+      "alt2": "Appartamento Gumbek — balcone con tenda da sole, tavolo e quattro sedie",
+      "alt3": "Appartamento Gumbek — camera sotto il lucernario e bagno con doccia",
+      "aria1": "Ingrandisci: Appartamento Gumbek, soggiorno e scala",
+      "aria2": "Ingrandisci: Appartamento Gumbek, balcone",
+      "aria3": "Ingrandisci: Appartamento Gumbek, camera da letto",
+      "badge": "Due piani",
+      "cap1": "Appartamento Gumbek — soggiorno con la scala a chiocciola",
+      "cap2": "Appartamento Gumbek — balcone con tenda da sole",
+      "cap3": "Appartamento Gumbek — camera e bagno al piano superiore",
+      "cta": "Verificate la disponibilità per Gumbek",
+      "desc": "Un appartamento su due piani collegati da una scala a chiocciola: sotto un ampio soggiorno con zona pranzo, cucina e balcone con tenda da sole, sopra le camere e il bagno sotto il lucernario. È rialzato rispetto alla strada, quindi è luminoso tutto il giorno e la sera resta silenzioso.",
+      "imgAlt": "Appartamento Gumbek — soggiorno luminoso con divano in pelle e uscita sul balcone",
+      "name": "Appartamento Gumbek",
+      "spec1": "fino a 4 ospiti",
+      "spec2": "2 camere da letto",
+      "spec3": "2 piani"
+    },
+    "h2": "Due appartamenti, due atmosfere diverse",
+    "lead": "Entrambi hanno ingresso indipendente, cucina completa, bagno, aria condizionata e spazio esterno proprio. Prendetene uno o entrambi — cliccate sulle foto per vederle più grandi.",
+    "mare": {
+      "alt1": "Appartamento Mare — sala da pranzo con grandi porte scorrevoli verso la terrazza coperta",
+      "alt2": "Appartamento Mare — camera con letto matrimoniale e letto aggiuntivo, TV e armadio",
+      "alt3": "Appartamento Mare — cucina con forno, piano a induzione, lavastoviglie e lavatrice",
+      "aria1": "Ingrandisci: Appartamento Mare, sala da pranzo",
+      "aria2": "Ingrandisci: Appartamento Mare, camera da letto",
+      "aria3": "Ingrandisci: Appartamento Mare, cucina",
+      "badge": "Giardino e grande terrazza",
+      "cap1": "Appartamento Mare — sala da pranzo con uscita in terrazza",
+      "cap2": "Appartamento Mare — camera da letto",
+      "cap3": "Appartamento Mare — cucina",
+      "cta": "Verificate la disponibilità per Mare",
+      "desc": "Un appartamento al piano terra con giardino privato e una terrazza coperta che è in realtà un secondo soggiorno — ha una cucina esterna con lavello, un camino in pietra per la griglia e un tavolo per sei persone. All'interno una luminosa sala da pranzo, il soggiorno e la camera, tutto allo stesso livello del cortile, senza un solo gradino.",
+      "imgAlt": "Appartamento Mare — grande terrazza coperta con cucina esterna, camino in pietra e tavolo per sei",
+      "name": "Appartamento Mare",
+      "spec1": "fino a 6 ospiti",
+      "spec2": "2 camere da letto",
+      "spec3": "piano terra + giardino"
+    },
+    "priceOnAsk": "Prezzo <small>su richiesta</small>",
+    "priceOnAsk2": "Prezzo <small>su richiesta</small>"
+  }
+}

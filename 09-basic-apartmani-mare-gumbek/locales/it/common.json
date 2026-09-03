@@ -1,0 +1,84 @@
+{
+  "a11y": {
+    "mainNav": "Navigazione principale",
+    "menuClose": "Chiudi il menu",
+    "menuOpen": "Apri il menu",
+    "skip": "Vai al contenuto",
+    "theme": "Passa dal tema chiaro a quello scuro"
+  },
+  "brand": {
+    "home": "Appartamenti Mare e Gumbek — pagina iniziale",
+    "name": "Appartamenti Mare e Gumbek"
+  },
+  "cta": {
+    "checkAvail": "Verificate la disponibilità",
+    "inquiry": "Invia una richiesta"
+  },
+  "foot": {
+    "about": "Due appartamenti indipendenti nella stessa casa a Petrčane. Giardino e terrazza, balcone, aria condizionata e parcheggio gratuito — la spiaggia è a 800 m.",
+    "addr": "Petrčane IX 2a<br />23231 Petrčane, Croazia",
+    "amen": "Servizi",
+    "brand": "Mare e Gumbek",
+    "checkin": "Arrivo",
+    "direct": "Prenotate diretto — senza commissioni.",
+    "gallery": "Galleria",
+    "gumbek": "Appartamento Gumbek",
+    "h1": "Alloggio",
+    "h2": "Informazioni",
+    "h3": "Contatti",
+    "howto": "Come raggiungerci",
+    "inquiry": "Invia una richiesta",
+    "mare": "Appartamento Mare",
+    "price": "Prezzo e prenotazione",
+    "rights": "Appartamenti Mare e Gumbek. Tutti i diritti riservati.",
+    "wa": "Scriveteci su WhatsApp"
+  },
+  "js": {
+    "mailBodyArrival": "Arrivo",
+    "mailBodyDeparture": "Partenza",
+    "mailBodyEmail": "E-mail",
+    "mailBodyGuests": "Numero di ospiti",
+    "mailBodyMessage": "Messaggio",
+    "mailBodyName": "Nome e cognome",
+    "mailBodyUnit": "Appartamento",
+    "mailSubject": "Richiesta di soggiorno — dal {in} al {out}",
+    "menuClose": "Chiudi il menu",
+    "menuOpen": "Apri il menu",
+    "sending": "Invio in corso…",
+    "subjectField": "Richiesta {in} – {out} · {unit} · {guests} ospite/i · {lang}"
+  },
+  "lang": {
+    "change": "Cambia la lingua della pagina",
+    "label": "Lingua",
+    "offer": "Questa pagina è disponibile anche in italiano.",
+    "offerNo": "No, grazie",
+    "offerNoAria": "Chiudi il suggerimento sulla lingua",
+    "offerYes": "Passa all'italiano"
+  },
+  "lightbox": {
+    "aria": "Galleria fotografica",
+    "close": "Chiudi la galleria",
+    "next": "Foto successiva",
+    "prev": "Foto precedente"
+  },
+  "meta": {
+    "desc": "Appartamenti Mare e Gumbek — due appartamenti indipendenti nella stessa casa a Petrčane, vicino a Zara. Giardino e terrazza, balcone, aria condizionata, parcheggio gratuito, spiaggia a 800 m. Prenotazione su richiesta, senza commissioni.",
+    "ogDesc": "Due appartamenti nella stessa casa a Petrčane. Giardino, terrazza e balcone, aria condizionata, parcheggio gratuito, spiaggia a 800 m. Zara 12 km.",
+    "ogImageAlt": "Petrčane dall'alto — la baia turchese con il porticciolo e il paese sul mare",
+    "ogTitle": "Appartamenti Mare e Gumbek — Petrčane vicino a Zara",
+    "title": "Appartamenti Mare e Gumbek — alloggi a Petrčane vicino a Zara"
+  },
+  "mobile": {
+    "call": "Chiamate",
+    "inquiry": "Invia una richiesta",
+    "wa": "Scriveteci su WhatsApp"
+  },
+  "nav": {
+    "about": "Chi siamo",
+    "checkin": "Arrivo",
+    "gallery": "Galleria",
+    "location": "Posizione",
+    "price": "Prezzo",
+    "units": "Appartamenti"
+  }
+}

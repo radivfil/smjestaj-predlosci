@@ -1,0 +1,91 @@
+{
+  "know": {
+    "h3": "Buono a sapersi",
+    "k1": "<strong>Gli orari di arrivo e partenza</strong> si concordano in anticipo — diteci a che ora contate di arrivare e ci organizziamo.",
+    "k2": "Arrivate in aereo? L'aeroporto di Zara è a circa <strong>25 minuti</strong> di auto, la stazione degli autobus e il porto dei traghetti di Zara a circa <strong>15 minuti</strong>.",
+    "k3": "Il parcheggio è <strong>gratuito</strong> e si trova nel cortile della casa — un posto per appartamento.",
+    "k4": "Biancheria da letto, asciugamani e pulizia finale sono <strong>inclusi</strong> nel prezzo, non si pagano a parte.",
+    "k5": "Vi serve qualcosa durante il soggiorno? <strong>Chiamateci</strong> — rispondiamo e risolviamo in giornata."
+  },
+  "loc": {
+    "addr": "<strong>Petrčane IX 2a</strong>, 23231 Petrčane",
+    "cta": "Verificate la disponibilità per le vostre date",
+    "eyebrow": "Posizione",
+    "h2": "Petrčane — dodici chilometri da Zara",
+    "lead": "Petrčane è un paese tranquillo della riviera di Zara: un porticciolo con le barche, una pineta, qualche konoba e spiagge di ghiaia. Abbastanza vicino da prendere il caffè del mattino nel centro storico di Zara, abbastanza defilato da sentire, la sera, soltanto i grilli.",
+    "mapTitle": "Petrčane sulla mappa — Appartamenti Mare e Gumbek",
+    "n1": "<strong>Spiaggia di Donje Petrčane</strong> — 800 m, circa 9 minuti a piedi",
+    "n2": "<strong>Porticciolo e lungomare di Petrčane</strong> — pochi minuti a piedi, konobe sul mare",
+    "n3": "<strong>Centro di Zara e Organo del mare</strong> — 12 km, circa 20 minuti di auto",
+    "n4": "<strong>Aeroporto di Zara</strong> — 23 km, circa 25 minuti di auto",
+    "n5": "<strong>Nin, spiaggia sabbiosa e saline</strong> — circa 15 minuti di auto",
+    "n6": "<strong>Escursioni</strong> — parchi nazionali Kornati e Telašćica, Krka, laghi di Plitvice",
+    "navBtn": "Apri nel navigatore",
+    "p2": "Zara è un'ottima base per esplorare — l'Organo del mare e il Saluto al Sole, il foro romano e San Donato — mentre Kornati, Krka e i laghi di Plitvice si visitano in giornata. A nord si trovano Nin, con la sua spiaggia sabbiosa e le saline, e il canale ai piedi del Velebit.",
+    "photoAlt": "Petrčane dall'alto — il porticciolo con le barche, il lungomare e le case in pietra del paese sul mare",
+    "photoCap": "Petrčane dall'alto — il porticciolo e il lungomare, a pochi minuti a piedi dagli appartamenti."
+  },
+  "price": {
+    "eyebrow": "Prezzo",
+    "h2": "Chiedeteci disponibilità e prezzo",
+    "lead": "Non pubblichiamo un listino fisso perché in nove casi su dieci vi porterebbe fuori strada — il prezzo cambia con la stagione, la durata del soggiorno e il numero di ospiti. Inviateci le date e vi risponderemo con una cifra precisa, senza supplementi nascosti.",
+    "note": "Alle richieste rispondiamo di norma in giornata. Prenotando direttamente da noi non ci sono commissioni dei portali.",
+    "s1": {
+      "d": "Le date, il numero di ospiti e quale appartamento vi interessa — o entrambi, se viaggiate come due famiglie.",
+      "t": "Ci inviate le date"
+    },
+    "s2": {
+      "d": "Ricevete l'importo totale per l'intero soggiorno, con la tassa di soggiorno indicata a parte.",
+      "t": "Vi rispondiamo con il prezzo"
+    },
+    "s3": {
+      "d": "La richiesta non impegna a nulla. La prenotazione è confermata solo quando date il vostro esplicito assenso.",
+      "t": "Confermate senza impegno"
+    },
+    "x1": "<strong>Incluso nel prezzo</strong> Biancheria da letto e asciugamani, pulizia finale, acqua ed elettricità, aria condizionata, parcheggio e Wi-Fi.",
+    "x2": "<strong>Tassa di soggiorno</strong> Si calcola a parte, secondo la normativa in vigore — diteci quanti ospiti siete e la loro età e faremo il conto esatto.",
+    "x3": "<strong>Tutta la casa</strong> Prendete entrambi gli appartamenti? Scrivetelo nella richiesta — per una prenotazione unica prepariamo una sola offerta.",
+    "x4": "<strong>Bambini</strong> Sono i benvenuti. Scriveteci quanti sono e che età hanno, così vi proponiamo la sistemazione dei letti."
+  },
+  "steps": {
+    "eyebrow": "Arrivo",
+    "h2": "Dalla richiesta alle chiavi in mano",
+    "lead": "Niente portali, niente intermediari, nessuna attesa alla reception. Ci accordiamo direttamente — per messaggio o al telefono.",
+    "s1": {
+      "d": "Con il modulo di questa pagina o con una telefonata. Indicate le date, il numero di ospiti e quale appartamento vi interessa.",
+      "t": "Inviate la richiesta"
+    },
+    "s2": {
+      "d": "Vi rispondiamo con la disponibilità e il prezzo totale per le vostre date, di norma in giornata.",
+      "t": "Ricevete l'offerta"
+    },
+    "s3": {
+      "d": "Dopo la vostra conferma concordiamo l'ora di arrivo e inviamo tutte le indicazioni — l'indirizzo è Petrčane IX 2a.",
+      "t": "Conferma e indicazioni"
+    },
+    "s4": {
+      "d": "Parcheggiate nel vostro posto in cortile e ritirate le chiavi da noi, all'ora concordata in anticipo.",
+      "t": "Arrivo e chiavi"
+    }
+  },
+  "who": {
+    "eyebrow": "Per chi sono",
+    "h2": "Chi si trova meglio da noi",
+    "lead": "Due appartamenti nella stessa casa risolvono quello che un unico grande appartamento non può: stare insieme quando lo si desidera, avere silenzio quando serve.",
+    "p1": {
+      "d": "Lo scenario più frequente. I bambini giocano tutto il giorno in cortile, la cena si fa insieme sulla terrazza dell'appartamento Mare e poi ognuno rientra dalla propria porta. Senza dividere il bagno e senza mettere d'accordo gli orari.",
+      "t": "Due famiglie insieme",
+      "u": "Mare + Gumbek"
+    },
+    "p2": {
+      "d": "Piano terra senza gradini, giardino davanti alla porta, terrazza coperta per l'ombra a mezzogiorno e cucina completa per i giorni in cui si resta a casa. L'auto è parcheggiata a cinque metri dall'ingresso.",
+      "t": "Famiglia con bambini",
+      "u": "Appartamento Mare"
+    },
+    "p3": {
+      "d": "Due piani vogliono dire zona notte sopra e vita quotidiana sotto. Caffè del mattino sul balcone all'ombra della tenda, spiaggia a una decina di minuti a piedi e Zara a venti minuti di auto.",
+      "t": "Una coppia o due amici",
+      "u": "Appartamento Gumbek"
+    }
+  }
+}

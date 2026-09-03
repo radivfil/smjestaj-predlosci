@@ -1,0 +1,67 @@
+{
+  "gal": {
+    "eyebrow": "Galleria",
+    "h2": "La casa, la terrazza e i dintorni",
+    "i1": {
+      "alt": "La casa con gli appartamenti Mare e Gumbek — facciata bianca, balconi e cortile pavimentato con parcheggio",
+      "aria": "Ingrandisci la foto: la casa e il cortile con parcheggio",
+      "cap": "La casa e il cortile con parcheggio"
+    },
+    "i10": {
+      "alt": "Giardino curato con piante mediterranee e lastre di pietra davanti alla casa",
+      "aria": "Ingrandisci la foto: il giardino davanti alla casa",
+      "cap": "Il giardino davanti alla casa"
+    },
+    "i11": {
+      "alt": "Il paese di Petrčane dall'alto — case, uliveti e vigneti, il Velebit sullo sfondo",
+      "aria": "Ingrandisci la foto: il paese e i vigneti dall'alto",
+      "cap": "Il paese e i vigneti dall'alto"
+    },
+    "i12": {
+      "alt": "Appartamento Mare — bagno con box doccia e lavabo",
+      "aria": "Ingrandisci la foto: il bagno dell'appartamento Mare",
+      "cap": "Il bagno dell'appartamento Mare"
+    },
+    "i2": {
+      "alt": "La terrazza coperta comune con camino in pietra per la griglia, lavello esterno e tavolo per sei",
+      "aria": "Ingrandisci la foto: terrazza coperta con camino in pietra",
+      "cap": "Terrazza coperta con camino in pietra"
+    },
+    "i3": {
+      "alt": "La terrazza coperta dell'appartamento Mare con tavolo per sei e cucina esterna",
+      "aria": "Ingrandisci la foto: la terrazza dell'appartamento Mare",
+      "cap": "La terrazza dell'appartamento Mare"
+    },
+    "i4": {
+      "alt": "La baia di Petrčane dall'alto — il porticciolo con le barche, la penisola coperta di pini e Zara in lontananza",
+      "aria": "Ingrandisci la foto: la baia di Petrčane dall'alto",
+      "cap": "La baia di Petrčane dall'alto"
+    },
+    "i5": {
+      "alt": "Appartamento Mare — soggiorno con divano, letto aggiuntivo e aria condizionata",
+      "aria": "Ingrandisci la foto: il soggiorno dell'appartamento Mare",
+      "cap": "Il soggiorno dell'appartamento Mare"
+    },
+    "i6": {
+      "alt": "Terrazza coperta con vista sul giardino curato e sulle aiuole in pietra",
+      "aria": "Ingrandisci la foto: terrazza con vista sul giardino",
+      "cap": "Terrazza con vista sul giardino"
+    },
+    "i7": {
+      "alt": "Appartamento Gumbek — balcone con tenda da sole, tavolo e quattro sedie",
+      "aria": "Ingrandisci la foto: il balcone dell'appartamento Gumbek",
+      "cap": "Il balcone dell'appartamento Gumbek"
+    },
+    "i8": {
+      "alt": "La costa di Petrčane dall'alto — spiaggia di ghiaia, case sul mare e vigneti nell'entroterra",
+      "aria": "Ingrandisci la foto: la costa e la spiaggia dall'alto",
+      "cap": "La costa e la spiaggia dall'alto"
+    },
+    "i9": {
+      "alt": "Appartamento Gumbek — cucina con piano a induzione, lavastoviglie e microonde",
+      "aria": "Ingrandisci la foto: la cucina dell'appartamento Gumbek",
+      "cap": "La cucina dell'appartamento Gumbek"
+    },
+    "lead": "Lo spazio comune dei due appartamenti — la terrazza coperta con il camino in pietra, il giardino, il cortile con il parcheggio e Petrčane vista dall'alto. Cliccate una foto qualsiasi; con le frecce o con un tocco scorrete l'intera serie."
+  }
+}

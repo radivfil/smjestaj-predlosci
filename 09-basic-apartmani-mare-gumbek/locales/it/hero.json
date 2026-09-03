@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "aria": "Benvenuti",
+    "bgAlt": "La casa con gli appartamenti Mare e Gumbek a Petrčane — facciata bianca, balconi e cortile con parcheggio",
+    "ctaUnits": "Guarda gli appartamenti",
+    "h1": "Appartamenti Mare e Gumbek<br /><em>due case sotto lo stesso tetto.</em>",
+    "p": "Due appartamenti indipendenti nella stessa casa a Petrčane — ciascuno con cucina, bagno, aria condizionata e spazio esterno propri. La spiaggia è a una decina di minuti a piedi, Zara a un quarto d'ora di auto. Ideale per due famiglie o gruppi che viaggiano insieme e vogliono comunque la propria tranquillità.",
+    "tag1": "◆ Petrčane, regione di Zara",
+    "tag2": "★ Voto degli ospiti 10/10 · Booking.com",
+    "tag3": "◆ Parcheggio gratuito"
+  },
+  "quick": {
+    "aria": "Richiesta rapida di disponibilità",
+    "g1": "1 ospite",
+    "g10": "10 ospiti",
+    "g2": "2 ospiti",
+    "g3": "3 ospiti",
+    "g4": "4 ospiti",
+    "g5": "5 ospiti",
+    "g6": "6 ospiti",
+    "g7": "7 ospiti",
+    "g8": "8 ospiti",
+    "g9": "9 ospiti",
+    "guests": "Ospiti",
+    "in": "Arrivo",
+    "out": "Partenza",
+    "submit": "Verifica le date"
+  }
+}
