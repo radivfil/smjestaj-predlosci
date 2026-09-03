@@ -46,38 +46,124 @@
   };
 
   /* ==========================================================
-     2. TEKSTOVI SUČELJA — po zahtjevu na hrvatskom
+     2. TEKSTOVI SUČELJA
+     ----------------------------------------------------------
+     Sučelje prati jezik stranice (<html lang>), a mijenja se odmah
+     kad gost pomakne prekidač jezika — widget sluša događaj mg:lang
+     iz assets/js/i18n.js. Postojeće poruke u razgovoru NE prevodimo:
+     one su povijest, a povijest se ne prepisuje.
+
+     Ovo su četiri jezika same stranice. Asistent razumije i odgovara
+     na više jezika od toga — vidi DEMO_ODGOVORI i knowledge.md.
      ========================================================== */
-  var UI = {
-    naslov: 'Virtualni asistent',
-    podnaslov: 'Apartmani Mare i Gumbek',
-    placeholder: 'Napišite pitanje…',
-    otvori: 'Otvorite chat s virtualnim asistentom',
-    zatvori: 'Zatvori chat',
-    posalji: 'Pošalji poruku',
-    pozdrav: 'Pozdrav! Ja sam virtualni asistent Apartmana Mare i Gumbek. ' +
-             'Pitajte me bilo što o smještaju, lokaciji ili rezervaciji.',
-    demo: '<strong>Demo način.</strong> Asistent još nije spojen na Claude API, ' +
-          'pa odgovara iz pripremljenih odgovora. Za sve ostalo nazovite nas.',
-    greska: 'Trenutno imamo tehničke poteškoće — molimo kontaktirajte nas direktno na ' +
-            CFG.TELEFON,
-    predugo: 'Poruka je predugačka. Skratite je na najviše ' + CFG.MAX_ZNAKOVA + ' znakova.',
-    foot: 'Za rezervaciju i cijenu: ',
-    prijedlozi: [
-      'Koliko je do plaže?',
-      'Ima li parkinga?',
-      'Kolika je cijena?',
-      'Kada je prijava?'
-    ]
+  var UI_TEXTS = {
+    hr: {
+      naslov: 'Virtualni asistent',
+      podnaslov: 'Apartmani Mare i Gumbek',
+      placeholder: 'Napišite pitanje…',
+      otvori: 'Otvorite chat s virtualnim asistentom',
+      zatvori: 'Zatvori chat',
+      posalji: 'Pošalji poruku',
+      pise: 'Asistent piše odgovor',
+      pozdrav: 'Pozdrav! Ja sam virtualni asistent Apartmana Mare i Gumbek. ' +
+               'Pitajte me bilo što o smještaju, lokaciji ili rezervaciji.',
+      demo: '<strong>Demo način.</strong> Asistent još nije spojen na Claude API, ' +
+            'pa odgovara iz pripremljenih odgovora. Za sve ostalo nazovite nas.',
+      greska: 'Trenutno imamo tehničke poteškoće — molimo kontaktirajte nas direktno na ' +
+              CFG.TELEFON,
+      predugo: 'Poruka je predugačka. Skratite je na najviše ' + CFG.MAX_ZNAKOVA + ' znakova.',
+      foot: 'Za rezervaciju i cijenu: ',
+      prijedlozi: ['Koliko je do plaže?', 'Ima li parkinga?', 'Kolika je cijena?', 'Kada je prijava?']
+    },
+    en: {
+      naslov: 'Virtual assistant',
+      podnaslov: 'Apartments Mare & Gumbek',
+      placeholder: 'Type your question…',
+      otvori: 'Open the chat with the virtual assistant',
+      zatvori: 'Close the chat',
+      posalji: 'Send message',
+      pise: 'The assistant is typing',
+      pozdrav: 'Hello! I am the virtual assistant of Apartments Mare & Gumbek. ' +
+               'Ask me anything about the apartments, the location or booking.',
+      demo: '<strong>Demo mode.</strong> The assistant is not connected to the Claude API yet, ' +
+            'so it answers from prepared replies. For anything else, please call us.',
+      greska: 'We are having technical trouble at the moment — please contact us directly on ' +
+              CFG.TELEFON,
+      predugo: 'That message is too long. Please shorten it to ' + CFG.MAX_ZNAKOVA + ' characters.',
+      foot: 'For booking and prices: ',
+      prijedlozi: ['How far is the beach?', 'Is there parking?', 'What does it cost?', 'When is check-in?']
+    },
+    de: {
+      naslov: 'Virtueller Assistent',
+      podnaslov: 'Apartments Mare & Gumbek',
+      placeholder: 'Schreiben Sie Ihre Frage…',
+      otvori: 'Chat mit dem virtuellen Assistenten öffnen',
+      zatvori: 'Chat schließen',
+      posalji: 'Nachricht senden',
+      pise: 'Der Assistent schreibt',
+      pozdrav: 'Guten Tag! Ich bin der virtuelle Assistent der Apartments Mare & Gumbek. ' +
+               'Fragen Sie mich alles zur Unterkunft, zur Lage oder zur Buchung.',
+      demo: '<strong>Demo-Modus.</strong> Der Assistent ist noch nicht mit der Claude API verbunden ' +
+            'und antwortet aus vorbereiteten Antworten. Für alles Weitere rufen Sie uns bitte an.',
+      greska: 'Wir haben gerade technische Probleme — bitte kontaktieren Sie uns direkt unter ' +
+              CFG.TELEFON,
+      predugo: 'Die Nachricht ist zu lang. Bitte kürzen Sie sie auf ' + CFG.MAX_ZNAKOVA + ' Zeichen.',
+      foot: 'Für Buchung und Preis: ',
+      prijedlozi: ['Wie weit ist der Strand?', 'Gibt es Parkplätze?', 'Was kostet es?', 'Wann ist der Check-in?']
+    },
+    it: {
+      naslov: 'Assistente virtuale',
+      podnaslov: 'Appartamenti Mare e Gumbek',
+      placeholder: 'Scrivete la vostra domanda…',
+      otvori: 'Apri la chat con l\'assistente virtuale',
+      zatvori: 'Chiudi la chat',
+      posalji: 'Invia il messaggio',
+      pise: 'L\'assistente sta scrivendo',
+      pozdrav: 'Buongiorno! Sono l\'assistente virtuale degli Appartamenti Mare e Gumbek. ' +
+               'Chiedetemi tutto su alloggio, posizione o prenotazione.',
+      demo: '<strong>Modalità demo.</strong> L\'assistente non è ancora collegato all\'API di Claude, ' +
+            'quindi risponde con risposte preimpostate. Per tutto il resto, chiamateci.',
+      greska: 'Al momento abbiamo difficoltà tecniche — contattateci direttamente al ' +
+              CFG.TELEFON,
+      predugo: 'Il messaggio è troppo lungo. Riducetelo a ' + CFG.MAX_ZNAKOVA + ' caratteri.',
+      foot: 'Per prenotazione e prezzo: ',
+      prijedlozi: ['Quanto dista la spiaggia?', 'C\'è il parcheggio?', 'Quanto costa?', 'A che ora è il check-in?']
+    }
   };
+
+  /* Jezik stranice. Provjera na `document` postoji jer se ista datoteka
+     ucitava i u Nodeu (chatbot/test-demo.js), gdje DOM-a nema. */
+  function htmlLang() {
+    if (typeof document === 'undefined' || !document.documentElement) return 'hr';
+    return (document.documentElement.getAttribute('lang') || 'hr').slice(0, 2).toLowerCase();
+  }
+  /* Jezik sucelja; na jeziku bez prijevoda sucelja ostaje hrvatski. */
+  function jezikStranice() {
+    var l = htmlLang();
+    return UI_TEXTS[l] ? l : 'hr';
+  }
+  var UI_LANG = jezikStranice();
+  var UI = UI_TEXTS[UI_LANG];
 
   /* ==========================================================
      3. PREPOZNAVANJE JEZIKA (samo demo način)
      ----------------------------------------------------------
      Bodovanje po čestim riječima, uz jak bonus za znakove koji
      se javljaju samo u jednom jeziku. U live načinu ovo se ne
-     koristi — Claude prepoznaje jezik puno pouzdanije.
+     koristi — Claude prepoznaje jezik puno pouzdanije i odgovara
+     na jeziku gosta, koji god bio (vidi knowledge.md).
+
+     Demo način pokriva osam jezika: hrvatski, engleski, njemački,
+     talijanski, francuski, španjolski, poljski i portugalski. Piše li
+     gost na nekom devetom, odgovor ide na jeziku stranice ili na
+     engleskom, uz poziv da nazove — ne izmišljamo prijevod.
      ========================================================== */
+  /* Na koji jezik pada odgovor kad iz pitanja nista ne zakljucimo. */
+  function zadaniJezikOdgovora() {
+    var l = htmlLang();
+    return RIJECI[l] ? l : 'en';
+  }
+
   var RIJECI = {
     hr: ['je', 'su', 'li', 'sto', 'koliko', 'ima', 'imate', 'moze', 'molim', 'hvala',
          'gdje', 'kada', 'kad', 'cijena', 'apartman', 'plaza', 'vas', 'vam', 'nas',
@@ -97,7 +183,15 @@
          'con', 'della', 'orario', 'spiaggia'],
     es: ['son', 'como', 'que', 'cuando', 'donde', 'hay', 'tiene', 'tienen', 'usted',
          'nosotros', 'los', 'las', 'una', 'cuanto', 'gracias', 'hola', 'puedo',
-         'para', 'con', 'playa', 'esta']
+         'para', 'con', 'playa', 'esta'],
+    pl: ['jest', 'sa', 'czy', 'jak', 'ile', 'gdzie', 'kiedy', 'macie', 'mozna',
+         'prosze', 'dziekuje', 'dzien', 'dobry', 'czesc', 'plaza', 'cena', 'ceny',
+         'mieszkanie', 'apartament', 'parking', 'daleko', 'nie', 'tak', 'sie',
+         'jaka', 'jaki', 'oraz', 'dla', 'nas', 'wam'],
+    pt: ['sao', 'como', 'quando', 'onde', 'quanto', 'quantos', 'tem', 'temos',
+         'voces', 'obrigado', 'obrigada', 'ola', 'bom', 'dia', 'praia', 'preco',
+         'precos', 'apartamento', 'estacionamento', 'longe', 'nao', 'sim', 'para',
+         'com', 'uma', 'dos', 'das', 'ate', 'chegada']
   };
 
   // Znakovi i nizovi koji gotovo sigurno određuju jezik.
@@ -115,12 +209,21 @@
     { re: /(ci sono|si puo|quanto dista|c'e )/i, lang: 'it', bod: 5 },
     { re: /(se admiten|hay un|cuanto cuesta|a que hora)/i, lang: 'es', bod: 5 },
     { re: /\b(che|del|nella|dell)\b/i, lang: 'it', bod: 4 },
-    { re: /\b(sich|nach|dem|den|einem)\b/i, lang: 'de', bod: 4 }
+    { re: /\b(sich|nach|dem|den|einem)\b/i, lang: 'de', bod: 4 },
+    /* Poljski: ł i ę/ą su jedinstveni, a "czy/jest/ile" gotovo uvijek poljski. */
+    { re: /[łęąśżźćń]/i, lang: 'pl', bod: 6 },
+    { re: /\b(czy|jest|ile|gdzie|kiedy|macie|prosze|dziekuje)\b/i, lang: 'pl', bod: 5 },
+    /* Portugalski: ã/õ i "não/você" ga odvajaju od spanjolskog. */
+    { re: /[ãõ]/i, lang: 'pt', bod: 6 },
+    { re: /\b(nao|voce|voces|obrigad|quantos|estacionamento)\b/i, lang: 'pt', bod: 5 },
+    { re: /\b(e possivel|ha um|qual e|a que horas)\b/i, lang: 'pt', bod: 4 }
   ];
 
   function bezKvacica(s) {
     return s
       .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+      /* ł se ne rastavlja u NFD, pa bi inace razbio poljsku rijec na dva dijela */
+      .replace(/ł/g, 'l').replace(/Ł/g, 'L')
       .replace(/ß/g, 'ss')
       .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
@@ -130,7 +233,8 @@
     var cist = bezKvacica(sirovo.toLowerCase());
     var rijeci = cist.split(/[^a-z0-9']+/).filter(Boolean);
 
-    var bod = { hr: 0, en: 0, de: 0, fr: 0, it: 0, es: 0 };
+    var bod = {};
+    Object.keys(RIJECI).forEach(function (l) { bod[l] = 0; });
 
     rijeci.forEach(function (r) {
       Object.keys(RIJECI).forEach(function (lang) {
@@ -147,9 +251,9 @@
       if (bod[lang] > max) { max = bod[lang]; najbolji = lang; }
     });
 
-    // Bez ijednog signala (npr. "Gumbek?") ostajemo na hrvatskom —
-    // stranica je hrvatska i to je najvjerojatniji jezik gosta.
-    return max === 0 ? 'hr' : najbolji;
+    // Bez ijednog signala (npr. "Gumbek?") padamo na jezik stranice —
+    // gost ju je vec izabrao, pa je to najvjerojatniji jezik pitanja.
+    return max === 0 ? zadaniJezikOdgovora() : najbolji;
   }
 
   /* ==========================================================
@@ -347,8 +451,10 @@
       if (bod > max) { max = bod; najbolja = tema; }
     });
 
-    var txt = (max > 0 && najbolja) ? najbolja.txt[lang] : FALLBACK[lang];
-    return { text: txt || FALLBACK.hr, lang: lang };
+    /* Tema pogodena, ali bez prijevoda na taj jezik: bolje tocan odgovor
+       na engleskom nego prazna poruka. */
+    var txt = (max > 0 && najbolja) ? (najbolja.txt[lang] || najbolja.txt.en) : FALLBACK[lang];
+    return { text: txt || FALLBACK[zadaniJezikOdgovora()] || FALLBACK.en, lang: lang };
   }
 
   /* ==========================================================
@@ -421,7 +527,7 @@
   function typingOn() {
     var n = el('div', 'cb__msg cb__msg--bot cb__typing',
       '<span></span><span></span><span></span>');
-    n.setAttribute('aria-label', 'Asistent piše odgovor');
+    n.setAttribute('aria-label', UI.pise);
     n.dataset.typing = '1';
     log.appendChild(n);
     naDno();
@@ -710,6 +816,49 @@
     // Android javi novu visinu tek koju desetinku sekunde nakon fokusa.
     input.addEventListener('focus', function () { setTimeout(kbSync, 80); });
     input.addEventListener('blur', function () { setTimeout(kbSync, 80); });
+
+    /* Gost je pomaknuo prekidac jezika: sucelje se prevodi na licu mjesta,
+       chat ostaje otvoren i razgovor se ne brise. Vec izgovorene poruke
+       ostaju na svom jeziku — one su povijest, ne sucelje. */
+    document.addEventListener('mg:lang', function () {
+      var novi = jezikStranice();
+      if (novi === UI_LANG) return;
+      UI_LANG = novi;
+      UI = UI_TEXTS[novi];
+      osvjeziSucelje();
+    });
+  }
+
+  /* Prepisuje sve vidljive natpise widgeta na trenutni UI jezik. */
+  function osvjeziSucelje() {
+    if (!root) return;
+    var q = function (sel) { return root.querySelector(sel); };
+    launcher.setAttribute('aria-label', UI.otvori);
+    panel.setAttribute('aria-label', UI.naslov + ' — ' + UI.podnaslov);
+    if (q('.cb__title')) q('.cb__title').textContent = UI.naslov;
+    if (q('.cb__subtitle')) q('.cb__subtitle').textContent = UI.podnaslov;
+    if (q('.cb__close')) q('.cb__close').setAttribute('aria-label', UI.zatvori);
+    if (q('.cb__demo')) q('.cb__demo').innerHTML = UI.demo;
+    if (q('.cb__foot')) {
+      q('.cb__foot').innerHTML = UI.foot +
+        '<a href="' + CFG.TELEFON_HREF + '">' + CFG.TELEFON + '</a>';
+    }
+    input.placeholder = UI.placeholder;
+    input.setAttribute('aria-label', UI.placeholder);
+    sendBtn.setAttribute('aria-label', UI.posalji);
+
+    /* Prijedlozi pitanja stoje samo dok gost nije nista upisao — dok su
+       tu, prevode se; nakon prve poruke ih vise nema pa nema ni sto. */
+    var chips = q('.cb__chips');
+    if (chips) {
+      chips.innerHTML = '';
+      UI.prijedlozi.forEach(function (p) {
+        var b = el('button', 'cb__chip', escapeHtml(p));
+        b.type = 'button';
+        b.addEventListener('click', function () { chips.remove(); posalji(p); });
+        chips.appendChild(b);
+      });
+    }
   }
 
   /* ==========================================================
