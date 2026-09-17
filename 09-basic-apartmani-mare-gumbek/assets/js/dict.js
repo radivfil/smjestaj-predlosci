@@ -1193,7 +1193,7 @@ window.MG_DICT = {
   "loc.p2": "Zara è un'ottima base per esplorare — l'Organo del mare e il Saluto al Sole, il foro romano e San Donato — mentre Kornati, Krka e i laghi di Plitvice si visitano in giornata. A nord si trovano Nin, con la sua spiaggia sabbiosa e le saline, e il canale ai piedi del Velebit.",
   "loc.photoAlt": "Petrčane dall'alto — il porticciolo con le barche, il lungomare e le case in pietra del paese sul mare",
   "loc.photoCap": "Petrčane dall'alto — il porticciolo e il lungomare, a pochi minuti a piedi dagli appartamenti.",
-  "meta.desc": "Gli appartamenti Mare e Gumbek offrono un soggiorno comodo a Petrčane vicino a Zara, a due passi dal mare, con parcheggio gratuito e tutto l’appartamento per voi.",
+  "meta.desc": "Gli appartamenti Mare e Gumbek offrono un soggiorno comodo a Petrčane vicino a Zara, a due passi dal mare, con parcheggio gratuito e tutta la privacy.",
   "meta.ogDesc": "Due appartamenti indipendenti a due indirizzi di Petrčane: Mare con giardino e terrazza, Gumbek su due piani. Parcheggio gratuito, spiaggia a una decina di minuti a piedi.",
   "meta.ogImageAlt": "Appartamento Mare con terrazza coperta e appartamento Gumbek con balcone — Petrčane vicino a Zara",
   "meta.ogTitle": "Appartamenti Mare e Gumbek — Petrčane vicino a Zara",
