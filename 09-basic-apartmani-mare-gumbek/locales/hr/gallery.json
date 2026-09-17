@@ -1,16 +1,17 @@
 {
   "gal": {
     "eyebrow": "Galerija",
-    "h2": "Zgrada, terasa i okoliš",
+    "gumbekH": "Apartman Gumbek",
+    "h2": "Apartmani i Petrčane iz blizine",
     "i1": {
-      "alt": "Zgrada s apartmanima Mare i Gumbek — bijela fasada, balkoni i popločeno parkirno dvorište",
-      "aria": "Povećaj fotografiju: Zgrada i parkirno dvorište",
-      "cap": "Zgrada i parkirno dvorište"
+      "alt": "Kuća u kojoj je apartman Mare — vrt, natkrivena terasa u prizemlju i popločano dvorište s parkingom",
+      "aria": "Povećaj fotografiju: Kuća s apartmanom Mare i dvorištem",
+      "cap": "Kuća s apartmanom Mare i dvorištem"
     },
     "i10": {
-      "alt": "Uređeni vrt s mediteranskim biljem i kamenim pločama pred zgradom",
-      "aria": "Povećaj fotografiju: Vrt pred zgradom",
-      "cap": "Vrt pred zgradom"
+      "alt": "Uređeni vrt apartmana Mare s mediteranskim biljem i kamenim pločama",
+      "aria": "Povećaj fotografiju: Vrt apartmana Mare",
+      "cap": "Vrt apartmana Mare"
     },
     "i11": {
       "alt": "Naselje Petrčane iz zraka — kuće, maslinici i vinogradi, Velebit u pozadini",
@@ -22,10 +23,23 @@
       "aria": "Povećaj fotografiju: Kupaonica apartmana Mare",
       "cap": "Kupaonica apartmana Mare"
     },
+    "i13": {
+      "alt": "Bijela stambena zgrada u Donjim Petrčanima u kojoj se nalazi apartman Gumbek — balkoni s tendama i parkiralište ispred",
+      "aria": "Povećaj fotografiju: Zgrada u kojoj je apartman Gumbek",
+      "cap": "Zgrada u kojoj je apartman Gumbek"
+    },
+    "i14": {
+      "aria": "Povećaj fotografiju: Zaljev i marina Petrčane iz zraka",
+      "cap": "Zaljev i marina Petrčane iz zraka"
+    },
+    "i15": {
+      "aria": "Povećaj fotografiju: Dnevni boravak apartmana Gumbek",
+      "cap": "Dnevni boravak apartmana Gumbek"
+    },
     "i2": {
-      "alt": "Zajednička natkrivena terasa s kamenim kaminom za peku, vanjskim sudoperom i stolom za šest",
-      "aria": "Povećaj fotografiju: Natkrivena terasa s kamenim kaminom",
-      "cap": "Natkrivena terasa s kamenim kaminom"
+      "alt": "Natkrivena terasa apartmana Mare s kamenim kaminom za peku, vanjskim sudoperom i stolom za šest",
+      "aria": "Povećaj fotografiju: Terasa apartmana Mare s kamenim kaminom",
+      "cap": "Terasa apartmana Mare s kamenim kaminom"
     },
     "i3": {
       "alt": "Natkrivena terasa apartmana Mare sa stolom za šest i vanjskom kuhinjom",
@@ -43,9 +57,9 @@
       "cap": "Dnevni boravak apartmana Mare"
     },
     "i6": {
-      "alt": "Natkrivena terasa s pogledom na uređeni vrt i kamene gredice",
-      "aria": "Povećaj fotografiju: Terasa s pogledom na vrt",
-      "cap": "Terasa s pogledom na vrt"
+      "alt": "Natkrivena terasa apartmana Mare s pogledom na uređeni vrt i kamene gredice",
+      "aria": "Povećaj fotografiju: Pogled s terase apartmana Mare na vrt",
+      "cap": "Pogled s terase apartmana Mare na vrt"
     },
     "i7": {
       "alt": "Apartman Gumbek — balkon s tendom, stolom i četiri stolice",
@@ -62,6 +76,8 @@
       "aria": "Povećaj fotografiju: Kuhinja apartmana Gumbek",
       "cap": "Kuhinja apartmana Gumbek"
     },
-    "lead": "Zajednički prostor koji dijele oba apartmana — natkrivena terasa s kamenim kaminom, vrt, dvorište s parkingom i Petrčane iz zraka. Kliknite bilo koju fotografiju; strelicama ili prstom listate kroz cijeli set."
+    "lead": "Fotografije su razvrstane po apartmanu — Mare s vrtom i terasom, Gumbek u Donjim Petrčanima — i mjesto iz zraka. Kliknite bilo koju fotografiju; strelicama ili prstom listate kroz taj set.",
+    "mareH": "Apartman Mare",
+    "placeH": "Petrčane iz zraka"
   }
 }

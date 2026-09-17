@@ -1,16 +1,17 @@
 {
   "gal": {
     "eyebrow": "Gallery",
-    "h2": "The house, the terrace and the surroundings",
+    "gumbekH": "Apartment Gumbek",
+    "h2": "The apartments and Petrčane up close",
     "i1": {
-      "alt": "The house with apartments Mare and Gumbek — white façade, balconies and a paved parking courtyard",
-      "aria": "Enlarge photo: The house and the parking courtyard",
-      "cap": "The house and the parking courtyard"
+      "alt": "The house where apartment Mare is located — garden, covered ground-floor terrace and paved courtyard with parking",
+      "aria": "Enlarge photo: The house with apartment Mare and its courtyard",
+      "cap": "The house with apartment Mare and its courtyard"
     },
     "i10": {
-      "alt": "A tended garden with Mediterranean plants and stone slabs in front of the house",
-      "aria": "Enlarge photo: The garden in front of the house",
-      "cap": "The garden in front of the house"
+      "alt": "The tended garden of apartment Mare with Mediterranean plants and stone slabs",
+      "aria": "Enlarge photo: The garden of apartment Mare",
+      "cap": "The garden of apartment Mare"
     },
     "i11": {
       "alt": "The village of Petrčane from the air — houses, olive groves and vineyards, Velebit in the background",
@@ -22,10 +23,23 @@
       "aria": "Enlarge photo: The bathroom of apartment Mare",
       "cap": "The bathroom of apartment Mare"
     },
+    "i13": {
+      "alt": "The white residential building in Donje Petrčane where apartment Gumbek is located — balconies with awnings and parking in front",
+      "aria": "Enlarge photo: The building where apartment Gumbek is located",
+      "cap": "The building where apartment Gumbek is located"
+    },
+    "i14": {
+      "aria": "Enlarge photo: Petrčane bay and marina from the air",
+      "cap": "Petrčane bay and marina from the air"
+    },
+    "i15": {
+      "aria": "Enlarge photo: The living room of apartment Gumbek",
+      "cap": "The living room of apartment Gumbek"
+    },
     "i2": {
-      "alt": "The shared covered terrace with a stone fireplace for grilling, an outdoor sink and a table for six",
-      "aria": "Enlarge photo: Covered terrace with the stone fireplace",
-      "cap": "Covered terrace with the stone fireplace"
+      "alt": "The covered terrace of apartment Mare with a stone fireplace for grilling, an outdoor sink and a table for six",
+      "aria": "Enlarge photo: Apartment Mare's terrace with the stone fireplace",
+      "cap": "Apartment Mare's terrace with the stone fireplace"
     },
     "i3": {
       "alt": "The covered terrace of apartment Mare with a table for six and an outdoor kitchen",
@@ -43,9 +57,9 @@
       "cap": "The living room of apartment Mare"
     },
     "i6": {
-      "alt": "The covered terrace looking onto the tended garden and stone flower beds",
-      "aria": "Enlarge photo: Terrace with a view of the garden",
-      "cap": "Terrace with a view of the garden"
+      "alt": "The covered terrace of apartment Mare looking onto the tended garden and stone flower beds",
+      "aria": "Enlarge photo: View from Mare's terrace to the garden",
+      "cap": "View from Mare's terrace to the garden"
     },
     "i7": {
       "alt": "Apartment Gumbek — balcony with an awning, a table and four chairs",
@@ -62,6 +76,8 @@
       "aria": "Enlarge photo: The kitchen of apartment Gumbek",
       "cap": "The kitchen of apartment Gumbek"
     },
-    "lead": "The shared space that belongs to both apartments — the covered terrace with the stone fireplace, the garden, the courtyard with parking, and Petrčane from the air. Click any photo; use the arrows or swipe to move through the whole set."
+    "lead": "The photos are grouped by apartment — Mare with its garden and terrace, Gumbek in Donje Petrčane — plus the village from the air. Click any photo; use the arrows or swipe to move through that set.",
+    "mareH": "Apartment Mare",
+    "placeH": "Petrčane from the air"
   }
 }

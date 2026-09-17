@@ -1,20 +1,21 @@
 {
   "know": {
     "h3": "Dobro je znati",
-    "k1": "<strong>Vrijeme prijave i odjave</strong> dogovaramo unaprijed — recite u koje vrijeme planirate stići pa se prilagodimo.",
+    "k1": "<strong>Prijava</strong> od 15:00 (Mare) odnosno 16:00 (Gumbek), <strong>odjava</strong> do 11:00 — stižete ranije ili kasnije? Javite pa se prilagodimo.",
     "k2": "Dolazite avionom? Zračna luka Zadar je <strong>25-ak minuta</strong> vožnje, autobusna i trajektna luka Zadar oko <strong>15 minuta</strong>.",
-    "k3": "Parking je <strong>besplatan</strong> i nalazi se u dvorištu zgrade — jedno mjesto po apartmanu.",
+    "k3": "Parking je <strong>besplatan</strong> i privatan — jedno mjesto uz svaki apartman.",
     "k4": "Posteljina, ručnici i finalno čišćenje <strong>uključeni</strong> su u cijenu, ne plaćate ih dodatno.",
     "k5": "Trebate nešto tijekom boravka? <strong>Nazovite</strong> — javljamo se i rješavamo isti dan."
   },
   "loc": {
-    "addr": "<strong>Petrčane IX 2a</strong>, 23231 Petrčane",
+    "addrGumbek": "<strong>Apartman Gumbek</strong><br />Petrčane XI 2b, Donje Petrčane, 23231",
+    "addrMare": "<strong>Apartman Mare</strong><br />Petrčane IX 2a, 23231 Petrčane",
     "cta": "Provjerite dostupnost za svoj termin",
     "eyebrow": "Lokacija",
     "h2": "Petrčane — dvanaest kilometara od Zadra",
     "lead": "Petrčane su mirno mjesto na zadarskoj rivijeri: luka s brodicama, borova šuma, nekoliko konoba i šljunčane plaže. Dovoljno blizu da ujutro budete na kavi u staroj gradskoj jezgri Zadra, dovoljno po strani da navečer čujete samo cvrčke.",
     "mapTitle": "Petrčane na karti — smještaj Apartmani Mare i Gumbek",
-    "n1": "<strong>Plaža Donje Petrčane</strong> — 800 m, oko 9 minuta hoda",
+    "n1": "<strong>Plaže Donje Petrčane i Punta Radman</strong> — desetak minuta hoda",
     "n2": "<strong>Luka i riva Petrčane</strong> — nekoliko minuta hoda, konobe uz more",
     "n3": "<strong>Centar Zadra i Morske orgulje</strong> — 12 km, oko 20 minuta vožnje",
     "n4": "<strong>Zračna luka Zadar</strong> — 23 km, oko 25 minuta vožnje",
@@ -44,7 +45,7 @@
     },
     "x1": "<strong>Uključeno u cijenu</strong> Posteljina i ručnici, finalno čišćenje, voda i struja, klima, parking i Wi-Fi.",
     "x2": "<strong>Boravišna pristojba</strong> Obračunava se dodatno, prema važećoj odluci — recite nam broj gostiju i njihove godine pa računamo točno.",
-    "x3": "<strong>Cijela zgrada</strong> Uzimate oba apartmana? Recite to u upitu — za zajedničku rezervaciju radimo jednu ponudu.",
+    "x3": "<strong>Oba apartmana</strong> Putujete s više obitelji? Navedite u upitu da želite oba — šaljemo jednu ponudu za oba apartmana.",
     "x4": "<strong>Djeca</strong> Dobrodošla su. Napišite koliko ih je i koliko su stara da predložimo raspored ležajeva."
   },
   "steps": {
@@ -60,21 +61,21 @@
       "t": "Dobivate ponudu"
     },
     "s3": {
-      "d": "Nakon vaše potvrde dogovaramo vrijeme dolaska i šaljemo sve upute — adresa je Petrčane IX 2a.",
+      "d": "Nakon vaše potvrde dogovaramo vrijeme dolaska i šaljemo sve upute s točnom adresom vašeg apartmana.",
       "t": "Potvrda i upute"
     },
     "s4": {
-      "d": "Parkirate na svom mjestu u dvorištu, a ključeve preuzimate od nas u vrijeme koje unaprijed dogovorimo.",
+      "d": "Parkirate na besplatnom mjestu uz svoj apartman, a ključeve preuzimate od nas u vrijeme koje unaprijed dogovorimo.",
       "t": "Dolazak i ključevi"
     }
   },
   "who": {
     "eyebrow": "Za koga su",
     "h2": "Tko se kod nas najbolje smjesti",
-    "lead": "Dva apartmana u istoj zgradi rješavaju problem koji jedan veliki apartman ne može: zajedništvo kad ga želite, tišinu kad vam treba.",
+    "lead": "Dva samostalna apartmana u istom mjestu, a različita po karakteru — pa je lako odabrati onaj koji vama odgovara.",
     "p1": {
-      "d": "Najčešći scenarij. Djeca se cijeli dan igraju u dvorištu, večera je zajednička na terasi apartmana Mare, a nakon nje svatko ide svojim vratima. Bez dijeljenja kupaonice i bez usklađivanja rasporeda.",
-      "t": "Dvije obitelji zajedno",
+      "d": "Putujete zajedno, a svatko želi svoj mir? Uzmite oba. Svaka obitelj ima svoj apartman na svojoj adresi — vlastitu kuhinju, kupaonicu i parkirno mjesto — a plaže i konobe u Petrčanima ionako su zajedničke.",
+      "t": "Dvije obitelji, dva apartmana",
       "u": "Mare + Gumbek"
     },
     "p2": {

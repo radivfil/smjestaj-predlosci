@@ -12,12 +12,12 @@
        preglednik ih odskrola izvan vidljivog dijela. Ovime se skuplja
        stvarni layout viewport, pa se sve preracuna na dostupan prostor. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
-  <title data-i18n="meta.title">Apartmani Mare i Gumbek — smještaj u Petrčanima kraj Zadra</title>
-  <meta name="description" data-i18n-content="meta.desc" content="Apartmani Mare i Gumbek — dva odvojena apartmana u istoj zgradi u Petrčanima kraj Zadra. Vrt i terasa, balkon, klima, besplatan parking, plaža na 800 m. Rezervacija na upit, bez provizije." />
+  <title data-i18n="meta.title">Apartmani Mare i Gumbek | Smještaj u Petrčanima kod Zadra</title>
+  <meta name="description" data-i18n-content="meta.desc" content="Apartmani Mare i Gumbek nude udoban smještaj u Petrčanima kraj Zadra, blizu mora, s besplatnim parkingom i privatnošću cijelog apartmana." />
 
   <!-- Open Graph / dijeljenje na društvenim mrežama -->
   <meta property="og:title" data-i18n-content="meta.ogTitle" content="Apartmani Mare i Gumbek — Petrčane kraj Zadra" />
-  <meta property="og:description" data-i18n-content="meta.ogDesc" content="Dva apartmana u istoj zgradi u Petrčanima. Vrt, terasa i balkon, klima, besplatan parking, plaža na 800 m. Zadar 12 km." />
+  <meta property="og:description" data-i18n-content="meta.ogDesc" content="Dva samostalna apartmana na dvije adrese u Petrčanima: Mare s vrtom i terasom, Gumbek na dvije etaže. Besplatan parking, plaža na desetak minuta hoda." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/petrcane-zaljev-dron.jpg" />
   <meta property="og:image:alt" data-i18n-content="meta.ogImageAlt" content="Petrčane iz zraka — tirkizni zaljev s marinom i mjesto uz more" />
@@ -128,7 +128,7 @@
     overflow-x: hidden;
   }
 
-  /* Suptilna pozadinska tekstura — fotografija vrta pred zgradom.
+  /* Suptilna pozadinska tekstura — fotografija vrta apartmana Mare.
      Fiksna, desaturirana i na ~5% neprozirnosti, pa se citljivost teksta ne
      mijenja (kontrast ostaje >= 5:1). Hero je izuzet jer ima isolation:isolate
      i vlastitu pozadinu, pa tekstura ne dolazi do njega. */
@@ -456,7 +456,7 @@
      izvan ekrana i body{overflow-x:hidden} bi joj odrezao desni rub.
      Iznad ~370px kontejnera ponasanje je nepromijenjeno. */
   .units__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr)); gap: 2.25rem; }
-  .unit-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform .35s var(--ease), box-shadow .35s; }
+  .unit-card { scroll-margin-top: 90px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform .35s var(--ease), box-shadow .35s; }
   .unit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
   .unit-card__img { position: relative; aspect-ratio: 3/2; overflow: hidden; }
   .unit-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
@@ -466,6 +466,9 @@
   .unit-card__price small { color: var(--text-muted); font-weight: 400; }
   .unit-card__body { padding: 1.6rem; display: flex; flex-direction: column; gap: 1.1rem; flex: 1; }
   .unit-card__body > p { color: var(--text-muted); font-size: .95rem; }
+  /* Adresa odmah ispod imena — apartmani su na dvije razlicite lokacije */
+  .unit-card__body > .unit-addr { display: flex; align-items: flex-start; gap: .4rem; margin-top: -.6rem; font-size: .86rem; font-weight: 500; color: var(--sea); }
+  .unit-addr svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: .2rem; }
   .unit-specs { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .85rem; color: var(--text-muted); }
   .unit-specs li { display: inline-flex; align-items: center; gap: .4rem; }
   .unit-specs svg { width: 17px; height: 17px; color: var(--sea); flex-shrink: 0; }
@@ -527,7 +530,11 @@
   /* Uniformne celije umjesto wide/tall raspona. Stari raspored
      (wide, tall, ., ., tall, wide) na 2 stupca ostavljao je dvije prazne celije:
      zadnji "wide" trazi oba stupca, a stupac 1 drzi "tall" preko dva reda.
-     12 fotografija se dijeli bez ostatka na 2, 3 i 4 stupca -> nema praznina. */
+     Galerija je sada u tri seta (Mare, Gumbek, Petrcane) s vlastitim
+     naslovom, pa nepotpun zadnji red unutar seta ne ostavlja rupu u sredini. */
+  .gallery__title { font-size: 1.2rem; margin: 2.5rem 0 1rem; display: flex; align-items: center; gap: .6rem; }
+  .gallery__title:first-of-type { margin-top: 0; }
+  .gallery__title::before { content: ""; width: 18px; height: 2px; background: var(--terra); }
   .gallery__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
   .gallery__item img { aspect-ratio: 4/3; }
   .gallery__item { overflow: hidden; border-radius: var(--radius-sm); cursor: pointer; position: relative; border: none; padding: 0; background: none; }
@@ -650,13 +657,14 @@
      pravilo stoji ovdje uz .maplink jer oba dolaze iz istog seta kontakt/lokacija
      dopuna; selektor nije vezan ni za jednu sekciju. */
   .score {
-    display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; margin-top: 2rem;
+    display: grid; gap: .8rem; margin-top: 2rem;
     background: color-mix(in srgb, var(--sea) 8%, var(--surface));
     border: 1px solid var(--border); border-left: 3px solid var(--sea);
     border-radius: var(--radius-sm); padding: 1rem 1.2rem;
     font-size: .92rem; color: var(--text);
   }
-  .score__stars { color: var(--terra); letter-spacing: .12em; font-size: .95rem; flex-basis: 100%; line-height: 1; }
+  .score__stars { color: var(--terra); letter-spacing: .12em; font-size: .95rem; line-height: 1; }
+  .score__row { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; }
   .score__num { font-family: var(--font-display); font-size: 2.3rem; font-weight: 700; line-height: 1; color: var(--sea); flex-shrink: 0; }
   .score__num small { font-size: .95rem; font-weight: 500; color: var(--text-muted); }
   .score__txt { flex: 1; min-width: 12rem; }
@@ -863,16 +871,16 @@
     <section class="hero" data-i18n-aria="hero.aria" aria-label="Dobrodošli">
       <img class="hero__bg" src="images/zgrada.jpg" width="1600" height="1066"
         data-i18n-alt="hero.bgAlt"
-        alt="Zgrada s apartmanima Mare i Gumbek u Petrčanima — bijela fasada, balkoni i parkirno dvorište"
+        alt="Kuća u kojoj je apartman Mare u Petrčanima — vrt, terasa u prizemlju i popločano dvorište s parkingom"
         fetchpriority="high" decoding="async" />
       <div class="container hero__inner">
         <div class="hero__tags" data-reveal>
           <span data-i18n="hero.tag1">◆ Petrčane, Zadarska županija</span>
-          <span data-i18n="hero.tag2">★ Ocjena gostiju 10/10 · Booking.com</span>
+          <span data-i18n="hero.tag2">★ Booking.com: Mare 9,6 · Gumbek 9,3</span>
           <span data-i18n="hero.tag3">◆ Besplatan parking</span>
         </div>
-        <h1 data-reveal data-i18n-html="hero.h1">Apartmani Mare i Gumbek<br /><em>dva doma pod istim krovom.</em></h1>
-        <p data-reveal data-i18n="hero.p">Dva odvojena apartmana u istoj zgradi u Petrčanima — svaki s vlastitom kuhinjom, kupaonicom, klimom i vanjskim prostorom. Plaža je desetak minuta hoda, Zadar četvrt sata vožnje. Idealno za dvije obitelji ili grupe koje putuju zajedno, a žele svoj mir.</p>
+        <h1 data-reveal data-i18n-html="hero.h1">Apartmani Mare i Gumbek <em>— Petrčane, Zadar</em></h1>
+        <p data-reveal data-i18n="hero.p">Dva samostalna apartmana na dvije adrese u Petrčanima. Odaberite onaj koji vam odgovara — ili oba, ako putujete s više obitelji.</p>
         <div class="hero__cta" data-reveal>
           <a href="#units" class="btn btn-primary" data-i18n="hero.ctaUnits">Pogledaj apartmane</a>
           <a href="#upit" class="btn btn-light" data-i18n="cta.checkAvail">Provjerite dostupnost</a>
@@ -906,26 +914,34 @@
       <div class="container about__grid">
         <div class="about__media" data-reveal>
           <img src="images/petrcane-zaljev-dron.jpg" width="1600" height="1066" data-i18n-alt="about.imgAlt" alt="Petrčane iz zraka — tirkizni zaljev s marinom, mjesto, vinogradi i Velebit u pozadini" loading="lazy" />
-          <div class="badge"><strong>2</strong><span data-i18n="about.badge">apartmana, ista zgrada</span></div>
+          <div class="badge"><strong>2</strong><span data-i18n="about.badge">apartmana u Petrčanima</span></div>
         </div>
         <div data-reveal>
           <span class="eyebrow" data-i18n="about.eyebrow">O nama</span>
-          <h2 data-i18n="about.h2">Dva apartmana, jedna zgrada, dovoljno mjesta za sve.</h2>
-          <p class="lead" data-i18n="about.lead">Mare i Gumbek dva su samostalna apartmana u istoj zgradi u Petrčanima, mirnom mjestu na zadarskoj rivijeri. Svaki ima vlastiti ulaz, kuhinju, kupaonicu, klimu i svoj vanjski prostor — Mare vrt i veliku natkrivenu terasu, Gumbek balkon i dvije etaže.</p>
-          <p style="margin-top:1rem;color:var(--text-muted)" data-i18n="about.p2">Zato ih najčešće uzimaju dvije obitelji ili grupe prijatelja koje putuju zajedno: djeca se igraju u dvorištu, večera je zajednička na terasi, a kad dan završi, svatko se vrati u svoj apartman. Nema recepcije, nema hodnika, nema susjeda s druge strane tankog zida — samo dva zaključana vrata i dva odmora koja se ne moraju usklađivati.</p>
-          <p style="margin-top:1rem;color:var(--text-muted)" data-i18n="about.p3">Možete, naravno, uzeti i samo jedan. Oba su opremljena za normalno ljetovanje, ne za razgledavanje: perilica posuđa, ploča za kuhanje, aparat za kavu, TV, brzi Wi-Fi i besplatno parkirno mjesto u dvorištu.</p>
+          <h2 data-i18n="about.h2">Dva apartmana, dvije adrese, jedno mirno mjesto uz more.</h2>
+          <p class="lead" data-i18n="about.lead">Mare i Gumbek dva su samostalna apartmana u Petrčanima, mirnom mjestu na zadarskoj rivijeri — svaki na svojoj adresi. Svaki ima vlastiti ulaz, kuhinju, klimu, besplatno parkirno mjesto i svoj vanjski prostor: Mare vrt i veliku natkrivenu terasu, Gumbek balkon i dvije etaže.</p>
+          <p style="margin-top:1rem;color:var(--text-muted)" data-i18n="about.p2">Mare je apartman u prizemlju, bez stepenica, s vrtom i terasom na kojoj se ljeti zapravo živi — dobar izbor za obitelji s malom djecom. Gumbek je na dvije etaže, sa spavaćim dijelom gore i dvije kupaonice, pa odgovara parovima, prijateljima ili obitelji koja voli malo više prostora. Nema recepcije ni hodnika — cijeli apartman je samo vaš.</p>
+          <p style="margin-top:1rem;color:var(--text-muted)" data-i18n="about.p3">Putujete s više obitelji? Možete uzeti oba — u istom su mjestu, a za zajednički upit šaljemo jednu ponudu. Oba su opremljena za pravo ljetovanje: perilica posuđa, ploča za kuhanje, aparat za kavu, TV, brzi Wi-Fi i besplatno parkirno mjesto.</p>
           <dl class="stats">
-            <div><dt>2</dt><dd data-i18n="about.stat1">Odvojena apartmana u istoj zgradi</dd></div>
-            <div><dt data-i18n="about.stat2Num">800 m</dt><dd data-i18n="about.stat2">Do plaže Donje Petrčane</dd></div>
+            <div><dt>2</dt><dd data-i18n="about.stat1">Samostalna apartmana na dvije adrese</dd></div>
+            <div><dt data-i18n="about.stat2Num">~10 min</dt><dd data-i18n="about.stat2">Hoda do plaže Donje Petrčane</dd></div>
             <div><dt data-i18n="about.stat3Num">15 min</dt><dd data-i18n="about.stat3">Vožnje do centra Zadra</dd></div>
           </dl>
-          <!-- Ukupna ocjena gostiju s Booking.coma. Atribucija navodi apartman
-               Mare jer se ocjena odnosi na taj oglas — Gumbek ima svoj. -->
-          <p class="score" data-reveal>
+          <!-- Ocjene gostiju s Booking.coma. Svaki apartman ima svoj oglas i
+               svoju ocjenu, pa se prikazuju odvojeno.
+               ✏️ Stanje oglasa 17.09.2026. — osvjeziti kad se ocjene promijene
+               (ovdje i u hero.tag2). -->
+          <div class="score" data-reveal>
             <span class="score__stars" aria-hidden="true">★★★★★</span>
-            <span class="score__num">10<small>/10</small></span>
-            <span class="score__txt" data-i18n-html="about.score">Ukupna ocjena gostiju na Booking.comu<br /><small>Za apartman Mare, na temelju 5 recenzija gostiju nakon boravka.</small></span>
-          </p>
+            <p class="score__row">
+              <span class="score__num" data-i18n-html="about.scoreMareNum">9,6<small>/10</small></span>
+              <span class="score__txt" data-i18n-html="about.scoreMare">Apartman Mare na Booking.comu<br /><small>6 recenzija gostiju nakon boravka</small></span>
+            </p>
+            <p class="score__row">
+              <span class="score__num" data-i18n-html="about.scoreGumbekNum">9,3<small>/10</small></span>
+              <span class="score__txt" data-i18n-html="about.scoreGumbek">Apartman Gumbek na Booking.comu<br /><small>9 recenzija gostiju nakon boravka</small></span>
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -944,7 +960,7 @@
                ✏️ POTVRDITI S KLIJENTOM: kapacitet (do 6) i kvadratura.
                Booking naslov kaze "Two Bedroom … with Garden"; broj lezajeva
                procijenjen s fotografija (spavaonica + izvlacni lezaj u boravku). -->
-          <article class="unit-card" data-reveal>
+          <article class="unit-card" id="mare-section" data-reveal>
             <div class="unit-card__img">
               <img src="images/mare/mare-01-terasa.jpg" width="1600" height="1066" data-i18n-alt="units.mare.imgAlt" alt="Apartman Mare — velika natkrivena terasa s vanjskom kuhinjom, kamenim kaminom i stolom za šest" loading="lazy" />
               <span class="unit-card__badge" data-i18n="units.mare.badge">Vrt i velika terasa</span>
@@ -952,6 +968,7 @@
             </div>
             <div class="unit-card__body">
               <h3 data-i18n="units.mare.name">Apartman Mare</h3>
+              <p class="unit-addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Petrčane IX 2a, 23231 Petrčane</span></p>
               <p data-i18n="units.mare.desc">Apartman u prizemlju s vlastitim vrtom i natkrivenom terasom koja je zapravo druga dnevna soba — ima vanjsku kuhinju sa sudoperom, kameni kamin za peku i stol za šest osoba. Unutra su svijetla blagovaonica, dnevni boravak i spavaonica, sve u ravnini s dvorištem, bez stepenica.</p>
 
               <ul class="unit-specs">
@@ -987,7 +1004,7 @@
           <!-- ---------- APARTMAN GUMBEK ----------
                ✏️ POTVRDITI S KLIJENTOM: kapacitet (do 4) i kvadratura.
                Booking naslov: "Two Story, Two-Bedroom Apartment by the Sea". -->
-          <article class="unit-card" data-reveal>
+          <article class="unit-card" id="gumbek-section" data-reveal>
             <div class="unit-card__img">
               <img src="images/gumbek/gumbek-01-dnevni-boravak.jpg" width="1600" height="1066" data-i18n-alt="units.gumbek.imgAlt" alt="Apartman Gumbek — svijetli dnevni boravak s kožnom garniturom i izlazom na balkon" loading="lazy" />
               <span class="unit-card__badge" data-i18n="units.gumbek.badge">Dvije etaže</span>
@@ -995,6 +1012,7 @@
             </div>
             <div class="unit-card__body">
               <h3 data-i18n="units.gumbek.name">Apartman Gumbek</h3>
+              <p class="unit-addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Petrčane XI 2b, Donje Petrčane, 23231</span></p>
               <p data-i18n="units.gumbek.desc">Dvoetažni apartman povezan spiralnim stubištem: dolje prostrani dnevni boravak s blagovaonicom, kuhinjom i balkonom s tendom, gore spavaonice i kupaonica pod krovnim prozorom. Podignut je od ulice, pa je svijetlo cijeli dan, a večeri tihe.</p>
 
               <ul class="unit-specs">
@@ -1048,7 +1066,7 @@
           </div>
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17V9l2-4h8l2 4v8M7 20v-3M17 20v-3"/><circle cx="8.5" cy="13.5" r="1"/><circle cx="15.5" cy="13.5" r="1"/></svg></div>
-            <h3 data-i18n="amen.parking.t">Besplatan parking</h3><p data-i18n="amen.parking.d">Vlastito mjesto u dvorištu, pred ulazom — ne tražite mjesto po mjestu.</p>
+            <h3 data-i18n="amen.parking.t">Besplatan parking</h3><p data-i18n="amen.parking.d">Besplatno privatno parkirno mjesto uz svaki apartman — ne tražite mjesto po mjestu.</p>
           </div>
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2M8 7v13M16 7v13M4 20h16"/></svg></div>
@@ -1060,7 +1078,7 @@
           </div>
           <div class="amenity" data-reveal>
             <div class="amenity__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7c2 0 2 1.5 4 1.5S8 7 10 7s2 1.5 4 1.5S16 7 18 7s2 1.5 4 1.5M2 13c2 0 2 1.5 4 1.5S8 13 10 13s2 1.5 4 1.5S16 13 18 13s2 1.5 4 1.5M2 19c2 0 2 1.5 4 1.5S8 19 10 19s2 1.5 4 1.5S16 19 18 19s2 1.5 4 1.5"/></svg></div>
-            <h3 data-i18n="amen.beach.t">Plaža na 800 m</h3><p data-i18n="amen.beach.d">Desetak minuta lagane šetnje do plaže Donje Petrčane, bez prelaska prometnice.</p>
+            <h3 data-i18n="amen.beach.t">Plaža na desetak minuta</h3><p data-i18n="amen.beach.d">Od oba apartmana desetak minuta šetnje do plaže Donje Petrčane; plaža Punta Radman još je bliža apartmanu Mare.</p>
           </div>
         </div>
       </div>
@@ -1094,7 +1112,7 @@
         <ul class="pricing__extras" data-reveal>
           <li data-i18n-html="price.x1"><strong>Uključeno u cijenu</strong> Posteljina i ručnici, finalno čišćenje, voda i struja, klima, parking i Wi-Fi.</li>
           <li data-i18n-html="price.x2"><strong>Boravišna pristojba</strong> Obračunava se dodatno, prema važećoj odluci — recite nam broj gostiju i njihove godine pa računamo točno.</li>
-          <li data-i18n-html="price.x3"><strong>Cijela zgrada</strong> Uzimate oba apartmana? Recite to u upitu — za zajedničku rezervaciju radimo jednu ponudu.</li>
+          <li data-i18n-html="price.x3"><strong>Oba apartmana</strong> Putujete s više obitelji? Navedite u upitu da želite oba — šaljemo jednu ponudu za oba apartmana.</li>
           <li data-i18n-html="price.x4"><strong>Djeca</strong> Dobrodošla su. Napišite koliko ih je i koliko su stara da predložimo raspored ležajeva.</li>
         </ul>
         <p class="pricing__note" data-reveal data-i18n="price.note">Na upite odgovaramo u pravilu isti dan. Rezervacijom direktno kod nas nema provizije portala.</p>
@@ -1106,34 +1124,55 @@
       <div class="container">
         <div class="section-head center" data-reveal>
           <span class="eyebrow" data-i18n="gal.eyebrow">Galerija</span>
-          <h2 data-i18n="gal.h2">Zgrada, terasa i okoliš</h2>
-          <p class="lead" data-i18n="gal.lead">Zajednički prostor koji dijele oba apartmana — natkrivena terasa s kamenim kaminom, vrt, dvorište s parkingom i Petrčane iz zraka. Kliknite bilo koju fotografiju; strelicama ili prstom listate kroz cijeli set.</p>
+          <h2 data-i18n="gal.h2">Apartmani i Petrčane iz blizine</h2>
+          <p class="lead" data-i18n="gal.lead">Fotografije su razvrstane po apartmanu — Mare s vrtom i terasom, Gumbek u Donjim Petrčanima — i mjesto iz zraka. Kliknite bilo koju fotografiju; strelicama ili prstom listate kroz taj set.</p>
         </div>
+
+        <!-- Tri odvojena seta. Apartmani su na dvije razlicite adrese, pa
+             nema "zajednickog prostora" — svaka fotografija pripada ili
+             jednom apartmanu ili mjestu. Lightbox lista samo unutar seta.
+             Setovi nose prefiks gal- da se ne spoje s minijaturama u
+             karticama apartmana (data-gallery="mare" / "gumbek"). -->
+        <h3 class="gallery__title" data-reveal data-i18n="gal.mareH">Apartman Mare</h3>
         <div class="gallery__grid">
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i1.cap" data-caption="Zgrada i parkirno dvorište" data-reveal data-i18n-aria="gal.i1.aria" aria-label="Povećaj fotografiju: Zgrada i parkirno dvorište">
-            <img src="images/zajednicko/zajednicko-01-zgrada.jpg" data-i18n-alt="gal.i1.alt" alt="Zgrada s apartmanima Mare i Gumbek — bijela fasada, balkoni i popločeno parkirno dvorište" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i2.cap" data-caption="Natkrivena terasa s kamenim kaminom" data-reveal data-i18n-aria="gal.i2.aria" aria-label="Povećaj fotografiju: Natkrivena terasa s kamenim kaminom">
-            <img src="images/zajednicko/zajednicko-02-terasa-kamin.jpg" data-i18n-alt="gal.i2.alt" alt="Zajednička natkrivena terasa s kamenim kaminom za peku, vanjskim sudoperom i stolom za šest" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i3.cap" data-caption="Terasa apartmana Mare" data-reveal data-i18n-aria="gal.i3.aria" aria-label="Povećaj fotografiju: Terasa apartmana Mare">
+          <button class="gallery__item" data-lightbox data-gallery="gal-mare" data-i18n-caption="gal.i1.cap" data-caption="Kuća s apartmanom Mare i dvorištem" data-reveal data-i18n-aria="gal.i1.aria" aria-label="Povećaj fotografiju: Kuća s apartmanom Mare i dvorištem">
+            <img src="images/mare/mare-08-kuca.jpg" data-i18n-alt="gal.i1.alt" alt="Kuća u kojoj je apartman Mare — vrt, natkrivena terasa u prizemlju i popločano dvorište s parkingom" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="gal-mare" data-i18n-caption="gal.i3.cap" data-caption="Terasa apartmana Mare" data-reveal data-i18n-aria="gal.i3.aria" aria-label="Povećaj fotografiju: Terasa apartmana Mare">
             <img src="images/mare/mare-01-terasa.jpg" data-i18n-alt="gal.i3.alt" alt="Natkrivena terasa apartmana Mare sa stolom za šest i vanjskom kuhinjom" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i4.cap" data-caption="Uvala Petrčane iz zraka" data-reveal data-i18n-aria="gal.i4.aria" aria-label="Povećaj fotografiju: Uvala Petrčane iz zraka">
-            <img src="images/zajednicko/zajednicko-04-uvala-dron.jpg" data-i18n-alt="gal.i4.alt" alt="Uvala Petrčane iz zraka — luka s brodicama, poluotok s borovom šumom i Zadar u daljini" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i5.cap" data-caption="Dnevni boravak apartmana Mare" data-reveal data-i18n-aria="gal.i5.aria" aria-label="Povećaj fotografiju: Dnevni boravak apartmana Mare">
+          <button class="gallery__item" data-lightbox data-gallery="gal-mare" data-i18n-caption="gal.i2.cap" data-caption="Terasa apartmana Mare s kamenim kaminom" data-reveal data-i18n-aria="gal.i2.aria" aria-label="Povećaj fotografiju: Terasa apartmana Mare s kamenim kaminom">
+            <img src="images/mare/mare-09-terasa-kamin.jpg" data-i18n-alt="gal.i2.alt" alt="Natkrivena terasa apartmana Mare s kamenim kaminom za peku, vanjskim sudoperom i stolom za šest" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="gal-mare" data-i18n-caption="gal.i6.cap" data-caption="Pogled s terase apartmana Mare na vrt" data-reveal data-i18n-aria="gal.i6.aria" aria-label="Povećaj fotografiju: Pogled s terase apartmana Mare na vrt">
+            <img src="images/mare/mare-10-terasa-vrt.jpg" data-i18n-alt="gal.i6.alt" alt="Natkrivena terasa apartmana Mare s pogledom na uređeni vrt i kamene gredice" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="gal-mare" data-i18n-caption="gal.i10.cap" data-caption="Vrt apartmana Mare" data-reveal data-i18n-aria="gal.i10.aria" aria-label="Povećaj fotografiju: Vrt apartmana Mare">
+            <img src="images/mare/mare-07-vrt.jpg" data-i18n-alt="gal.i10.alt" alt="Uređeni vrt apartmana Mare s mediteranskim biljem i kamenim pločama" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="gal-mare" data-i18n-caption="gal.i5.cap" data-caption="Dnevni boravak apartmana Mare" data-reveal data-i18n-aria="gal.i5.aria" aria-label="Povećaj fotografiju: Dnevni boravak apartmana Mare">
             <img src="images/mare/mare-03-dnevni-boravak.jpg" data-i18n-alt="gal.i5.alt" alt="Apartman Mare — dnevni boravak sa sofom, dodatnim ležajem i klimom" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i6.cap" data-caption="Terasa s pogledom na vrt" data-reveal data-i18n-aria="gal.i6.aria" aria-label="Povećaj fotografiju: Terasa s pogledom na vrt">
-            <img src="images/zajednicko/zajednicko-03-terasa-vrt.jpg" data-i18n-alt="gal.i6.alt" alt="Natkrivena terasa s pogledom na uređeni vrt i kamene gredice" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i7.cap" data-caption="Balkon apartmana Gumbek" data-reveal data-i18n-aria="gal.i7.aria" aria-label="Povećaj fotografiju: Balkon apartmana Gumbek">
-            <img src="images/gumbek/gumbek-03-balkon.jpg" data-i18n-alt="gal.i7.alt" alt="Apartman Gumbek — balkon s tendom, stolom i četiri stolice" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i8.cap" data-caption="Obala i plaža iz zraka" data-reveal data-i18n-aria="gal.i8.aria" aria-label="Povećaj fotografiju: Obala i plaža iz zraka">
-            <img src="images/zajednicko/zajednicko-05-obala-dron.jpg" data-i18n-alt="gal.i8.alt" alt="Obala Petrčana iz zraka — šljunčana plaža, kuće uz more i vinogradi u zaleđu" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i9.cap" data-caption="Kuhinja apartmana Gumbek" data-reveal data-i18n-aria="gal.i9.aria" aria-label="Povećaj fotografiju: Kuhinja apartmana Gumbek">
-            <img src="images/gumbek/gumbek-04-kuhinja.jpg" data-i18n-alt="gal.i9.alt" alt="Apartman Gumbek — kuhinja s indukcijskom pločom, perilicom posuđa i mikrovalnom" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i10.cap" data-caption="Vrt pred zgradom" data-reveal data-i18n-aria="gal.i10.aria" aria-label="Povećaj fotografiju: Vrt pred zgradom">
-            <img src="images/mare/mare-07-vrt.jpg" data-i18n-alt="gal.i10.alt" alt="Uređeni vrt s mediteranskim biljem i kamenim pločama pred zgradom" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i11.cap" data-caption="Naselje i vinogradi iz zraka" data-reveal data-i18n-aria="gal.i11.aria" aria-label="Povećaj fotografiju: Naselje i vinogradi iz zraka">
-            <img src="images/zajednicko/zajednicko-06-naselje-dron.jpg" data-i18n-alt="gal.i11.alt" alt="Naselje Petrčane iz zraka — kuće, maslinici i vinogradi, Velebit u pozadini" loading="lazy" /></button>
-          <button class="gallery__item" data-lightbox data-gallery="zajednicko" data-i18n-caption="gal.i12.cap" data-caption="Kupaonica apartmana Mare" data-reveal data-i18n-aria="gal.i12.aria" aria-label="Povećaj fotografiju: Kupaonica apartmana Mare">
+          <button class="gallery__item" data-lightbox data-gallery="gal-mare" data-i18n-caption="gal.i12.cap" data-caption="Kupaonica apartmana Mare" data-reveal data-i18n-aria="gal.i12.aria" aria-label="Povećaj fotografiju: Kupaonica apartmana Mare">
             <img src="images/mare/mare-06-kupaonica.jpg" data-i18n-alt="gal.i12.alt" alt="Apartman Mare — kupaonica s tuš kabinom i umivaonikom" loading="lazy" /></button>
+        </div>
+
+        <h3 class="gallery__title" data-reveal data-i18n="gal.gumbekH">Apartman Gumbek</h3>
+        <div class="gallery__grid">
+          <button class="gallery__item" data-lightbox data-gallery="gal-gumbek" data-i18n-caption="gal.i13.cap" data-caption="Zgrada u kojoj je apartman Gumbek" data-reveal data-i18n-aria="gal.i13.aria" aria-label="Povećaj fotografiju: Zgrada u kojoj je apartman Gumbek">
+            <img src="images/gumbek/gumbek-06-zgrada.jpg" data-i18n-alt="gal.i13.alt" alt="Bijela stambena zgrada u Donjim Petrčanima u kojoj se nalazi apartman Gumbek — balkoni s tendama i parkiralište ispred" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="gal-gumbek" data-i18n-caption="gal.i15.cap" data-caption="Dnevni boravak apartmana Gumbek" data-reveal data-i18n-aria="gal.i15.aria" aria-label="Povećaj fotografiju: Dnevni boravak apartmana Gumbek">
+            <img src="images/gumbek/gumbek-01-dnevni-boravak.jpg" data-i18n-alt="units.gumbek.imgAlt" alt="Apartman Gumbek — svijetli dnevni boravak s kožnom garniturom i izlazom na balkon" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="gal-gumbek" data-i18n-caption="gal.i7.cap" data-caption="Balkon apartmana Gumbek" data-reveal data-i18n-aria="gal.i7.aria" aria-label="Povećaj fotografiju: Balkon apartmana Gumbek">
+            <img src="images/gumbek/gumbek-03-balkon.jpg" data-i18n-alt="gal.i7.alt" alt="Apartman Gumbek — balkon s tendom, stolom i četiri stolice" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="gal-gumbek" data-i18n-caption="gal.i9.cap" data-caption="Kuhinja apartmana Gumbek" data-reveal data-i18n-aria="gal.i9.aria" aria-label="Povećaj fotografiju: Kuhinja apartmana Gumbek">
+            <img src="images/gumbek/gumbek-04-kuhinja.jpg" data-i18n-alt="gal.i9.alt" alt="Apartman Gumbek — kuhinja s indukcijskom pločom, perilicom posuđa i mikrovalnom" loading="lazy" /></button>
+        </div>
+
+        <h3 class="gallery__title" data-reveal data-i18n="gal.placeH">Petrčane iz zraka</h3>
+        <div class="gallery__grid">
+          <button class="gallery__item" data-lightbox data-gallery="gal-petrcane" data-i18n-caption="gal.i4.cap" data-caption="Uvala Petrčane iz zraka" data-reveal data-i18n-aria="gal.i4.aria" aria-label="Povećaj fotografiju: Uvala Petrčane iz zraka">
+            <img src="images/petrcane/petrcane-uvala-dron.jpg" data-i18n-alt="gal.i4.alt" alt="Uvala Petrčane iz zraka — luka s brodicama, poluotok s borovom šumom i Zadar u daljini" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="gal-petrcane" data-i18n-caption="gal.i8.cap" data-caption="Obala i plaža iz zraka" data-reveal data-i18n-aria="gal.i8.aria" aria-label="Povećaj fotografiju: Obala i plaža iz zraka">
+            <img src="images/petrcane/petrcane-obala-dron.jpg" data-i18n-alt="gal.i8.alt" alt="Obala Petrčana iz zraka — šljunčana plaža, kuće uz more i vinogradi u zaleđu" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="gal-petrcane" data-i18n-caption="gal.i11.cap" data-caption="Naselje i vinogradi iz zraka" data-reveal data-i18n-aria="gal.i11.aria" aria-label="Povećaj fotografiju: Naselje i vinogradi iz zraka">
+            <img src="images/petrcane/petrcane-naselje-dron.jpg" data-i18n-alt="gal.i11.alt" alt="Naselje Petrčane iz zraka — kuće, maslinici i vinogradi, Velebit u pozadini" loading="lazy" /></button>
+          <button class="gallery__item" data-lightbox data-gallery="gal-petrcane" data-i18n-caption="gal.i14.cap" data-caption="Zaljev i marina Petrčane iz zraka" data-reveal data-i18n-aria="gal.i14.aria" aria-label="Povećaj fotografiju: Zaljev i marina Petrčane iz zraka">
+            <img src="images/petrcane-zaljev-dron.jpg" data-i18n-alt="about.imgAlt" alt="Petrčane iz zraka — tirkizni zaljev s marinom, mjesto, vinogradi i Velebit u pozadini" loading="lazy" /></button>
         </div>
       </div>
     </section>
@@ -1157,21 +1196,21 @@
           </div>
           <div class="step" data-reveal>
             <h3 data-i18n="steps.s3.t">Potvrda i upute</h3>
-            <p data-i18n="steps.s3.d">Nakon vaše potvrde dogovaramo vrijeme dolaska i šaljemo sve upute — adresa je Petrčane IX 2a.</p>
+            <p data-i18n="steps.s3.d">Nakon vaše potvrde dogovaramo vrijeme dolaska i šaljemo sve upute s točnom adresom vašeg apartmana.</p>
           </div>
           <div class="step" data-reveal>
             <h3 data-i18n="steps.s4.t">Dolazak i ključevi</h3>
-            <p data-i18n="steps.s4.d">Parkirate na svom mjestu u dvorištu, a ključeve preuzimate od nas u vrijeme koje unaprijed dogovorimo.</p>
+            <p data-i18n="steps.s4.d">Parkirate na besplatnom mjestu uz svoj apartman, a ključeve preuzimate od nas u vrijeme koje unaprijed dogovorimo.</p>
           </div>
         </div>
 
         <div class="checkin-note" data-reveal>
           <h3 data-i18n="know.h3">Dobro je znati</h3>
-          <!-- ✏️ ZAMIJENI stvarnim vremenima prijave/odjave kad ih klijent potvrdi -->
+          <!-- Vremena prijave/odjave preuzeta s Booking oglasa (17.09.2026.) -->
           <ul>
-            <li data-i18n-html="know.k1"><strong>Vrijeme prijave i odjave</strong> dogovaramo unaprijed — recite u koje vrijeme planirate stići pa se prilagodimo.</li>
+            <li data-i18n-html="know.k1"><strong>Prijava</strong> od 15:00 (Mare) odnosno 16:00 (Gumbek), <strong>odjava</strong> do 11:00 — stižete ranije ili kasnije? Javite pa se prilagodimo.</li>
             <li data-i18n-html="know.k2">Dolazite avionom? Zračna luka Zadar je <strong>25-ak minuta</strong> vožnje, autobusna i trajektna luka Zadar oko <strong>15 minuta</strong>.</li>
-            <li data-i18n-html="know.k3">Parking je <strong>besplatan</strong> i nalazi se u dvorištu zgrade — jedno mjesto po apartmanu.</li>
+            <li data-i18n-html="know.k3">Parking je <strong>besplatan</strong> i privatan — jedno mjesto uz svaki apartman.</li>
             <li data-i18n-html="know.k4">Posteljina, ručnici i finalno čišćenje <strong>uključeni</strong> su u cijenu, ne plaćate ih dodatno.</li>
             <li data-i18n-html="know.k5">Trebate nešto tijekom boravka? <strong>Nazovite</strong> — javljamo se i rješavamo isti dan.</li>
           </ul>
@@ -1188,7 +1227,7 @@
           <p class="lead" data-i18n="loc.lead">Petrčane su mirno mjesto na zadarskoj rivijeri: luka s brodicama, borova šuma, nekoliko konoba i šljunčane plaže. Dovoljno blizu da ujutro budete na kavi u staroj gradskoj jezgri Zadra, dovoljno po strani da navečer čujete samo cvrčke.</p>
           <p style="margin-top:1rem;color:var(--text-muted)" data-i18n="loc.p2">Zadar je odlična baza za istraživanje — Morske orgulje i Pozdrav Suncu, rimski forum i Sveti Donat — a Kornati, Krka i Plitvička jezera izleti su od jednog dana. Sa sjeverne strane su Nin s pješčanom plažom i solanom te podvelebitski kanal.</p>
           <ul class="nearby">
-            <li><span class="dot"></span><span data-i18n-html="loc.n1"><strong>Plaža Donje Petrčane</strong> — 800 m, oko 9 minuta hoda</span></li>
+            <li><span class="dot"></span><span data-i18n-html="loc.n1"><strong>Plaže Donje Petrčane i Punta Radman</strong> — desetak minuta hoda</span></li>
             <li><span class="dot"></span><span data-i18n-html="loc.n2"><strong>Luka i riva Petrčane</strong> — nekoliko minuta hoda, konobe uz more</span></li>
             <li><span class="dot"></span><span data-i18n-html="loc.n3"><strong>Centar Zadra i Morske orgulje</strong> — 12 km, oko 20 minuta vožnje</span></li>
             <li><span class="dot"></span><span data-i18n-html="loc.n4"><strong>Zračna luka Zadar</strong> — 23 km, oko 25 minuta vožnje</span></li>
@@ -1209,12 +1248,21 @@
                punu adresu, pa vodi na točno mjesto. -->
           <iframe data-i18n-title="loc.mapTitle" title="Petrčane na karti — smještaj Apartmani Mare i Gumbek" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
             src="https://www.openstreetmap.org/export/embed.html?bbox=15.1355%2C44.1700%2C15.1975%2C44.2075&layer=mapnik&marker=44.18666%2C15.16152"></iframe>
+          <!-- Dvije adrese, dva gumba za navigaciju. Adresa mora biti JEDAN
+               flex item: prije je <strong> bio item, a ostatak anonimni item,
+               pa je gap trake padao izmedu adrese i zareza.
+               Navigacija ide na koordinate s Booking oglasa, jer ulice
+               "Petrčane IX/XI" Google ne razrjesava uvijek na tocan ulaz. -->
           <p class="location__addr">
-            <!-- Adresa mora biti JEDAN flex item. Prije je <strong> bio item, a
-                 ", 23231 Petrčane" anonimni item, pa je gap trake (1rem) padao
-                 izmedu adrese i zareza i radio vidljivu rupu. -->
-            <span class="location__addr-txt" data-i18n-html="loc.addr"><strong>Petrčane IX 2a</strong>, 23231 Petrčane</span>
-            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Petr%C4%8Dane%20IX%202a%2C%2023231%20Petr%C4%8Dane%2C%20Hrvatska" target="_blank" rel="noopener">
+            <span class="location__addr-txt" data-i18n-html="loc.addrMare"><strong>Apartman Mare</strong><br />Petrčane IX 2a, 23231 Petrčane</span>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=44.1876084%2C15.1589194" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-i18n="loc.navBtn">Otvori u navigaciji</span>
+            </a>
+          </p>
+          <p class="location__addr">
+            <span class="location__addr-txt" data-i18n-html="loc.addrGumbek"><strong>Apartman Gumbek</strong><br />Petrčane XI 2b, Donje Petrčane, 23231</span>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=44.1877195%2C15.1609829" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               <span data-i18n="loc.navBtn">Otvori u navigaciji</span>
             </a>
@@ -1233,13 +1281,13 @@
         <div class="section-head center" data-reveal style="max-width:620px">
           <span class="eyebrow" data-i18n="who.eyebrow">Za koga su</span>
           <h2 data-i18n="who.h2">Tko se kod nas najbolje smjesti</h2>
-          <p class="lead" data-i18n="who.lead">Dva apartmana u istoj zgradi rješavaju problem koji jedan veliki apartman ne može: zajedništvo kad ga želite, tišinu kad vam treba.</p>
+          <p class="lead" data-i18n="who.lead">Dva samostalna apartmana u istom mjestu, a različita po karakteru — pa je lako odabrati onaj koji vama odgovara.</p>
         </div>
         <div class="profiles__grid">
           <article class="profile" data-reveal>
             <div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
-            <h3 data-i18n="who.p1.t">Dvije obitelji zajedno</h3>
-            <p data-i18n="who.p1.d">Najčešći scenarij. Djeca se cijeli dan igraju u dvorištu, večera je zajednička na terasi apartmana Mare, a nakon nje svatko ide svojim vratima. Bez dijeljenja kupaonice i bez usklađivanja rasporeda.</p>
+            <h3 data-i18n="who.p1.t">Dvije obitelji, dva apartmana</h3>
+            <p data-i18n="who.p1.d">Putujete zajedno, a svatko želi svoj mir? Uzmite oba. Svaka obitelj ima svoj apartman na svojoj adresi — vlastitu kuhinju, kupaonicu i parkirno mjesto — a plaže i konobe u Petrčanima ionako su zajedničke.</p>
             <span class="profile__unit" data-i18n="who.p1.u">Mare + Gumbek</span>
           </article>
           <article class="profile" data-reveal>
@@ -1266,7 +1314,7 @@
           <h2 data-i18n="form.h2">Provjerite svoj termin</h2>
           <p data-i18n="form.intro">Recite nam kada dolazite i koliko vas je — javljamo se s cijenom i dostupnošću, u pravilu isti dan. Bez obveze i bez provizije portala.</p>
           <ul class="contact-list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span><span data-i18n-html="form.addr">Apartmani Mare i Gumbek<br /><strong>Petrčane IX 2a</strong><br />23231 Petrčane, Hrvatska</span><br /><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Petr%C4%8Dane%20IX%202a%2C%2023231%20Petr%C4%8Dane%2C%20Hrvatska" target="_blank" rel="noopener" data-i18n="form.navLink">Otvori u navigaciji →</a></span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span><span data-i18n-html="form.addr"><strong>Apartman Mare</strong> — Petrčane IX 2a<br /><strong>Apartman Gumbek</strong> — Petrčane XI 2b, Donje Petrčane<br />23231 Petrčane, Hrvatska</span><br /><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=44.1876084%2C15.1589194" target="_blank" rel="noopener" data-i18n="form.navMare">Navigacija do Mare →</a><br /><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=44.1877195%2C15.1609829" target="_blank" rel="noopener" data-i18n="form.navGumbek">Navigacija do Gumbeka →</a></span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+38598751522">+385 98 751 522</a></li>
             <!-- ✏️ E-MAIL je jos placeholder — zamijeniti prije objave -->
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a></li>
@@ -1365,19 +1413,19 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="#" class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg> <span data-i18n="foot.brand">Mare i Gumbek</span></a>
-          <p data-i18n="foot.about">Dva odvojena apartmana u istoj zgradi u Petrčanima. Vrt i terasa, balkon, klima i besplatan parking — plaža na 800 m.</p>
+          <p data-i18n="foot.about">Dva samostalna apartmana u Petrčanima kraj Zadra — Mare s vrtom i terasom, Gumbek na dvije etaže. Klima, besplatan parking, plaža na desetak minuta hoda.</p>
           <div class="socials">
             <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
             <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             <a href="https://wa.me/38598751522?text=Pozdrav%2C%20zanima%20me%20dostupnost%20apartmana%20Mare%20i%20Gumbek." target="_blank" rel="noopener noreferrer" data-i18n-aria="foot.wa" aria-label="Pišite nam na WhatsApp"><svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
           </div>
         </div>
-        <div><h4 data-i18n="foot.h1">Smještaj</h4><ul><li><a href="#units" data-i18n="foot.mare">Apartman Mare</a></li><li><a href="#units" data-i18n="foot.gumbek">Apartman Gumbek</a></li><li><a href="#pricing" data-i18n="foot.price">Cijena i rezervacija</a></li><li><a href="#gallery" data-i18n="foot.gallery">Galerija</a></li></ul></div>
+        <div><h4 data-i18n="foot.h1">Smještaj</h4><ul><li><a href="#mare-section" data-i18n="foot.mare">Apartman Mare</a></li><li><a href="#gumbek-section" data-i18n="foot.gumbek">Apartman Gumbek</a></li><li><a href="#pricing" data-i18n="foot.price">Cijena i rezervacija</a></li><li><a href="#gallery" data-i18n="foot.gallery">Galerija</a></li></ul></div>
         <div><h4 data-i18n="foot.h2">Informacije</h4><ul><li><a href="#checkin" data-i18n="foot.checkin">Dolazak</a></li><li><a href="#location" data-i18n="foot.howto">Kako do nas</a></li><li><a href="#amenities" data-i18n="foot.amen">Sadržaji</a></li><li><a href="#upit" data-i18n="foot.inquiry">Pošalji upit</a></li></ul></div>
         <div><h4 data-i18n="foot.h3">Kontakt</h4><ul>
           <li><a href="tel:+38598751522">+385 98 751 522</a></li>
           <li><a href="mailto:info@mare-gumbek.hr">info@mare-gumbek.hr</a></li>
-          <li data-i18n-html="foot.addr">Petrčane IX 2a<br />23231 Petrčane, Hrvatska</li>
+          <li data-i18n-html="foot.addr">Mare: Petrčane IX 2a<br />Gumbek: Petrčane XI 2b<br />23231 Petrčane, Hrvatska</li>
         </ul></div>
       </div>
       <div class="footer__bottom">
@@ -1547,7 +1595,8 @@
     const lightboxPrev = document.getElementById("lightboxPrev");
     const lightboxNext = document.getElementById("lightboxNext");
 
-    /* Svaka galerija je svoj set: mare, gumbek, zajednicko.
+    /* Svaka galerija je svoj set: minijature u karticama (mare, gumbek)
+       i tri seta u galeriji (gal-mare, gal-gumbek, gal-petrcane).
        Listanje nikad ne prelazi iz jednog seta u drugi. */
     const groups = {};
     document.querySelectorAll("[data-lightbox]").forEach(item => {

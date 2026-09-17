@@ -1,20 +1,21 @@
 {
   "know": {
     "h3": "Gut zu wissen",
-    "k1": "<strong>Check-in- und Check-out-Zeiten</strong> stimmen wir vorab ab — sagen Sie uns, wann Sie ankommen möchten, wir richten uns danach.",
+    "k1": "<strong>Check-in</strong> ab 15:00 Uhr (Mare) bzw. 16:00 Uhr (Gumbek), <strong>Check-out</strong> bis 11:00 Uhr — Sie kommen früher oder später? Sagen Sie Bescheid, wir richten uns danach.",
     "k2": "Sie kommen mit dem Flugzeug? Der Flughafen Zadar ist rund <strong>25 Minuten</strong> entfernt, Bus- und Fährhafen Zadar etwa <strong>15 Minuten</strong>.",
-    "k3": "Der Parkplatz ist <strong>kostenlos</strong> und liegt im Hof des Hauses — ein Stellplatz pro Apartment.",
+    "k3": "Der Parkplatz ist <strong>kostenlos</strong> und privat — ein Stellplatz am jeweiligen Apartment.",
     "k4": "Bettwäsche, Handtücher und die Endreinigung sind im Preis <strong>enthalten</strong>, es kommt nichts hinzu.",
     "k5": "Sie brauchen während des Aufenthalts etwas? <strong>Rufen Sie an</strong> — wir melden uns und kümmern uns noch am selben Tag darum."
   },
   "loc": {
-    "addr": "<strong>Petrčane IX 2a</strong>, 23231 Petrčane",
+    "addrGumbek": "<strong>Apartment Gumbek</strong><br />Petrčane XI 2b, Donje Petrčane, 23231",
+    "addrMare": "<strong>Apartment Mare</strong><br />Petrčane IX 2a, 23231 Petrčane",
     "cta": "Verfügbarkeit für Ihren Termin anfragen",
     "eyebrow": "Lage",
     "h2": "Petrčane — zwölf Kilometer von Zadar",
     "lead": "Petrčane ist ein ruhiger Ort an der Riviera von Zadar: ein Hafen mit kleinen Booten, ein Pinienwald, ein paar Konobas und Kiesstrände. Nah genug für den Morgenkaffee in der Altstadt von Zadar, weit genug abseits, dass abends nur die Grillen zu hören sind.",
     "mapTitle": "Petrčane auf der Karte — Apartments Mare & Gumbek",
-    "n1": "<strong>Strand Donje Petrčane</strong> — 800 m, etwa 9 Minuten zu Fuß",
+    "n1": "<strong>Strände Donje Petrčane und Punta Radman</strong> — rund zehn Minuten zu Fuß",
     "n2": "<strong>Hafen und Uferpromenade Petrčane</strong> — wenige Minuten zu Fuß, Konobas am Meer",
     "n3": "<strong>Zentrum von Zadar und die Meeresorgel</strong> — 12 km, etwa 20 Minuten Fahrt",
     "n4": "<strong>Flughafen Zadar</strong> — 23 km, etwa 25 Minuten Fahrt",
@@ -44,7 +45,7 @@
     },
     "x1": "<strong>Im Preis enthalten</strong> Bettwäsche und Handtücher, Endreinigung, Wasser und Strom, Klimaanlage, Parkplatz und WLAN.",
     "x2": "<strong>Kurtaxe</strong> Wird zusätzlich berechnet, nach der geltenden Verordnung — nennen Sie uns die Zahl der Gäste und ihr Alter, dann rechnen wir es genau aus.",
-    "x3": "<strong>Das ganze Haus</strong> Sie nehmen beide Apartments? Schreiben Sie es in die Anfrage — für eine gemeinsame Buchung machen wir ein Angebot.",
+    "x3": "<strong>Beide Apartments</strong> Sie reisen mit mehreren Familien? Schreiben Sie in die Anfrage, dass Sie beide möchten — wir schicken ein Angebot für beide.",
     "x4": "<strong>Kinder</strong> Sind herzlich willkommen. Schreiben Sie uns, wie viele mitkommen und wie alt sie sind, damit wir die Betten passend vorschlagen können."
   },
   "steps": {
@@ -60,21 +61,21 @@
       "t": "Sie erhalten ein Angebot"
     },
     "s3": {
-      "d": "Nach Ihrer Bestätigung vereinbaren wir die Ankunftszeit und schicken alle Hinweise — die Adresse lautet Petrčane IX 2a.",
+      "d": "Nach Ihrer Bestätigung vereinbaren wir die Ankunftszeit und schicken alle Hinweise mit der genauen Adresse Ihres Apartments.",
       "t": "Bestätigung und Hinweise"
     },
     "s4": {
-      "d": "Sie parken auf Ihrem Stellplatz im Hof und bekommen die Schlüssel von uns, zu einer vorher vereinbarten Zeit.",
+      "d": "Sie parken auf dem kostenlosen Stellplatz an Ihrem Apartment und bekommen die Schlüssel von uns, zu einer vorher vereinbarten Zeit.",
       "t": "Ankunft und Schlüssel"
     }
   },
   "who": {
     "eyebrow": "Für wen",
     "h2": "Wer sich bei uns am wohlsten fühlt",
-    "lead": "Zwei Apartments im selben Haus lösen etwas, was ein einzelnes großes Apartment nicht kann: Gemeinsamkeit, wenn Sie sie möchten, Ruhe, wenn Sie sie brauchen.",
+    "lead": "Zwei eigenständige Apartments im selben Ort, jedes mit eigenem Charakter — so finden Sie leicht das passende.",
     "p1": {
-      "d": "Der häufigste Fall. Die Kinder spielen den ganzen Tag im Hof, das Abendessen gibt es gemeinsam auf der Terrasse des Apartments Mare, danach geht jeder durch seine eigene Tür. Ohne geteiltes Bad und ohne abgestimmte Tagespläne.",
-      "t": "Zwei Familien zusammen",
+      "d": "Sie reisen zusammen, aber jeder möchte seine Ruhe? Buchen Sie beide. Jede Familie hat ihr eigenes Apartment an eigener Adresse — mit eigener Küche, eigenem Bad und Stellplatz — und die Strände und Konobas von Petrčane sind ohnehin für alle da.",
+      "t": "Zwei Familien, zwei Apartments",
       "u": "Mare + Gumbek"
     },
     "p2": {

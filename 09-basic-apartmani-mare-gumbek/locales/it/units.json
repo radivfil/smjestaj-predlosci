@@ -1,16 +1,19 @@
 {
   "about": {
-    "badge": "appartamenti, una casa",
+    "badge": "appartamenti a Petrčane",
     "eyebrow": "Chi siamo",
-    "h2": "Due appartamenti, una casa, spazio a sufficienza per tutti.",
+    "h2": "Due appartamenti, due indirizzi, un paese tranquillo sul mare.",
     "imgAlt": "Petrčane dall'alto — la baia turchese con il porticciolo, il paese, i vigneti e il Velebit sullo sfondo",
-    "lead": "Mare e Gumbek sono due appartamenti indipendenti nella stessa casa a Petrčane, un paese tranquillo della riviera di Zara. Ciascuno ha ingresso, cucina, bagno, aria condizionata e spazio esterno propri — Mare il giardino e una grande terrazza coperta, Gumbek il balcone e due piani.",
-    "p2": "Per questo li scelgono soprattutto due famiglie o gruppi di amici che viaggiano insieme: i bambini giocano in cortile, la cena si fa tutti insieme in terrazza e, finita la giornata, ognuno rientra nel proprio appartamento. Niente reception, niente corridoi, niente vicini dietro una parete sottile — solo due porte che si chiudono a chiave e due vacanze che non devono mettersi d'accordo.",
-    "p3": "Naturalmente potete prenderne anche uno solo. Entrambi sono attrezzati per una vacanza vera, non per una visita veloce: lavastoviglie, piano cottura, macchina del caffè, TV, Wi-Fi veloce e un posto auto gratuito in cortile.",
-    "score": "Voto complessivo degli ospiti su Booking.com<br /><small>Per l'appartamento Mare, sulla base di 5 recensioni scritte dagli ospiti dopo il soggiorno.</small>",
-    "stat1": "Appartamenti indipendenti nella stessa casa",
-    "stat2": "Dalla spiaggia di Donje Petrčane",
-    "stat2Num": "800 m",
+    "lead": "Mare e Gumbek sono due appartamenti indipendenti a Petrčane, un paese tranquillo della riviera di Zara — ciascuno al proprio indirizzo. Ciascuno ha ingresso, cucina, aria condizionata, posto auto gratuito e spazio esterno propri: Mare il giardino e una grande terrazza coperta, Gumbek il balcone e due piani.",
+    "p2": "Mare è al piano terra, senza scale, con giardino e una terrazza dove d'estate si vive davvero — una buona scelta per famiglie con bambini piccoli. Gumbek si sviluppa su due piani, con la zona notte al piano superiore e due bagni, ed è adatto a coppie, amici o famiglie che amano avere più spazio. Niente reception, niente corridoi — tutto l'appartamento è vostro.",
+    "p3": "Viaggiate con più famiglie? Potete prenderli entrambi — sono nello stesso paese e per una richiesta unica inviamo una sola offerta. Entrambi sono attrezzati per una vacanza vera: lavastoviglie, piano cottura, macchina del caffè, TV, Wi-Fi veloce e un posto auto gratuito.",
+    "scoreGumbek": "Appartamento Gumbek su Booking.com<br /><small>9 recensioni di ospiti dopo il soggiorno</small>",
+    "scoreGumbekNum": "9,3<small>/10</small>",
+    "scoreMare": "Appartamento Mare su Booking.com<br /><small>6 recensioni di ospiti dopo il soggiorno</small>",
+    "scoreMareNum": "9,6<small>/10</small>",
+    "stat1": "Appartamenti indipendenti a due indirizzi",
+    "stat2": "A piedi dalla spiaggia di Donje Petrčane",
+    "stat2Num": "~10 min",
     "stat3": "Di auto fino al centro di Zara",
     "stat3Num": "15 min"
   },
@@ -20,8 +23,8 @@
       "t": "Aria condizionata"
     },
     "beach": {
-      "d": "Una decina di minuti di passeggiata tranquilla fino alla spiaggia di Donje Petrčane, senza attraversare strade trafficate.",
-      "t": "Spiaggia a 800 m"
+      "d": "Da entrambi gli appartamenti la spiaggia di Donje Petrčane è a una decina di minuti a piedi; la spiaggia di Punta Radman è ancora più vicina a Mare.",
+      "t": "Spiaggia a dieci minuti"
     },
     "eyebrow": "Servizi",
     "h2": "Quello che hanno entrambi gli appartamenti",
@@ -34,7 +37,7 @@
       "t": "Spazio esterno privato"
     },
     "parking": {
-      "d": "Posto auto proprio in cortile, davanti all'ingresso — senza girare per il paese a cercarlo.",
+      "d": "Posto auto privato gratuito presso ciascun appartamento — senza girare per il paese a cercarlo.",
       "t": "Parcheggio gratuito"
     },
     "wifi": {

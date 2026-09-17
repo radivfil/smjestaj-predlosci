@@ -1,20 +1,21 @@
 {
   "know": {
     "h3": "Buono a sapersi",
-    "k1": "<strong>Gli orari di arrivo e partenza</strong> si concordano in anticipo — diteci a che ora contate di arrivare e ci organizziamo.",
+    "k1": "<strong>Arrivo</strong> dalle 15:00 (Mare) o dalle 16:00 (Gumbek), <strong>partenza</strong> entro le 11:00 — arrivate prima o dopo? Fatecelo sapere e ci organizziamo.",
     "k2": "Arrivate in aereo? L'aeroporto di Zara è a circa <strong>25 minuti</strong> di auto, la stazione degli autobus e il porto dei traghetti di Zara a circa <strong>15 minuti</strong>.",
-    "k3": "Il parcheggio è <strong>gratuito</strong> e si trova nel cortile della casa — un posto per appartamento.",
+    "k3": "Il parcheggio è <strong>gratuito</strong> e privato — un posto presso ciascun appartamento.",
     "k4": "Biancheria da letto, asciugamani e pulizia finale sono <strong>inclusi</strong> nel prezzo, non si pagano a parte.",
     "k5": "Vi serve qualcosa durante il soggiorno? <strong>Chiamateci</strong> — rispondiamo e risolviamo in giornata."
   },
   "loc": {
-    "addr": "<strong>Petrčane IX 2a</strong>, 23231 Petrčane",
+    "addrGumbek": "<strong>Appartamento Gumbek</strong><br />Petrčane XI 2b, Donje Petrčane, 23231",
+    "addrMare": "<strong>Appartamento Mare</strong><br />Petrčane IX 2a, 23231 Petrčane",
     "cta": "Verificate la disponibilità per le vostre date",
     "eyebrow": "Posizione",
     "h2": "Petrčane — dodici chilometri da Zara",
     "lead": "Petrčane è un paese tranquillo della riviera di Zara: un porticciolo con le barche, una pineta, qualche konoba e spiagge di ghiaia. Abbastanza vicino da prendere il caffè del mattino nel centro storico di Zara, abbastanza defilato da sentire, la sera, soltanto i grilli.",
     "mapTitle": "Petrčane sulla mappa — Appartamenti Mare e Gumbek",
-    "n1": "<strong>Spiaggia di Donje Petrčane</strong> — 800 m, circa 9 minuti a piedi",
+    "n1": "<strong>Spiagge di Donje Petrčane e Punta Radman</strong> — una decina di minuti a piedi",
     "n2": "<strong>Porticciolo e lungomare di Petrčane</strong> — pochi minuti a piedi, konobe sul mare",
     "n3": "<strong>Centro di Zara e Organo del mare</strong> — 12 km, circa 20 minuti di auto",
     "n4": "<strong>Aeroporto di Zara</strong> — 23 km, circa 25 minuti di auto",
@@ -44,7 +45,7 @@
     },
     "x1": "<strong>Incluso nel prezzo</strong> Biancheria da letto e asciugamani, pulizia finale, acqua ed elettricità, aria condizionata, parcheggio e Wi-Fi.",
     "x2": "<strong>Tassa di soggiorno</strong> Si calcola a parte, secondo la normativa in vigore — diteci quanti ospiti siete e la loro età e faremo il conto esatto.",
-    "x3": "<strong>Tutta la casa</strong> Prendete entrambi gli appartamenti? Scrivetelo nella richiesta — per una prenotazione unica prepariamo una sola offerta.",
+    "x3": "<strong>Entrambi gli appartamenti</strong> Viaggiate con più famiglie? Scrivete nella richiesta che li volete entrambi — inviamo un'unica offerta per tutti e due.",
     "x4": "<strong>Bambini</strong> Sono i benvenuti. Scriveteci quanti sono e che età hanno, così vi proponiamo la sistemazione dei letti."
   },
   "steps": {
@@ -60,21 +61,21 @@
       "t": "Ricevete l'offerta"
     },
     "s3": {
-      "d": "Dopo la vostra conferma concordiamo l'ora di arrivo e inviamo tutte le indicazioni — l'indirizzo è Petrčane IX 2a.",
+      "d": "Dopo la vostra conferma concordiamo l'ora di arrivo e inviamo tutte le indicazioni con l'indirizzo esatto del vostro appartamento.",
       "t": "Conferma e indicazioni"
     },
     "s4": {
-      "d": "Parcheggiate nel vostro posto in cortile e ritirate le chiavi da noi, all'ora concordata in anticipo.",
+      "d": "Parcheggiate nel posto gratuito presso il vostro appartamento e ritirate le chiavi da noi, all'ora concordata in anticipo.",
       "t": "Arrivo e chiavi"
     }
   },
   "who": {
     "eyebrow": "Per chi sono",
     "h2": "Chi si trova meglio da noi",
-    "lead": "Due appartamenti nella stessa casa risolvono quello che un unico grande appartamento non può: stare insieme quando lo si desidera, avere silenzio quando serve.",
+    "lead": "Due appartamenti indipendenti nello stesso paese, ognuno con il suo carattere — così è facile scegliere quello giusto per voi.",
     "p1": {
-      "d": "Lo scenario più frequente. I bambini giocano tutto il giorno in cortile, la cena si fa insieme sulla terrazza dell'appartamento Mare e poi ognuno rientra dalla propria porta. Senza dividere il bagno e senza mettere d'accordo gli orari.",
-      "t": "Due famiglie insieme",
+      "d": "Viaggiate insieme ma ognuno vuole la sua tranquillità? Prendete entrambi. Ogni famiglia ha il suo appartamento al suo indirizzo — con cucina, bagno e posto auto propri — mentre le spiagge e le konobe di Petrčane sono comunque di tutti.",
+      "t": "Due famiglie, due appartamenti",
       "u": "Mare + Gumbek"
     },
     "p2": {

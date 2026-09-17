@@ -1,16 +1,19 @@
 {
   "about": {
-    "badge": "apartmana, ista zgrada",
+    "badge": "apartmana u Petrčanima",
     "eyebrow": "O nama",
-    "h2": "Dva apartmana, jedna zgrada, dovoljno mjesta za sve.",
+    "h2": "Dva apartmana, dvije adrese, jedno mirno mjesto uz more.",
     "imgAlt": "Petrčane iz zraka — tirkizni zaljev s marinom, mjesto, vinogradi i Velebit u pozadini",
-    "lead": "Mare i Gumbek dva su samostalna apartmana u istoj zgradi u Petrčanima, mirnom mjestu na zadarskoj rivijeri. Svaki ima vlastiti ulaz, kuhinju, kupaonicu, klimu i svoj vanjski prostor — Mare vrt i veliku natkrivenu terasu, Gumbek balkon i dvije etaže.",
-    "p2": "Zato ih najčešće uzimaju dvije obitelji ili grupe prijatelja koje putuju zajedno: djeca se igraju u dvorištu, večera je zajednička na terasi, a kad dan završi, svatko se vrati u svoj apartman. Nema recepcije, nema hodnika, nema susjeda s druge strane tankog zida — samo dva zaključana vrata i dva odmora koja se ne moraju usklađivati.",
-    "p3": "Možete, naravno, uzeti i samo jedan. Oba su opremljena za normalno ljetovanje, ne za razgledavanje: perilica posuđa, ploča za kuhanje, aparat za kavu, TV, brzi Wi-Fi i besplatno parkirno mjesto u dvorištu.",
-    "score": "Ukupna ocjena gostiju na Booking.comu<br /><small>Za apartman Mare, na temelju 5 recenzija gostiju nakon boravka.</small>",
-    "stat1": "Odvojena apartmana u istoj zgradi",
-    "stat2": "Do plaže Donje Petrčane",
-    "stat2Num": "800 m",
+    "lead": "Mare i Gumbek dva su samostalna apartmana u Petrčanima, mirnom mjestu na zadarskoj rivijeri — svaki na svojoj adresi. Svaki ima vlastiti ulaz, kuhinju, klimu, besplatno parkirno mjesto i svoj vanjski prostor: Mare vrt i veliku natkrivenu terasu, Gumbek balkon i dvije etaže.",
+    "p2": "Mare je apartman u prizemlju, bez stepenica, s vrtom i terasom na kojoj se ljeti zapravo živi — dobar izbor za obitelji s malom djecom. Gumbek je na dvije etaže, sa spavaćim dijelom gore i dvije kupaonice, pa odgovara parovima, prijateljima ili obitelji koja voli malo više prostora. Nema recepcije ni hodnika — cijeli apartman je samo vaš.",
+    "p3": "Putujete s više obitelji? Možete uzeti oba — u istom su mjestu, a za zajednički upit šaljemo jednu ponudu. Oba su opremljena za pravo ljetovanje: perilica posuđa, ploča za kuhanje, aparat za kavu, TV, brzi Wi-Fi i besplatno parkirno mjesto.",
+    "scoreGumbek": "Apartman Gumbek na Booking.comu<br /><small>9 recenzija gostiju nakon boravka</small>",
+    "scoreGumbekNum": "9,3<small>/10</small>",
+    "scoreMare": "Apartman Mare na Booking.comu<br /><small>6 recenzija gostiju nakon boravka</small>",
+    "scoreMareNum": "9,6<small>/10</small>",
+    "stat1": "Samostalna apartmana na dvije adrese",
+    "stat2": "Hoda do plaže Donje Petrčane",
+    "stat2Num": "~10 min",
     "stat3": "Vožnje do centra Zadra",
     "stat3Num": "15 min"
   },
@@ -20,8 +23,8 @@
       "t": "Klima"
     },
     "beach": {
-      "d": "Desetak minuta lagane šetnje do plaže Donje Petrčane, bez prelaska prometnice.",
-      "t": "Plaža na 800 m"
+      "d": "Od oba apartmana desetak minuta šetnje do plaže Donje Petrčane; plaža Punta Radman još je bliža apartmanu Mare.",
+      "t": "Plaža na desetak minuta"
     },
     "eyebrow": "Sadržaji",
     "h2": "Ono što oba apartmana imaju",
@@ -34,7 +37,7 @@
       "t": "Vlastiti vanjski prostor"
     },
     "parking": {
-      "d": "Vlastito mjesto u dvorištu, pred ulazom — ne tražite mjesto po mjestu.",
+      "d": "Besplatno privatno parkirno mjesto uz svaki apartman — ne tražite mjesto po mjestu.",
       "t": "Besplatan parking"
     },
     "wifi": {

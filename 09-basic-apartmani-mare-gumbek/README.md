@@ -1,7 +1,7 @@
 # Apartmani Mare i Gumbek — Petrčane
 
-Jednostranična prezentacija dvaju apartmana u istoj zgradi u Petrčanima
-(Zadarska županija). Samostalni `index.html` — bez build koraka, bez vanjskih
+Jednostranična prezentacija dvaju samostalnih apartmana na **dvije različite
+adrese** u Petrčanima (Zadarska županija). Samostalni `index.html` — bez build koraka, bez vanjskih
 biblioteka. Jedine vanjske ovisnosti su Google Fonts (Newsreader + Inter) i
 OpenStreetMap iframe za kartu.
 
@@ -11,21 +11,27 @@ OpenStreetMap iframe za kartu.
 
 | | Apartman Mare | Apartman Gumbek |
 | --- | --- | --- |
-| Booking oglas | „Mare 9 Cozy Two Bedroom Apartment with Garden" | „Gumbek11, Two Story, Two-Bedroom Apartment by the Sea" |
+| Adresa | Petrčane IX 2a, 23231 Petrčane | Petrčane XI 2b, Donje Petrčane, 23231 |
+| Koordinate | 44.1876084, 15.1589194 | 44.1877195, 15.1609829 |
+| Booking oglas | „Mare 9 Cozy Apartment with Garden" | „Gumbek11, Two Story, Two-Bedroom Apartment by the Sea" |
+| Ocjena (17.09.2026.) | 9,6 — 6 recenzija | 9,3 — 9 recenzija |
+| Prijava / odjava | od 15:00 / do 11:00 | od 16:00 / do 11:00 |
+| Parking | besplatan, privatan, uz objekt | besplatan, privatan, uz objekt |
 | Etaža | prizemlje, bez stepenica | dvije etaže, spiralno stubište |
 | Spavaonice | 2 | 2 |
 | Kapacitet | do 6 *(procjena)* | do 4 *(procjena)* |
 | Vanjski prostor | vrt + natkrivena terasa s vanjskom kuhinjom i kamenim kaminom | balkon s tendom |
 | Posebno | perilica rublja, ravnina s dvorištem | pogled na more, spavaonice pod krovnim prozorom |
 
-Zajedničko: klima, besplatan parking u dvorištu, Wi-Fi, puna kuhinja
-(pećnica, ploča, perilica posuđa, mikrovalna, aparat za kavu), TV.
-Plaža Donje Petrčane 800 m (~9 min hoda), centar Zadra 12 km.
+Oba apartmana imaju: klimu, besplatno privatno parkirno mjesto, Wi-Fi, punu
+kuhinju (pećnica, ploča, perilica posuđa, mikrovalna, aparat za kavu), TV.
+Plaža Donje Petrčane 9–11 min hoda od oba, Punta Radman 700 m od Mare, centar
+Zadra 12 km. Koordinate, ocjene i vremena prijave preuzeti su s Booking oglasa.
 
 ## Sadržaj stranice
 
 - Hero s fotografijom zgrade + brza traka upita (dolazak / odlazak / gosti)
-- **O nama** — jedinstven uvod: dva apartmana, ista zgrada, zajedno ili odvojeno
+- **O nama** — dva samostalna apartmana na dvije adrese, jedan ili oba
 - **2 apartmana** — Mare i Gumbek, svaki s vlastitim fotografijama i CTA-om
 - Sadržaji, **cijena na upit** (bez fiksnog cjenika), galerija s lightboxom
 - **Za koga su** — tri profila gostiju umjesto recenzija
@@ -50,13 +56,15 @@ Detalji, uređivanje baze znanja i uključivanje pravog Claude API-ja:
 
 | Datoteka | Gdje se koristi |
 | --- | --- |
-| `zgrada.jpg` | **hero pozadina** |
+| `zgrada.jpg` | kuća apartmana Mare s ulice — trenutno se ne koristi |
 | `petrcane-zaljev-dron.jpg` | sekcija O nama, og:image, thumbnail u portfelju |
 | `petrcane-luka-dron.jpg` | sekcija Lokacija + galerija |
 | `mare/mare-07-vrt.jpg` | suptilna pozadinska tekstura (`body::before`, 5.5 % opacity) |
 
-`gumbek/gumbek-06-zgrada.jpg` **nije** referenciran — prikazuje fasadu koja se
-razlikuje od one na `zgrada.jpg`. Vidi napomenu pri dnu.
+Nekadašnja mapa `images/zajednicko/` je ukinuta — lokacije nisu povezane:
+`mare-08-kuca`, `mare-09-terasa-kamin` i `mare-10-terasa-vrt` su kuća i terasa
+apartmana Mare, a dronske snimke su u `images/petrcane/`. Galerija ima tri
+seta: Mare, Gumbek i Petrčane.
 
 ## Što treba zamijeniti prije predaje klijentu
 
@@ -65,13 +73,13 @@ Sve je označeno komentarom `✏️` u `index.html`:
 | Što | Gdje | Status |
 | --- | --- | --- |
 | Telefon `+385 98 751 522` | kontakt, footer, sticky traka | ✅ postavljen |
-| Adresa `Petrčane IX 2a, 23231 Petrčane` | kontakt, footer, ispod karte | ✅ postavljena |
+| Adrese (Mare IX 2a, Gumbek XI 2b) | kartice apartmana, lokacija, kontakt, footer | ✅ postavljene |
 | `FORMSPREE_ID` | dno `<script>`, konstanta na vrhu IIFE-a | ❌ prazan — vidi niže |
 | E-mail `info@mare-gumbek.hr` | kontakt, footer, `KONTAKT_MAIL` u skripti | ❌ domena ne postoji — vidi niže |
 | WhatsApp `wa.me/38598751522` | kontakt, footer, sticky traka, poruka o grešci | ✅ aktivan |
-| Koordinate karte | `bbox` i `marker` u OSM `<iframe>` | ⚠️ marker na centru naselja |
+| Koordinate | navigacijski linkovi | ✅ s Booking oglasa |
 | Kapacitet apartmana | `.unit-specs` u obje kartice | ⚠️ procjena s fotografija |
-| Vrijeme prijave/odjave | `.checkin-note` | ⚠️ piše „dogovaramo unaprijed" |
+| Vrijeme prijave/odjave | `.checkin-note` | ✅ s Booking oglasa |
 | Recenzije | maknute | vratiti kad stignu prave s Bookinga |
 
 ## WhatsApp
@@ -131,24 +139,23 @@ Ugrađena zaštita od spama: honeypot polje `_gotcha` (pomaknuto izvan ekrana, n
 `display:none`, jer neki botovi preskaču skrivena polja). Naslov e-maila
 (`_subject`) skripta prije slanja popuni terminom, jedinicom i brojem gostiju.
 
-## Ocjena s Booking.coma
+## Ocjene s Booking.coma
 
-U sekciji **O nama** stoji **ukupna ocjena gostiju 10/10**, na temelju 5
-recenzija. Odnosi se na oglas „Mare 9 Cozy Apartment with Garden" — atribucija
-to navodi jer Gumbek ima svoj zaseban oglas i svoju ocjenu.
+Svaki apartman ima svoj oglas i svoju ocjenu, pa se u sekciji **O nama**
+prikazuju odvojeno: **Mare 9,6** (6 recenzija), **Gumbek 9,3** (9 recenzija),
+stanje 17.09.2026. Kad se promijene, ažurirati `.score` blok u `#about` i
+oznaku `hero.tag2`.
 
-Ako se ocjena promijeni, ažurirati na dva mjesta: `.score` blok u `#about` i
-oznaku u `.hero__tags`.
+## Lokacije: dvije adrese, ne jedna zgrada
 
-## Otvoreno pitanje: jedna zgrada ili dvije
+Ranija verzija stranice tvrdila je da su apartmani u istoj zgradi. To je
+**pogrešno** — Mare je na Petrčane IX 2a, a Gumbek na Petrčane XI 2b (Donje
+Petrčane). Fotografije to potvrđuju: `zgrada.jpg` i `mare-08-kuca.jpg` su kuća
+sa zaobljenim balkonima i kamenim kaminom (Mare), a `gumbek-06-zgrada.jpg` bijela
+stambena zgrada s tendama (Gumbek).
 
-Uvodni tekst tvrdi da su oba apartmana **u istoj zgradi** — tako je potvrdio
-klijent. Fotografije to ne potvrđuju: `images/zgrada.jpg` (iz mape Mare)
-prikazuje zgradu sa zaobljenim balkonskim erkerom i kosim crijepnim krovom, a
-`images/gumbek/gumbek-06-zgrada.jpg` blokastu bijelu zgradu s metalnim ogradama
-i tendama. Zato je na stranici prikazana samo prva. Ako se pokaže da su ipak
-dvije susjedne zgrade, treba prilagoditi uvod u sekciji „O nama", hero podnaslov
-i sekciju „Za koga su".
+⚠️ Chatbot (`chatbot/knowledge.md` i demo odgovori u `chatbot/widget.js`) još
+tvrdi „ista zgrada" — ispravlja se zasebno, nakon sastanka s klijentom.
 
 ## Čitljivost teksta nad slikom
 

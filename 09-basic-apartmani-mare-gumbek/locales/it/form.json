@@ -1,6 +1,6 @@
 {
   "form": {
-    "addr": "Appartamenti Mare e Gumbek<br /><strong>Petrčane IX 2a</strong><br />23231 Petrčane, Croazia",
+    "addr": "<strong>Appartamento Mare</strong> — Petrčane IX 2a<br /><strong>Appartamento Gumbek</strong> — Petrčane XI 2b, Donje Petrčane<br />23231 Petrčane, Croazia",
     "checkin": "Data di arrivo <span class=\"req\">*</span>",
     "checkinErr": "Scegliete la data di arrivo.",
     "checkout": "Data di partenza <span class=\"req\">*</span>",
@@ -29,7 +29,8 @@
     "messagePh": "Arriviamo in auto e con noi c'è un bambino di tre anni. Vorremmo sapere se c'è un lettino e quanto dista la spiaggia…",
     "name": "Nome e cognome <span class=\"req\">*</span>",
     "nameErr": "Inserite nome e cognome.",
-    "navLink": "Apri nel navigatore →",
+    "navGumbek": "Indicazioni per Gumbek →",
+    "navMare": "Indicazioni per Mare →",
     "note": "Rispondiamo di norma in giornata. Utilizziamo i vostri dati unicamente per rispondere alla richiesta e non li trasmettiamo a terzi.",
     "ok": "Grazie per la richiesta! L'abbiamo ricevuta e vi risponderemo al più presto con un'offerta.",
     "submit": "Invia la richiesta",

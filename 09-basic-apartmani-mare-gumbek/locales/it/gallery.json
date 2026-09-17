@@ -1,16 +1,17 @@
 {
   "gal": {
     "eyebrow": "Galleria",
-    "h2": "La casa, la terrazza e i dintorni",
+    "gumbekH": "Appartamento Gumbek",
+    "h2": "Gli appartamenti e Petrčane da vicino",
     "i1": {
-      "alt": "La casa con gli appartamenti Mare e Gumbek — facciata bianca, balconi e cortile pavimentato con parcheggio",
-      "aria": "Ingrandisci la foto: la casa e il cortile con parcheggio",
-      "cap": "La casa e il cortile con parcheggio"
+      "alt": "La casa dove si trova l'appartamento Mare — giardino, terrazza coperta al piano terra e cortile pavimentato con parcheggio",
+      "aria": "Ingrandisci la foto: la casa con l'appartamento Mare e il cortile",
+      "cap": "La casa con l'appartamento Mare e il cortile"
     },
     "i10": {
-      "alt": "Giardino curato con piante mediterranee e lastre di pietra davanti alla casa",
-      "aria": "Ingrandisci la foto: il giardino davanti alla casa",
-      "cap": "Il giardino davanti alla casa"
+      "alt": "Il giardino curato dell'appartamento Mare con piante mediterranee e lastre di pietra",
+      "aria": "Ingrandisci la foto: il giardino dell'appartamento Mare",
+      "cap": "Il giardino dell'appartamento Mare"
     },
     "i11": {
       "alt": "Il paese di Petrčane dall'alto — case, uliveti e vigneti, il Velebit sullo sfondo",
@@ -22,10 +23,23 @@
       "aria": "Ingrandisci la foto: il bagno dell'appartamento Mare",
       "cap": "Il bagno dell'appartamento Mare"
     },
+    "i13": {
+      "alt": "L'edificio residenziale bianco a Donje Petrčane in cui si trova l'appartamento Gumbek — balconi con tende e parcheggio davanti",
+      "aria": "Ingrandisci la foto: l'edificio in cui si trova l'appartamento Gumbek",
+      "cap": "L'edificio in cui si trova l'appartamento Gumbek"
+    },
+    "i14": {
+      "aria": "Ingrandisci la foto: la baia e il porticciolo di Petrčane dall'alto",
+      "cap": "La baia e il porticciolo di Petrčane dall'alto"
+    },
+    "i15": {
+      "aria": "Ingrandisci la foto: il soggiorno dell'appartamento Gumbek",
+      "cap": "Il soggiorno dell'appartamento Gumbek"
+    },
     "i2": {
-      "alt": "La terrazza coperta comune con camino in pietra per la griglia, lavello esterno e tavolo per sei",
-      "aria": "Ingrandisci la foto: terrazza coperta con camino in pietra",
-      "cap": "Terrazza coperta con camino in pietra"
+      "alt": "La terrazza coperta dell'appartamento Mare con camino in pietra per la griglia, lavello esterno e tavolo per sei",
+      "aria": "Ingrandisci la foto: la terrazza dell'appartamento Mare con camino in pietra",
+      "cap": "La terrazza dell'appartamento Mare con camino in pietra"
     },
     "i3": {
       "alt": "La terrazza coperta dell'appartamento Mare con tavolo per sei e cucina esterna",
@@ -43,9 +57,9 @@
       "cap": "Il soggiorno dell'appartamento Mare"
     },
     "i6": {
-      "alt": "Terrazza coperta con vista sul giardino curato e sulle aiuole in pietra",
-      "aria": "Ingrandisci la foto: terrazza con vista sul giardino",
-      "cap": "Terrazza con vista sul giardino"
+      "alt": "La terrazza coperta dell'appartamento Mare affacciata sul giardino curato e sulle aiuole in pietra",
+      "aria": "Ingrandisci la foto: vista dalla terrazza di Mare sul giardino",
+      "cap": "Vista dalla terrazza di Mare sul giardino"
     },
     "i7": {
       "alt": "Appartamento Gumbek — balcone con tenda da sole, tavolo e quattro sedie",
@@ -62,6 +76,8 @@
       "aria": "Ingrandisci la foto: la cucina dell'appartamento Gumbek",
       "cap": "La cucina dell'appartamento Gumbek"
     },
-    "lead": "Lo spazio comune dei due appartamenti — la terrazza coperta con il camino in pietra, il giardino, il cortile con il parcheggio e Petrčane vista dall'alto. Cliccate una foto qualsiasi; con le frecce o con un tocco scorrete l'intera serie."
+    "lead": "Le foto sono divise per appartamento — Mare con giardino e terrazza, Gumbek a Donje Petrčane — più il paese visto dall'alto. Cliccate una foto qualsiasi; con le frecce o con un tocco scorrete quella serie.",
+    "mareH": "Appartamento Mare",
+    "placeH": "Petrčane dall'alto"
   }
 }

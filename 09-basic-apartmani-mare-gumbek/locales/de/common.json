@@ -15,8 +15,8 @@
     "inquiry": "Anfrage senden"
   },
   "foot": {
-    "about": "Zwei getrennte Apartments im selben Haus in Petrčane. Garten und Terrasse, Balkon, Klimaanlage und kostenloser Parkplatz — der Strand liegt 800 m entfernt.",
-    "addr": "Petrčane IX 2a<br />23231 Petrčane, Kroatien",
+    "about": "Zwei eigenständige Apartments in Petrčane bei Zadar — Mare mit Garten und Terrasse, Gumbek auf zwei Etagen. Klimaanlage, kostenloser Parkplatz, Strand rund zehn Minuten zu Fuß.",
+    "addr": "Mare: Petrčane IX 2a<br />Gumbek: Petrčane XI 2b<br />23231 Petrčane, Kroatien",
     "amen": "Ausstattung",
     "brand": "Mare & Gumbek",
     "checkin": "Anreise",
@@ -62,11 +62,11 @@
     "prev": "Vorheriges Foto"
   },
   "meta": {
-    "desc": "Apartments Mare und Gumbek — zwei getrennte Apartments im selben Haus in Petrčane bei Zadar. Garten und Terrasse, Balkon, Klimaanlage, kostenloser Parkplatz, Strand in 800 m. Buchung auf Anfrage, ohne Provision.",
-    "ogDesc": "Zwei Apartments im selben Haus in Petrčane. Garten, Terrasse und Balkon, Klimaanlage, kostenloser Parkplatz, Strand in 800 m. Zadar 12 km.",
+    "desc": "Die Apartments Mare & Gumbek bieten gemütliche Unterkünfte in Petrčane bei Zadar, nah am Meer, mit Gratis-Parkplatz und der ganzen Wohnung für sich.",
+    "ogDesc": "Zwei eigenständige Apartments an zwei Adressen in Petrčane: Mare mit Garten und Terrasse, Gumbek auf zwei Etagen. Kostenloser Parkplatz, Strand rund zehn Minuten zu Fuß.",
     "ogImageAlt": "Petrčane aus der Luft — türkisfarbene Bucht mit Marina und der Ort am Meer",
     "ogTitle": "Apartments Mare & Gumbek — Petrčane bei Zadar",
-    "title": "Apartments Mare & Gumbek — Ferienwohnungen in Petrčane bei Zadar"
+    "title": "Apartments Mare & Gumbek | Ferienwohnungen in Petrčane bei Zadar"
   },
   "mobile": {
     "call": "Anrufen",

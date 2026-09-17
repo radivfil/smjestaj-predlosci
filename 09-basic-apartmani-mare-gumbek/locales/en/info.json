@@ -1,20 +1,21 @@
 {
   "know": {
     "h3": "Good to know",
-    "k1": "<strong>Check-in and check-out times</strong> are agreed in advance — tell us when you expect to arrive and we will fit around you.",
+    "k1": "<strong>Check-in</strong> from 15:00 (Mare) or 16:00 (Gumbek), <strong>check-out</strong> by 11:00 — arriving earlier or later? Let us know and we will adjust.",
     "k2": "Flying in? Zadar Airport is about <strong>25 minutes</strong> away by car, and the bus and ferry port in Zadar about <strong>15 minutes</strong>.",
-    "k3": "Parking is <strong>free</strong> and sits in the courtyard of the house — one space per apartment.",
+    "k3": "Parking is <strong>free</strong> and private — one space at each apartment.",
     "k4": "Bed linen, towels and the final cleaning are <strong>included</strong> in the price; there is nothing extra to pay.",
     "k5": "Need something during your stay? <strong>Give us a call</strong> — we answer and sort it out the same day."
   },
   "loc": {
-    "addr": "<strong>Petrčane IX 2a</strong>, 23231 Petrčane",
+    "addrGumbek": "<strong>Apartment Gumbek</strong><br />Petrčane XI 2b, Donje Petrčane, 23231",
+    "addrMare": "<strong>Apartment Mare</strong><br />Petrčane IX 2a, 23231 Petrčane",
     "cta": "Check availability for your dates",
     "eyebrow": "Location",
     "h2": "Petrčane — twelve kilometres from Zadar",
     "lead": "Petrčane is a quiet village on the Zadar riviera: a harbour with small boats, a pine wood, a handful of taverns and pebble beaches. Close enough for morning coffee in the old town of Zadar, far enough aside that in the evening you hear only the crickets.",
     "mapTitle": "Petrčane on the map — Apartments Mare & Gumbek",
-    "n1": "<strong>Donje Petrčane beach</strong> — 800 m, about a 9-minute walk",
+    "n1": "<strong>Donje Petrčane and Punta Radman beaches</strong> — about a ten-minute walk",
     "n2": "<strong>Petrčane harbour and seafront</strong> — a few minutes on foot, taverns by the sea",
     "n3": "<strong>Zadar centre and the Sea Organ</strong> — 12 km, about a 20-minute drive",
     "n4": "<strong>Zadar Airport</strong> — 23 km, about a 25-minute drive",
@@ -44,7 +45,7 @@
     },
     "x1": "<strong>Included in the price</strong> Bed linen and towels, the final cleaning, water and electricity, air conditioning, parking and Wi-Fi.",
     "x2": "<strong>Tourist tax</strong> Charged separately, at the current official rate — tell us how many guests are coming and their ages and we will work it out exactly.",
-    "x3": "<strong>The whole house</strong> Taking both apartments? Say so in your enquiry — for a joint booking we make you one offer.",
+    "x3": "<strong>Both apartments</strong> Travelling with more than one family? Say in your enquiry that you would like both — we send one offer for the two.",
     "x4": "<strong>Children</strong> Very welcome. Tell us how many are coming and how old they are so we can suggest how to arrange the beds."
   },
   "steps": {
@@ -60,21 +61,21 @@
       "t": "You receive an offer"
     },
     "s3": {
-      "d": "Once you confirm, we agree your arrival time and send all the directions — the address is Petrčane IX 2a.",
+      "d": "Once you confirm, we agree your arrival time and send all the directions with the exact address of your apartment.",
       "t": "Confirmation and directions"
     },
     "s4": {
-      "d": "You park in your own space in the courtyard and collect the keys from us at a time we agree beforehand.",
+      "d": "You park in the free space at your apartment and collect the keys from us at a time we agree beforehand.",
       "t": "Arrival and keys"
     }
   },
   "who": {
     "eyebrow": "Who it suits",
     "h2": "Who settles in best with us",
-    "lead": "Two apartments in the same house solve something one large apartment cannot: company when you want it, quiet when you need it.",
+    "lead": "Two independent apartments in the same village, each with its own character — so it is easy to pick the one that suits you.",
     "p1": {
-      "d": "The most common arrangement. The children play in the courtyard all day, dinner is shared on the terrace of apartment Mare, and afterwards everyone goes through their own door. No sharing a bathroom, no coordinating schedules.",
-      "t": "Two families together",
+      "d": "Travelling together, but everyone wants their own peace? Book both. Each family gets its own apartment at its own address — its own kitchen, bathroom and parking space — while the beaches and taverns of Petrčane are there for everyone.",
+      "t": "Two families, two apartments",
       "u": "Mare + Gumbek"
     },
     "p2": {

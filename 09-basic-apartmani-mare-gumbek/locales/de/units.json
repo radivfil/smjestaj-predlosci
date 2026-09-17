@@ -1,16 +1,19 @@
 {
   "about": {
-    "badge": "Apartments, ein Haus",
+    "badge": "Apartments in Petrčane",
     "eyebrow": "Über uns",
-    "h2": "Zwei Apartments, ein Haus, genug Platz für alle.",
+    "h2": "Zwei Apartments, zwei Adressen, ein ruhiger Ort am Meer.",
     "imgAlt": "Petrčane aus der Luft — türkisfarbene Bucht mit Marina, der Ort, Weinberge und der Velebit im Hintergrund",
-    "lead": "Mare und Gumbek sind zwei eigenständige Apartments im selben Haus in Petrčane, einem ruhigen Ort an der Riviera von Zadar. Jedes hat einen eigenen Eingang, eine eigene Küche, ein eigenes Bad, Klimaanlage und einen eigenen Außenbereich — Mare Garten und große überdachte Terrasse, Gumbek Balkon und zwei Etagen.",
-    "p2": "Deshalb buchen sie meist zwei Familien oder Freundesgruppen, die zusammen reisen: Die Kinder spielen im Hof, das Abendessen gibt es gemeinsam auf der Terrasse, und wenn der Tag zu Ende geht, geht jeder in sein eigenes Apartment. Keine Rezeption, keine Flure, keine Nachbarn hinter einer dünnen Wand — nur zwei abschließbare Türen und zwei Urlaube, die nicht aufeinander abgestimmt werden müssen.",
-    "p3": "Selbstverständlich können Sie auch nur eines nehmen. Beide sind für einen richtigen Urlaub ausgestattet, nicht für einen kurzen Blick: Geschirrspüler, Kochfeld, Kaffeemaschine, TV, schnelles WLAN und ein kostenloser Stellplatz im Hof.",
-    "score": "Gesamtbewertung der Gäste auf Booking.com<br /><small>Für das Apartment Mare, auf Grundlage von 5 Gästebewertungen nach dem Aufenthalt.</small>",
-    "stat1": "Getrennte Apartments im selben Haus",
-    "stat2": "Zum Strand Donje Petrčane",
-    "stat2Num": "800 m",
+    "lead": "Mare und Gumbek sind zwei eigenständige Apartments in Petrčane, einem ruhigen Ort an der Riviera von Zadar — jedes an seiner eigenen Adresse. Jedes hat einen eigenen Eingang, eine eigene Küche, Klimaanlage, einen kostenlosen Stellplatz und einen eigenen Außenbereich: Mare Garten und große überdachte Terrasse, Gumbek Balkon und zwei Etagen.",
+    "p2": "Mare liegt im Erdgeschoss, ohne Stufen, mit Garten und einer Terrasse, auf der sich im Sommer das Leben abspielt — eine gute Wahl für Familien mit kleinen Kindern. Gumbek erstreckt sich über zwei Etagen, mit dem Schlafbereich oben und zwei Bädern, und passt zu Paaren, Freunden oder Familien, die etwas mehr Platz mögen. Keine Rezeption, keine Flure — das ganze Apartment gehört Ihnen.",
+    "p3": "Sie reisen mit mehreren Familien? Buchen Sie beide — sie liegen im selben Ort, und für eine gemeinsame Anfrage schicken wir ein Angebot. Beide sind für einen richtigen Urlaub ausgestattet: Geschirrspüler, Kochfeld, Kaffeemaschine, TV, schnelles WLAN und ein kostenloser Stellplatz.",
+    "scoreGumbek": "Apartment Gumbek auf Booking.com<br /><small>9 Bewertungen von Gästen nach ihrem Aufenthalt</small>",
+    "scoreGumbekNum": "9,3<small>/10</small>",
+    "scoreMare": "Apartment Mare auf Booking.com<br /><small>6 Bewertungen von Gästen nach ihrem Aufenthalt</small>",
+    "scoreMareNum": "9,6<small>/10</small>",
+    "stat1": "Eigenständige Apartments an zwei Adressen",
+    "stat2": "Zu Fuß zum Strand Donje Petrčane",
+    "stat2Num": "~10 Min.",
     "stat3": "Fahrt ins Zentrum von Zadar",
     "stat3Num": "15 Min."
   },
@@ -20,8 +23,8 @@
       "t": "Klimaanlage"
     },
     "beach": {
-      "d": "Gut zehn Minuten gemütlich zu Fuß bis zum Strand Donje Petrčane, ohne eine Hauptstraße zu queren.",
-      "t": "Strand in 800 m"
+      "d": "Von beiden Apartments sind es rund zehn Minuten zu Fuß zum Strand Donje Petrčane; der Strand Punta Radman liegt noch näher an Mare.",
+      "t": "Strand in zehn Minuten"
     },
     "eyebrow": "Ausstattung",
     "h2": "Was beide Apartments haben",
@@ -34,7 +37,7 @@
       "t": "Eigener Außenbereich"
     },
     "parking": {
-      "d": "Eigener Stellplatz im Hof, direkt vor dem Eingang — kein Suchen im Ort.",
+      "d": "Kostenloser privater Stellplatz am jeweiligen Apartment — kein Suchen im Ort.",
       "t": "Kostenloser Parkplatz"
     },
     "wifi": {
