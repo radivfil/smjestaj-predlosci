@@ -554,6 +554,10 @@
   .unit-ask p { font-size: .87rem; color: var(--text-muted); margin-top: .3rem; }
   .unit-card__body .btn { margin-top: auto; }
 
+  /* Karta lokacije unutar kartice apartmana */
+  .unit-map { border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border); background: var(--surface-2); }
+  .unit-map iframe { display: block; width: 100%; height: 220px; border: 0; }
+
   /* ============================================================
      8. SADRŽAJI
      ============================================================ */
@@ -696,16 +700,16 @@
   .location__grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
   .location__grid > * { min-width: 0; }
   .nearby li span { min-width: 0; overflow-wrap: break-word; }
-  /* Dronska fotografija + karta jedna iznad druge; svaka je svoja kartica */
+  /* Dronska fotografija i dvije adrese s navigacijom. Karte s pinovima su
+     u karticama apartmana — svaka lokacija uz svoj opis. */
   .location__map { display: grid; gap: 1.1rem; }
-  .location__photo, .location__map iframe {
+  .location__photo {
     border-radius: var(--radius); overflow: hidden;
     box-shadow: var(--shadow); border: 1px solid var(--border);
   }
   .location__photo { background: var(--surface); }
   .location__photo img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
   .location__photo figcaption { font-size: .82rem; color: var(--text-muted); padding: .75rem 1.1rem .9rem; }
-  .location__map iframe { width: 100%; height: 300px; display: block; }
   .location__addr {
     display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem;
     font-size: .95rem; color: var(--text-muted);
@@ -1077,6 +1081,15 @@
 
               <ul class="unit-features"><li data-i18n="units.f.garden">Vlastiti vrt</li><li data-i18n="units.f.terrace">Natkrivena terasa</li><li data-i18n="units.f.outKitchen">Vanjska kuhinja</li><li data-i18n="units.f.fireplace">Kameni kamin</li><li data-i18n="units.f.ac">Klima</li><li data-i18n="units.f.washer">Perilica rublja</li><li data-i18n="units.f.dishwasher">Perilica posuđa</li><li data-i18n="units.f.wifi">Wi-Fi</li><li data-i18n="units.f.parking">Parking</li></ul>
 
+              <!-- Karta s pinom na tocnoj lokaciji apartmana. Google embed bez
+                   API kljuca (jedan pin po karti); koordinate su s Booking
+                   oglasa. ✏️ Nove koordinate: promijeni q= u src i u linku
+                   za navigaciju u sekciji Lokacija. -->
+              <div class="unit-map">
+                <iframe data-i18n-title="units.mare.mapTitle" title="Apartman Mare na karti — Petrčane IX 2a" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                  src="https://maps.google.com/maps?q=44.1876084,15.1589194&amp;z=16&amp;output=embed"></iframe>
+              </div>
+
               <div class="unit-ask">
                 <strong data-i18n="units.askTitle">Rezervacija na upit</strong>
                 <p data-i18n="units.askText">Cijena ovisi o terminu, broju gostiju i duljini boravka. Pošaljite datume — javljamo se s točnom ponudom.</p>
@@ -1119,6 +1132,15 @@
               </div>
 
               <ul class="unit-features"><li data-i18n="units.f.balcony">Balkon s tendom</li><li data-i18n="units.f.twoFloors">Dvije etaže</li><li data-i18n="units.f.ac2">Klima</li><li data-i18n="units.f.dishwasher2">Perilica posuđa</li><li data-i18n="units.f.oven">Pećnica i ploča</li><li data-i18n="units.f.tv">TV</li><li data-i18n="units.f.wifi2">Wi-Fi</li><li data-i18n="units.f.parking2">Parking</li></ul>
+
+              <!-- Karta s pinom na tocnoj lokaciji apartmana. Google embed bez
+                   API kljuca (jedan pin po karti); koordinate su s Booking
+                   oglasa. ✏️ Nove koordinate: promijeni q= u src i u linku
+                   za navigaciju u sekciji Lokacija. -->
+              <div class="unit-map">
+                <iframe data-i18n-title="units.gumbek.mapTitle" title="Apartman Gumbek na karti — Petrčane XI 2b, Donje Petrčane" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                  src="https://maps.google.com/maps?q=44.1877195,15.1609829&amp;z=16&amp;output=embed"></iframe>
+              </div>
 
               <div class="unit-ask">
                 <strong data-i18n="units.askTitle2">Rezervacija na upit</strong>
@@ -1326,13 +1348,6 @@
             <img src="images/petrcane-luka-dron.jpg" width="1600" height="1066" data-i18n-alt="loc.photoAlt" alt="Petrčane iz zraka — luka s brodicama, riva i kamene kuće mjesta uz more" loading="lazy" />
             <figcaption data-i18n="loc.photoCap">Petrčane iz zraka — luka i riva, nekoliko minuta hoda od apartmana.</figcaption>
           </figure>
-          <!-- ✏️ Ulica "Petrčane IX" nije u OpenStreetMap bazi, pa je marker na
-               centru naselja (44.18666, 15.16152). Kad se dobiju točne
-               koordinate zgrade, zamijeniti marker i suziti bbox.
-               Gumb ispod ne ovisi o koordinatama — navigacija sama razrješava
-               punu adresu, pa vodi na točno mjesto. -->
-          <iframe data-i18n-title="loc.mapTitle" title="Petrčane na karti — smještaj Apartmani Mare i Gumbek" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=15.1355%2C44.1700%2C15.1975%2C44.2075&layer=mapnik&marker=44.18666%2C15.16152"></iframe>
           <!-- Dvije adrese, dva gumba za navigaciju. Adresa mora biti JEDAN
                flex item: prije je <strong> bio item, a ostatak anonimni item,
                pa je gap trake padao izmedu adrese i zareza.

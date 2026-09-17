@@ -2,8 +2,8 @@
 
 Jednostranična prezentacija dvaju samostalnih apartmana na **dvije različite
 adrese** u Petrčanima (Zadarska županija). Samostalni `index.html` — bez build koraka, bez vanjskih
-biblioteka. Jedine vanjske ovisnosti su Google Fonts (Newsreader + Inter) i
-OpenStreetMap iframe za kartu.
+biblioteka. Jedine vanjske ovisnosti su Google Fonts (Newsreader + Inter) i dvije Google
+Maps karte (iframe bez API ključa, po jedan pin za svaki apartman).
 
 **Live:** https://lotastudio.eu/09-basic-apartmani-mare-gumbek/
 
@@ -35,7 +35,8 @@ Zadra 12 km. Koordinate, ocjene i vremena prijave preuzeti su s Booking oglasa.
 - **2 apartmana** — Mare i Gumbek, svaki s vlastitim fotografijama i CTA-om
 - Sadržaji, **cijena na upit** (bez fiksnog cjenika), galerija s lightboxom
 - **Za koga su** — tri profila gostiju umjesto recenzija
-- Dolazak u 4 koraka, lokacija s dronskom fotografijom i OSM kartom
+- Dolazak u 4 koraka, lokacija s dronskom fotografijom i dvije adrese s navigacijom
+- Karta s pinom u kartici svakog apartmana (Mare i Gumbek su na različitim adresama)
 - Upitna forma, tamna tema, sticky CTA traka na mobitelu
 
 Namjerno **nema** online plaćanja ni kalendara dostupnosti — to je premium tier
