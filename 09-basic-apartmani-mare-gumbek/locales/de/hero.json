@@ -1,9 +1,17 @@
 {
   "hero": {
     "aria": "Willkommen",
-    "bgAlt": "Das Haus mit Apartment Mare in Petrčane — Garten, Terrasse im Erdgeschoss und gepflasterter Hof mit Parkplatz",
-    "ctaUnits": "Apartments ansehen",
+    "gumbek": {
+      "alt": "Apartment Gumbek in Donje Petrčane nahe am Meer — Balkon mit Markise",
+      "cta": "Gumbek ansehen",
+      "meta": "Donje Petrčane · zwei Etagen & Balkon"
+    },
     "h1": "Apartments Mare & Gumbek <em>— Petrčane, Zadar</em>",
+    "mare": {
+      "alt": "Apartment Mare in Petrčane mit Garten und überdachter Terrasse",
+      "cta": "Mare ansehen",
+      "meta": "Petrčane IX 2a · Garten & Terrasse"
+    },
     "p": "Zwei eigenständige Apartments an zwei Adressen in Petrčane. Wählen Sie das passende — oder beide, wenn Sie mit mehreren Familien reisen.",
     "tag1": "◆ Petrčane, Gespanschaft Zadar",
     "tag2": "★ Booking.com: Mare 9,6 · Gumbek 9,3",

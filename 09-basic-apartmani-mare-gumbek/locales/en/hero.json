@@ -1,9 +1,17 @@
 {
   "hero": {
     "aria": "Welcome",
-    "bgAlt": "The house where apartment Mare is located in Petrčane — garden, ground-floor terrace and paved courtyard with parking",
-    "ctaUnits": "See the apartments",
+    "gumbek": {
+      "alt": "Apartment Gumbek in Donje Petrčane near the sea — balcony with an awning",
+      "cta": "View Gumbek",
+      "meta": "Donje Petrčane · two floors & balcony"
+    },
     "h1": "Apartments Mare & Gumbek <em>— Petrčane, Zadar</em>",
+    "mare": {
+      "alt": "Apartment Mare in Petrčane with a garden and covered terrace",
+      "cta": "View Mare",
+      "meta": "Petrčane IX 2a · garden & terrace"
+    },
     "p": "Two independent apartments at two addresses in Petrčane. Choose the one that suits you — or both, if you are travelling with more than one family.",
     "tag1": "◆ Petrčane, Zadar County",
     "tag2": "★ Booking.com: Mare 9.6 · Gumbek 9.3",

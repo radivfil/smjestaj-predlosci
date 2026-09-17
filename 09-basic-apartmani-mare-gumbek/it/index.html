@@ -341,30 +341,93 @@
   @media (min-width: 981px) { .nav-overlay { display: none; } }
 
   /* ============================================================
-     5. HERO
-     ============================================================ */
-  .hero { position: relative; min-height: 100vh; min-height: 100svh; display: grid; align-items: center; color: #fff; isolation: isolate; }
-  /* object-position drzi zgradu u kadru kad se 3:2 kropa na visoki hero */
-  .hero__bg { position: absolute; inset: 0; z-index: -2; object-fit: cover; object-position: 50% 45%; width: 100%; height: 100%; }
-  /* Overlay je pojacan jer je nova hero fotografija bijela fasada na suncu.
-     Bijeli tekst na neprekrivenoj fasadi ima 1.05:1; s rgba(0,0,0,.35) samo
-     2.54:1 — oboje pada WCAG AA. Minimalna alpha za 4.5:1 je .60, pa gradijent
-     nigdje ne ide ispod .66 (5.6:1 u najsvjetlijoj tocki, 8.5:1 gore, 11.2:1 dolje). */
-  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(9,32,38,.78) 0%, rgba(9,32,38,.66) 45%, rgba(9,32,38,.86) 100%); }
-  .hero__inner { max-width: 760px; padding-block: 8rem 6rem; }
-  .hero__tags { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 1.5rem; font-size: .9rem; }
+     5. HERO — split-screen: lijevo Mare, desno Gumbek
+     ============================================================
+     Dvije polovice odmah kazu "dvije odvojene opcije". Bez slidera: nema
+     JS logike, nema skrivenih slajdova koji se ucitavaju uzalud, a obje
+     naslovne fotografije su odmah vidljive (dobro za LCP).
+
+     Raspored:
+       desktop  — H1 blok lezi preko vrha obje polovice (position:absolute),
+                  natpisi apartmana su pri dnu svake polovice
+       <=768px  — H1 blok je tamna traka iznad, polovice idu jedna ispod
+                  druge, svaka ~50svh
+
+     Kontrast: bijeli tekst lezi samo na zatamnjenim dijelovima gradijenta.
+     Vrh (H1) ne ide ispod alpha .62, dno (natpis i gumb) ne ispod .70 —
+     iznad praga .60 izmjerenog za 4.5:1 nad bijelom fasadom na suncu. */
+  .hero { position: relative; color: #fff; isolation: isolate; }
+
+  .hero__head { position: absolute; inset: 0 0 auto 0; z-index: 2; pointer-events: none; text-align: center; }
+  .hero__inner { max-width: 1060px; padding-block: 7.25rem 0; }
+  .hero__tags { display: flex; justify-content: center; gap: .5rem 1.25rem; flex-wrap: wrap; margin-bottom: 1.1rem; font-size: .88rem; }
   .hero__tags span { display: inline-flex; align-items: center; gap: .5rem; opacity: .95; }
-  .hero h1 { font-size: clamp(2.4rem, 6.5vw, 4.6rem); font-weight: 600; margin-bottom: 1.25rem; letter-spacing: -.022em; }
+  .hero h1 { font-size: clamp(2.2rem, 4.4vw, 3.7rem); font-weight: 600; margin-bottom: .9rem; letter-spacing: -.022em; text-shadow: 0 2px 18px rgba(0,0,0,.25); }
   /* Newsreader ima pravi kurziv (za razliku od Frauncesa) — koristimo ga */
-  .hero h1 em { color: var(--terra-soft); font-style: italic; font-weight: 500; }
-  .hero p { font-size: clamp(1.02rem, 2vw, 1.22rem); max-width: 50ch; color: rgba(255,255,255,.93); margin-bottom: 2.25rem; }
-  .hero__cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  /* podnaslov lokacije uvijek u svom redu — naziv se ne lomi na "Mare i / Gumbek" */
+  .hero h1 em { display: block; color: var(--terra-soft); font-style: italic; font-weight: 500; }
+  .hero__head p { font-size: clamp(1rem, 1.8vw, 1.15rem); max-width: 52ch; margin-inline: auto; color: rgba(255,255,255,.93); }
+
+  /* 780px pod: ispod toga bi se H1 blok i natpisi apartmana dodirivali */
+  .hero__split { display: grid; grid-template-columns: 1fr 1fr; min-height: max(100vh, 780px); min-height: max(100svh, 780px); }
+  .hero__half { position: relative; display: flex; align-items: flex-end; overflow: hidden; color: #fff; background: var(--sea-deep); }
+  .hero__half + .hero__half { border-left: 2px solid rgba(255,255,255,.55); }
+  /* Slika popunjava polovicu. width/height atributi na <img> drze omjer
+     dok se slika ne ucita, pa nema pomaka rasporeda. */
+  .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease); }
+  .hero__half::after {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(9,32,38,.80) 0%, rgba(9,32,38,.62) 42%, rgba(9,32,38,.18) 58%, rgba(9,32,38,.70) 76%, rgba(9,32,38,.90) 100%);
+  }
+  .hero__half:hover .hero__img { transform: scale(1.04); }
+  .hero__half:focus-visible { outline-offset: -6px; border-radius: 0; }
+
+  /* Donji padding ostavlja mjesta traci upita koja se preklapa preko dna */
+  .hero__label { position: relative; z-index: 1; display: grid; gap: .3rem; width: 100%; padding: 2rem clamp(1.5rem, 4vw, 3.5rem) calc(4.5rem + 2rem); }
+  .hero__half--gumbek .hero__label { justify-items: end; text-align: right; }
+  .hero__name { font-family: var(--font-display); font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 600; line-height: 1; letter-spacing: -.02em; }
+  .hero__meta { font-size: .95rem; color: rgba(255,255,255,.92); }
+  .hero__go {
+    display: inline-flex; align-items: center; gap: .5rem; margin-top: .9rem; justify-self: start;
+    padding: .75rem 1.3rem; border-radius: 100px; background: var(--terra); color: #fff;
+    font-weight: 600; font-size: .92rem; box-shadow: var(--shadow-sm); transition: background .25s;
+  }
+  .hero__half--gumbek .hero__go { justify-self: end; }
+  .hero__go svg { width: 18px; height: 18px; transition: transform .3s var(--ease); }
+  .hero__half:hover .hero__go { background: var(--terra-hover); }
+  .hero__half:hover .hero__go svg { transform: translateY(3px); }
+
+  /* Traka upita sjeda preko dna polovica */
+  .hero__bar { position: relative; z-index: 3; margin-top: -4.5rem; }
+
+  @media (max-width: 768px) {
+    .hero__head { position: static; pointer-events: auto; background: var(--sea-deep); }
+    [data-theme="dark"] .hero__head { background: var(--surface); }
+    /* Traka mora ostati niska da se prva fotografija vidi bez skrolanja:
+       oznake se skrivaju (ocjene su i u sekciji O nama), naslov je manji. */
+    .hero__inner { padding-block: 5.5rem 1.5rem; }
+    .hero__tags { display: none; }
+    .hero h1 { font-size: clamp(1.75rem, 7.4vw, 2.4rem); margin-bottom: .6rem; }
+    .hero__head p { font-size: .95rem; }
+    .hero__split { grid-template-columns: 1fr; min-height: 0; }
+    .hero__half { height: 50vh; height: 50svh; min-height: 300px; }
+    .hero__half + .hero__half { border-left: 0; border-top: 2px solid rgba(255,255,255,.55); }
+    /* bez H1 preko slike nema potrebe za tamnim vrhom */
+    .hero__half::after { background: linear-gradient(180deg, rgba(9,32,38,.10) 0%, rgba(9,32,38,.20) 40%, rgba(9,32,38,.72) 70%, rgba(9,32,38,.90) 100%); }
+    .hero__label { padding: 1.5rem var(--gutter); }
+    .hero__half--gumbek .hero__label { justify-items: start; text-align: left; }
+    .hero__half--gumbek .hero__go { justify-self: start; }
+    .hero__bar { margin-top: 1.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__half:hover .hero__img { transform: none; }
+  }
 
   /* Brza traka upita — čista svijetla podloga, bez slike iza podataka.
      Prije je bila poluprozirna (rgba(255,255,255,.15) + backdrop-filter), pa su
      datumi stajali direktno nad hero fotografijom i slabo se čitali. */
   .book-bar {
-    display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.5rem;
+    display: flex; flex-wrap: wrap; gap: .75rem;
     background: var(--surface); border: 1px solid var(--border);
     padding: 1rem; border-radius: var(--radius); box-shadow: var(--shadow);
     color: var(--text);
@@ -867,25 +930,47 @@
   <button class="nav-overlay" id="navOverlay" type="button" tabindex="-1" data-i18n-aria="a11y.menuClose" aria-label="Chiudi il menu"></button>
 
   <main id="main">
-    <!-- ==================== HERO ==================== -->
+    <!-- ==================== HERO ====================
+         Split-screen: svaka polovica je link na karticu svog apartmana.
+         ✏️ NOVE NASLOVNE FOTOGRAFIJE: zamijeni src dviju .hero__img slika
+         (i width/height ako je omjer drugaciji) — raspored se ne mijenja. -->
     <section class="hero" data-i18n-aria="hero.aria" aria-label="Benvenuti">
-      <img class="hero__bg" src="/09-basic-apartmani-mare-gumbek/images/zgrada.jpg" width="1600" height="1066"
-        data-i18n-alt="hero.bgAlt"
-        alt="La casa dell'appartamento Mare a Petrčane — giardino, terrazza al piano terra e cortile pavimentato con parcheggio"
-        fetchpriority="high" decoding="async" />
-      <div class="container hero__inner">
-        <div class="hero__tags" data-reveal>
-          <span data-i18n="hero.tag1">◆ Petrčane, regione di Zara</span>
-          <span data-i18n="hero.tag2">★ Booking.com: Mare 9,6 · Gumbek 9,3</span>
-          <span data-i18n="hero.tag3">◆ Parcheggio gratuito</span>
+      <div class="hero__head">
+        <div class="container hero__inner">
+          <div class="hero__tags">
+            <span data-i18n="hero.tag1">◆ Petrčane, regione di Zara</span>
+            <span data-i18n="hero.tag2">★ Booking.com: Mare 9,6 · Gumbek 9,3</span>
+            <span data-i18n="hero.tag3">◆ Parcheggio gratuito</span>
+          </div>
+          <h1 data-i18n-html="hero.h1">Appartamenti Mare e Gumbek <em>— Petrčane, Zara</em></h1>
+          <p data-i18n="hero.p">Due appartamenti indipendenti a due indirizzi di Petrčane. Scegliete quello che fa per voi — o entrambi, se viaggiate con più famiglie.</p>
         </div>
-        <h1 data-reveal data-i18n-html="hero.h1">Appartamenti Mare e Gumbek <em>— Petrčane, Zara</em></h1>
-        <p data-reveal data-i18n="hero.p">Due appartamenti indipendenti a due indirizzi di Petrčane. Scegliete quello che fa per voi — o entrambi, se viaggiate con più famiglie.</p>
-        <div class="hero__cta" data-reveal>
-          <a href="#units" class="btn btn-primary" data-i18n="hero.ctaUnits">Guarda gli appartamenti</a>
-          <a href="#upit" class="btn btn-light" data-i18n="cta.checkAvail">Verificate la disponibilità</a>
-        </div>
+      </div>
 
+      <div class="hero__split">
+        <a class="hero__half hero__half--mare" href="#mare-section">
+          <img class="hero__img" src="/09-basic-apartmani-mare-gumbek/images/mare/mare-01-terasa.jpg" width="1600" height="1066"
+            data-i18n-alt="hero.mare.alt" alt="Appartamento Mare a Petrčane con giardino e terrazza coperta"
+            loading="eager" fetchpriority="high" decoding="async" />
+          <span class="hero__label">
+            <span class="hero__name">Mare</span>
+            <span class="hero__meta" data-i18n="hero.mare.meta">Petrčane IX 2a · giardino e terrazza</span>
+            <span class="hero__go"><span data-i18n="hero.mare.cta">Scopri Mare</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
+          </span>
+        </a>
+        <a class="hero__half hero__half--gumbek" href="#gumbek-section">
+          <img class="hero__img" src="/09-basic-apartmani-mare-gumbek/images/gumbek/gumbek-03-balkon.jpg" width="1600" height="1066"
+            data-i18n-alt="hero.gumbek.alt" alt="Appartamento Gumbek a Donje Petrčane vicino al mare — balcone con tenda"
+            loading="eager" fetchpriority="high" decoding="async" />
+          <span class="hero__label">
+            <span class="hero__name">Gumbek</span>
+            <span class="hero__meta" data-i18n="hero.gumbek.meta">Donje Petrčane · due piani e balcone</span>
+            <span class="hero__go"><span data-i18n="hero.gumbek.cta">Scopri Gumbek</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
+          </span>
+        </a>
+      </div>
+
+      <div class="container hero__bar">
         <!-- Brzi upit — prepopunjava veliku formu ispod -->
         <form class="book-bar" data-reveal id="quickBar" data-i18n-aria="quick.aria" aria-label="Richiesta rapida di disponibilità">
           <div class="bf"><label class="lbl-date" for="qb-in"><svg class="cal-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span data-i18n="quick.in">Arrivo</span></label><input type="date" id="qb-in" /></div>

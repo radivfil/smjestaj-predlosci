@@ -1,9 +1,17 @@
 {
   "hero": {
     "aria": "Dobrodošli",
-    "bgAlt": "Kuća u kojoj je apartman Mare u Petrčanima — vrt, terasa u prizemlju i popločano dvorište s parkingom",
-    "ctaUnits": "Pogledaj apartmane",
+    "gumbek": {
+      "alt": "Apartman Gumbek u Donjim Petrčanima blizu mora — balkon s tendom",
+      "cta": "Pogledaj Gumbek",
+      "meta": "Donje Petrčane · dvije etaže i balkon"
+    },
     "h1": "Apartmani Mare i Gumbek <em>— Petrčane, Zadar</em>",
+    "mare": {
+      "alt": "Apartman Mare u Petrčanima s vrtom i natkrivenom terasom",
+      "cta": "Pogledaj Mare",
+      "meta": "Petrčane IX 2a · vrt i terasa"
+    },
     "p": "Dva samostalna apartmana na dvije adrese u Petrčanima. Odaberite onaj koji vam odgovara — ili oba, ako putujete s više obitelji.",
     "tag1": "◆ Petrčane, Zadarska županija",
     "tag2": "★ Booking.com: Mare 9,6 · Gumbek 9,3",

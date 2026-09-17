@@ -1,9 +1,17 @@
 {
   "hero": {
     "aria": "Benvenuti",
-    "bgAlt": "La casa dell'appartamento Mare a Petrčane — giardino, terrazza al piano terra e cortile pavimentato con parcheggio",
-    "ctaUnits": "Guarda gli appartamenti",
+    "gumbek": {
+      "alt": "Appartamento Gumbek a Donje Petrčane vicino al mare — balcone con tenda",
+      "cta": "Scopri Gumbek",
+      "meta": "Donje Petrčane · due piani e balcone"
+    },
     "h1": "Appartamenti Mare e Gumbek <em>— Petrčane, Zara</em>",
+    "mare": {
+      "alt": "Appartamento Mare a Petrčane con giardino e terrazza coperta",
+      "cta": "Scopri Mare",
+      "meta": "Petrčane IX 2a · giardino e terrazza"
+    },
     "p": "Due appartamenti indipendenti a due indirizzi di Petrčane. Scegliete quello che fa per voi — o entrambi, se viaggiate con più famiglie.",
     "tag1": "◆ Petrčane, regione di Zara",
     "tag2": "★ Booking.com: Mare 9,6 · Gumbek 9,3",
