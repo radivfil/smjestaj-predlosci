@@ -286,6 +286,16 @@ function replaceBlock(html, marker, content) {
 /* Podstranice (/en/) su jednu razinu dublje, pa relativne putanje pucaju.
    Pretvaramo ih u apsolutne, racunajuci od korijena domene. */
 function absolutizePaths(html) {
+  const abs = (val) => val.indexOf("../") === 0 ? "/" + val.replace(/^(\.\.\/)+/, "") : BASE + "/" + val;
+  const isRel = (val) => !/^(https?:|\/\/|\/|#|mailto:|tel:|data:)/.test(val);
+  /* srcset i imagesrcset su popisi "putanja sirina, putanja sirina" —
+     bez ovoga bi /en/ trazio images/hero/... ispod /en/ i dobio 404 */
+  html = html.replace(/\b(srcset|imagesrcset)="([^"]+)"/g, (m, attr, list) =>
+    attr + '="' + list.split(",").map((part) => {
+      const p = part.trim().split(/\s+/);
+      if (p[0] && isRel(p[0])) p[0] = abs(p[0]);
+      return p.join(" ");
+    }).join(", ") + '"');
   return html.replace(/\b(href|src)="(?!https?:|\/\/|\/|#|mailto:|tel:|data:)([^"]+)"/g,
     (m, attr, val) => {
       /* "../favicon.ico" iz predloska gleda u korijen repoa, ne u BASE */

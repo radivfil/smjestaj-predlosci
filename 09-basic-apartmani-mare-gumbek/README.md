@@ -42,6 +42,31 @@ Zadra 12 km. Koordinate, ocjene i vremena prijave preuzeti su s Booking oglasa.
 Namjerno **nema** online plaćanja ni kalendara dostupnosti — to je premium tier
 (vidi `07-premium-villa-serena` i `08-premium-villa-emilia`).
 
+## Naslovne fotografije (hero)
+
+Hero je podijeljen na dvije polovice: **Mare lijevo, Gumbek desno**, svaka je
+link na karticu svog apartmana. Slike su u `images/hero/` kao WebP (960 i
+1600 px) s JPG zamjenom, preko `<picture>`, a slika apartmana Mare se
+preloada jer je LCP.
+
+**Zamjena novim fotografijama** — HTML se ne dira:
+
+```
+npm install --no-save --prefix tools sharp   # jednom
+# u tools/slike.js promijeni IZVORI.mare i IZVORI.gumbek
+node tools/slike.js                          # images/hero/* + images/og-mare-gumbek.jpg
+```
+
+Po želji osvježi alt tekst (`hero.mare.alt`, `hero.gumbek.alt`) u
+`index.html` i `locales/*/hero.json`.
+
+## SEO
+
+- `<title>`, `description`, Open Graph i H1 prevedeni su po jeziku (`locales/*/common.json`, `hero.json`)
+- **JSON-LD** — dva zasebna `LodgingBusiness` objekta, generira `tools/i18n.js` iz `data/objekti.json`
+- **hreflang/canonical** — generira `tools/i18n.js` (blok `i18n:alternates`)
+- **sitemap.xml** — generira `tools/i18n.js build`; `robots.txt` je u korijenu repoa
+
 ## Chat widget
 
 Virtualni asistent u donjem desnom kutu — mapa `chatbot/`. Radi u **demo

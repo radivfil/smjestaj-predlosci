@@ -235,6 +235,13 @@
   </script>
   <!-- /i18n:jsonld -->
 
+  <!-- LCP: naslovna fotografija apartmana Mare je prva vidljiva slika i na
+       mobitelu (gornja polovica) i na desktopu (lijeva polovica), pa se
+       ucitava prije CSS-a i fontova. Isti srcset/sizes kao <picture> u heroju. -->
+  <link rel="preload" as="image" type="image/webp" fetchpriority="high"
+    href="images/hero/mare-hero-1600.webp"
+    imagesrcset="images/hero/mare-hero-960.webp 960w, images/hero/mare-hero-1600.webp 1600w"
+    imagesizes="(max-width: 768px) 100vw, 50vw" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500..700;1,6..72,500..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -1131,8 +1138,9 @@
   <main id="main">
     <!-- ==================== HERO ====================
          Split-screen: svaka polovica je link na karticu svog apartmana.
-         ✏️ NOVE NASLOVNE FOTOGRAFIJE: zamijeni src dviju .hero__img slika
-         (i width/height ako je omjer drugaciji) — raspored se ne mijenja. -->
+         ✏️ NOVE NASLOVNE FOTOGRAFIJE: promijeni IZVORI u tools/slike.js i
+         pokreni ga — prepisuje images/hero/* i og:image, HTML se ne dira.
+         WebP u 960/1600 px, JPG kao zamjena za starije preglednike. -->
     <section class="hero" data-i18n-aria="hero.aria" aria-label="Dobrodošli">
       <div class="hero__head">
         <div class="container hero__inner">
@@ -1148,9 +1156,12 @@
 
       <div class="hero__split">
         <a class="hero__half hero__half--mare" href="#mare-section">
-          <img class="hero__img" src="images/mare/mare-01-terasa.jpg" width="1600" height="1066"
-            data-i18n-alt="hero.mare.alt" alt="Apartman Mare u Petrčanima s vrtom i natkrivenom terasom"
-            loading="eager" fetchpriority="high" decoding="async" />
+          <picture>
+            <source type="image/webp" srcset="images/hero/mare-hero-960.webp 960w, images/hero/mare-hero-1600.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" />
+            <img class="hero__img" src="images/hero/mare-hero-1600.jpg" srcset="images/hero/mare-hero-960.jpg 960w, images/hero/mare-hero-1600.jpg 1600w" sizes="(max-width: 768px) 100vw, 50vw"
+              width="1600" height="1066" data-i18n-alt="hero.mare.alt" alt="Apartman Mare u Petrčanima s vrtom i natkrivenom terasom"
+              loading="eager" fetchpriority="high" decoding="async" />
+          </picture>
           <span class="hero__label">
             <span class="hero__name">Mare</span>
             <span class="hero__meta" data-i18n="hero.mare.meta">Petrčane IX 2a · vrt i terasa</span>
@@ -1158,9 +1169,12 @@
           </span>
         </a>
         <a class="hero__half hero__half--gumbek" href="#gumbek-section">
-          <img class="hero__img" src="images/gumbek/gumbek-03-balkon.jpg" width="1600" height="1066"
-            data-i18n-alt="hero.gumbek.alt" alt="Apartman Gumbek u Donjim Petrčanima blizu mora — balkon s tendom"
-            loading="eager" fetchpriority="high" decoding="async" />
+          <picture>
+            <source type="image/webp" srcset="images/hero/gumbek-hero-960.webp 960w, images/hero/gumbek-hero-1600.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" />
+            <img class="hero__img" src="images/hero/gumbek-hero-1600.jpg" srcset="images/hero/gumbek-hero-960.jpg 960w, images/hero/gumbek-hero-1600.jpg 1600w" sizes="(max-width: 768px) 100vw, 50vw"
+              width="1600" height="1066" data-i18n-alt="hero.gumbek.alt" alt="Apartman Gumbek u Donjim Petrčanima blizu mora — balkon s tendom"
+              loading="eager" fetchpriority="high" decoding="async" />
+          </picture>
           <span class="hero__label">
             <span class="hero__name">Gumbek</span>
             <span class="hero__meta" data-i18n="hero.gumbek.meta">Donje Petrčane · dvije etaže i balkon</span>
