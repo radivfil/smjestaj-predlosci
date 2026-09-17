@@ -19,8 +19,13 @@
   <meta property="og:title" data-i18n-content="meta.ogTitle" content="Apartments Mare & Gumbek — Petrčane bei Zadar" />
   <meta property="og:description" data-i18n-content="meta.ogDesc" content="Zwei eigenständige Apartments an zwei Adressen in Petrčane: Mare mit Garten und Terrasse, Gumbek auf zwei Etagen. Kostenloser Parkplatz, Strand rund zehn Minuten zu Fuß." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/petrcane-zaljev-dron.jpg" />
-  <meta property="og:image:alt" data-i18n-content="meta.ogImageAlt" content="Petrčane aus der Luft — türkisfarbene Bucht mit Marina und der Ort am Meer" />
+  <meta property="og:site_name" data-i18n-content="brand.name" content="Apartments Mare & Gumbek" />
+  <!-- 1200x630, lijevo Mare, desno Gumbek — isti split kao hero.
+       Generira se iz naslovnih fotografija (vidi README, "Naslovne fotografije"). -->
+  <meta property="og:image" content="https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/og-mare-gumbek.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" data-i18n-content="meta.ogImageAlt" content="Apartment Mare mit überdachter Terrasse und Apartment Gumbek mit Balkon — Petrčane bei Zadar" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0c6b80" />
 
@@ -39,6 +44,196 @@
   <link rel="alternate" hreflang="it" href="https://lotastudio.eu/09-basic-apartmani-mare-gumbek/it/" />
   <link rel="alternate" hreflang="x-default" href="https://lotastudio.eu/09-basic-apartmani-mare-gumbek/" />
   <!-- /i18n:alternates -->
+
+  <!-- Strukturirani podaci: dva zasebna LodgingBusiness objekta (Mare i
+       Gumbek su na razlicitim adresama). GENERIRA tools/i18n.js iz
+       data/objekti.json — ne uredivati rucno, blok se prepisuje. -->
+  <!-- i18n:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LodgingBusiness",
+        "@id": "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/#mare",
+        "name": "Apartment Mare",
+        "alternateName": "Mare 9 Cozy Apartment with Garden",
+        "description": "Ein Apartment im Erdgeschoss mit eigenem Garten und einer überdachten Terrasse, die eigentlich ein zweites Wohnzimmer ist — mit Außenküche samt Spüle, Steinkamin zum Grillen und einem Tisch für sechs Personen. Innen ein helles Esszimmer, ein Wohnzimmer und ein Schlafzimmer, alles ebenerdig zum Hof, ganz ohne Stufen.",
+        "url": "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/de/#mare-section",
+        "image": [
+          "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/mare/mare-01-terasa.jpg",
+          "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/mare/mare-08-kuca.jpg",
+          "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/mare/mare-02-blagovaonica.jpg",
+          "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/mare/mare-04-spavaonica.jpg"
+        ],
+        "telephone": "+385 98 751 522",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Petrčane IX 2a",
+          "addressLocality": "Petrčane",
+          "postalCode": "23231",
+          "addressRegion": "Zadarska županija",
+          "addressCountry": "HR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 44.1876084,
+          "longitude": 15.1589194
+        },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=44.1876084%2C15.1589194",
+        "checkinTime": "15:00",
+        "checkoutTime": "11:00",
+        "petsAllowed": true,
+        "numberOfRooms": 2,
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Free parking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Free Wi-Fi",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Air conditioning",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Garden",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Covered terrace",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Outdoor kitchen",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Kitchen",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Dishwasher",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Washing machine",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "TV",
+            "value": true
+          }
+        ],
+        "containsPlace": {
+          "@type": "Apartment",
+          "name": "Apartment Mare",
+          "numberOfBedrooms": 2,
+          "numberOfBathroomsTotal": 1,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 60,
+            "unitCode": "MTK"
+          }
+        }
+      },
+      {
+        "@type": "LodgingBusiness",
+        "@id": "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/#gumbek",
+        "name": "Apartment Gumbek",
+        "alternateName": "Gumbek11, Two Story, Two-Bedroom Apartment by the Sea",
+        "description": "Ein Apartment über zwei Etagen, verbunden durch eine Wendeltreppe: unten ein geräumiges Wohnzimmer mit Essbereich, Küche und Balkon mit Markise, oben die Schlafzimmer und ein Bad unter dem Dachfenster. Es liegt etwas über der Straße, deshalb ist es den ganzen Tag hell und abends still.",
+        "url": "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/de/#gumbek-section",
+        "image": [
+          "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/gumbek/gumbek-03-balkon.jpg",
+          "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/gumbek/gumbek-01-dnevni-boravak.jpg",
+          "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/gumbek/gumbek-02-stubiste.jpg",
+          "https://lotastudio.eu/09-basic-apartmani-mare-gumbek/images/gumbek/gumbek-05-spavaonica.jpg"
+        ],
+        "telephone": "+385 98 751 522",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Petrčane XI 2b, Donje Petrčane",
+          "addressLocality": "Petrčane",
+          "postalCode": "23231",
+          "addressRegion": "Zadarska županija",
+          "addressCountry": "HR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 44.1877195,
+          "longitude": 15.1609829
+        },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=44.1877195%2C15.1609829",
+        "checkinTime": "16:00",
+        "checkoutTime": "11:00",
+        "petsAllowed": true,
+        "numberOfRooms": 2,
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Free parking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Free Wi-Fi",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Air conditioning",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Balcony",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Kitchen",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Dishwasher",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "TV",
+            "value": true
+          }
+        ],
+        "containsPlace": {
+          "@type": "Apartment",
+          "name": "Apartment Gumbek",
+          "numberOfBedrooms": 2,
+          "numberOfBathroomsTotal": 2,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 65,
+            "unitCode": "MTK"
+          }
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- /i18n:jsonld -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

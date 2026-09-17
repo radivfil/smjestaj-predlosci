@@ -1,0 +1,60 @@
+{
+  "_opis": "Činjenice o objektima za JSON-LD (schema.org) na svim jezičnim verzijama. Čita tools/i18n.js pri buildu. Naziv i opis dolaze iz prijevoda (kljucNaziv, kljucOpis), sve ostalo odavde. Izvor: Booking oglasi, stanje 17.09.2026. Mare i Gumbek su na DVIJE RAZLIČITE adrese.",
+  "telefon": "+385 98 751 522",
+  "objekti": [
+    {
+      "id": "mare",
+      "sidro": "mare-section",
+      "kljucNaziv": "units.mare.name",
+      "kljucOpis": "units.mare.desc",
+      "bookingNaziv": "Mare 9 Cozy Apartment with Garden",
+      "adresa": {
+        "ulica": "Petrčane IX 2a",
+        "mjesto": "Petrčane",
+        "postanskiBroj": "23231",
+        "regija": "Zadarska županija"
+      },
+      "geo": [44.1876084, 15.1589194],
+      "prijava": "15:00",
+      "odjava": "11:00",
+      "spavaonice": 2,
+      "kupaonice": 1,
+      "povrsinaM2": 60,
+      "kucniLjubimci": true,
+      "slike": [
+        "images/mare/mare-01-terasa.jpg",
+        "images/mare/mare-08-kuca.jpg",
+        "images/mare/mare-02-blagovaonica.jpg",
+        "images/mare/mare-04-spavaonica.jpg"
+      ],
+      "sadrzaji": ["Free parking", "Free Wi-Fi", "Air conditioning", "Garden", "Covered terrace", "Outdoor kitchen", "Kitchen", "Dishwasher", "Washing machine", "TV"]
+    },
+    {
+      "id": "gumbek",
+      "sidro": "gumbek-section",
+      "kljucNaziv": "units.gumbek.name",
+      "kljucOpis": "units.gumbek.desc",
+      "bookingNaziv": "Gumbek11, Two Story, Two-Bedroom Apartment by the Sea",
+      "adresa": {
+        "ulica": "Petrčane XI 2b, Donje Petrčane",
+        "mjesto": "Petrčane",
+        "postanskiBroj": "23231",
+        "regija": "Zadarska županija"
+      },
+      "geo": [44.1877195, 15.1609829],
+      "prijava": "16:00",
+      "odjava": "11:00",
+      "spavaonice": 2,
+      "kupaonice": 2,
+      "povrsinaM2": 65,
+      "kucniLjubimci": true,
+      "slike": [
+        "images/gumbek/gumbek-03-balkon.jpg",
+        "images/gumbek/gumbek-01-dnevni-boravak.jpg",
+        "images/gumbek/gumbek-02-stubiste.jpg",
+        "images/gumbek/gumbek-05-spavaonica.jpg"
+      ],
+      "sadrzaji": ["Free parking", "Free Wi-Fi", "Air conditioning", "Balcony", "Kitchen", "Dishwasher", "TV"]
+    }
+  ]
+}

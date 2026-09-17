@@ -21,6 +21,11 @@
      node tools/i18n.js seal [j] zapecati prijevode kao uskladene s HR
      node tools/i18n.js all      extract + verify + build
 
+   GENERIRANI BLOKOVI u <head> (prepisuju se pri buildu, na svim jezicima):
+     <!-- i18n:alternates -->   canonical, og:url, og:locale, hreflang
+     <!-- i18n:jsonld -->       schema.org LodgingBusiness po apartmanu,
+                                iz data/objekti.json + prevedenog naziva/opisa
+
    ATRIBUTI (iste konvencije kao u ostatku repoa):
      data-i18n="k"              -> textContent elementa
      data-i18n-html="k"         -> innerHTML (kad tekst nosi <strong>, <br>)
@@ -45,6 +50,7 @@ const ROOT = path.join(__dirname, "..");
 const SRC = path.join(ROOT, "index.html");
 const LOCALES = path.join(ROOT, "locales");
 const DICT_OUT = path.join(ROOT, "assets", "js", "dict.js");
+const OBJEKTI = path.join(ROOT, "data", "objekti.json");
 
 const SITE = "https://lotastudio.eu";
 const BASE = "/09-basic-apartmani-mare-gumbek";   // predlozak zivi u podmapi repoa
@@ -253,6 +259,7 @@ function render(html, lang, dict, base, avail) {
   out = out.replace(/(<html[^>]*\sdata-i18n-lang=")[^"]*"/, "$1" + lang.code + '"');
   out = replaceBlock(out, "i18n:alternates", alternatesBlock(lang, avail));
   out = replaceBlock(out, "i18n:langmenu", langMenuBlock(lang, avail));
+  out = replaceBlock(out, "i18n:jsonld", jsonldBlock(lang, t));
   if (lang.dir) out = absolutizePaths(out);
   return out;
 }
@@ -271,7 +278,7 @@ function replaceScriptKeys(html, t, base) {
 
 function replaceBlock(html, marker, content) {
   const re = new RegExp("(<!-- " + marker + " -->)[\\s\\S]*?(<!-- /" + marker + " -->)");
-  return html.replace(re, "$1\n" + content + "\n  $2");
+  return html.replace(re, (m, open, close) => open + "\n" + content + "\n  " + close);
 }
 
 /* Podstranice (/en/) su jednu razinu dublje, pa relativne putanje pucaju.
@@ -310,6 +317,62 @@ function langMenuBlock(lang, avail) {
     '" data-lang="' + l.code + '"' +
     (l.code === lang.code ? ' aria-selected="true"' : ' aria-selected="false"') +
     "><span>" + l.native + "</span><small>" + l.short + "</small></a></li>").join("\n");
+}
+
+/* ---------- JSON-LD: svaki apartman je zaseban objekt ----------
+   Mare i Gumbek su na dvije razlicite adrese, pa svaki dobiva vlastiti
+   LodgingBusiness s adresom i koordinatama. @id je isti na svim jezicima
+   (ista stvarna jedinica), a naziv, opis i url prate jezik stranice.
+   Namjerno bez aggregateRating: Google ne prikazuje samoobjavljene ocjene
+   za LocalBusiness, a ocjene zive na Bookingu. */
+function jsonldBlock(lang, t) {
+  let data;
+  try { data = JSON.parse(fs.readFileSync(OBJEKTI, "utf8")); }
+  catch (e) { console.warn("  ! data/objekti.json nije procitan — JSON-LD preskocen"); return ""; }
+  const text = (k) => collapse(String(t(k) || "").replace(TAG_RE, " "));
+  const abs = (p) => SITE + BASE + "/" + p;
+  const graph = data.objekti.map((o) => {
+    const node = {
+      "@type": "LodgingBusiness",
+      "@id": SITE + BASE + "/#" + o.id,
+      name: text(o.kljucNaziv),
+      alternateName: o.bookingNaziv,
+      description: text(o.kljucOpis),
+      url: urlFor(lang) + "#" + o.sidro,
+      image: o.slike.map(abs),
+      telephone: data.telefon,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: o.adresa.ulica,
+        addressLocality: o.adresa.mjesto,
+        postalCode: o.adresa.postanskiBroj,
+        addressRegion: o.adresa.regija,
+        addressCountry: "HR"
+      }
+    };
+    if (Array.isArray(o.geo) && o.geo.length === 2) {
+      node.geo = { "@type": "GeoCoordinates", latitude: o.geo[0], longitude: o.geo[1] };
+      node.hasMap = "https://www.google.com/maps/search/?api=1&query=" + o.geo[0] + "%2C" + o.geo[1];
+    }
+    if (o.prijava) node.checkinTime = o.prijava;
+    if (o.odjava) node.checkoutTime = o.odjava;
+    if (o.kucniLjubimci != null) node.petsAllowed = o.kucniLjubimci;
+    node.numberOfRooms = o.spavaonice;
+    node.amenityFeature = o.sadrzaji.map((n) => ({ "@type": "LocationFeatureSpecification", name: n, value: true }));
+    node.containsPlace = {
+      "@type": "Apartment",
+      name: text(o.kljucNaziv),
+      numberOfBedrooms: o.spavaonice,
+      numberOfBathroomsTotal: o.kupaonice,
+      floorSize: { "@type": "QuantitativeValue", value: o.povrsinaM2, unitCode: "MTK" }
+    };
+    return node;
+  });
+  /* "<" kao \u003c: tekst s "</script>" ne smije zatvoriti blok */
+  const json = JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2)
+    .replace(/</g, "\\u003c");
+  return '  <script type="application/ld+json">\n' +
+    json.split("\n").map((l) => "  " + l).join("\n") + "\n  </script>";
 }
 
 /* ---------- rjecnik za prekidac bez ponovnog ucitavanja ---------- */
@@ -369,6 +432,7 @@ function build() {
   let root = fs.readFileSync(SRC, "utf8");
   root = replaceBlock(root, "i18n:alternates", alternatesBlock(hr, avail));
   root = replaceBlock(root, "i18n:langmenu", langMenuBlock(hr, avail));
+  root = replaceBlock(root, "i18n:jsonld", jsonldBlock(hr, (k) => (base[k] != null ? base[k] : "")));
   fs.writeFileSync(SRC, root, "utf8");
   console.log("build: osvjezen hreflang i izbornik u index.html");
 
