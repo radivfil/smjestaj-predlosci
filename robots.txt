@@ -1,0 +1,8 @@
+# lotastudio.eu
+# Tražilice čitaju robots.txt samo s korijena domene, pa je ovdje, a ne u
+# podmapi predloška. Ništa se ne blokira — datoteka samo upućuje na sitemap.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://lotastudio.eu/09-basic-apartmani-mare-gumbek/sitemap.xml

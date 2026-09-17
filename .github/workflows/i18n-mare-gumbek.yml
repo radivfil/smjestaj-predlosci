@@ -21,6 +21,7 @@ on:
     paths:
       - "09-basic-apartmani-mare-gumbek/index.html"
       - "09-basic-apartmani-mare-gumbek/locales/**"
+      - "09-basic-apartmani-mare-gumbek/data/**"
       - "09-basic-apartmani-mare-gumbek/tools/i18n.js"
       - ".github/workflows/i18n-mare-gumbek.yml"
   workflow_dispatch:

@@ -25,6 +25,7 @@
      <!-- i18n:alternates -->   canonical, og:url, og:locale, hreflang
      <!-- i18n:jsonld -->       schema.org LodgingBusiness po apartmanu,
                                 iz data/objekti.json + prevedenog naziva/opisa
+   Build pise i sitemap.xml (sve jezicne verzije s hreflang poveznicama).
 
    ATRIBUTI (iste konvencije kao u ostatku repoa):
      data-i18n="k"              -> textContent elementa
@@ -51,6 +52,7 @@ const SRC = path.join(ROOT, "index.html");
 const LOCALES = path.join(ROOT, "locales");
 const DICT_OUT = path.join(ROOT, "assets", "js", "dict.js");
 const OBJEKTI = path.join(ROOT, "data", "objekti.json");
+const SITEMAP_OUT = path.join(ROOT, "sitemap.xml");
 
 const SITE = "https://lotastudio.eu";
 const BASE = "/09-basic-apartmani-mare-gumbek";   // predlozak zivi u podmapi repoa
@@ -437,6 +439,29 @@ function build() {
   console.log("build: osvjezen hreflang i izbornik u index.html");
 
   writeDict(base, avail);
+  writeSitemap(avail);
+}
+
+/* ---------- SITEMAP ----------
+   Jedan <url> po jezicnoj verziji, svaki s istim popisom xhtml:link
+   alternativa (ukljucujuci sebe i x-default) — Google trazi da skup bude
+   potpun i jednak na svakom URL-u. Jezik bez prijevoda nije u "avail",
+   pa ne ulazi ni u sitemap. Bez <lastmod>: build se vrti na svaki push i
+   datum bi se mijenjao i kad se sadrzaj nije promijenio.
+   robots.txt koji upucuje na ovu datoteku je u korijenu repoa, jer
+   trazilice citaju robots.txt samo s korijena domene. */
+function writeSitemap(avail) {
+  const links = avail.map((l) =>
+    '    <xhtml:link rel="alternate" hreflang="' + l.code + '" href="' + urlFor(l) + '" />').join("\n") +
+    '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + urlFor(langBy(DEFAULT_LANG)) + '" />';
+  const urls = avail.map((l) =>
+    "  <url>\n    <loc>" + urlFor(l) + "</loc>\n" + links + "\n  </url>").join("\n");
+  const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    "<!-- GENERIRANO — node tools/i18n.js build. Ne uredjivati rucno. -->\n" +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
+    urls + "\n</urlset>\n";
+  fs.writeFileSync(SITEMAP_OUT, xml, "utf8");
+  console.log("build: sitemap.xml  (" + avail.length + " URL-ova)");
 }
 
 /* ---------- VERIFY: HR kroz cijeli lanac mora dati isti tekst ---------- */
