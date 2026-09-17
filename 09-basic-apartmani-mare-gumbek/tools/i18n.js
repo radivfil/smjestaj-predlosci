@@ -290,6 +290,9 @@ function absolutizePaths(html) {
   const isRel = (val) => !/^(https?:|\/\/|\/|#|mailto:|tel:|data:)/.test(val);
   /* srcset i imagesrcset su popisi "putanja sirina, putanja sirina" —
      bez ovoga bi /en/ trazio images/hero/... ispod /en/ i dobio 404 */
+  /* CSS url("...") u inline <style> (npr. --texture) — isti problem */
+  html = html.replace(/url\(("|')([^"')]+)\1\)/g, (m, q, val) =>
+    isRel(val) ? "url(" + q + abs(val) + q + ")" : m);
   html = html.replace(/\b(srcset|imagesrcset)="([^"]+)"/g, (m, attr, list) =>
     attr + '="' + list.split(",").map((part) => {
       const p = part.trim().split(/\s+/);
